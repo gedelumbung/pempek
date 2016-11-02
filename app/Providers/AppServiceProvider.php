@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Simpeg\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

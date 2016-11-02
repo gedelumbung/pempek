@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Simpeg\Http\Controllers\Auth;
 
-use App\User;
+use Simpeg\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Simpeg\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
