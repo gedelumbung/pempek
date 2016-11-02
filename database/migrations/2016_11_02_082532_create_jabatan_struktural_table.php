@@ -16,7 +16,7 @@ class CreateJabatanStrukturalTable extends Migration
         Schema::create('jabatan_struktural', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('satuan_kerja_id');
-            $table->smallInteger('level')->nullable();
+            $table->smallInteger('parent_id')->default(0);
             $table->string('title');
             $table->string('eselon');
             $table->boolean('status');
@@ -34,9 +34,8 @@ class CreateJabatanStrukturalTable extends Migration
     public function down()
     {
         Schema::table('jabatan_struktural', function (Blueprint $table) {
-            $table->dropForeign('satuan_kerja_id_foreign');
+            $table->dropForeign(['satuan_kerja_id']);
+            $table->drop('jabatan_struktural');
         });
-
-        Schema::drop('jabatan_struktural');
     }
 }

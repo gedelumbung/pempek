@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use Simpeg\Model\Agama;
+use Simpeg\Model\SatuanKerja;
 
-class AgamaTableSeeder extends Seeder
+class SatuanKerjaTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,19 +14,20 @@ class AgamaTableSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('agama')->truncate();
+        DB::table('satuan_kerja')->truncate();
 
         $titles = [
-            'Islam',
-            'Kristen Katolik',
-            'Kristen Protestan',
-            'Konghucu',
-            'Hindu',
-            'Budha',
+            'DITJEN',
+            'SETDITJEN',
+            'Bina Potensi',
+            'P3KT',
+            'PTT',
+            'P2T',
+            'P3'
         ];
 
         foreach ($titles as $title) {
-            Agama::create([
+            SatuanKerja::create([
                 'title' => $title
             ]);
         }

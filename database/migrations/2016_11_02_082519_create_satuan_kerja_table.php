@@ -16,7 +16,7 @@ class CreateSatuanKerjaTable extends Migration
         Schema::create('satuan_kerja', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
