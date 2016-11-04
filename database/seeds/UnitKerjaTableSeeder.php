@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use Simpeg\Model\SatuanKerja;
+use Simpeg\Model\UnitKerja;
 
-class SatuanKerjaTableSeeder extends Seeder
+class UnitKerjaTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class SatuanKerjaTableSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('satuan_kerja')->truncate();
+        DB::table('unit_kerja')->truncate();
 
         $titles = [
             'DITJEN',
@@ -27,7 +27,7 @@ class SatuanKerjaTableSeeder extends Seeder
         ];
 
         foreach ($titles as $title) {
-            SatuanKerja::create([
+            UnitKerja::create([
                 'title' => $title
             ]);
         }

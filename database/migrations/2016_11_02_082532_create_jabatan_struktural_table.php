@@ -13,7 +13,7 @@ class CreateJabatanStrukturalTable extends Migration
      */
     public function up()
     {
-        Schema::create('jabatan_struktural', function (Blueprint $table) {
+        /*Schema::create('jabatan_struktural', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('satuan_kerja_id');
             $table->smallInteger('parent_id')->default(0);
@@ -23,7 +23,7 @@ class CreateJabatanStrukturalTable extends Migration
             $table->timestamps();
 
             $table->foreign('satuan_kerja_id')->references('id')->on('satuan_kerja');
-        });
+        });*/
     }
 
     /**
@@ -33,9 +33,9 @@ class CreateJabatanStrukturalTable extends Migration
      */
     public function down()
     {
-        Schema::table('jabatan_struktural', function (Blueprint $table) {
+        /*Schema::table('jabatan_struktural', function (Blueprint $table) {
             $table->dropForeign(['satuan_kerja_id']);
             $table->drop('jabatan_struktural');
-        });
+        });*/
     }
 }

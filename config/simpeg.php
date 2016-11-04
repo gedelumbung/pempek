@@ -7,25 +7,53 @@ return [
         'wanita'    =>  'Wanita'
     ],
 
-    'hidup' => [
-        'hidup'      => 'Hidup',
+    'status_pegawai' => [
+        'cpns'  => 'CPNS',
+        'pns'   =>  'PNS'
+    ],
+
+    'jenis_jabatan' => [
+        'struktural'            => 'Struktural',
+        'fungsional_tertentu'   =>  'Fungsional Tertentu',
+        'funsional_umum'        =>  'Fungsional Umum',
+    ],
+
+    'kedudukan_pegawai' => [
+        'aktif'                     => 'Aktif',
+        'cltn'                      =>  'CLTN',
+        'tugas_belajar'             => 'Tugas Belajar',
+        'pemberhentian_sementara'   =>  'Pemberhentian Sementara',
+        'penerima_uang_tunggu'      => 'Penerima Uang Tunggu',
+        'pejabat_negara'            =>  'Pejabat Negara',
+        'proses_banding'            => 'Sedang dalam proses banding ke BAPEK',
+        'persiapan_pensiun'         =>  'Masa Persiapan Pensiun (MPP) '
+    ],
+
+    'status_hidup' => [
+        'hidup'         => 'Hidup',
         'meningggal'    =>  'Meninggal'
     ],
 
     'status_perkawinan' => [
-        'menikah'   => 'Menikah',
+        'menikah'       => 'Menikah',
         'duda_janda'    =>  'Duda/Janda',
         'belum_kawin'   =>  'Belum Kawin'
     ],
 
+    'status_perkawinan_pasangan' => [
+        'menikah'       => 'Menikah',
+        'Cerai'         => 'Cerai',
+        'duda_janda'    =>  'Duda/Janda'
+    ],
+
     'agama' => [
-        'islam'     => 'Islam',
-        'hindu'     =>  'Hindu',
-        'budha'     =>  'Budha',
-        'konghucu'  =>  'Konghucu',
+        'islam'             => 'Islam',
+        'hindu'             =>  'Hindu',
+        'budha'             =>  'Budha',
+        'konghucu'          =>  'Konghucu',
         'kristen_protestan' =>  'Kristen Protestan',
         'kristen_katolik'   =>  'Kristen Katolik',
-        'lainnya'   =>  'Lainnya'
+        'lainnya'           =>  'Lainnya'
     ],
 
     'pendidikan' => [
