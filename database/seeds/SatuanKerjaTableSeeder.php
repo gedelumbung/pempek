@@ -43,21 +43,25 @@ class SatuanKerjaTableSeeder extends Seeder
             ],
             [
                 [
+                    'Bagian Perencanaan ',
                     'Sub Bagian Penyusunan Program dan Anggaran ',
                     'Sub Bagian Data dan Informasi ',
                     'Sub Bagian Evaluasi dan Pelaporan '
                 ],
                 [
+                    'Bagian Keuangan dan Barang Milik Negara ',
                     'Sub Bagian Pelaksanaan Anggaran ',
                     'Sub Bagian Pembendaharaan ',
                     'Sub Bagian Akuntansi dan Barang Milik Negara '
                 ],
                 [
+                    'Bagian Kepegawaian dan Umum ',
                     'Sub Bagian Kepegawaian ',
                     'Sub Bagian Persuratan ',
                     'Sub Bagian Perlengkapan dan Rumah Tangga '
                 ],
                 [
+                    'Bagian Hukum, Organisasi, dan Tata Laksana ',
                     'Sub Bagian Penyusunan Peraturan Perundang Undangan ',
                     'Sub Bagian Advokasi Hukum ',
                     'Sub Bagian Organisasi dan Tata Laksana '

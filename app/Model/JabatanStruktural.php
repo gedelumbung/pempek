@@ -10,7 +10,6 @@ class JabatanStruktural extends Model
 
     protected $fillable = [
         'satuan_kerja_id',
-        'parent_id',
         'title',
         'eselon',
         'status',
