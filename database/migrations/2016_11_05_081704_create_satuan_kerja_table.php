@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUnitKerjaTable extends Migration
+class CreateSatuanKerjaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateUnitKerjaTable extends Migration
      */
     public function up()
     {
-        Schema::create('unit_kerja', function (Blueprint $table) {
+        Schema::create('satuan_kerja', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('parent_id')->default(0)->nullable();
+            $table->unsignedInteger('unit_kerja_id');
             $table->string('title');
             $table->text('description')->nullable();
             $table->timestamps();
+
+            $table->foreign('unit_kerja_id')->references('id')->on('unit_kerja');
         });
     }
 
@@ -29,6 +31,9 @@ class CreateUnitKerjaTable extends Migration
      */
     public function down()
     {
-        Schema::drop('unit_kerja');
+        Schema::table('satuan_kerja', function (Blueprint $table) {
+            $table->dropForeign(['unit_kerja_id']);
+            $table->drop('satuan_kerja');
+        });
     }
 }

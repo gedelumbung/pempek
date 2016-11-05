@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UnitKerjaTableSeeder::class);
         $this->call(GolonganTableSeeder::class);
-        //$this->call(JabatanStrukturalTableSeeder::class);
+        $this->call(SatuanKerjaTableSeeder::class);
     }
 }
