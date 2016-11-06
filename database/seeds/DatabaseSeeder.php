@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GolonganTableSeeder::class);
         $this->call(SatuanKerjaTableSeeder::class);
         $this->call(JabatanStrukturalTableSeeder::class);
+        $this->call(RolesTableSeeder::class);
     }
 }
