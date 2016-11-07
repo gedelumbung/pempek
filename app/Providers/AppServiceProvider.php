@@ -3,6 +3,7 @@
 namespace Simpeg\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Simpeg\Services\Widget\Menu\Menu;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton("menu", function() {
+            return new Menu;
+        });
     }
 }
