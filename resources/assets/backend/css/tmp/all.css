@@ -1,0 +1,30 @@
+html,
+body,
+.full-height {
+  height: 100%;
+}
+.text-inverse {
+  color: #ccc !important;
+}
+.text-inverse:hover {
+  color: #eee !important;
+}
+ul {
+  padding-left: 20px;
+  margin: 0px;
+}
+li {
+  list-style: none;
+}
+a {
+  color: #333;
+}
+a:hover,
+a:focus {
+  color: #de0c00;
+  text-decoration: none;
+}
+.right-wrapper .breadcrumbs {
+  padding: 0px 20px;
+}
+/** Your code goes here */
