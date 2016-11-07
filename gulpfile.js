@@ -15,32 +15,7 @@ require('laravel-elixir-vue-2');
 
 elixir.config.sourcemaps = false;
 
-var tmp = {};
-var pub = {};
-
-var shared = {
-    js: "./resources/assets/js/",
-    css: "./resources/assets/css/",
-};
-
-var themelixir = function(theme, callback) {
-	
-    elixir.config.assetsPath = "resources/assets/"+ theme;
-
-    tmp = {
-        js: "./resources/assets/"+ theme +"js/tmp/",
-        css: "./resources/assets/"+ theme +"css/tmp/",
-    };
-
-    pub = {
-        js: "./public/"+ theme +"js/",
-        css: "./public/"+ theme +"css/",
-    }
-
-    elixir(callback);
-}
-
-themelixir("frontend", function(mix) {
+elixir(function(mix) {
     mix.less('all.less', "./resources/assets/frontend/css/tmp/all.css")
 
         .styles([
