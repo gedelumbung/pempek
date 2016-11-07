@@ -6,5 +6,6 @@ vendor
 node_modules
 public/css
 public/js
+public/asset
 backendcss
 frontendcss
