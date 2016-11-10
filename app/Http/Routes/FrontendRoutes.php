@@ -36,6 +36,7 @@ class FrontendRoutes implements RoutesInterface
     {
         $this->router->group($this->options, function () {
             $this->router->get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+            $this->router->get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
             $this->auth();
         });
     }
@@ -46,10 +47,5 @@ class FrontendRoutes implements RoutesInterface
         $this->router->get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
         $this->router->post('login', ['as' => 'login', 'uses' => 'Auth\LoginController@login']);
         $this->router->get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
-
-        // Password Reset Routes...
-        $this->router->get('password/reset/{token?}', ['as' => 'reset.form', 'uses' => 'Auth\PasswordController@showResetForm']);
-        $this->router->post('password/email', ['as' => 'reset.link', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
-        $this->router->post('password/reset', ['as' => 'reset', 'uses' => 'Auth\PasswordController@reset']);
     }
 }

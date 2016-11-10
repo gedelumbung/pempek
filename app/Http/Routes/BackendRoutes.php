@@ -25,8 +25,9 @@ class BackendRoutes implements RoutesInterface
         $this->router = $router;
         $this->options = [
             'domain' => env('APP_HOST'),
-            'namespace' => 'Simpeg\Http\Controllers\Frontend',
+            'namespace' => 'Simpeg\Http\Controllers\Backend',
             'middleware' => 'web',
+            'prefix' => 'dashboard'
         ];
     }
 
@@ -36,7 +37,14 @@ class BackendRoutes implements RoutesInterface
     public function register()
     {
         $this->router->group($this->options, function () {
-            $this->router->get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+            $this->router->group(['middleware' => ['auth']], function () {
+                $this->home();
+            });
         });
+    }
+
+    public function home()
+    {
+        $this->router->get('/', ['as' => 'dashboard.home', 'uses' => 'HomeController@index']);
     }
 }
