@@ -80,132 +80,7 @@
                     <div class="nano">
                         <div class="nano-content">
                             <nav id="menu" class="nav-main" role="navigation">
-                                <ul id="menu-container" class="nav nav-main">
-                                    <li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/pegawai'>
-                                        <i class='fa fa-users'></i>
-                                        <span>Pegawai</span>
-                                    </a>
-
-                                    </li><li class='nav-parent'>
-                                    <a href='#'>
-                                        <i class='fa fa-cogs'></i>
-                                        <span>Administrator</span>
-                                    </a>
-
-                                            <span class="toggler">
-                                            <span class="glyphicon glyphicon-chevron-down"></span>
-                                        </span>
-                                        
-                                        <ul class='nav nav-children'><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/admin/role'>
-                                        <i class='fa fa-user'></i>
-                                        <span>Roles</span>
-                                    </a>
-
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/admin'>
-                                        <i class='fa fa-users'></i>
-                                        <span>Users</span>
-                                    </a>
-
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/admin/permissions'>
-                                        <i class='fa fa-lock'></i>
-                                        <span>Permissions</span>
-                                    </a>
-
-                                    </li></ul>
-                                    </li><li class='nav-parent'>
-                                    <a href='#'>
-                                        <i class='fa fa-wrench'></i>
-                                        <span>Formasi</span>
-                                    </a>
-
-                                            <span class="toggler">
-                                            <span class="glyphicon glyphicon-chevron-down"></span>
-                                        </span>
-                                        
-                                        <ul class='nav nav-children'><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/formasi/golongan'>
-                                        <i class='fa fa-pencil'></i>
-                                        <span>Pangkat dan Golongan</span>
-                                    </a>
-
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/formasi/jabatan'>
-                                        <i class='fa fa-pencil'></i>
-                                        <span>Jabatan Struktural</span>
-                                    </a>
-
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/formasi/unit'>
-                                        <i class='fa fa-pencil'></i>
-                                        <span>Formasi Unit Kerja</span>
-                                    </a>
-
-                                    </li></ul>
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/validasi'>
-                                        <i class='fa fa-check-square-o'></i>
-                                        <span>Validasi Data</span>
-                                    </a>
-
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/settings'>
-                                        <i class='fa fa-gears'></i>
-                                        <span>Settings</span>
-                                    </a>
-
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/laporan/duk'>
-                                        <i class='fa fa-file-text'></i>
-                                        <span>Laporan DUK</span>
-                                    </a>
-
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/laporan/nominatif'>
-                                        <i class='fa fa-file-text'></i>
-                                        <span>Laporan Nominatif</span>
-                                    </a>
-
-                                    </li><li class='nav-parent'>
-                                    <a href='#'>
-                                        <i class='fa fa-file-text'></i>
-                                        <span>Laporan</span>
-                                    </a>
-
-                                            <span class="toggler">
-                                            <span class="glyphicon glyphicon-chevron-down"></span>
-                                        </span>
-                                        
-                                        <ul class='nav nav-children'><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/laporan/pendidikan'>
-                                        <i class='fa fa-pencil'></i>
-                                        <span>Pendidikan</span>
-                                    </a>
-
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/laporan/jabatan'>
-                                        <i class='fa fa-pencil'></i>
-                                        <span>Jabatan</span>
-                                    </a>
-
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/laporan/golongan'>
-                                        <i class='fa fa-pencil'></i>
-                                        <span>Golongan</span>
-                                    </a>
-
-                                    </li><li >
-                                    <a href='http://dev.pkblonline.com/simpeg/public/laporan/konfigurasi'>
-                                        <i class='fa fa-pencil'></i>
-                                        <span>Konfigurasi</span>
-                                    </a>
-
-                                    </li></ul>
-                                    </li>
-                                </ul>
+                                {!! Menu::get('NavbarMenu')->asUl(array('class' => 'nav nav-main', 'id' => 'menu-container')) !!}
 
                             </nav>
                         </div>
@@ -217,7 +92,7 @@
                     <header class="page-header">
                         <h2>@yield("title")</h2>
                     </header>
-                    
+
                     @yield("content")
                 </section>
         </section>
