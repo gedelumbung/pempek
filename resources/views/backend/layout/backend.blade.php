@@ -80,7 +80,7 @@
                     <div class="nano">
                         <div class="nano-content">
                             <nav id="menu" class="nav-main" role="navigation">
-                                {!! Menu::get('NavbarMenu')->asUl(array('class' => 'nav nav-main', 'id' => 'menu-container')) !!}
+                                @include('backend.partial.custom_menu', array('items' => $NavbarMenu->roots()))
 
                             </nav>
                         </div>
