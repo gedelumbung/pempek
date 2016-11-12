@@ -25,11 +25,16 @@ class Menu
             foreach ($allMenu as $key => $parent) {
 
                 $childMenu = MenuModel::where('parent_id', $parent->id)->get();
-                $menu->add($parent->title, array('url'  => $parent->url, 'class'  => $parent->icon));
+                if ($parent->url === '#') {
+                    $menu->add($parent->title, array('url'  => $parent->url, 'class'  => $parent->icon));
+                }
+                else {
+                    $menu->add($parent->title, array('route'  => $parent->url, 'class'  => $parent->icon));
+                }
 
                 if ($childMenu->count() > 0) {
                     foreach ($childMenu as $child) {
-                        $menu->{str_replace(" ", "", lcfirst(ucwords($parent->title)))}->add($child->title, array('url'  => $child->url, 'class' => $child->icon));
+                        $menu->{str_replace(" ", "", lcfirst(ucwords($parent->title)))}->add($child->title, array('route'  => $child->url, 'class' => $child->icon));
                     }
                 }
             }

@@ -92,13 +92,13 @@ class MenuTableSeeder extends Seeder
             ],
             [
                 'title' =>  'Laporan DUK',
-                'url' =>  'dashboard.laporan_duk',
+                'url' =>  'dashboard.laporan.duk',
                 'icon' =>  'fa fa-file-text',
                 'child' => []
             ],
             [
                 'title' =>  'Laporan Nominatif',
-                'url' =>  'dashboard.laporan_nominatif',
+                'url' =>  'dashboard.laporan.nominatif',
                 'icon' =>  'fa fa-file-text',
                 'child' => []
             ],
