@@ -89,9 +89,19 @@ class BackendRoutes implements RoutesInterface
 
     public function formasi()
     {
-        $this->router->get('/golongan', ['as' => 'dashboard.golongan', 'uses' => 'PegawaiController@index']);
+        $this->router->get('/golongan', ['as' => 'dashboard.golongan', 'uses' => 'GolonganController@index']);
+        $this->router->get('/golongan/add', ['as' => 'dashboard.golongan.add', 'uses' => 'GolonganController@create']);
+        $this->router->get('/golongan/{id}/edit', ['as' => 'dashboard.golongan.edit', 'uses' => 'GolonganController@edit']);
+        $this->router->get('/golongan/{id}/delete', ['as' => 'dashboard.golongan.delete', 'uses' => 'GolonganController@delete']);
+        $this->router->post('/golongan/store', ['as' => 'dashboard.golongan.store', 'uses' => 'GolonganController@store']);
+
         $this->router->get('/struktural', ['as' => 'dashboard.jabatan_struktural', 'uses' => 'PegawaiController@index']);
-        $this->router->get('/unit-kerja', ['as' => 'dashboard.unit_kerja', 'uses' => 'PegawaiController@index']);
+
+        $this->router->get('/unit-kerja', ['as' => 'dashboard.unit_kerja', 'uses' => 'UnitKerjaController@index']);
+        $this->router->get('/unit-kerja/add', ['as' => 'dashboard.unit_kerja.add', 'uses' => 'UnitKerjaController@create']);
+        $this->router->get('/unit-kerja/{id}/edit', ['as' => 'dashboard.unit_kerja.edit', 'uses' => 'UnitKerjaController@edit']);
+        $this->router->get('/unit-kerja/{id}/delete', ['as' => 'dashboard.unit_kerja.delete', 'uses' => 'UnitKerjaController@delete']);
+        $this->router->post('/unit-kerja/store', ['as' => 'dashboard.unit_kerja.store', 'uses' => 'UnitKerjaController@store']);
     }
 
     public function validasi_data()
