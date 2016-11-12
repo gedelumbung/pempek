@@ -62,8 +62,29 @@ class BackendRoutes implements RoutesInterface
     public function administrator()
     {
         $this->router->get('/roles', ['as' => 'dashboard.roles', 'uses' => 'RoleController@index']);
-        $this->router->get('/users', ['as' => 'dashboard.users', 'uses' => 'PegawaiController@index']);
-        $this->router->get('/permissions', ['as' => 'dashboard.permissions', 'uses' => 'PegawaiController@index']);
+        $this->router->get('/roles/add', ['as' => 'dashboard.roles.add', 'uses' => 'RoleController@create']);
+        $this->router->get('/roles/{id}/edit', ['as' => 'dashboard.roles.edit', 'uses' => 'RoleController@edit']);
+        $this->router->get('/roles/{id}/delete', ['as' => 'dashboard.roles.delete', 'uses' => 'RoleController@delete']);
+        $this->router->post('/roles/store', ['as' => 'dashboard.roles.store', 'uses' => 'RoleController@store']);
+
+        $this->router->resource('/users', 'UserController',[
+            'names' => [
+                'index' => 'dashboard.users',
+                'add' => 'dashboard.users.add',
+                'edit' => 'dashboard.users.edit',
+                'store' => 'dashboard.users.store',
+                'delete' => 'dashboard.users.delete',
+            ]
+        ]);
+        $this->router->resource('/permissions', 'PermissionController',[
+            'names' => [
+                'index' => 'dashboard.permissions',
+                'add' => 'dashboard.permissions.add',
+                'edit' => 'dashboard.permissions.edit',
+                'store' => 'dashboard.permissions.store',
+                'delete' => 'dashboard.permissions.delete',
+            ]
+        ]);
     }
 
     public function formasi()
