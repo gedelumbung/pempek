@@ -26,4 +26,9 @@ class PegawaiController extends Controller
 		$golongan = $golongan->get();
 		return view('backend.pegawai.add', compact('unit_kerja', 'golongan'));
 	}
+
+	public function store(Pegawai $pegawai)
+	{
+		
+	}
 }

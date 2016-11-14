@@ -27,7 +27,7 @@
 					</a>
 				</li>
 			</ul>
-			<form class="form-horizontal panel-body" action="{{url('pegawai/proses')}}" id="submit_pegawai" method="POST" enctype="multipart/form-data" novalidate="novalidate">
+			<form class="form-horizontal panel-body" action="{{route('dashboard.pegawai.store')}}" id="submit_pegawai" method="POST" enctype="multipart/form-data" novalidate="novalidate">
 				<input type="hidden" name="_token" value="{{csrf_token()}}" />
 				<div class="tab-content">
 					<div id="w2-datautama" class="tab-pane active">
@@ -74,7 +74,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Agama</label>
 								<div class="col-md-3">
-									<select select2 name="agama" class="form-control">
+									<select select2 select2 name="agama" class="form-control">
 										@foreach(config('simpeg.agama') as $agama)
 											<option value="{{$agama}}">{{$agama}}</option>
 										@endforeach
@@ -86,7 +86,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Jenis Kelamin</label>
 								<div class="col-md-3">
-									<select select2 name="jenis_kelamin" class="form-control">
+									<select select2 select2 name="jenis_kelamin" class="form-control">
 										@foreach(config('simpeg.jenis_kelamin') as $jenis_kelamin)
 											<option value="{{$jenis_kelamin}}">{{$jenis_kelamin}}</option>
 										@endforeach
@@ -97,7 +97,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Status Pernikahan</label>
 								<div class="col-md-3">
-									<select select2 name="status_pernikahan" class="form-control">
+									<select select2 select2 name="status_pernikahan" class="form-control">
 										@foreach(config('simpeg.status_pernikahan') as $status_pernikahan)
 											<option value="{{$status_pernikahan}}">{{$status_pernikahan}}</option>
 										@endforeach
@@ -144,7 +144,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Kedudukan PNS</label>
 								<div class="col-md-3">
-									<select name="kedudukan_pns" class="form-control" select2>
+									<select select2 name="kedudukan_pns" class="form-control">
 										<option value=""></option>
 									    @foreach(config('simpeg.kedudukan_pegawai') as $kedudukan_pegawai)
 									    	<option value="{{$kedudukan_pegawai}}">{{$kedudukan_pegawai}}</option>
@@ -156,7 +156,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Status Pegawai</label>
 								<div class="col-md-3">
-									<select name="status_pegawai" class="form-control" select2>
+									<select select2 name="status_pegawai" class="form-control">
 										<option value=""></option>
 									    @foreach(config('simpeg.status_pegawai') as $status_pegawai)
 									    	<option value="{{$status_pegawai}}">{{$status_pegawai}}</option>
@@ -179,7 +179,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tingkat Pendidikan Awal Pengangkatan CPNS</label>
 								<div class="col-md-3">
-									<select name="pendidikan_awal_cpns" class="form-control" select2>
+									<select select2 name="pendidikan_awal_cpns" class="form-control">
 										<option value=""></option>
 									    @foreach(config('simpeg.pendidikan') as $pendidikan)
 									    	<option value="{{$pendidikan}}">{{$pendidikan}}</option>
@@ -191,7 +191,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tingkat Pendidikan Akhir</label>
 								<div class="col-md-3">
-									<select name="pendidikan_akhir" class="form-control" select2>
+									<select select2 name="pendidikan_akhir" class="form-control">
 										<option value=""></option>
 									    @foreach(config('simpeg.pendidikan') as $pendidikan)
 									    	<option value="{{$pendidikan}}">{{$pendidikan}}</option>
@@ -202,67 +202,63 @@
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Diklat Struktural</label>
-								<label class="col-md-2 control-label" for="inputDefault">SEPADA</label>
-								<div class="col-md-3">
+								<label class="col-md-3 control-label" for="inputDefault">SEPADA</label>
+								<div class="col-md-6">
 									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_sepada" placeholder="Tahun"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault"></label>
-								<label class="col-md-2 control-label" for="inputDefault">SEPALA/ADUM/DIKLAT PIM TK. IV</label>
-								<div class="col-md-3">
+								<label class="col-md-3 control-label" for="inputDefault">SEPALA/ADUM/DIKLAT PIM TK. IV</label>
+								<div class="col-md-6">
 									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_sepala" placeholder="Tahun"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault"></label>
-								<label class="col-md-2 control-label" for="inputDefault">SEPADYA/SPAMA/DIKLAT PIM TIK. III</label>
-								<div class="col-md-3">
+								<label class="col-md-3 control-label" for="inputDefault">SEPADYA/SPAMA/DIKLAT PIM TIK. III</label>
+								<div class="col-md-6">
 									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_sepadya" placeholder="Tahun"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault"></label>
-								<label class="col-md-2 control-label" for="inputDefault">SPAMEN/SESPA/SESPANAS /DIKLAT PIM TK.II</label>
-								<div class="col-md-3">
+								<label class="col-md-3 control-label" for="inputDefault">SPAMEN/SESPA/SESPANAS /DIKLAT PIM TK.II</label>
+								<div class="col-md-6">
 									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_spamen" placeholder="Tahun"/>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault"></label>
-								<label class="col-md-2 control-label" for="inputDefault">SEPATI/DIKLAT PIM TK.I</label>
-								<div class="col-md-3">
+								<label class="col-md-3 control-label" for="inputDefault">SEPATI/DIKLAT PIM TK.I</label>
+								<div class="col-md-6">
 									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_sepati" placeholder="Tahun"/>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Pendidikan Terakhir</label>
-								<div class="col-md-9">
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="inputDefault"></label>
-										<label class="col-md-2 control-label" for="inputDefault">Fakultas</label>
-										<div class="col-md-3">
-											<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_fakultas" placeholder="Fakultas"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="inputDefault"></label>
-										<label class="col-md-2 control-label" for="inputDefault">Jurusan</label>
-										<div class="col-md-3">
-											<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_jurusan" placeholder="Jurusan"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label" for="inputDefault"></label>
-										<label class="col-md-2 control-label" for="inputDefault">Lulus Tahun</label>
-										<div class="col-md-3">
-											<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_tahun_lulus" placeholder="Tahun"/>
-										</div>
-									</div>
+								<label class="col-md-3 control-label" for="inputDefault">Fakultas</label>
+								<div class="col-md-6">
+									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_fakultas" placeholder="Fakultas"/>
 								</div>
 							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="inputDefault"></label>
+								<label class="col-md-3 control-label" for="inputDefault">Jurusan</label>
+								<div class="col-md-6">
+									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_jurusan" placeholder="Jurusan"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="inputDefault"></label>
+								<label class="col-md-3 control-label" for="inputDefault">Lulus Tahun</label>
+								<div class="col-md-6">
+									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_tahun_lulus" placeholder="Tahun"/>
+								</div>
+							</div>
+
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Foto</label>
 								<div class="col-md-3">
@@ -280,7 +276,8 @@
 					    		            Preview Foto
 					    		        </label>
 					    		        <div class="panel-body">
-
+				    						<img id="previewHolder" width="60%"></img>
+				    						<div id='pember' style='margin-left: -15px;'>Pilih foto terlebih dahulu</div>
 					    				</div>
 					        		</div>
 								</div>
@@ -300,7 +297,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Jenis Jabatan</label>
 								<div class="col-md-3">
-									<select name="jenis_jabatan" class="form-control jenjab" select2>
+									<select select2 name="jenis_jabatan" class="form-control jenjab" id="jenis_jabatan">
 										<option value=""></option>
 									    @foreach(config('simpeg.jenis_jabatan') as $jenis_jabatan)
 									    	<option value="{{$jenis_jabatan}}">{{$jenis_jabatan}}</option>
@@ -313,7 +310,7 @@
 								<label class="col-md-3 control-label" for="inputDefault">Unit Kerja</label>
 								<div class="col-md-9">
 									<div class="col-md-3">
-										<select class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id">
+										<select select2 class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id">
 											<option value="">Pilih Unit Kerja</option>
 										    @foreach($unit_kerja as $unit)
 										    	<option value="{{$unit->id}}">{{$unit->title}}</option>
@@ -329,7 +326,7 @@
 									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
+											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
 
 											</select>
 										</div>
@@ -340,7 +337,7 @@
 									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
+											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
 											</select>
 										</div>
 									</div>
@@ -350,7 +347,7 @@
 									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Struktural </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control jabatan" name="jabatan_struktural_id" style="margin-left:-15px;">
+											<select select2 class="form-control jabatan" name="jabatan_struktural_id" style="margin-left:-15px;">
 											</select>
 										</div>
 									</div>
@@ -376,7 +373,7 @@
 									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
+											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
 
 											</select>
 										</div>
@@ -387,7 +384,7 @@
 									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
+											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
 											</select>
 										</div>
 									</div>
@@ -413,7 +410,7 @@
 									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
+											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
 
 											</select>
 										</div>
@@ -424,7 +421,7 @@
 									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
+											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
 											</select>
 										</div>
 									</div>
@@ -446,7 +443,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Golongan Ruang Awal</label>
 								<div class="col-md-2">
-									<select class="form-control" name="golongan_id_awal">
+									<select select2 class="form-control" name="golongan_id_awal">
 									    @foreach($golongan as $data_golongan)
 									    	<option value="{{$data_golongan->id}}">{{$data_golongan->title}}</option>
 									    @endforeach
@@ -461,7 +458,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Golongan Ruang Akhir</label>
 								<div class="col-md-2">
-									<select class="form-control" name="golongan_id_akhir">
+									<select select2 class="form-control" name="golongan_id_akhir">
 									    @foreach($golongan as $data_golongan)
 									    	<option value="{{$data_golongan->id}}">{{$data_golongan->title}}</option>
 									    @endforeach
@@ -611,4 +608,68 @@
 <script src="{{ asset("js/jquery.bootstrap.wizard.js") }}"></script>
 <script src="{{ asset("js/jquery.validate.js") }}"></script>
 <script src="{{ asset("js/examples.wizard.js") }}"></script>
+<script type="text/javascript">
+
+$("#struktural").hide();
+$("#jafung").hide();
+$("#jafungumum").hide();
+
+$("#jenis_jabatan").change(function(){
+	var jenis_jabatan = $(this).val();
+
+	if(jenis_jabatan == 'Struktural'){
+		$("#struktural").show();
+		$("#jafung").hide();
+		$("#jafungumum").hide();
+	}
+	else if(jenis_jabatan == 'Fungsional Tertentu'){
+		$("#struktural").hide();
+		$("#jafung").show();
+		$("#jafungumum").hide();
+	}
+	else if(jenis_jabatan == 'Fungsional Umum'){
+		$("#struktural").hide();
+		$("#jafung").hide();
+		$("#jafungumum").show();
+	}
+});
+
+var foto="";
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      foto 	= e.target.result;
+      var ext = foto.split(";", 1);
+      var extt = ext.toString();
+      var rules = ["data:image/jpeg",'data:image/png','data:image/gif','data:image/bmp','data:image/x-windows-bmp'];
+      if($.inArray(extt, rules) == -1){
+      	fn.alert("File tidak didukung !");
+      	$("input.upload").val("");
+      	$('#previewHolder').attr('src', "");
+      	$(".submit").attr("disabled", "disabled");
+      }
+      else{
+      	$('#previewHolder').attr('src', e.target.result);
+      	$(".submit").removeAttr("disabled");
+      }
+      $('#pember').html('');
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("input.upload").change(function() {
+  if($(this).val()){
+    readURL(this);
+  }
+  else{
+    setTimeout(function(){
+        $('#previewHolder').attr('src', "");
+        $('#pember').html('');
+    });
+  }
+});
+</script>
 @endpush
