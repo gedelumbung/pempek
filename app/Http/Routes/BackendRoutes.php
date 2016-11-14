@@ -57,6 +57,7 @@ class BackendRoutes implements RoutesInterface
     public function pegawai()
     {
         $this->router->get('/pegawai', ['as' => 'dashboard.pegawai', 'uses' => 'PegawaiController@index']);
+        $this->router->get('/pegawai/add', ['as' => 'dashboard.pegawai.add', 'uses' => 'PegawaiController@add']);
     }
 
     public function administrator()
