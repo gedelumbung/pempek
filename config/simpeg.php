@@ -34,13 +34,13 @@ return [
         'meningggal'    =>  'Meninggal'
     ],
 
-    'status_perkawinan' => [
+    'status_pernikahan' => [
         'menikah'       => 'Menikah',
         'duda_janda'    =>  'Duda/Janda',
         'belum_kawin'   =>  'Belum Kawin'
     ],
 
-    'status_perkawinan_pasangan' => [
+    'status_pernikahan_pasangan' => [
         'menikah'       => 'Menikah',
         'Cerai'         => 'Cerai',
         'duda_janda'    =>  'Duda/Janda'
