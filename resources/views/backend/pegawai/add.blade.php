@@ -67,7 +67,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tanggal Lahir</label>
 								<div class="col-md-9">
-									<input type="date" class="form-control" name="tanggal_lahir" datepicker rules="date">
+									<input type="text" datepicker rules="date" class="form-control" name="tanggal_lahir">
 								</div>
 							</div>
 
@@ -146,101 +146,86 @@
 								<div class="col-md-3">
 									<select name="kedudukan_pns" class="form-control" select2>
 										<option value=""></option>
-										@if(isset($data['kddknpns_id']))
-										    @foreach($a['kddk'] as $k)
-										    	<option value="{{$k->kddknpns_id}}" @if($data['kddknpns_id'] == $k->kddknpns_id) selected @endif >{{$k->kedudukan}}</option>
-										    @endforeach
-									    @else
-									    	@foreach($a['kddk'] as $k)
-										    	<option value="{{$k->kddknpns_id}}">{{$k->kedudukan}}</option>
-										    @endforeach
-									    @endif
+									    @foreach(config('simpeg.kedudukan_pegawai') as $kedudukan_pegawai)
+									    	<option value="{{$kedudukan_pegawai}}">{{$kedudukan_pegawai}}</option>
+									    @endforeach
 									</select>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Status Pegawai</label>
-								@if(isset($data['status_pegawai']))
-								<div class="col-md-9">
-									<div class="radio-custom radio-default">
-									<input type="radio" id="radio1" name="status_pegawai" value="0" @if($data['status_pegawai'] == 0) checked='true' @endif/>
-									<label for="radio1">CPNS</label>
+								<div class="col-md-3">
+									<select name="status_pegawai" class="form-control" select2>
+										<option value=""></option>
+									    @foreach(config('simpeg.status_pegawai') as $status_pegawai)
+									    	<option value="{{$status_pegawai}}">{{$status_pegawai}}</option>
+									    @endforeach
+									</select>
 								</div>
-								<div class="radio-custom radio-default">
-									<input type="radio" id="radio1" name="status_pegawai" value="1" @if($data['status_pegawai'] == 1) checked='true' @endif/>
-									<label for="radio2">PNS</label>
-								</div>
-								</div>
-								@else
-								<div class="col-md-9">
-									<div class="radio-custom radio-default">
-									<input type="radio" id="radio1" name="status_pegawai" value="0" />
-									<label for="radio1">CPNS</label>
-								</div>
-								<div class="radio-custom radio-default">
-									<input type="radio" id="radio1" name="status_pegawai" value="1" />
-									<label for="radio2">PNS</label>
-								</div>
-								</div>
-								@endif
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">TMT CPNS</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tmtcpns" datepicker value="{{date("d/m/Y", strtotime($data['tmtcpns']))?:""}}">
+									<input type="text" datepicker rules="date" class="form-control" id="inputDefault" name="tmt_cpns">
 								</div>
 								<label class="col-md-1 control-label" for="inputDefault">TMT PNS</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tmtpns" datepicker value="{{date("d/m/Y", strtotime($data['tmtpns']))?:""}}">
+									<input type="text" datepicker rules="date" class="form-control" id="inputDefault" name="tmt_pns">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tingkat Pendidikan Awal Pengangkatan CPNS</label>
 								<div class="col-md-3">
-									<select name="pendidikanawal_cpns" class="form-control" select2>
+									<select name="pendidikan_awal_cpns" class="form-control" select2>
 										<option value=""></option>
-										@if(isset($data['pendidikanawal_cpns']))
-										    @foreach($a['tingkat_pddk'] as $k)
-										    	<option value="{{$k->tingkatpddk_id}}" @if($data['pendidikanawal_cpns'] == $k->tingkatpddk_id) selected @endif >{{$k->tingkat}}</option>
-										    @endforeach
-
-									    @else
-									    	@foreach($a['tingkat_pddk'] as $k)
-										    	<option value="{{$k->tingkatpddk_id}}">{{$k->tingkat}}</option>
-										    @endforeach
-									    @endif
+									    @foreach(config('simpeg.pendidikan') as $pendidikan)
+									    	<option value="{{$pendidikan}}">{{$pendidikan}}</option>
+									    @endforeach
 									</select>
 								</div>
 							</div>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="inputDefault">Tingkat Pendidikan Akhir</label>
+								<div class="col-md-3">
+									<select name="pendidikan_akhir" class="form-control" select2>
+										<option value=""></option>
+									    @foreach(config('simpeg.pendidikan') as $pendidikan)
+									    	<option value="{{$pendidikan}}">{{$pendidikan}}</option>
+									    @endforeach
+									</select>
+								</div>
+							</div>
+
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Diklat Struktural</label>
 								<label class="col-md-2 control-label" for="inputDefault">SEPADA</label>
 								<div class="col-md-3">
-									<input class="form-control" maxlength="4" type="text" name="sepada" placeholder="Tahun" value="{{$data['sepada']?:""}}"/>
+									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_sepada" placeholder="Tahun"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault"></label>
 								<label class="col-md-2 control-label" for="inputDefault">SEPALA/ADUM/DIKLAT PIM TK. IV</label>
 								<div class="col-md-3">
-									<input class="form-control" maxlength="4" type="text" name="sepala" placeholder="Tahun" value="{{$data['sepala']?:""}}"/>
+									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_sepala" placeholder="Tahun"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault"></label>
 								<label class="col-md-2 control-label" for="inputDefault">SEPADYA/SPAMA/DIKLAT PIM TIK. III</label>
 								<div class="col-md-3">
-									<input class="form-control" maxlength="4" type="text" name="sepadya" placeholder="Tahun" value="{{$data['sepadya']?:""}}"/>
+									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_sepadya" placeholder="Tahun"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault"></label>
 								<label class="col-md-2 control-label" for="inputDefault">SPAMEN/SESPA/SESPANAS /DIKLAT PIM TK.II</label>
 								<div class="col-md-3">
-									<input class="form-control" maxlength="4" type="text" name="spamen" placeholder="Tahun" value="{{$data['spamen']?:""}}"/>
+									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_spamen" placeholder="Tahun"/>
 								</div>
 							</div>
 
@@ -248,30 +233,34 @@
 								<label class="col-md-3 control-label" for="inputDefault"></label>
 								<label class="col-md-2 control-label" for="inputDefault">SEPATI/DIKLAT PIM TK.I</label>
 								<div class="col-md-3">
-									<input class="form-control" maxlength="4" type="text" name="sepati" placeholder="Tahun" value="{{$data['sepati']?:""}}"/>
+									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_sepati" placeholder="Tahun"/>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Pendidikan Terakhir</label>
-								<div class="col-md-3">
-									<select name="pendidikanakhir" class="form-control" select2>
-										<option value=""></option>
-										@if(isset($data['pendidikanakhir']))
-										    @foreach($a['tingkat_pddk'] as $k)
-										    	<option value="{{$k->tingkatpddk_id}}" @if($data['pendidikanakhir'] == $k->tingkatpddk_id) selected @endif >{{$k->tingkat}}</option>
-										    @endforeach
-
-									    @else
-									    	@foreach($a['tingkat_pddk'] as $k)
-										    	<option value="{{$k->tingkatpddk_id}}">{{$k->tingkat}}</option>
-										    @endforeach
-									    @endif
-									</select>
-								</div>
-								<label class="col-md-1 control-label" for="inputDefault">Tahun</label>
-								<div class="col-md-1">
-									<input type="text" class="form-control" id="inputDefault" name="tahunpendidikan" maxlength="4" value="{{$data['tahunpendidikan']?:""}}">
+								<div class="col-md-9">
+									<div class="form-group">
+										<label class="col-md-3 control-label" for="inputDefault"></label>
+										<label class="col-md-2 control-label" for="inputDefault">Fakultas</label>
+										<div class="col-md-3">
+											<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_fakultas" placeholder="Fakultas"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" for="inputDefault"></label>
+										<label class="col-md-2 control-label" for="inputDefault">Jurusan</label>
+										<div class="col-md-3">
+											<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_jurusan" placeholder="Jurusan"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label" for="inputDefault"></label>
+										<label class="col-md-2 control-label" for="inputDefault">Lulus Tahun</label>
+										<div class="col-md-3">
+											<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_tahun_lulus" placeholder="Tahun"/>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="form-group">
@@ -291,12 +280,7 @@
 					    		            Preview Foto
 					    		        </label>
 					    		        <div class="panel-body">
-					    		        		@if(isset($data['foto']))
-					    						<img id="previewHolder" width="60%" src="{{url($data['foto'])}}"></img>
-					    						@else
-					    						<img id="previewHolder" width="60%"></img>
-					    						<div id='pember' style='margin-left: -15px;'>Pilih foto terlebih dahulu</div>
-					    						@endif
+
 					    				</div>
 					        		</div>
 								</div>
@@ -309,24 +293,18 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Unit Organisasi</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="organisasi" value="{{$data['organisasi']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="unit_organisasi">
 								</div>
 							</div>
 							<!-- hilmi -->
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Jenis Jabatan</label>
 								<div class="col-md-3">
-									<select name="jenisjab_id" class="form-control jenjab" select2>
+									<select name="jenis_jabatan" class="form-control jenjab" select2>
 										<option value=""></option>
-										@if(isset($data['jenisjab_id']))
-										    @foreach($a['jenisjab'] as $k)
-										    	<option value="{{$k->jenisjab_id}}" @if($data['jenisjab_id'] == $k->jenisjab_id) selected @endif >{{ucwords($k->jabatan)}}</option>
-										    @endforeach
-									    @else
-									    	@foreach($a['jenisjab'] as $k)
-										    	<option value="{{$k->jenisjab_id}}">{{ucwords($k->jabatan)}}</option>
-										    @endforeach
-									    @endif
+									    @foreach(config('simpeg.jenis_jabatan') as $jenis_jabatan)
+									    	<option value="{{$jenis_jabatan}}">{{$jenis_jabatan}}</option>
+									    @endforeach
 									</select>
 								</div>
 							</div>
@@ -335,17 +313,11 @@
 								<label class="col-md-3 control-label" for="inputDefault">Unit Kerja</label>
 								<div class="col-md-9">
 									<div class="col-md-3">
-										<select class="form-control satker" style="margin-left:-15px;" name="kode_satker">
+										<select class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id">
 											<option value="">Pilih Unit Kerja</option>
-											@if(isset($data['kode_satker']))
-												@foreach($a['satker'] as $s)
-													<option value="{{$s->kode_satker}}" @if($data['kode_satker'] == $s->kode_satker) selected @endif>{{$s->nama_satker}}</option>
-												@endforeach
-											@else
-												@foreach($a['satker'] as $s)
-													<option value="{{$s->kode_satker}}">{{$s->nama_satker}}</option>
-												@endforeach
-											@endif
+										    @foreach($unit_kerja as $unit)
+										    	<option value="{{$unit->id}}">{{$unit->title}}</option>
+										    @endforeach
 										</select>
 									</div>
 								</div>
@@ -357,48 +329,42 @@
 									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control unit_kerja" name="subunitkerja" style="margin-left:-15px;">
-												@if(isset($data['namastruktural'])) 
-												@foreach($a['jabatan'] as $j)
-												<option value="{{$data['kode_jab']}}">{{$j->nama_jabatan}}</option>
-												@endforeach
-											 @endif 
+											<select class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
+
 											</select>
 										</div>
-
 									</div>
 								</div>
+
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
+									<div class="col-md-9">
+										<div class="col-md-5">
+											<select class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
+											</select>
+										</div>
+									</div>
+								</div>
+
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Struktural </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control jabatan" name="namastruktural" style="margin-left:-15px;">
-												@if(isset($data['id_subker'])) 
-												@foreach($a['jabatan_sub'] as $j)
-												<option value="{{$data['namastruktural']}}">{{$j->sub_struktural}}</option>
-												@endforeach
-											 @endif 
+											<select class="form-control jabatan" name="jabatan_struktural_id" style="margin-left:-15px;">
 											</select>
 										</div>
 									</div>
 								</div>
-
-								<div class="form-group">
-								<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja</label>
-								<div class="col-md-9">
-									<input type="text" class="form-control satuan" id="inputDefault" name="satuan" value="{{$data['namasatuanjabatan']?:""}}" readonly="true">
-								</div>
-							</div>
 								
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="inputDefault">Eselon</label>
 									<div class="col-md-2">
-										<input type="text" class="form-control eselon" id="inputDefault" name="eselon" value="{{$data['eselon']?:""}}">
+										<input type="text" class="form-control eselon" id="inputDefault" name="eselon">
 									</div>
 
 									<label class="col-md-2 control-label" for="inputDefault">TMT Eselon</label>
 									<div class="col-md-2">
-										<input type="text" class="form-control" id="inputDefault" name="tmteselon" datepicker value="{{date("d/m/Y", strtotime($data['tmteselon']))?:""}}">
+										<input type="text" class="form-control" id="inputDefault" name="tmt_eselon" datepicker>
 									</div>
 								</div>
 							</div>
@@ -407,31 +373,21 @@
 							
 							<div id="jafung" style="margin-top:15px;margin-bottom:15px">
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja</label>
+									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control unit_kerja_ft" name="subunitkerja_ft" style="margin-left:-15px;">
-												@if(isset($data['id_subker_ft'])) 
-												@foreach($a['jabatan_sub_ft'] as $j)
-												<option value="{{$data['id_subker_ft']}}">{{$j->sub_struktural}}</option>
-												@endforeach
-											 @endif 
+											<select class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
+
 											</select>
 										</div>
-
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja</label>
+									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control satuan_ft" name="satuankerja_ft" style="margin-left:-15px;">
-												@if(isset($data['nama'])) 
-												
-												<option value="{{$data['namasatuanjabatan_ft']}}">{{$data['namasatuanjabatan_ft']}}</option>
-												
-											 @endif 
+											<select class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
 											</select>
 										</div>
 									</div>
@@ -440,12 +396,12 @@
 								<div class="form-group" >
 									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Fungsional</label>
 									<div class="col-md-2">
-										<input type="text" class="form-control" id="inputDefault" name="namajafung" value="{{$data['namajafung']}}">
+										<input type="text" class="form-control" id="inputDefault" name="jabatan_fungsional_tertentu">
 									</div>
 
 									<label class="col-md-2 control-label" for="inputDefault">TMT Jafung</label>
 									<div class="col-md-2">
-										<input type="text" class="form-control" id="inputDefault" name="tmtjafung" datepicker value="{{date("d/m/Y", strtotime($data['tmtjafung']))?:""}}">
+										<input type="text" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_tertentu" datepicker>
 									</div>
 								</div>
 							</div>
@@ -453,33 +409,22 @@
 							<!-- JABATAN FUNGSIONAL UMUM -->
 
 							<div id="jafungumum" style="margin-top:15px;margin-bottom:15px">
-
-							<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja</label>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control unit_kerja_umum" name="subunitkerja_umum" style="margin-left:-15px;">
-												@if(isset($data['id_subker_umum'])) 
-												@foreach($a['jabatan_sub_umum'] as $j)
-												<option value="{{$data['id_subker_umum']}}">{{$j->sub_struktural}}</option>
-												@endforeach
-											 @endif 
+											<select class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
+
 											</select>
 										</div>
-
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja</label>
+									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select class="form-control satuan_umum" name="satuankerja_umum" style="margin-left:-15px;">
-												@if(isset($data['nama'])) 
-												
-												<option value="{{$data['namasatuanjabatan_umum']}}">{{$data['namasatuanjabatan_umum']}}</option>
-												
-											 @endif 
+											<select class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
 											</select>
 										</div>
 									</div>
@@ -488,12 +433,12 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Fungsional</label>
 									<div class="col-md-2">
-										<input type="text" class="form-control" id="inputDefault" name="namajafungumum" value="{{$data['namajafungumum']}}">
+										<input type="text" class="form-control" id="inputDefault" name="jabatan_fungsional_umum">
 									</div>
 
 									<label class="col-md-2 control-label" for="inputDefault">TMT Jafung Umum</label>
 									<div class="col-md-2">
-										<input type="text" class="form-control" id="inputDefault" name="tmtjafungumum" datepicker>
+										<input type="text" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_umum" datepicker>
 									</div>
 								</div>
 							</div>
@@ -501,75 +446,47 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Golongan Ruang Awal</label>
 								<div class="col-md-2">
-									<select class="form-control" name="golruangawal">
-
-
-										
-										@foreach($a['golongan_awal'] as $s)
-											<option value="{{$data['golruangawal']}}">{{$s->nama_golongan}} ({{$s->keterangan}})</option>
-										@endforeach
-										@foreach($a['golongan'] as $s)
-											<option value="{{$s->kode}}">{{$s->nama_golongan}} ({{$s->keterangan}})</option>
-										@endforeach
+									<select class="form-control" name="golongan_id_awal">
+									    @foreach($golongan as $data_golongan)
+									    	<option value="{{$data_golongan->id}}">{{$data_golongan->title}}</option>
+									    @endforeach
 									</select>
 								</div>
 								<label class="col-md-2 control-label" for="inputDefault">TMT Gol. Awal</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tmtgolawal" datepicker value="{{date("d/m/Y", strtotime($data['tmtgolawal']))?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="tmt_golongan_awal" datepicker>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Golongan Ruang Akhir</label>
 								<div class="col-md-2">
-									<select class="form-control" name="golruangakhir">
-										@foreach($a['golongan_akhir'] as $s)
-											<option value="{{$data['golruangakhir']}}">{{$s->nama_golongan}} ({{$s->keterangan}})</option>
-										@endforeach
-										@foreach($a['golongan'] as $s)
-											<option value="{{$s->kode}}">{{$s->nama_golongan}} ({{$s->keterangan}})</option>
-										@endforeach
+									<select class="form-control" name="golongan_id_akhir">
+									    @foreach($golongan as $data_golongan)
+									    	<option value="{{$data_golongan->id}}">{{$data_golongan->title}}</option>
+									    @endforeach
 									</select>
 								</div>
 								<label class="col-md-2 control-label" for="inputDefault">TMT Gol. Akhir</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tmtgolakhir" datepicker value="{{date("d/m/Y", strtotime($data['tmtgolakhir']))?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="tmt_golongan_akhir" datepicker>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label class="col-md-3 control-label" for="inputDefault">Gaji Pokok Baru</label>
+								<label class="col-md-3 control-label" for="inputDefault">Gaji Pokok</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="gajipokok" value="{{$data['gajipokok']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="gaji_pokok">
 								</div>
 
 								<label class="col-md-1 control-label" for="inputDefault">Masa Kerja. Tahun</label>
 								<div class="col-md-1">
-									<input type="text" class="form-control" id="inputDefault" name="masakerja_thn" maxlength="4" value="{{$data['masakerja_thn']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="masa_kerja_tahun" maxlength="4">
 								</div>
 								<label class="col-md-1 control-label" for="inputDefault">Bulan</label>
 								<div class="col-md-1">
-									<input type="text" class="form-control" id="inputDefault" name="masakerja_bln" maxlength="2" value="{{$data['masakerja_bln']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="masa_kerja_bulan" maxlength="2">
 								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="col-md-3 control-label" for="inputDefault">Penyesuaian Masa Kerja Tahun</label>
-								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="pmk_thn" maxlength="4" value="{{$data['pmk_thn']?:""}}">
-								</div>
-								<label class="col-md-1 control-label" for="inputDefault">Bulan</label>
-								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="pmk_bln" maxlength="2" value="{{$data['pmk_bln']?:""}}">
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="col-md-3 control-label" for="inputDefault">SK Penyesuaian Masa Kerja</label>
-									<div class="col-md-5">
-										<input type="text" class="form-control" id="inputDefault" name="skpmk" value="{{$data['skpmk']?:""}}">
-									</div>
-
 							</div>
 						</div>
 					</div>
@@ -578,59 +495,66 @@
 						 	<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No Seri KARPEG</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="noserikarpeg" maxlength="9" value="{{$data['noserikarpeg']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_karpeg" maxlength="9">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="inputDefault">No Seri KPE</label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_kpe" maxlength="9">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No Seri KARIS/KARSU</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="noserikaris" maxlength="9" value="{{$data['noserikaris']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_karis" maxlength="9">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No Akte Kelahiran</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="noakte" value="{{$data['noakte']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="no_akte_kelahiran">
 								</div>
 
-								<label class="col-md-2 control-label" for="inputDefault">Tanggal</label>
+								<label class="col-md-2 control-label" for="inputDefault">Tahun Akte</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tanggalakte" datepicker value="{{date("d/m/Y", strtotime($data['tanggalakte']))?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="tahun_no_akte_kelahiran">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No ASKES</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="noaskes" maxlength="13" value="{{$data['noaskes']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="no_askes" maxlength="13">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No TASPEN</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="notaspen" maxlength="18" value="{{$data['notaspen']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="no_taspen" maxlength="18">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No NPWP</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="nonpwp" value="{{$data['nonpwp']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="no_npwp">
 								</div>
 
 								<label class="col-md-2 control-label" for="inputDefault">Tanggal NPWP</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tanggalnpwp" datepicker value="{{date("d/m/Y", strtotime($data['tanggalnpwp']))?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="tanggal_npwp" datepicker>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Golongan Darah</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="gol_dar" value="{{$data['gol_dar']?:""}}">
+									<input type="text" class="form-control" id="inputDefault" name="golongan_darah">
 								</div>
 							</div>
 							<div class="form-group">
@@ -687,388 +611,4 @@
 <script src="{{ asset("js/jquery.bootstrap.wizard.js") }}"></script>
 <script src="{{ asset("js/jquery.validate.js") }}"></script>
 <script src="{{ asset("js/examples.wizard.js") }}"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		var jenjab = <?=$data['jenisjab_id']?:"0"?>;
-
-		if(jenjab == 1){
-			$("#struktural").show();
-			$("#jafung").hide();
-			$("#jafungumum").hide();
-		}else if(jenjab == 2){
-			$("#jafung").show();
-			$("#struktural").hide();
-			$("#jafungumum").hide();
-		}else if(jenjab == 4){
-			$("#jafungumum").show();
-			$("#struktural").hide();
-			$("#jafung").hide();
-		}else{
-			$("#struktural").hide();
-			$("#jafung").hide();
-			$("#jafungumum").hide();
-		}
-
-		function gantisubUK(isina, callback){
-			$.ajax({
-				url:"{{url('pegawai/carisub')}}",
-				type:"POST",
-				data:{isina:isina},
-				success:function(data){
-					$(".unit_kerja").html("");
-					$(".unit_kerja").append(
-							"<option disabled selected value>--- Pilih Sub Unit Kerja ---</option>"
-						)
-					for(var i=0;i<data.length;i++){
-						$(".unit_kerja").append(
-							"<option value='"+data[i].kode_jab+"' "
-								// +(data[i].kode_jab=='' ? "selected='selected'" : "") 
-							+">"
-								+"Kepala "+data[i].nama_jabatan
-							+"</option>"
-						)
-						// console.log(data[i].kode_jab);
-					}
-					// $(".eselon").val(data[0].eselon);
-
-					if (typeof callback === "function")
-						callback();
-				}
-			});
-		}
-
-		function gantisubUK_ft(isina, callback){
-			$.ajax({
-				url:"{{url('pegawai/carisub')}}",
-				type:"POST",
-				data:{isina:isina},
-				success:function(data){
-					$(".unit_kerja_ft").html("");
-					$(".unit_kerja_ft").append(
-							"<option disabled selected value>--- Pilih Sub Unit Kerja Fungsional---</option>"
-						)
-					for(var i=0;i<data.length;i++){
-						$(".unit_kerja_ft").append(
-							"<option value='"+data[i].kode_jab+"' "
-								// +(data[i].kode_jab=='' ? "selected='selected'" : "") 
-							+">"
-								+data[i].nama_jabatan
-							+"</option>"
-						)
-						// console.log(data[i].kode_jab);
-					}
-					// $(".eselon").val(data[0].eselon);
-
-					if (typeof callback === "function")
-						callback();
-				}
-			});
-		}
-
-		function gantisubUK_umum(isina, callback){
-			$.ajax({
-				url:"{{url('pegawai/carisub')}}",
-				type:"POST",
-				data:{isina:isina},
-				success:function(data){
-					$(".unit_kerja_umum").html("");
-					$(".unit_kerja_umum").append(
-							"<option disabled selected value>--- Pilih Sub Unit Kerja Fungsional---</option>"
-						)
-					for(var i=0;i<data.length;i++){
-						$(".unit_kerja_umum").append(
-							"<option value='"+data[i].kode_jab+"' "
-								// +(data[i].kode_jab=='' ? "selected='selected'" : "") 
-							+">"
-								+data[i].nama_jabatan
-							+"</option>"
-						)
-						// console.log(data[i].kode_jab);
-					}
-					// $(".eselon").val(data[0].eselon);
-
-					if (typeof callback === "function")
-						callback();
-				}
-			});
-		}
-
-		//satuan kerja
-
-		function gantisatuankerja_ft(isina_ft, callback){
-			$.ajax({
-				url:"{{url('pegawai/carisatker_ft')}}",
-				type:"POST",
-				data:{isina_ft:isina_ft},
-				success:function(data){
-					$(".satuan_ft").html("");
-					$(".satuan_ft").append(
-							"<option disabled selected value>--- Pilih Satuan Kerja Fungsional---</option>"
-						)
-					for(var i=0;i<data.length;i++){
-						$(".satuan_ft").append(
-							"<option value='"+data[i].sub_struktural+"' "
-								// +(data[i].kode_jab=='' ? "selected='selected'" : "") 
-							+">"
-								+data[i].sub_struktural
-							+"</option>"
-						)
-						// console.log(data[i].kode_jab);
-					}
-					// $(".eselon").val(data[0].eselon);
-
-					if (typeof callback === "function")
-						callback();
-				}
-			});
-		}
-
-		function gantisatuankerja_umum(isina_ft, callback){
-			$.ajax({
-				url:"{{url('pegawai/carisatker_ft')}}",
-				type:"POST",
-				data:{isina_ft:isina_ft},
-				success:function(data){
-					$(".satuan_umum").html("");
-					$(".satuan_umum").append(
-							"<option disabled selected value>--- Pilih Sub Unit Kerja Fungsional---</option>"
-						)
-					for(var i=0;i<data.length;i++){
-						$(".satuan_umum").append(
-							"<option value='"+data[i].sub_struktural+"' "
-								// +(data[i].kode_jab=='' ? "selected='selected'" : "") 
-							+">"
-								+data[i].sub_struktural
-							+"</option>"
-						)
-						// console.log(data[i].kode_jab);
-					}
-					// $(".eselon").val(data[0].eselon);
-
-					if (typeof callback === "function")
-						callback();
-				}
-			});
-		}
-
-		//satuan kerja end
-
-		function gantistruktural(isina_sub, callback){
-			$.ajax({
-				url:"{{url('pegawai/carijab')}}",
-				type:"POST",
-				data:{isina_sub:isina_sub},
-				success:function(data){
-					$(".jabatan").html("");
-						$(".jabatan").append(
-							"<option disabled selected value>--- Pilih Nama Jabatan ---</option>"
-						)
-					for(var i=0;i<data.length;i++){
-						$(".jabatan").append(
-							"<option value='"+data[i].kode_jab+"' "
-								// +(data[i].kode_jab=='' ? "selected='selected'" : "") 
-							+">"
-								+data[i].sub_struktural
-							+"</option>"
-						)
-						// console.log(data[i].kode_jab);
-					}
-					// $(".eselon").val(data[0].eselon);
-
-					if (typeof callback === "function")
-						callback();
-				}
-			});
-		}
-
-		$('body').on('change','.satker',function(){
-			$('.eselon').val("");
-			var isina = $(this).val();
-			gantisubUK(isina);
-		});
-
-		$('body').on('change','.satker',function(){
-			$('.eselon').val("");
-			var isina = $(this).val();
-			gantisubUK_ft(isina);
-		});
-
-		$('body').on('change','.satker',function(){
-			$('.eselon').val("");
-			var isina = $(this).val();
-			gantisubUK_umum(isina);
-		});
-
-		$('body').on('change','.unit_kerja',function(){
-			$('.eselon').val("");
-			var isina_sub = $(this).val();
-			gantistruktural(isina_sub);
-		});
-
-		$('body').on('change','.unit_kerja_ft',function(){
-			$('.eselon').val("");
-			var isina_ft = $(this).val();
-			gantisatuankerja_ft(isina_ft);
-		});
-
-		$('body').on('change','.unit_kerja_umum',function(){
-			$('.eselon').val("");
-			var isina_ft = $(this).val();
-			gantisatuankerja_umum(isina_ft);
-		});
-
-		$('body').on('change','.jenispeg',function(){
-			$('.jenpeg').val("");
-			var ini = $(this).val();
-
-			if(ini == 1){
-				document.getElementsByClassName("jenpeg")[0].setAttribute("placeholder", "Kabupaten");
-			}else if(ini == 2){
-				document.getElementsByClassName("jenpeg")[0].setAttribute("placeholder", "Lainnya");
-			}
-		});
-
-		$('body').on('change','.jabatan',function(){
-			$('.eselon').val("");
-			var isi = $(this).val();
-
-			$('.satuan').val("");
-			var isi = $(this).val();
-
-			$.ajax({
-				url:"{{url('pegawai/carieselon')}}",
-				type:"POST",
-				data:{isi:isi},
-				success:function(data){
-					$('.eselon').val(data[0].eselon);
-				}
-			});
-
-			$.ajax({
-				url:"{{url('pegawai/carisk')}}",
-				type:"POST",
-				data:{isi:isi},
-				success:function(data){
-					$('.satuan').val(data[0].sub_struktural);
-				}
-			});
-		});
-
-		$(".finish").on('click', function( ev ) {
-			ev.preventDefault();
-			var validated = $('#w2 form').valid();
-			if ( validated ) {
-				new PNotify({
-					title: 'Congratulations',
-					text: 'You completed the wizard form.',
-					type: 'custom',
-					addclass: 'notification-success',
-					icon: 'fa fa-check'
-				});
-			}
-		});
-
-		$(".jenjab").on('change',function(){
-			var isinya = $(this).val();
-			if(isinya == 1){
-				$("#struktural").show();
-				$("#jafung").hide();
-				$("#jafungumum").hide();
-				$("#jafung input").val("");
-				$("#jafungumum input").val("");
-			}else if(isinya == 2){
-				$("#jafung").show();
-				$("#struktural").hide();
-				$("#jafungumum").hide();
-				$("#jafungumum input").val("");
-			}else if(isinya == 4){
-				$("#jafungumum").show();
-				$("#struktural").hide();
-				$("#jafung").hide();
-				$("#jafung input").val("");
-			}
-		});
-
-				var foto="";
-				function readURL(input) {
-				  if (input.files && input.files[0]) {
-				    var reader = new FileReader();
-				    reader.onload = function(e) {
-				      foto 	= e.target.result;
-				      var ext = foto.split(";", 1);
-				      var extt = ext.toString();
-				      var rules = ["data:image/jpeg",'data:image/png','data:image/gif','data:image/bmp','data:image/x-windows-bmp'];
-				      if($.inArray(extt, rules) == -1){
-				      	fn.alert("File tidak didukung !");
-				      	$("input.upload").val("");
-				      	$('#previewHolder').attr('src', "");
-				      	$(".submit").attr("disabled", "disabled");
-				      }
-				      else{
-				      	$('#previewHolder').attr('src', e.target.result);
-				      	$(".submit").removeAttr("disabled");
-				      }
-				      $('#pember').html('');
-				    }
-
-				    reader.readAsDataURL(input.files[0]);
-				  }
-				}
-
-				$("input.upload").change(function() {
-				  if($(this).val()){
-		            readURL(this);
-		          }
-		          else{
-		            setTimeout(function(){
-		                $('#previewHolder').attr('src', "");
-		                $('#pember').html('');
-		            });
-		          }
-				});
-			
-			var url = window.location.href.split("/");
-			if(url.indexOf("edit") > -1){
-				@if(isset($data))
-				window.datapeg = <?=$data?>;
-				var data 	= window.datapeg;
-				var namastruktural = data.namastruktural;
-
-				$.ajax({
-					url : "<?=url('formasi/jabatan/carisatker')?>",
-					type : "POST",
-					data : { key : namastruktural },
-					success:function(data){
-						var datana = data[0];
-						var kodesatker = datana.kode_satker;
-						gantistruktural(kodesatker, function() {
-							$(".jabatan option[value='"+namastruktural.trim()+" ']").attr("selected", "selected");
-							$(".satker option[value="+kodesatker+"]").attr("selected", "selected");
-						});
-					}
-				});
-				@endif
-			}
-
-		// $(".satker").change(function (){
-  //             var url = "{{url('pegawai/carijab')}}/"+$(this).val();
-  //             $('.jabatan').load(url);
-  //             return false;
-  //         });
-
-		// $('body').on('submit','#submit_pegawai',function(e){
-		// 	e.preventDefault();
-		// 	var nipl = $('[name=nipl]').val();
-		// 	console.log(nipl);
-		// 	$.ajax({
-		// 		url:"{{url('pegawai/proses')}}",
-		// 		type:"POST",
-		// 		data: $(this).serialize(),
-		// 		success:function(data){
-		// 			console.log(data);
-		// 		}
-		// 	});
-		// });
-	});
-</script>
 @endpush
