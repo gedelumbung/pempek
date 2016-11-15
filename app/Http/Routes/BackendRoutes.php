@@ -45,6 +45,7 @@ class BackendRoutes implements RoutesInterface
                 $this->validasi_data();
                 $this->setting();
                 $this->laporan();
+                $this->ajax();
             });
         });
     }
@@ -125,5 +126,13 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/laporan-jabatan', ['as' => 'dashboard.laporan.jabatan', 'uses' => 'HomeController@index']);
         $this->router->get('/laporan-golongan', ['as' => 'dashboard.laporan.golongan', 'uses' => 'HomeController@index']);
         $this->router->get('/laporan-konfigurasi', ['as' => 'dashboard.laporan.konfigurasi', 'uses' => 'HomeController@index']);
+    }
+
+    public function ajax()
+    {
+        $this->router->post('/ajax/sub-unit-kerja', ['as' => 'dashboard.ajax.sub_unit_kerja', 'uses' => 'Ajax\AjaxController@postSubUnitKerja']);
+        $this->router->post('/ajax/satuan-kerja', ['as' => 'dashboard.ajax.satuan_kerja', 'uses' => 'Ajax\AjaxController@postSatuanKerja']);
+        $this->router->post('/ajax/jabatan-struktural', ['as' => 'dashboard.ajax.jabatan_struktural', 'uses' => 'Ajax\AjaxController@postJabatanStruktural']);
+        $this->router->post('/ajax/jabatan-struktural-detail', ['as' => 'dashboard.ajax.jabatan_struktural_detail', 'uses' => 'Ajax\AjaxController@postJabatanStrukturalDetail']);
     }
 }
