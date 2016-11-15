@@ -66,7 +66,6 @@ class CreatePegawaiTable extends Migration
             $table->string('tmt_golongan_akhir');
 
             $table->string('gaji_pokok');
-            $table->string('masa_kerja');
             $table->string('masa_kerja_tahun');
             $table->string('masa_kerja_bulan');
 
