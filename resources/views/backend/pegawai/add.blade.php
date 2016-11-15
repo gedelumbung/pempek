@@ -74,7 +74,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Agama</label>
 								<div class="col-md-3">
-									<select select2 select2 name="agama" class="form-control">
+									<select select2 name="agama" class="form-control">
 										@foreach(config('simpeg.agama') as $agama)
 											<option value="{{$agama}}">{{$agama}}</option>
 										@endforeach
@@ -86,7 +86,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Jenis Kelamin</label>
 								<div class="col-md-3">
-									<select select2 select2 name="jenis_kelamin" class="form-control">
+									<select select2 name="jenis_kelamin" class="form-control">
 										@foreach(config('simpeg.jenis_kelamin') as $jenis_kelamin)
 											<option value="{{$jenis_kelamin}}">{{$jenis_kelamin}}</option>
 										@endforeach
@@ -97,7 +97,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Status Pernikahan</label>
 								<div class="col-md-3">
-									<select select2 select2 name="status_pernikahan" class="form-control">
+									<select select2 name="status_pernikahan" class="form-control">
 										@foreach(config('simpeg.status_pernikahan') as $status_pernikahan)
 											<option value="{{$status_pernikahan}}">{{$status_pernikahan}}</option>
 										@endforeach
@@ -130,7 +130,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No Telepon</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_telepon">
+									<input type="text" class="form-control" id="inputDefault" name="telepon">
 								</div>
 							</div>
 
@@ -145,7 +145,6 @@
 								<label class="col-md-3 control-label" for="inputDefault">Kedudukan PNS</label>
 								<div class="col-md-3">
 									<select select2 name="kedudukan_pns" class="form-control">
-										<option value=""></option>
 									    @foreach(config('simpeg.kedudukan_pegawai') as $kedudukan_pegawai)
 									    	<option value="{{$kedudukan_pegawai}}">{{$kedudukan_pegawai}}</option>
 									    @endforeach
@@ -157,7 +156,6 @@
 								<label class="col-md-3 control-label" for="inputDefault">Status Pegawai</label>
 								<div class="col-md-3">
 									<select select2 name="status_pegawai" class="form-control">
-										<option value=""></option>
 									    @foreach(config('simpeg.status_pegawai') as $status_pegawai)
 									    	<option value="{{$status_pegawai}}">{{$status_pegawai}}</option>
 									    @endforeach
@@ -180,7 +178,6 @@
 								<label class="col-md-3 control-label" for="inputDefault">Tingkat Pendidikan Awal Pengangkatan CPNS</label>
 								<div class="col-md-3">
 									<select select2 name="pendidikan_awal_cpns" class="form-control">
-										<option value=""></option>
 									    @foreach(config('simpeg.pendidikan') as $pendidikan)
 									    	<option value="{{$pendidikan}}">{{$pendidikan}}</option>
 									    @endforeach
@@ -192,7 +189,6 @@
 								<label class="col-md-3 control-label" for="inputDefault">Tingkat Pendidikan Akhir</label>
 								<div class="col-md-3">
 									<select select2 name="pendidikan_akhir" class="form-control">
-										<option value=""></option>
 									    @foreach(config('simpeg.pendidikan') as $pendidikan)
 									    	<option value="{{$pendidikan}}">{{$pendidikan}}</option>
 									    @endforeach
@@ -306,28 +302,26 @@
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label class="col-md-3 control-label" for="inputDefault">Unit Kerja</label>
-								<div class="col-md-9">
-									<div class="col-md-3">
-										<select select2 class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id">
-											<option value="">Pilih Unit Kerja</option>
-										    @foreach($unit_kerja as $unit)
-										    	<option value="{{$unit->id}}">{{$unit->title}}</option>
-										    @endforeach
-										</select>
+							<div id="jenis_jabatan_sub" style="margin-top:15px;margin-bottom:15px">
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Unit Kerja</label>
+									<div class="col-md-9">
+										<div class="col-md-3">
+											<select select2 class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id" id="unit_kerja_id">
+												<option value=""></option>
+											    @foreach($unit_kerja as $unit)
+											    	<option value="{{$unit->id}}">{{$unit->title}}</option>
+											    @endforeach
+											</select>
+										</div>
 									</div>
 								</div>
-							</div>
-
-							<!-- STRUKTURAL -->
-							<div id="struktural" style="margin-top:15px;margin-bottom:15px">
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
-
+											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;" id="sub_unit_kerja_id">
+												<option value=""></option>
 											</select>
 										</div>
 									</div>
@@ -337,17 +331,23 @@
 									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
+											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;" id="satuan_kerja_id">
+												<option value=""></option>
 											</select>
 										</div>
 									</div>
 								</div>
+							</div>
+
+							<!-- STRUKTURAL -->
+							<div id="struktural" style="margin-top:15px;margin-bottom:15px">
 
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Struktural </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select select2 class="form-control jabatan" name="jabatan_struktural_id" style="margin-left:-15px;">
+											<select select2 class="form-control jabatan" name="jabatan_struktural_id" style="margin-left:-15px;" id="jabatan_struktural_id">
+												<option value=""></option>
 											</select>
 										</div>
 									</div>
@@ -356,7 +356,7 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="inputDefault">Eselon</label>
 									<div class="col-md-2">
-										<input type="text" class="form-control eselon" id="inputDefault" name="eselon">
+										<input type="text" class="form-control eselon" readonly="true" name="eselon" id="eselon">
 									</div>
 
 									<label class="col-md-2 control-label" for="inputDefault">TMT Eselon</label>
@@ -369,26 +369,6 @@
 							<!-- JABATAN FUNGSIONAL -->
 							
 							<div id="jafung" style="margin-top:15px;margin-bottom:15px">
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
-									<div class="col-md-9">
-										<div class="col-md-5">
-											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
-
-											</select>
-										</div>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
-									<div class="col-md-9">
-										<div class="col-md-5">
-											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
-											</select>
-										</div>
-									</div>
-								</div>
 
 								<div class="form-group" >
 									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Fungsional</label>
@@ -406,26 +386,6 @@
 							<!-- JABATAN FUNGSIONAL UMUM -->
 
 							<div id="jafungumum" style="margin-top:15px;margin-bottom:15px">
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
-									<div class="col-md-9">
-										<div class="col-md-5">
-											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;">
-
-											</select>
-										</div>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
-									<div class="col-md-9">
-										<div class="col-md-5">
-											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;">
-											</select>
-										</div>
-									</div>
-								</div>
 
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Fungsional</label>
@@ -445,7 +405,7 @@
 								<div class="col-md-2">
 									<select select2 class="form-control" name="golongan_id_awal">
 									    @foreach($golongan as $data_golongan)
-									    	<option value="{{$data_golongan->id}}">{{$data_golongan->title}}</option>
+									    	<option value="{{$data_golongan->id}}">{{$data_golongan->title}} - {{$data_golongan->description}}</option>
 									    @endforeach
 									</select>
 								</div>
@@ -460,7 +420,7 @@
 								<div class="col-md-2">
 									<select select2 class="form-control" name="golongan_id_akhir">
 									    @foreach($golongan as $data_golongan)
-									    	<option value="{{$data_golongan->id}}">{{$data_golongan->title}}</option>
+									    	<option value="{{$data_golongan->id}}">{{$data_golongan->title}} - {{$data_golongan->description}}</option>
 									    @endforeach
 									</select>
 								</div>
@@ -610,12 +570,14 @@
 <script src="{{ asset("js/examples.wizard.js") }}"></script>
 <script type="text/javascript">
 
+$("#jenis_jabatan_sub").hide();
 $("#struktural").hide();
 $("#jafung").hide();
 $("#jafungumum").hide();
 
 $("#jenis_jabatan").change(function(){
 	var jenis_jabatan = $(this).val();
+	$("#jenis_jabatan_sub").show();
 
 	if(jenis_jabatan == 'Struktural'){
 		$("#struktural").show();
@@ -632,6 +594,99 @@ $("#jenis_jabatan").change(function(){
 		$("#jafung").hide();
 		$("#jafungumum").show();
 	}
+});
+
+$("#unit_kerja_id").change(function(){
+    $.ajax({
+        type: "POST",
+        url: "{{ route('dashboard.ajax.sub_unit_kerja') }}",
+        dataType:"json",
+        data: {
+        	'unit_kerja_id' : $(this).val(),
+        	'_token' : '{{ csrf_token() }}'
+        },
+        success: function (responses) {
+        	$("#sub_unit_kerja_id").select2("val", "");
+        	$('#sub_unit_kerja_id').html('');
+        	$("#satuan_kerja_id").select2("val", "");
+        	$('#satuan_kerja_id').html('');
+        	$("#jabatan_struktural_id").select2("val", "");
+        	$('#jabatan_struktural_id').html('');
+		    $('#sub_unit_kerja_id').append('<option disabled selected value>--- Pilih ---</option>');
+
+        	$.each(responses, function (i, response) {
+			    $('#sub_unit_kerja_id').append($('<option>', { 
+			        value: response.id,
+			        text : response.title 
+			    }));
+			});
+        }
+    });
+});
+
+$("#sub_unit_kerja_id").change(function(){
+    $.ajax({
+        type: "POST",
+        url: "{{ route('dashboard.ajax.satuan_kerja') }}",
+        dataType:"json",
+        data: {
+        	'sub_unit_kerja_id' : $(this).val(),
+        	'_token' : '{{ csrf_token() }}'
+        },
+        success: function (responses) {
+        	$("#satuan_kerja_id").select2("val", "");
+        	$('#satuan_kerja_id').html('');
+        	$("#jabatan_struktural_id").select2("val", "");
+        	$('#jabatan_struktural_id').html('');
+		    $('#satuan_kerja_id').append('<option disabled selected value>--- Pilih ---</option>');
+
+        	$.each(responses, function (i, response) {
+			    $('#satuan_kerja_id').append($('<option>', { 
+			        value: response.id,
+			        text : response.title 
+			    }));
+			});
+        }
+    });
+});
+
+$("#satuan_kerja_id").change(function(){
+    $.ajax({
+        type: "POST",
+        url: "{{ route('dashboard.ajax.jabatan_struktural') }}",
+        dataType:"json",
+        data: {
+        	'satuan_kerja_id' : $(this).val(),
+        	'_token' : '{{ csrf_token() }}'
+        },
+        success: function (responses) {
+        	$("#jabatan_struktural_id").select2("val", "");
+        	$('#jabatan_struktural_id').html('');
+		    $('#jabatan_struktural_id').append('<option disabled selected value>--- Pilih ---</option>');
+
+        	$.each(responses, function (i, response) {
+			    $('#jabatan_struktural_id').append($('<option>', { 
+			        value: response.id,
+			        text : response.title 
+			    }));
+			});
+        }
+    });
+});
+
+$("#jabatan_struktural_id").change(function(){
+    $.ajax({
+        type: "POST",
+        url: "{{ route('dashboard.ajax.jabatan_struktural_detail') }}",
+        dataType:"json",
+        data: {
+        	'jabatan_struktural_id' : $(this).val(),
+        	'_token' : '{{ csrf_token() }}'
+        },
+        success: function (responses) {
+        	$("#eselon").val(responses.eselon)
+        }
+    });
 });
 
 var foto="";
