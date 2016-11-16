@@ -32,5 +32,20 @@ class PegawaiController extends Controller
 	{
 		$arr = $request->except('_token');
 		$pegawai->insert($arr);
+
+		return redirect(route('dashboard.pegawai'));
+	}
+
+	public function edit(UnitKerja $unitKerja, Golongan $golongan)
+	{
+		$unit_kerja = $unitKerja->where('parent_id',0)->get();
+		$golongan = $golongan->get();
+		return view('backend.pegawai.add', compact('unit_kerja', 'golongan'));
+	}
+
+	public function delete($id, Pegawai $pegawai)
+	{
+		$pegawai->findOrFail($id)->delete();
+		return redirect(route('dashboard.pegawai'));
 	}
 }

@@ -6,43 +6,23 @@
 
 <section class="panel">
 	<section class="panel form-wizard" id="w2">
-		<div class="tabs panel">
-			<ul class="nav nav-tabs nav-justify">
-				<li class='active'>
-					<a href="#w2-datautama" data-toggle="tab" class="text-center">
-						<span class="badge hidden-xs">1</span>
-						Data Utama
-					</a>
-				</li>
-				<li>
-					<a href="#w2-posisijabatan" data-toggle="tab" class="text-center">
-						<span class="badge hidden-xs">2</span>
-						Posisi & Jabatan
-					</a>
-				</li>
-				<li>
-					<a href="#w2-datalainnya" data-toggle="tab" class="text-center">
-						<span class="badge hidden-xs">3</span>
-						Data Lainnya
-					</a>
-				</li>
-			</ul>
 			<form class="form-horizontal panel-body" action="{{route('dashboard.pegawai.store')}}" id="submit_pegawai" method="POST" enctype="multipart/form-data" novalidate="novalidate">
 				<input type="hidden" name="_token" value="{{csrf_token()}}" />
 				<div class="tab-content">
-					<div id="w2-datautama" class="tab-pane active">
+					<div>
 						<div class="panel-body">
+							<h3 style="border-bottom: 1px solid #eee; padding-left: 10px; padding-bottom: 10px;">1. Data Utama</h3>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">NIP</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="nip">
+									<input type="number" class="form-control" id="inputDefault" name="nip" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Nama</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="nama_lengkap">
+									<input type="text" class="form-control" id="inputDefault" name="nama_lengkap" required>
 								</div>
 							</div>
 
@@ -60,21 +40,21 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tempat Lahir</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" name="tempat_lahir">
+									<input type="text" class="form-control" name="tempat_lahir" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tanggal Lahir</label>
 								<div class="col-md-9">
-									<input type="text" datepicker rules="date" class="form-control" name="tanggal_lahir">
+									<input type="text" datepicker rules="date" class="form-control" name="tanggal_lahir" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Agama</label>
 								<div class="col-md-3">
-									<select select2 name="agama" class="form-control">
+									<select select2 name="agama" class="form-control" required>
 										@foreach(config('simpeg.agama') as $agama)
 											<option value="{{$agama}}">{{$agama}}</option>
 										@endforeach
@@ -86,7 +66,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Jenis Kelamin</label>
 								<div class="col-md-3">
-									<select select2 name="jenis_kelamin" class="form-control">
+									<select select2 name="jenis_kelamin" class="form-control" required>
 										@foreach(config('simpeg.jenis_kelamin') as $jenis_kelamin)
 											<option value="{{$jenis_kelamin}}">{{$jenis_kelamin}}</option>
 										@endforeach
@@ -97,7 +77,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Status Pernikahan</label>
 								<div class="col-md-3">
-									<select select2 name="status_pernikahan" class="form-control">
+									<select select2 name="status_pernikahan" class="form-control" required>
 										@foreach(config('simpeg.status_pernikahan') as $status_pernikahan)
 											<option value="{{$status_pernikahan}}">{{$status_pernikahan}}</option>
 										@endforeach
@@ -109,21 +89,21 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Email</label>
 								<div class="col-md-9">
-									<input type="email" class="form-control" id="inputDefault" name="email">
+									<input type="email" class="form-control" id="inputDefault" name="email" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Alamat</label>
 								<div class="col-md-9">
-									<textarea class="form-control" name="alamat"></textarea>
+									<textarea class="form-control" name="alamat" required></textarea>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Kode Pos</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="kode_pos" maxlength="5">
+									<input type="text" class="form-control" id="inputDefault" name="kode_pos" maxlength="5" required>
 								</div>
 							</div>
 
@@ -137,14 +117,14 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No Handpone</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="handphone">
+									<input type="text" class="form-control" id="inputDefault" name="handphone" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Kedudukan PNS</label>
 								<div class="col-md-3">
-									<select select2 name="kedudukan_pns" class="form-control">
+									<select select2 name="kedudukan_pns" class="form-control" required>
 									    @foreach(config('simpeg.kedudukan_pegawai') as $kedudukan_pegawai)
 									    	<option value="{{$kedudukan_pegawai}}">{{$kedudukan_pegawai}}</option>
 									    @endforeach
@@ -155,7 +135,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Status Pegawai</label>
 								<div class="col-md-3">
-									<select select2 name="status_pegawai" class="form-control">
+									<select select2 name="status_pegawai" class="form-control" required>
 									    @foreach(config('simpeg.status_pegawai') as $status_pegawai)
 									    	<option value="{{$status_pegawai}}">{{$status_pegawai}}</option>
 									    @endforeach
@@ -166,18 +146,18 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">TMT CPNS</label>
 								<div class="col-md-2">
-									<input type="text" datepicker rules="date" class="form-control" id="inputDefault" name="tmt_cpns">
+									<input type="text" datepicker rules="date" class="form-control" id="inputDefault" name="tmt_cpns" required>
 								</div>
 								<label class="col-md-1 control-label" for="inputDefault">TMT PNS</label>
 								<div class="col-md-2">
-									<input type="text" datepicker rules="date" class="form-control" id="inputDefault" name="tmt_pns">
+									<input type="text" datepicker rules="date" class="form-control" id="inputDefault" name="tmt_pns" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tingkat Pendidikan Awal Pengangkatan CPNS</label>
 								<div class="col-md-3">
-									<select select2 name="pendidikan_awal_cpns" class="form-control">
+									<select select2 name="pendidikan_awal_cpns" class="form-control" required>
 									    @foreach(config('simpeg.pendidikan') as $pendidikan)
 									    	<option value="{{$pendidikan}}">{{$pendidikan}}</option>
 									    @endforeach
@@ -188,7 +168,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tingkat Pendidikan Akhir</label>
 								<div class="col-md-3">
-									<select select2 name="pendidikan_akhir" class="form-control">
+									<select select2 name="pendidikan_akhir" class="form-control" required>
 									    @foreach(config('simpeg.pendidikan') as $pendidikan)
 									    	<option value="{{$pendidikan}}">{{$pendidikan}}</option>
 									    @endforeach
@@ -237,27 +217,27 @@
 								<label class="col-md-3 control-label" for="inputDefault">Pendidikan Terakhir</label>
 								<label class="col-md-3 control-label" for="inputDefault">Fakultas</label>
 								<div class="col-md-6">
-									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_fakultas" placeholder="Fakultas"/>
+									<input class="form-control" type="text" name="pendidikan_akhir_fakultas" placeholder="Fakultas" required />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault"></label>
 								<label class="col-md-3 control-label" for="inputDefault">Jurusan</label>
 								<div class="col-md-6">
-									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_jurusan" placeholder="Jurusan"/>
+									<input class="form-control" type="text" name="pendidikan_akhir_jurusan" placeholder="Jurusan" required/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault"></label>
 								<label class="col-md-3 control-label" for="inputDefault">Lulus Tahun</label>
 								<div class="col-md-6">
-									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_tahun_lulus" placeholder="Tahun"/>
+									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_tahun_lulus" placeholder="Tahun" required/>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Foto</label>
-								<div class="col-md-3">
+								<div class="col-md-5">
 									<div class="fileUpload btn btn-primary" style="margin-top: 0px;">
 									    <span>Upload</span>
 									    <input type="file" name="foto" class="upload" accept="image/*" />
@@ -266,7 +246,7 @@
 										<span class="label label-danger">Perhatian! Resolusi Foto 3 x 4 ! </span>
 									</div>
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-4">
 							  		<div class="form-group">
 					    		        <label>
 					    		            Preview Foto
@@ -280,20 +260,20 @@
 							</div>
 						</div>
 					</div>
-					<div id="w2-posisijabatan" class="tab-pane">
+					<div>
 						<div class="panel-body">
-
+							<h3 style="border-bottom: 1px solid #eee; padding-left: 10px; padding-bottom: 10px;">2. Posisi dan Jabatan</h3>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Unit Organisasi</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="unit_organisasi">
+									<input type="text" class="form-control" id="inputDefault" name="unit_organisasi" required>
 								</div>
 							</div>
 							<!-- hilmi -->
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Jenis Jabatan</label>
 								<div class="col-md-3">
-									<select select2 name="jenis_jabatan" class="form-control jenjab" id="jenis_jabatan">
+									<select select2 name="jenis_jabatan" class="form-control jenjab" id="jenis_jabatan" required>
 										<option value=""></option>
 									    @foreach(config('simpeg.jenis_jabatan') as $jenis_jabatan)
 									    	<option value="{{$jenis_jabatan}}">{{$jenis_jabatan}}</option>
@@ -307,7 +287,7 @@
 									<label class="col-md-3 control-label" for="inputDefault">Unit Kerja</label>
 									<div class="col-md-9">
 										<div class="col-md-3">
-											<select select2 class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id" id="unit_kerja_id">
+											<select select2 class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id" id="unit_kerja_id" required>
 												<option value=""></option>
 											    @foreach($unit_kerja as $unit)
 											    	<option value="{{$unit->id}}">{{$unit->title}}</option>
@@ -320,7 +300,7 @@
 									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;" id="sub_unit_kerja_id">
+											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;" id="sub_unit_kerja_id" required>
 												<option value=""></option>
 											</select>
 										</div>
@@ -331,7 +311,7 @@
 									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;" id="satuan_kerja_id">
+											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;" id="satuan_kerja_id" required>
 												<option value=""></option>
 											</select>
 										</div>
@@ -403,7 +383,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Golongan Ruang Awal</label>
 								<div class="col-md-2">
-									<select select2 class="form-control" name="golongan_id_awal">
+									<select select2 class="form-control" name="golongan_id_awal" required>
 									    @foreach($golongan as $data_golongan)
 									    	<option value="{{$data_golongan->id}}">{{$data_golongan->title}} - {{$data_golongan->description}}</option>
 									    @endforeach
@@ -411,14 +391,14 @@
 								</div>
 								<label class="col-md-2 control-label" for="inputDefault">TMT Gol. Awal</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tmt_golongan_awal" datepicker>
+									<input type="text" class="form-control" id="inputDefault" name="tmt_golongan_awal" required datepicker>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Golongan Ruang Akhir</label>
 								<div class="col-md-2">
-									<select select2 class="form-control" name="golongan_id_akhir">
+									<select select2 class="form-control" name="golongan_id_akhir" required>
 									    @foreach($golongan as $data_golongan)
 									    	<option value="{{$data_golongan->id}}">{{$data_golongan->title}} - {{$data_golongan->description}}</option>
 									    @endforeach
@@ -426,92 +406,93 @@
 								</div>
 								<label class="col-md-2 control-label" for="inputDefault">TMT Gol. Akhir</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tmt_golongan_akhir" datepicker>
+									<input type="text" class="form-control" id="inputDefault" name="tmt_golongan_akhir" required datepicker>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Gaji Pokok</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="gaji_pokok">
+									<input type="text" class="form-control" id="inputDefault" name="gaji_pokok" required>
 								</div>
 
 								<label class="col-md-1 control-label" for="inputDefault">Masa Kerja. Tahun</label>
 								<div class="col-md-1">
-									<input type="text" class="form-control" id="inputDefault" name="masa_kerja_tahun" maxlength="4">
+									<input type="text" class="form-control" id="inputDefault" name="masa_kerja_tahun" maxlength="4" required>
 								</div>
 								<label class="col-md-1 control-label" for="inputDefault">Bulan</label>
 								<div class="col-md-1">
-									<input type="text" class="form-control" id="inputDefault" name="masa_kerja_bulan" maxlength="2">
+									<input type="text" class="form-control" id="inputDefault" name="masa_kerja_bulan" maxlength="2" required>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div id="w2-datalainnya" class="tab-pane">
+					<div>
 						<div class="panel-body">
+							<h3 style="border-bottom: 1px solid #eee; padding-left: 10px; padding-bottom: 10px;">3. Data Lainnya</h3>
 						 	<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No Seri KARPEG</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_seri_karpeg" maxlength="9">
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_karpeg" maxlength="9" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No Seri KPE</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_seri_kpe" maxlength="9">
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_kpe" maxlength="9" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No Seri KARIS/KARSU</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_seri_karis" maxlength="9">
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_karis" maxlength="9" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No Akte Kelahiran</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="no_akte_kelahiran">
+									<input type="text" class="form-control" id="inputDefault" name="no_akte_kelahiran" required>
 								</div>
 
 								<label class="col-md-2 control-label" for="inputDefault">Tahun Akte</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tahun_no_akte_kelahiran">
+									<input type="text" class="form-control" id="inputDefault" name="tahun_no_akte_kelahiran" maxlength="4" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No ASKES</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_askes" maxlength="13">
+									<input type="text" class="form-control" id="inputDefault" name="no_askes" maxlength="13" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No TASPEN</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_taspen" maxlength="18">
+									<input type="text" class="form-control" id="inputDefault" name="no_taspen" maxlength="18" required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">No NPWP</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="no_npwp">
+									<input type="text" class="form-control" id="inputDefault" name="no_npwp" required>
 								</div>
 
 								<label class="col-md-2 control-label" for="inputDefault">Tanggal NPWP</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tanggal_npwp" datepicker>
+									<input type="text" class="form-control" id="inputDefault" name="tanggal_npwp" required datepicker>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Golongan Darah</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="golongan_darah">
+									<input type="text" class="form-control" id="inputDefault" name="golongan_darah" required>
 								</div>
 							</div>
 							<div class="form-group">
@@ -523,20 +504,6 @@
 					</div>
 				</div>
 			</form>
-		</div>
-		<div class="panel-footer">
-			<ul class="pager">
-				<li class="previous disabled">
-					<a><i class="fa fa-angle-left"></i> Previous</a>
-				</li>
-				<li class="finish hidden pull-right">
-					<a>Finish</a>
-				</li>
-				<li class="next">
-					<a>Next <i class="fa fa-angle-right"></i></a>
-				</li>
-			</ul>
-		</div>
 	</section>
 </section>
 
@@ -578,6 +545,10 @@ $("#jafungumum").hide();
 $("#jenis_jabatan").change(function(){
 	var jenis_jabatan = $(this).val();
 	$("#jenis_jabatan_sub").show();
+
+	$("#jabatan_struktural_id").select2("val", "");
+	$('#jabatan_struktural_id').html('');
+	$("#eselon").val('');
 
 	if(jenis_jabatan == 'Struktural'){
 		$("#struktural").show();

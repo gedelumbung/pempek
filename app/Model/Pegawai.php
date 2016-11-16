@@ -16,4 +16,9 @@ class Pegawai extends Model
     {
         return $this->belongsTo('Simpeg\Model\UnitKerja');
     }
+
+    public function jabatan_struktural()
+    {
+        return $this->belongsTo('Simpeg\Model\JabatanStruktural');
+    }
 }
