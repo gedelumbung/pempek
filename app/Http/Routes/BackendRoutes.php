@@ -62,6 +62,8 @@ class BackendRoutes implements RoutesInterface
         $this->router->post('/pegawai/store', ['as' => 'dashboard.pegawai.store', 'uses' => 'PegawaiController@store']);
         $this->router->get('/pegawai/edit/{id}', ['as' => 'dashboard.pegawai.edit', 'uses' => 'PegawaiController@edit']);
         $this->router->get('/pegawai/delete/{id}', ['as' => 'dashboard.pegawai.delete', 'uses' => 'PegawaiController@delete']);
+        $this->router->get('/pegawai/show/{id}', ['as' => 'dashboard.pegawai.show', 'uses' => 'PegawaiController@show']);
+        $this->router->get('/pegawai/riwayat/{id}', ['as' => 'dashboard.pegawai.riwayat', 'uses' => 'PegawaiController@riwayat']);
     }
 
     public function administrator()

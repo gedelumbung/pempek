@@ -19,7 +19,7 @@
 				<th>Nama Jabatan</th>
 				<th>Progress</th>
 				<th>
-					<a href="{{route('dashboard.pegawai.add')}}" class="btn btn-sm btn-primary">Add New</a>
+					<a href="{{route('dashboard.pegawai.add')}}" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Add New</a>
 				</th>
 			</tr>
 			<tbody>
@@ -40,11 +40,17 @@
 					</td>
 					<td>50%</td>
 					<td>
-	        			<a href="{{ route('dashboard.pegawai.edit', ['id' => $data->id]) }}">
-	        				<i class="glyphicon glyphicon-pencil text-muted"></i>
+	        			<a href="{{ route('dashboard.pegawai.show', ['id' => $data->id]) }}" class="btn btn-sm btn-warning">
+	        				<i class="glyphicon glyphicon-eye-open"></i>
 	        			</a>
-	        			<a href="{{ route('dashboard.pegawai.delete', ['id' => $data->id]) }}">
-	        				<i class="glyphicon glyphicon-trash text-danger"></i>
+	        			<a href="{{ route('dashboard.pegawai.riwayat', ['id' => $data->id]) }}" class="btn btn-sm btn-default">
+	        				<i class="glyphicon glyphicon-folder-open"></i>
+	        			</a>
+	        			<a href="{{ route('dashboard.pegawai.edit', ['id' => $data->id]) }}" class="btn btn-sm btn-success">
+	        				<i class="glyphicon glyphicon-pencil"></i>
+	        			</a>
+	        			<a href="{{ route('dashboard.pegawai.delete', ['id' => $data->id]) }}" class="btn btn-sm btn-danger">
+	        				<i class="glyphicon glyphicon-trash"></i>
 	        			</a>
 					</td>
 				</tr>
