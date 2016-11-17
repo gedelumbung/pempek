@@ -18,9 +18,11 @@ class CreateRiwayatDiklatTable extends Migration
             $table->unsignedInteger('pegawai_id');
             $table->string('nama_diklat');
             $table->string('nomor_sertifikat');
-            $table->integer('tahun',4);
-            $table->integer('jumlah_jam',4);
+            $table->integer('tahun');
+            $table->integer('jumlah_jam');
             $table->timestamps();
+
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');
         });
     }
 
@@ -31,6 +33,9 @@ class CreateRiwayatDiklatTable extends Migration
      */
     public function down()
     {
-        Schema::drop('riwayat_diklat');
+        Schema::table('riwayat_diklat', function (Blueprint $table) {
+            $table->dropForeign(['pegawai_id']);
+            $table->drop('riwayat_diklat');
+        });
     }
 }

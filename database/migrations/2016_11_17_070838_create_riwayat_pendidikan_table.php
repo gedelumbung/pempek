@@ -23,6 +23,8 @@ class CreateRiwayatPendidikanTable extends Migration
             $table->string('tanggal_lulus');
             $table->string('nama_pimpinan');
             $table->timestamps();
+            
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');
         });
     }
 
@@ -33,6 +35,9 @@ class CreateRiwayatPendidikanTable extends Migration
      */
     public function down()
     {
-        Schema::drop('riwayat_pendidikan');
+        Schema::table('riwayat_pendidikan', function (Blueprint $table) {
+            $table->dropForeign(['pegawai_id']);
+            $table->drop('riwayat_pendidikan');
+        });
     }
 }

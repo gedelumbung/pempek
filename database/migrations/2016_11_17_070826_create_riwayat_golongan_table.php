@@ -18,13 +18,16 @@ class CreateRiwayatGolonganTable extends Migration
             $table->unsignedInteger('pegawai_id');
             $table->unsignedInteger('golongan_id');
             $table->string('tmt');
-            $table->integer('masa_kerja_tahun',3);
-            $table->integer('masa_kerja_bulan',2);
+            $table->smallInteger('masa_kerja_tahun')->nullable();
+            $table->smallInteger('masa_kerja_bulan')->nullable();
             $table->string('nomor_sk');
             $table->string('tahun_sk');
             $table->string('nomor_persetujuan_bkn');
             $table->string('tahun_persetujuan_bkn');
             $table->timestamps();
+
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');
+            $table->foreign('golongan_id')->references('id')->on('golongan')->onDelete('cascade');
         });
     }
 
@@ -35,6 +38,8 @@ class CreateRiwayatGolonganTable extends Migration
      */
     public function down()
     {
-        Schema::drop('riwayat_golongan');
+        Schema::table('riwayat_golongan', function (Blueprint $table) {
+            $table->drop('riwayat_golongan');
+        });
     }
 }

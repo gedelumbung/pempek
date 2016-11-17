@@ -17,11 +17,13 @@ class CreateRiwayatKursusTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('pegawai_id');
             $table->string('nama_kursus');
-            $table->integer('jumlah_jam',4);
+            $table->integer('jumlah_jam');
             $table->string('nomor_sertifikat');
             $table->string('tanggal');
             $table->string('penyelenggara');
             $table->timestamps();
+
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');
         });
     }
 
@@ -32,6 +34,9 @@ class CreateRiwayatKursusTable extends Migration
      */
     public function down()
     {
-        Schema::drop('riwayat_kursus');
+        Schema::table('riwayat_kursus', function (Blueprint $table) {
+            $table->dropForeign(['pegawai_id']);
+            $table->drop('riwayat_kursus');
+        });
     }
 }

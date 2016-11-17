@@ -26,9 +26,10 @@ class CreateIbuTable extends Migration
             $table->string('telepon')->nullable();
             $table->string('status_perkawinan');
             $table->string('status_hidup');
-            $table->string('status_hidup');
             $table->text('alamat');
             $table->timestamps();
+
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');
         });
     }
 
@@ -39,6 +40,9 @@ class CreateIbuTable extends Migration
      */
     public function down()
     {
-        Schema::drop('ibu');
+        Schema::table('ibu', function (Blueprint $table) {
+            $table->dropForeign(['pegawai_id']);
+            $table->drop('ibu');
+        });
     }
 }

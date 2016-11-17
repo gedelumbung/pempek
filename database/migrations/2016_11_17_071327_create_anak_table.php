@@ -25,11 +25,12 @@ class CreateAnakTable extends Migration
             $table->string('agama');
             $table->string('status_perkawinan');
             $table->string('status_hidup');
-            $table->string('status_hidup');
             $table->string('status_anak');
             $table->text('alamat');
             $table->string('telepon');
             $table->timestamps();
+
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');
         });
     }
 
@@ -40,6 +41,9 @@ class CreateAnakTable extends Migration
      */
     public function down()
     {
-        Schema::drop('anak');
+        Schema::table('anak', function (Blueprint $table) {
+            $table->dropForeign(['pegawai_id']);
+            $table->drop('anak');
+        });
     }
 }

@@ -24,6 +24,10 @@ class CreateRiwayatJabatanTable extends Migration
             $table->string('tmt');
             $table->string('eselon');
             $table->timestamps();
+
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');
+            $table->foreign('unit_kerja_id')->references('id')->on('unit_kerja')->onDelete('cascade');
+            $table->foreign('jabatan_struktural_id')->references('id')->on('jabatan_struktural')->onDelete('cascade');
         });
     }
 
@@ -34,6 +38,8 @@ class CreateRiwayatJabatanTable extends Migration
      */
     public function down()
     {
-        Schema::drop('riwayat_jabatan');
+        Schema::table('riwayat_jabatan', function (Blueprint $table) {
+            $table->drop('riwayat_jabatan');
+        });
     }
 }

@@ -21,6 +21,8 @@ class CreateRiwayatPenghargaanTable extends Migration
             $table->string('tanggal');
             $table->string('nama_pemberi_penghargaan');
             $table->timestamps();
+
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');
         });
     }
 
@@ -31,6 +33,9 @@ class CreateRiwayatPenghargaanTable extends Migration
      */
     public function down()
     {
-        Schema::drop('riwayat_penghargaan');
+        Schema::table('riwayat_penghargaan', function (Blueprint $table) {
+            $table->dropForeign(['pegawai_id']);
+            $table->drop('riwayat_penghargaan');
+        });
     }
 }

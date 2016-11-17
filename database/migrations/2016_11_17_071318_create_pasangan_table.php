@@ -39,6 +39,8 @@ class CreatePasanganTable extends Migration
             $table->string('nama_pasangan')->nullable();
             $table->string('nip_pasangan')->nullable();
             $table->timestamps();
+
+            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');
         });
     }
 
@@ -49,6 +51,9 @@ class CreatePasanganTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pasangan');
+        Schema::table('pasangan', function (Blueprint $table) {
+            $table->dropForeign(['pegawai_id']);
+            $table->drop('pasangan');
+        });
     }
 }
