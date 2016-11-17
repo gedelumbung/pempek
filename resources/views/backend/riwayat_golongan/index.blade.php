@@ -71,8 +71,3 @@
 </div>
 
 @endsection
-@push("script")
-<script src="{{ asset("js/jquery.bootstrap.wizard.js") }}"></script>
-<script src="{{ asset("js/jquery.validate.js") }}"></script>
-<script src="{{ asset("js/examples.wizard.js") }}"></script>
-@endpush

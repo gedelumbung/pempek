@@ -532,9 +532,6 @@
 @endpush
 
 @push("script")
-<script src="{{ asset("js/jquery.bootstrap.wizard.js") }}"></script>
-<script src="{{ asset("js/jquery.validate.js") }}"></script>
-<script src="{{ asset("js/examples.wizard.js") }}"></script>
 <script type="text/javascript">
 
 $("#jenis_jabatan_sub").hide();
