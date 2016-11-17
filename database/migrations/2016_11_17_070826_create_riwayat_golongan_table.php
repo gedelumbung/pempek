@@ -21,7 +21,7 @@ class CreateRiwayatGolonganTable extends Migration
             $table->smallInteger('masa_kerja_tahun')->nullable();
             $table->smallInteger('masa_kerja_bulan')->nullable();
             $table->string('nomor_sk');
-            $table->string('tahun_sk');
+            $table->string('tanggal_sk');
             $table->string('nomor_persetujuan_bkn');
             $table->string('tahun_persetujuan_bkn');
             $table->timestamps();

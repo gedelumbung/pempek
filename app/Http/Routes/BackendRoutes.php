@@ -60,10 +60,14 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/pegawai', ['as' => 'dashboard.pegawai', 'uses' => 'PegawaiController@index']);
         $this->router->get('/pegawai/add', ['as' => 'dashboard.pegawai.add', 'uses' => 'PegawaiController@add']);
         $this->router->post('/pegawai/store', ['as' => 'dashboard.pegawai.store', 'uses' => 'PegawaiController@store']);
-        $this->router->get('/pegawai/edit/{id}', ['as' => 'dashboard.pegawai.edit', 'uses' => 'PegawaiController@edit']);
-        $this->router->get('/pegawai/delete/{id}', ['as' => 'dashboard.pegawai.delete', 'uses' => 'PegawaiController@delete']);
-        $this->router->get('/pegawai/show/{id}', ['as' => 'dashboard.pegawai.show', 'uses' => 'PegawaiController@show']);
-        $this->router->get('/pegawai/riwayat/{id}', ['as' => 'dashboard.pegawai.riwayat', 'uses' => 'PegawaiController@riwayat']);
+        $this->router->get('/pegawai/{id}/edit', ['as' => 'dashboard.pegawai.edit', 'uses' => 'PegawaiController@edit']);
+        $this->router->get('/pegawai/{id}/delete', ['as' => 'dashboard.pegawai.delete', 'uses' => 'PegawaiController@delete']);
+        $this->router->get('/pegawai/{id}/show', ['as' => 'dashboard.pegawai.show', 'uses' => 'PegawaiController@show']);
+
+        $this->router->get('/pegawai/{pegawai}/riwayat-golongan', ['as' => 'dashboard.pegawai.riwayat_golongan', 'uses' => 'RiwayatGolonganController@index']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-golongan/create', ['as' => 'dashboard.pegawai.riwayat_golongan.create', 'uses' => 'RiwayatGolonganController@create']);
+        $this->router->post('/pegawai/{pegawai}/riwayat-golongan', ['as' => 'dashboard.pegawai.riwayat_golongan.store', 'uses' => 'RiwayatGolonganController@store']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-golongan/{id}/delete', ['as' => 'dashboard.pegawai.riwayat_golongan.delete', 'uses' => 'RiwayatGolonganController@delete']);
     }
 
     public function administrator()

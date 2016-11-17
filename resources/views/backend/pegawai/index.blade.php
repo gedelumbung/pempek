@@ -43,7 +43,7 @@
 	        			<a href="{{ route('dashboard.pegawai.show', ['id' => $data->id]) }}" class="btn btn-sm btn-warning">
 	        				<i class="glyphicon glyphicon-eye-open"></i>
 	        			</a>
-	        			<a href="{{ route('dashboard.pegawai.riwayat', ['id' => $data->id]) }}" class="btn btn-sm btn-default">
+	        			<a href="{{ route('dashboard.pegawai.riwayat_golongan', ['id' => $data->id]) }}" class="btn btn-sm btn-default">
 	        				<i class="glyphicon glyphicon-folder-open"></i>
 	        			</a>
 	        			<a href="{{ route('dashboard.pegawai.edit', ['id' => $data->id]) }}" class="btn btn-sm btn-success">
