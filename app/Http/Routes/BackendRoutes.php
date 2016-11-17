@@ -68,6 +68,11 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/pegawai/{pegawai}/riwayat-golongan/create', ['as' => 'dashboard.pegawai.riwayat_golongan.create', 'uses' => 'RiwayatGolonganController@create']);
         $this->router->post('/pegawai/{pegawai}/riwayat-golongan', ['as' => 'dashboard.pegawai.riwayat_golongan.store', 'uses' => 'RiwayatGolonganController@store']);
         $this->router->get('/pegawai/{pegawai}/riwayat-golongan/{id}/delete', ['as' => 'dashboard.pegawai.riwayat_golongan.delete', 'uses' => 'RiwayatGolonganController@delete']);
+
+        $this->router->get('/pegawai/{pegawai}/riwayat-pendidikan', ['as' => 'dashboard.pegawai.riwayat_pendidikan', 'uses' => 'RiwayatPendidikanController@index']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-pendidikan/create', ['as' => 'dashboard.pegawai.riwayat_pendidikan.create', 'uses' => 'RiwayatPendidikanController@create']);
+        $this->router->post('/pegawai/{pegawai}/riwayat-pendidikan', ['as' => 'dashboard.pegawai.riwayat_pendidikan.store', 'uses' => 'RiwayatPendidikanController@store']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-pendidikan/{id}/delete', ['as' => 'dashboard.pegawai.riwayat_pendidikan.delete', 'uses' => 'RiwayatPendidikanController@delete']);
     }
 
     public function administrator()
