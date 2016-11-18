@@ -80,9 +80,6 @@ elixir(function(mix) {
             "/resources/assets/backend/js/theme/nanoscroller.js",
             "/resources/assets/backend/js/theme/modernizr.js",
             "/resources/assets/backend/js/ui/pnotify.custom.js",
-            "/resources/assets/backend/js/ui/jquery.validate.js",
-            "/resources/assets/backend/js/ui/jquery.bootstrap.wizard.js",
-            "/resources/assets/backend/js/ui/pnotify.custom.js",
             "/resources/assets/js/input/validator.min.js",
             "/resources/assets/js/input/bootstrap-maxlength.js",
             "/resources/assets/js/input/bootstrap-datepicker.js",
@@ -97,6 +94,9 @@ elixir(function(mix) {
             "/resources/assets/backend/js/app/event.js",
             "/resources/assets/backend/js/app/angular.init.js",
             "/resources/assets/backend/js/app/init.js",
+            "/resources/assets/backend/js/ui/jquery.validate.js",
+            "/resources/assets/backend/js/ui/jquery.bootstrap.wizard.js",
+            "/resources/assets/backend/js/ui/examples.wizard.js",
         ], "public/js/backend.js", './')
 
         .version([
