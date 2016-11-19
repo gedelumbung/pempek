@@ -42,8 +42,14 @@ return [
 
     'status_pernikahan_pasangan' => [
         'menikah'       => 'Menikah',
-        'Cerai'         => 'Cerai',
+        'cerai'         => 'Cerai',
         'duda_janda'    =>  'Duda/Janda'
+    ],
+
+    'status_anak' => [
+        'kandung'       => 'Anak Kandung',
+        'angkat'         => 'Anak Angkat',
+        'tiri'    =>  'Anak Tiri'
     ],
 
     'agama' => [
