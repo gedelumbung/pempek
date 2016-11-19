@@ -73,6 +73,37 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/pegawai/{pegawai}/riwayat-pendidikan/create', ['as' => 'dashboard.pegawai.riwayat_pendidikan.create', 'uses' => 'RiwayatPendidikanController@create']);
         $this->router->post('/pegawai/{pegawai}/riwayat-pendidikan', ['as' => 'dashboard.pegawai.riwayat_pendidikan.store', 'uses' => 'RiwayatPendidikanController@store']);
         $this->router->get('/pegawai/{pegawai}/riwayat-pendidikan/{id}/delete', ['as' => 'dashboard.pegawai.riwayat_pendidikan.delete', 'uses' => 'RiwayatPendidikanController@delete']);
+
+        $this->router->get('/pegawai/{pegawai}/riwayat-jabatan', ['as' => 'dashboard.pegawai.riwayat_jabatan', 'uses' => 'RiwayatJabatanController@index']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-jabatan/create', ['as' => 'dashboard.pegawai.riwayat_jabatan.create', 'uses' => 'RiwayatJabatanController@create']);
+        $this->router->post('/pegawai/{pegawai}/riwayat-jabatan', ['as' => 'dashboard.pegawai.riwayat_jabatan.store', 'uses' => 'RiwayatJabatanController@store']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-jabatan/{id}/delete', ['as' => 'dashboard.pegawai.riwayat_jabatan.delete', 'uses' => 'RiwayatJabatanController@delete']);
+
+        $this->router->get('/pegawai/{pegawai}/riwayat-diklat', ['as' => 'dashboard.pegawai.riwayat_diklat', 'uses' => 'RiwayatDiklatController@index']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-diklat/create', ['as' => 'dashboard.pegawai.riwayat_diklat.create', 'uses' => 'RiwayatDiklatController@create']);
+        $this->router->post('/pegawai/{pegawai}/riwayat-diklat', ['as' => 'dashboard.pegawai.riwayat_diklat.store', 'uses' => 'RiwayatDiklatController@store']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-diklat/{id}/delete', ['as' => 'dashboard.pegawai.riwayat_diklat.delete', 'uses' => 'RiwayatDiklatController@delete']);
+
+        $this->router->get('/pegawai/{pegawai}/orang-tua', ['as' => 'dashboard.pegawai.orang_tua', 'uses' => 'OrangTuaController@index']);
+        $this->router->post('/pegawai/{pegawai}/orang-tua', ['as' => 'dashboard.pegawai.orang_tua.store', 'uses' => 'OrangTuaController@store']);
+
+        $this->router->get('/pegawai/{pegawai}/pasangan', ['as' => 'dashboard.pegawai.pasangan', 'uses' => 'PasanganController@index']);
+        $this->router->post('/pegawai/{pegawai}/pasangan', ['as' => 'dashboard.pegawai.pasangan.store', 'uses' => 'PasanganController@store']);
+
+        $this->router->get('/pegawai/{pegawai}/anak', ['as' => 'dashboard.pegawai.anak', 'uses' => 'AnakController@index']);
+        $this->router->get('/pegawai/{pegawai}/anak/create', ['as' => 'dashboard.pegawai.anak.create', 'uses' => 'AnakController@create']);
+        $this->router->post('/pegawai/{pegawai}/anak', ['as' => 'dashboard.pegawai.anak.store', 'uses' => 'AnakController@store']);
+        $this->router->get('/pegawai/{pegawai}/anak/{id}/delete', ['as' => 'dashboard.pegawai.anak.delete', 'uses' => 'AnakController@delete']);
+
+        $this->router->get('/pegawai/{pegawai}/riwayat-kursus', ['as' => 'dashboard.pegawai.riwayat_kursus', 'uses' => 'RiwayatKursusController@index']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-kursus/create', ['as' => 'dashboard.pegawai.riwayat_kursus.create', 'uses' => 'RiwayatKursusController@create']);
+        $this->router->post('/pegawai/{pegawai}/riwayat-kursus', ['as' => 'dashboard.pegawai.riwayat_kursus.store', 'uses' => 'RiwayatKursusController@store']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-kursus/{id}/delete', ['as' => 'dashboard.pegawai.riwayat_kursus.delete', 'uses' => 'RiwayatKursusController@delete']);
+
+        $this->router->get('/pegawai/{pegawai}/riwayat-penghargaan', ['as' => 'dashboard.pegawai.riwayat_penghargaan', 'uses' => 'RiwayatPenghargaanController@index']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-penghargaan/create', ['as' => 'dashboard.pegawai.riwayat_penghargaan.create', 'uses' => 'RiwayatPenghargaanController@create']);
+        $this->router->post('/pegawai/{pegawai}/riwayat-penghargaan', ['as' => 'dashboard.pegawai.riwayat_penghargaan.store', 'uses' => 'RiwayatPenghargaanController@store']);
+        $this->router->get('/pegawai/{pegawai}/riwayat-penghargaan/{id}/delete', ['as' => 'dashboard.pegawai.riwayat_penghargaan.delete', 'uses' => 'RiwayatPenghargaanController@delete']);
     }
 
     public function administrator()
