@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*"
+        "laravel/framework": "5.3.*",
+        "barryvdh/laravel-dompdf": "^0.7.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -16,7 +17,7 @@
         "symfony/dom-crawler": "3.1.*",
         "zizaco/entrust": "5.2.x-dev",
         "lavary/laravel-menu": "dev-master",
-	"predis/predis": "^1.1"
+        "predis/predis": "^1.1"
     },
     "autoload": {
         "classmap": [
@@ -24,7 +25,10 @@
         ],
         "psr-4": {
             "Simpeg\\": "app/"
-        }
+        },
+        "files": [
+            "app/helper.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [

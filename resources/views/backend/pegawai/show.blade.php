@@ -10,7 +10,7 @@
 		
 	</header>
 	<div class="panel-body">
-		<a href="{{url('pegawai/printpegawai/')}}" class="btn btn-danger pull-right"><span class="fa fa-download"></span> Export to Pdf</a>
+		<a href="{{ route('dashboard.pegawai.prints', ['id' => $pegawai->id]) }}" class="btn btn-danger pull-right"><span class="fa fa-download"></span> Export to Pdf</a>
 		<div class="tabs">
 			<ul class="nav nav-tabs">
 				<li class="active">
@@ -398,7 +398,7 @@
 								</table>
 							</div>
 						</div>
-<br><br>
+						<br><br>
 						<section class="panel">
 							<header class="panel-heading">
 								<h5 style="text-transform: uppercase; font-weight:bold; text-align:center;">Riwayat Pendidikan</h5>
@@ -432,7 +432,7 @@
 								</table>
 							</div>
 						</div>
-<br><br>
+						<br><br>
 						<section class="panel">
 							<header class="panel-heading">
 								<h5 style="text-transform: uppercase; font-weight:bold; text-align:center;">Riwayat Jabatan</h5>
@@ -468,7 +468,7 @@
 								</table>
 							</div>
 						</div>
-<br><br>
+						<br><br>
 						<section class="panel">
 							<header class="panel-heading">
 								<h5 style="text-transform: uppercase; font-weight:bold; text-align:center;">Riwayat Diklat</h5>
@@ -499,7 +499,7 @@
 								</table>
 							</div>
 						</div>
-<br><br>
+						<br><br>
 						<section class="panel">
 							<header class="panel-heading">
 								<h5 style="text-transform: uppercase; font-weight:bold; text-align:center;">Kursus</h5>
@@ -532,7 +532,7 @@
 								</table>
 							</div>
 						</div>
-<br><br>
+						<br><br>
 						<section class="panel">
 							<header class="panel-heading">
 								<h5 style="text-transform: uppercase; font-weight:bold; text-align:center;">Penghargaan</h5>
