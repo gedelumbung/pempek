@@ -21,4 +21,14 @@ class Pegawai extends Model
     {
         return $this->belongsTo('Simpeg\Model\JabatanStruktural');
     }
+
+    public function golongan_awal()
+    {
+        return $this->belongsTo('Simpeg\Model\Golongan', 'golongan_id_awal');
+    }
+
+    public function golongan_akhir()
+    {
+        return $this->belongsTo('Simpeg\Model\Golongan', 'golongan_id_awal');
+    }
 }

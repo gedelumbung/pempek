@@ -23,4 +23,9 @@ class RiwayatGolongan extends Model
     	'nomor_persetujuan_bkn',
     	'tahun_persetujuan_bkn'
     ];
+
+    public function golongan()
+    {
+        return $this->belongsTo('Simpeg\Model\Golongan', 'golongan_id');
+    }
 }

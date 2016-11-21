@@ -22,4 +22,14 @@ class RiwayatJabatan extends Model
     	'tmt',
     	'eselon',
     ];
+
+    public function unit_kerja()
+    {
+        return $this->belongsTo('Simpeg\Model\UnitKerja', 'unit_kerja_id');
+    }
+
+    public function jabatan()
+    {
+        return $this->belongsTo('Simpeg\Model\JabatanStruktural', 'jabatan_struktural_id');
+    }
 }
