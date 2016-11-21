@@ -21,6 +21,12 @@ class PegawaiController extends Controller
 		return view('backend.pegawai.index', compact('pegawai'));
 	}
 
+	public function show($id, Pegawai $pegawai)
+	{
+		$pegawai = $pegawai->findOrFail($id);
+		return view('backend.pegawai.show', compact('pegawai'));
+	}
+
 	public function add(UnitKerja $unitKerja, Golongan $golongan)
 	{
 		$unit_kerja = $unitKerja->where('parent_id',0)->get();
