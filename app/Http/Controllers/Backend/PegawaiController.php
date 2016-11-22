@@ -102,7 +102,7 @@ class PegawaiController extends Controller
 	{
 		$arr = $request->except('_token','input_foto');
 
-		if (array_key_exists('foto', $arr)) {
+		if (array_key_exists('foto', $arr) && !empty($arr['foto'])) {
 
 	        $base64_str = substr($arr['foto'], strpos($arr['foto'], ",") + 1);
 	        $image = base64_decode($base64_str);
