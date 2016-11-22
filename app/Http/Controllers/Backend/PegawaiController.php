@@ -119,6 +119,28 @@ class PegawaiController extends Controller
 		return redirect(route('dashboard.pegawai'));
 	}
 
+	public function update(Request $request, Pegawai $pegawai)
+	{
+		$arr = $request->except('_token','input_foto','id');
+		extract($request->only('id'));
+
+		if (array_key_exists('foto', $arr) && !empty($arr['foto'])) {
+
+	        $base64_str = substr($arr['foto'], strpos($arr['foto'], ",") + 1);
+	        $image = base64_decode($base64_str);
+	        $imageName = "pegawai-".$arr['nip']."-".time().".jpg";
+	        $path = '/pegawai/'.$imageName;
+	        $publichPath = public_path() . $path;
+
+	        Image::make($image)->save($publichPath);
+	        $arr['foto'] = $imageName;
+		}
+
+		$pegawai->findOrFail($id)->update($arr);
+
+		return redirect(route('dashboard.pegawai'));
+	}
+
 	public function edit($id, Pegawai $pegawai, UnitKerja $unitKerja, Golongan $golongan)
 	{
 		$unit_kerja = $unitKerja->where('parent_id',0)->get();
