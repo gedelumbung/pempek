@@ -181,7 +181,7 @@
 	</table>
 	<br>
 	<h4><b>III. DATA KELUARGA </b></h4>
-
+	@if($ayah)
 	<table border="1">
 		<tr>
 			<td colspan="3">
@@ -300,6 +300,8 @@
 				{{$ayah->alamat}}
 			</td>
 		</tr>
+	@endif
+	@if($ibu)
 		<tr>
 			<td colspan="3">
 				<b>
@@ -417,6 +419,8 @@
 				{{$ibu->alamat}}
 			</td>
 		</tr>
+	@endif
+	@if($pasangan)
 		<tr>
 			<td colspan="3">
 				<b>ISTERI / SUAMI</b>
@@ -591,6 +595,7 @@
 				{{$pasangan->nip_pasangan}}
 			</td>
 		</tr>
+	@endif
 		</table>
 		<table border="1"> 
 		<tr>

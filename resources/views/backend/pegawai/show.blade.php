@@ -624,6 +624,7 @@
 								<h5 style="text-transform: uppercase; font-weight:bold; text-align:center;">Suami/Istri</h5>
 							</header>
 						</section>
+						@if($pasangan)
 						<div>
 							<div class="panel-body">
 								<h3>Suami/Istri</h3>
@@ -740,12 +741,14 @@
 
 							</div>
 						</div>
+						@endif
 						<br><br>
 						<section class="panel">
 							<header class="panel-heading">
 								<h5 style="text-transform: uppercase; font-weight:bold; text-align:center;">Orang Tua</h5>
 							</header>
 						</section>
+						@if($ayah)
 						<div>
 							<div class="panel-body">
 								<h3>Ayah Kandung</h3>
@@ -795,6 +798,8 @@
 								</div>
 
 							</div>
+							@endif
+							@if($ibu)
 							<div class="panel-body">
 								<h3>Ibu Kandung</h3>
 								<div class="form-group">
@@ -841,8 +846,8 @@
 									<label class="col-md-3 control-label" for="inputDefault">Alamat</label>
 									<div class="col-md-9">{{$ibu->alamat}}</div>
 								</div>
-
 							</div>
+							@endif
 						</div>
 					 </fieldset>
 				</div>
