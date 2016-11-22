@@ -1,5 +1,8 @@
 <?php
     function indonesian_date ($timestamp = '', $date_format = 'j F Y') {
+        if (empty($timestamp)) {
+            return '-';
+        }
         $split = explode("/", $timestamp);
         if(count($split < 2))
         {

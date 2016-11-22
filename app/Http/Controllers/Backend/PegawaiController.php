@@ -12,6 +12,10 @@ use Simpeg\Model\RiwayatJabatan;
 use Simpeg\Model\RiwayatDiklat;
 use Simpeg\Model\RiwayatKursus;
 use Simpeg\Model\RiwayatPenghargaan;
+use Simpeg\Model\Anak;
+use Simpeg\Model\Pasangan;
+use Simpeg\Model\Ayah;
+use Simpeg\Model\Ibu;
 use PDF;
 use Illuminate\Http\Request;
 
@@ -35,7 +39,11 @@ class PegawaiController extends Controller
 		RiwayatJabatan $riwayatJabatan,
 		RiwayatDiklat $riwayatDiklat,
 		RiwayatKursus $riwayatKursus,
-		RiwayatPenghargaan $riwayatPenghargaan)
+		RiwayatPenghargaan $riwayatPenghargaan,
+		Anak $anak,
+		Pasangan $pasangan,
+		Ayah $ayah,
+		Ibu $ibu)
 	{
 		$pegawai = $pegawai->findOrFail($id);
 		$riwayat_golongan = $riwayatGolongan->where('pegawai_id', $id)->get();
@@ -44,8 +52,12 @@ class PegawaiController extends Controller
 		$riwayat_diklat = $riwayatDiklat->where('pegawai_id', $id)->get();
 		$riwayat_kursus = $riwayatKursus->where('pegawai_id', $id)->get();
 		$riwayat_penghargaan = $riwayatPenghargaan->where('pegawai_id', $id)->get();
+		$anak = $anak->where('pegawai_id', $id)->get();
+		$pasangan = $pasangan->where('pegawai_id', $id)->first();
+		$ayah = $ayah->where('pegawai_id', $id)->first();
+		$ibu = $ibu->where('pegawai_id', $id)->first();
 
-		return view('backend.pegawai.show', compact('pegawai','riwayat_golongan','riwayat_pendidikan','riwayat_jabatan','riwayat_diklat','riwayat_kursus','riwayat_penghargaan'));
+		return view('backend.pegawai.show', compact('pegawai','riwayat_golongan','riwayat_pendidikan','riwayat_jabatan','riwayat_diklat','riwayat_kursus','riwayat_penghargaan','anak','pasangan','ayah','ibu'));
 	}
 
 	public function prints($id, 
@@ -55,7 +67,11 @@ class PegawaiController extends Controller
 		RiwayatJabatan $riwayatJabatan,
 		RiwayatDiklat $riwayatDiklat,
 		RiwayatKursus $riwayatKursus,
-		RiwayatPenghargaan $riwayatPenghargaan)
+		RiwayatPenghargaan $riwayatPenghargaan,
+		Anak $anak,
+		Pasangan $pasangan,
+		Ayah $ayah,
+		Ibu $ibu)
 	{
 		$pegawai = $pegawai->findOrFail($id);
 		$riwayat_golongan = $riwayatGolongan->where('pegawai_id', $id)->get();
@@ -64,9 +80,13 @@ class PegawaiController extends Controller
 		$riwayat_diklat = $riwayatDiklat->where('pegawai_id', $id)->get();
 		$riwayat_kursus = $riwayatKursus->where('pegawai_id', $id)->get();
 		$riwayat_penghargaan = $riwayatPenghargaan->where('pegawai_id', $id)->get();
+		$anak = $anak->where('pegawai_id', $id)->get();
+		$pasangan = $pasangan->where('pegawai_id', $id)->first();
+		$ayah = $ayah->where('pegawai_id', $id)->first();
+		$ibu = $ibu->where('pegawai_id', $id)->first();
 
         $nama = str_replace(" ","",($pegawai->nip))."-".str_replace(" ","_",($pegawai->nama_lengkap)).".pdf";
-        $pdf = PDF::loadView('backend.pegawai.print', compact('pegawai','riwayat_golongan','riwayat_pendidikan','riwayat_jabatan','riwayat_diklat','riwayat_kursus','riwayat_penghargaan'))->setPaper('a4', 'portrait');
+        $pdf = PDF::loadView('backend.pegawai.print', compact('pegawai','riwayat_golongan','riwayat_pendidikan','riwayat_jabatan','riwayat_diklat','riwayat_kursus','riwayat_penghargaan','anak','pasangan','ayah','ibu'))->setPaper('a4', 'portrait');
         return $pdf->download($nama);
 	}
 

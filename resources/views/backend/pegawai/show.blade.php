@@ -67,7 +67,7 @@
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="inputDefault">Tanggal Lahir</label>
 							<div class="col-md-6">
-							{{$pegawai->tanggal_lahir}}
+							{{indonesian_date($pegawai->tanggal_lahir)}}
 							</div>
 						</div>
 						<div class="form-group">
@@ -343,7 +343,7 @@
 							</div>
 							<label class="col-md-3 control-label" for="inputDefault">Tahun Akte</label>
 							<div class="col-md-3">
-							{{$pegawai->tanggal_npwp}}
+							{{indonesian_date($pegawai->tanggal_npwp)}}
 							</div>
 						</div>
 						<div class="form-group">
@@ -389,7 +389,7 @@
 												<td>{{$data->masa_kerja_tahun}}</td>
 												<td>{{$data->masa_kerja_bulan}}</td>
 												<td>{{$data->nomor_sk}}</td>
-												<td>{{$data->tanggal_sk}}</td>
+												<td>{{indonesian_date($data->tanggal_sk)}}</td>
 												<td>{{$data->nomor_persetujuan_bkn}}</td>
 												<td>{{$data->tahun_persetujuan_bkn}}</td>
 											</tr>
@@ -424,7 +424,7 @@
 												<td>{{$data->nama_sekolah}}</td>
 												<td>{{$data->fakultas}}</td>
 												<td>{{$data->ijazah_pendidikan}}</td>
-												<td>{{$data->tanggal_lulus}}</td>
+												<td>{{indonesian_date($data->tanggal_lulus)}}</td>
 												<td>{{$data->nama_pimpinan}}</td>
 											</tr>
 										@endforeach
@@ -459,7 +459,7 @@
 												<td>{{$data->unit_kerja->title}}</td>
 												<td>{{$data->instansi}}</td>
 												<td>{{$data->nomor_sk}}</td>
-												<td>{{$data->tanggal}}</td>
+												<td>{{indonesian_date($data->tanggal)}}</td>
 												<td>{{$data->tmt}}</td>
 												<td>{{$data->eselon}}</td>
 											</tr>
@@ -523,7 +523,7 @@
 												<td>{{$data->nama_kursus}}</td>
 												<td>{{$data->jumlah_jam}}</td>
 												<td>{{$data->nomor_sertifikat}}</td>
-												<td>{{$data->tanggal}}</td>
+												<td>{{indonesian_date($data->tanggal)}}</td>
 												<td>{{$data->penyelenggara}}</td>
 											</tr>
 											</form>
@@ -559,13 +559,289 @@
 												<td>{{$key+1}}</td>
 												<td>{{$data->nama_penghargaan}}</td>
 												<td>{{$data->nomor_surat_keputusan}}</td>
-												<td>{{$data->tanggal}}</td>
+												<td>{{indonesian_date($data->tanggal)}}</td>
 												<td>{{$data->nama_pemberi_penghargaan}}</td>
 											</tr>
 											</form>
 										@endforeach
 									</tbody>
 								</table>
+							</div>
+						</div>
+						<br><br>
+						<section class="panel">
+							<header class="panel-heading">
+								<h5 style="text-transform: uppercase; font-weight:bold; text-align:center;">Anak</h5>
+							</header>
+						</section>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<tr>
+										<th>No</th>
+										<th>Nama</th>
+										<th>Tempat Lahir</th>
+										<th>Tanggal Lahir</th>
+										<th>Jenis Kelamin</th>
+										<th>Pendidikan</th>
+										<th>Pekerjaan</th>
+										<th>Agama</th>
+										<th>Status</th>
+										<th>Alamat</th>
+										<th>Telepon</th>
+									</tr>
+									<tbody>
+										@foreach($anak as $key => $data)
+											<tr>
+												<td>{{$key+1}}</td>
+												<td>{{$data->nama}}</td>
+												<td>{{$data->tempat_lahir}}</td>
+												<td>{{indonesian_date($data->tanggal_lahir)}}</td>
+												<td>{{$data->jenis_kelamin}}</td>
+												<td>{{$data->pendidikan}}</td>
+												<td>{{$data->pekerjaan}}</td>
+												<td>{{$data->agama}}</td>
+												<td>
+													<h5><b>Status Perkawinan</b></h5>
+													{{$data->status_perkawinan}}
+													<h5><b>Status Hidup</b></h5>
+													{{$data->status_hidup}}
+													<h5><b>Status Anak</b></h5>
+													{{$data->status_anak}}
+												</td>
+												<td>{{$data->alamat}}</td>
+												<td>{{$data->telepon}}</td>
+											</tr>
+											</form>
+										@endforeach
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<br><br>
+						<section class="panel">
+							<header class="panel-heading">
+								<h5 style="text-transform: uppercase; font-weight:bold; text-align:center;">Suami/Istri</h5>
+							</header>
+						</section>
+						<div>
+							<div class="panel-body">
+								<h3>Suami/Istri</h3>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Nama</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->nama}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Gelar Depan</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->gelar_depan}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Gelar Belakang</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->gelar_belakang}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Tempat Lahir</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->tempat_lahir}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Tanggal Lahir</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{indonesian_date($pasangan->tanggal_lahir)}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Agama</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->agama}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Jenis Kelamin</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->jenis_kelamin}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Email</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->email}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Telepon</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->telepon}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Status Hidup</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->status_hidup}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Alamat</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->alamat}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Status Perkawinan</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->status_perkawinan}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Akte Perceraian</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->akte_perceraian}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Tanggal Akte Perceraian</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{indonesian_date($pasangan->tanggal_akte_perceraian)}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Akte Kelahiran</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->akte_kelahiran}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Tanggal Akte Kelahiran</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{indonesian_date($pasangan->tanggal_akte_kelahiran)}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Akte Meninggal</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->akte_meninggal}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Tanggal Akte Meninggal</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{indonesian_date($pasangan->tanggal_akte_meninggal)}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">NPWP</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->npwp}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Tanggal NPWP</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{indonesian_date($pasangan->tanggal_npwp)}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Nama Istri / Suami ( Jika PNS )</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->nama_pasangan}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">NIP Istri / Suami ( Jika PNS )</label>
+									<div class="col-md-1">:</div>
+									<div class="col-md-8">{{$pasangan->nip_pasangan}}</div>
+								</div>
+
+							</div>
+						</div>
+						<br><br>
+						<section class="panel">
+							<header class="panel-heading">
+								<h5 style="text-transform: uppercase; font-weight:bold; text-align:center;">Orang Tua</h5>
+							</header>
+						</section>
+						<div>
+							<div class="panel-body">
+								<h3>Ayah Kandung</h3>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Nama</label>
+									<div class="col-md-9">{{$ayah->nama}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Gelar Depan</label>
+									<div class="col-md-9">{{$ayah->gelar_depan}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Gelar Belakang</label>
+									<div class="col-md-9">{{$ayah->gelar_belakang}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Tempat Lahir</label>
+									<div class="col-md-9">{{$ayah->tempat_lahir}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Tanggal Lahir</label>
+									<div class="col-md-9">{{indonesian_date($ayah->tanggal_lahir)}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Agama</label>
+									<div class="col-md-9">{{$ayah->agama}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Email</label>
+									<div class="col-md-9">{{$ayah->email}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Telepon</label>
+									<div class="col-md-9">{{$ayah->telepon}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Status Perkawinan</label>
+									<div class="col-md-9">{{$ayah->status_perkawinan}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Status Hidup</label>
+									<div class="col-md-9">{{$ayah->status_hidup}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Alamat</label>
+									<div class="col-md-9">{{$ayah->alamat}}</div>
+								</div>
+
+							</div>
+							<div class="panel-body">
+								<h3>Ibu Kandung</h3>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Nama</label>
+									<div class="col-md-9">{{$ibu->nama}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Gelar Depan</label>
+									<div class="col-md-9">{{$ibu->gelar_depan}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Gelar Belakang</label>
+									<div class="col-md-9">{{$ibu->gelar_belakang}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Tempat Lahir</label>
+									<div class="col-md-9">{{$ibu->tempat_lahir}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Tanggal Lahir</label>
+									<div class="col-md-9">{{indonesian_date($ibu->tanggal_lahir)}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Agama</label>
+									<div class="col-md-9">{{$ibu->agama}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Email</label>
+									<div class="col-md-9">{{$ibu->email}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Telepon</label>
+									<div class="col-md-9">{{$ibu->telepon}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Status Perkawinan</label>
+									<div class="col-md-9">{{$ibu->status_perkawinan}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Status Hidup</label>
+									<div class="col-md-9">{{$ibu->status_hidup}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Alamat</label>
+									<div class="col-md-9">{{$ibu->alamat}}</div>
+								</div>
+
 							</div>
 						</div>
 					 </fieldset>
