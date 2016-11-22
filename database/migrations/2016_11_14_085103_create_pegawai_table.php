@@ -43,6 +43,7 @@ class CreatePegawaiTable extends Migration
             $table->string('pendidikan_akhir_fakultas');
             $table->string('pendidikan_akhir_jurusan');
             $table->string('pendidikan_akhir_tahun_lulus');
+            $table->text('foto');
 
             //posisi & jabatan
             $table->string('unit_organisasi');

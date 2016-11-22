@@ -66,10 +66,10 @@
 				<center><h3>BIODATA PEGAWAI <br> DITJEN PEMBINAAN PENYIAPAN PERMUKIMAN DAN <br> PENEMPATAN TRANSMIGRASI</h3></center>
 			</td>
 			<td width="100">
-				@if(!empty($pegawai->foto))
-				<img src="{{$pegawai->foto}}" class="pas">
+				@if(empty($pegawai->foto))
+					<img src="" style="width: 150px;height: 200px">
 				@else
-				<img src="{{asset('data/foto/def_pas_foto.png')}}" class="pas">
+					<img src="{{asset('pegawai/'.$pegawai->foto)}}" style="width: 150px;height: 200px">
 				@endif
 			</td>
 		</tr>

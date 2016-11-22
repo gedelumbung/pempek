@@ -17,6 +17,7 @@ use Simpeg\Model\Pasangan;
 use Simpeg\Model\Ayah;
 use Simpeg\Model\Ibu;
 use PDF;
+use Image;
 use Illuminate\Http\Request;
 
 /**
@@ -99,17 +100,31 @@ class PegawaiController extends Controller
 
 	public function store(Request $request, Pegawai $pegawai)
 	{
-		$arr = $request->except('_token');
+		$arr = $request->except('_token','input_foto');
+
+		if (array_key_exists('foto', $arr)) {
+
+	        $base64_str = substr($arr['foto'], strpos($arr['foto'], ",") + 1);
+	        $image = base64_decode($base64_str);
+	        $imageName = "pegawai-".$arr['nip']."-".time().".jpg";
+	        $path = '/pegawai/'.$imageName;
+	        $publichPath = public_path() . $path;
+
+	        Image::make($image)->save($publichPath);
+	        $arr['foto'] = $imageName;
+		}
+
 		$pegawai->insert($arr);
 
 		return redirect(route('dashboard.pegawai'));
 	}
 
-	public function edit(UnitKerja $unitKerja, Golongan $golongan)
+	public function edit($id, Pegawai $pegawai, UnitKerja $unitKerja, Golongan $golongan)
 	{
 		$unit_kerja = $unitKerja->where('parent_id',0)->get();
 		$golongan = $golongan->get();
-		return view('backend.pegawai.add', compact('unit_kerja', 'golongan'));
+		$pegawai = $pegawai->findOrFail($id);
+		return view('backend.pegawai.edit', compact('pegawai','unit_kerja','golongan'));
 	}
 
 	public function delete($id, Pegawai $pegawai)

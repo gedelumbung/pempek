@@ -169,6 +169,7 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Lavary\Menu\ServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -229,6 +230,7 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Menu' => 'Lavary\Menu\Facade',
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

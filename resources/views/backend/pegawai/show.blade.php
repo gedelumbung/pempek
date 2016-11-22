@@ -31,7 +31,11 @@
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="inputDefault">Foto</label>
 							<div class="col-md-6">
-								<img src="" style="width: 150px;height: 200px">
+								@if(empty($pegawai->foto))
+									<img src="" style="width: 150px;height: 200px">
+								@else
+									<img src="{{asset('pegawai/'.$pegawai->foto)}}" style="width: 150px;height: 200px">
+								@endif
 							</div>
 						</div>
 						<div class="form-group">

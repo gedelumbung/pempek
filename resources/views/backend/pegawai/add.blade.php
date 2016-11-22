@@ -240,7 +240,7 @@
 								<div class="col-md-5">
 									<div class="fileUpload btn btn-primary" style="margin-top: 0px;">
 									    <span>Upload</span>
-									    <input type="file" name="foto" class="upload" accept="image/*" />
+									    <input type="file" name="input_foto" class="upload" accept="image/*" />
 									</div>
 									<div class="panel">
 										<span class="label label-danger">Perhatian! Resolusi Foto 3 x 4 ! </span>
@@ -258,6 +258,7 @@
 					        		</div>
 								</div>
 							</div>
+							<input type="hidden" name="foto" id="foto">
 						</div>
 					</div>
 					<div>
@@ -673,6 +674,7 @@ function readURL(input) {
       	$(".submit").attr("disabled", "disabled");
       }
       else{
+      	$("#foto").val(e.target.result);
       	$('#previewHolder').attr('src', e.target.result);
       	$(".submit").removeAttr("disabled");
       }
