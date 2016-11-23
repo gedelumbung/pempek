@@ -12,4 +12,9 @@ class UnitKerja extends Model
         'title',
         'description'
     ];
+
+    public function jabatan()
+    {
+        return $this->hasMany('Simpeg\Model\JabatanStruktural', 'unit_kerja_id', 'id');
+    }
 }

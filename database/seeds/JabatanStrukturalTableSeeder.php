@@ -24,7 +24,7 @@ class JabatanStrukturalTableSeeder extends Seeder
                   "eselon" => "I",
                 ],
               ],
-              "2" => [
+              "9" => [
                 [
                   "jabatan" => "Sekretaris Direktorat Jenderal ", 
                   "eselon" => "II",
@@ -94,7 +94,7 @@ class JabatanStrukturalTableSeeder extends Seeder
                   "eselon" => "IV",
                 ],
               ],
-              "3" => [
+              "14" => [
                 [
                   "jabatan" => "Direktur Bina Potensi Kawasan Transmigrasi ", 
                   "eselon" => "II",
@@ -164,7 +164,7 @@ class JabatanStrukturalTableSeeder extends Seeder
                   "eselon" => "IV",
                 ],
               ],
-              "4" => [
+              "21" => [
                 [
                   "jabatan" => "Direktur Perencanaan Pembangunan dan Pengembangan Kawasan Transmigrasi ", 
                   "eselon" => "II",
@@ -222,7 +222,7 @@ class JabatanStrukturalTableSeeder extends Seeder
                   "eselon" => "IV",
                 ],
               ],
-              "5" => [
+              "27" => [
                 [
                   "jabatan" => "Direktur Penyediaan Tanah Transmigrasi ", 
                   "eselon" => "II",
@@ -280,7 +280,7 @@ class JabatanStrukturalTableSeeder extends Seeder
                   "eselon" => "IV",
                 ],
               ],
-              "6" => [
+              "33" => [
                 [
                   "jabatan" => "Direktur Pembangunan Pemukiman Transmigrasi ", 
                   "eselon" => "II",
@@ -338,7 +338,7 @@ class JabatanStrukturalTableSeeder extends Seeder
                   "eselon" => "IV",
                 ],
               ],
-              "7" => [
+              "39" => [
                 [
                   "jabatan" => "Direktur Penataan Persebaran Penduduk ", 
                   "eselon" => "II",
