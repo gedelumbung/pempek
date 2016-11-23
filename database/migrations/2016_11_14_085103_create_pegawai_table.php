@@ -69,6 +69,9 @@ class CreatePegawaiTable extends Migration
             $table->string('gaji_pokok');
             $table->string('masa_kerja_tahun');
             $table->string('masa_kerja_bulan');
+            $table->string('penyesuaian_masa_kerja_tahun');
+            $table->string('penyesuaian_masa_kerja_bulan');
+            $table->string('sk_penyesuaian_masa_kerja');
 
             //data lain
             $table->string('no_seri_karpeg');

@@ -144,9 +144,9 @@
 							</div>
 
 							<div class="form-group">
-								<label class="col-md-3 control-label" for="inputDefault">TMT CPNS</label>
+								<label class="col-md-3 control-label" for="tmt_cpns">TMT CPNS</label>
 								<div class="col-md-2">
-									<input type="date" class="form-control" id="inputDefault" name="tmt_cpns" required>
+									<input type="date" class="form-control" name="tmt_cpns" id="tmt_cpns" required>
 								</div>
 								<label class="col-md-1 control-label" for="inputDefault">TMT PNS</label>
 								<div class="col-md-2">
@@ -267,7 +267,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Unit Organisasi</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="unit_organisasi" required>
+									<input type="text" class="form-control" id="inputDefault" name="unit_organisasi" value="Kementrian Desa, Pembanguanan Daerah Tertinggal dan Transmigrasi" required>
 								</div>
 							</div>
 							<!-- hilmi -->
@@ -424,13 +424,31 @@
 									<input type="text" class="form-control" id="inputDefault" name="gaji_pokok" required>
 								</div>
 
-								<label class="col-md-1 control-label" for="inputDefault">Masa Kerja. Tahun</label>
+								<label class="col-md-1 control-label" for="masa_kerja_tahun">Masa Kerja. Tahun</label>
 								<div class="col-md-1">
-									<input type="text" class="form-control" id="inputDefault" name="masa_kerja_tahun" maxlength="4" required>
+									<input type="text" class="form-control" id="masa_kerja_tahun" name="masa_kerja_tahun" readonly="true" maxlength="2" required>
+								</div>
+								<label class="col-md-1 control-label" for="masa_kerja_bulan">Bulan</label>
+								<div class="col-md-1">
+									<input type="text" class="form-control" id="masa_kerja_bulan" name="masa_kerja_bulan" readonly="true" maxlength="2" required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="inputDefault">Penyesuaian Masa Kerja Tahun</label>
+								<div class="col-md-2">
+									<input type="text" maxlength="2" class="form-control" id="inputDefault" name="penyesuaian_masa_kerja_tahun" required>
 								</div>
 								<label class="col-md-1 control-label" for="inputDefault">Bulan</label>
-								<div class="col-md-1">
-									<input type="text" class="form-control" id="inputDefault" name="masa_kerja_bulan" maxlength="2" required>
+								<div class="col-md-2">
+									<input type="text" maxlength="2" class="form-control" id="inputDefault" name="penyesuaian_masa_kerja_bulan" required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="inputDefault">SK Penyesuaian Masa Kerja</label>
+								<div class="col-md-3">
+									<input type="text" maxlength="2" class="form-control" id="inputDefault" name="sk_penyesuaian_masa_kerja" required>
 								</div>
 							</div>
 						</div>
@@ -633,6 +651,18 @@ $("#jabatan_struktural_id").change(function(){
         	$("#eselon").val(responses.eselon)
         }
     });
+});
+
+$("#tmt_cpns").change(function(){
+	var today = new Date();
+	var birthDate = new Date($("#tmt_cpns").val());
+	var year = today.getFullYear() - birthDate.getFullYear();
+	var m = today.getMonth() - birthDate.getMonth();
+	if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+		year--;
+	}
+	$("#masa_kerja_tahun").val(year);
+	$("#masa_kerja_bulan").val(m);
 });
 
 var foto="";

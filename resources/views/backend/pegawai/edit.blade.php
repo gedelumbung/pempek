@@ -16,7 +16,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">NIP</label>
 								<div class="col-md-9">
-									<input value="{{$pegawai->nip}}" type="number" class="form-control" id="inputDefault" name="nip" required>
+									<input value="{{$pegawai->nip}}" type="text" class="form-control" id="inputDefault" name="nip" required>
 								</div>
 							</div>
 
@@ -165,9 +165,9 @@
 							</div>
 
 							<div class="form-group">
-								<label class="col-md-3 control-label" for="inputDefault">TMT CPNS</label>
+								<label class="col-md-3 control-label" for="tmt_cpns">TMT CPNS</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->tmt_cpns}}" type="date" class="form-control" id="inputDefault" name="tmt_cpns" required>
+									<input value="{{$pegawai->tmt_cpns}}" type="date" class="form-control" id="tmt_cpns" name="tmt_cpns" required>
 								</div>
 								<label class="col-md-1 control-label" for="inputDefault">TMT PNS</label>
 								<div class="col-md-2">
@@ -310,9 +310,47 @@
 									<select select2 name="jenis_jabatan" class="form-control jenjab" id="jenis_jabatan" required>
 										<option value=""></option>
 									    @foreach(config('simpeg.jenis_jabatan') as $jenis_jabatan)
+									    	@if($pegawai->jenis_jabatan == $jenis_jabatan)
+									    	<option value="{{$jenis_jabatan}}" selected>{{$jenis_jabatan}}</option>
+									    	@else
 									    	<option value="{{$jenis_jabatan}}">{{$jenis_jabatan}}</option>
+									    	@endif
 									    @endforeach
 									</select>
+								</div>
+							</div>
+
+							<!-- STRUKTURAL -->
+							<div id="struktural" style="margin-top:15px;margin-bottom:15px">
+
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Struktural </label>
+									<div class="col-md-9">
+										<div class="col-md-5">
+											<select select2 class="form-control jabatan" name="jabatan_struktural_id" style="margin-left:-15px;" id="jabatan_struktural_id">
+												<option value=""></option>
+												@foreach($unit_kerja as $data_unit_kerja)
+													<optgroup label="{{$data_unit_kerja->title}}">
+														@foreach($data_unit_kerja->jabatan as $jabatan)
+											    			<option value="{{$jabatan->id}}">{{$jabatan->title}}</option>
+														@endforeach
+													</optgroup>
+												@endforeach
+											</select>
+										</div>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Eselon</label>
+									<div class="col-md-2">
+										<input value="{{$pegawai->eselon}}" type="text" class="form-control eselon" readonly="true" name="eselon" id="eselon">
+									</div>
+
+									<label class="col-md-2 control-label" for="inputDefault">TMT Eselon</label>
+									<div class="col-md-2">
+										<input value="{{$pegawai->tmt_eselon}}" type="date" class="form-control" id="inputDefault" name="tmt_eselon">
+									</div>
 								</div>
 							</div>
 
@@ -349,33 +387,6 @@
 												<option value=""></option>
 											</select>
 										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- STRUKTURAL -->
-							<div id="struktural" style="margin-top:15px;margin-bottom:15px">
-
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Struktural </label>
-									<div class="col-md-9">
-										<div class="col-md-5">
-											<select select2 class="form-control jabatan" name="jabatan_struktural_id" style="margin-left:-15px;" id="jabatan_struktural_id">
-												<option value=""></option>
-											</select>
-										</div>
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Eselon</label>
-									<div class="col-md-2">
-										<input value="{{$pegawai->eselon}}" type="text" class="form-control eselon" readonly="true" name="eselon" id="eselon">
-									</div>
-
-									<label class="col-md-2 control-label" for="inputDefault">TMT Eselon</label>
-									<div class="col-md-2">
-										<input value="{{$pegawai->tmt_eselon}}" type="date" class="form-control" id="inputDefault" name="tmt_eselon">
 									</div>
 								</div>
 							</div>
@@ -460,11 +471,29 @@
 
 								<label class="col-md-1 control-label" for="inputDefault">Masa Kerja. Tahun</label>
 								<div class="col-md-1">
-									<input value="{{$pegawai->masa_kerja_tahun}}" type="text" class="form-control" id="inputDefault" name="masa_kerja_tahun" maxlength="4" required>
+									<input value="{{$pegawai->masa_kerja_tahun}}" type="text" class="form-control" id="masa_kerja_tahun" name="masa_kerja_tahun" maxlength="2" readonly="true" required>
 								</div>
 								<label class="col-md-1 control-label" for="inputDefault">Bulan</label>
 								<div class="col-md-1">
-									<input value="{{$pegawai->masa_kerja_bulan}}" type="text" class="form-control" id="inputDefault" name="masa_kerja_bulan" maxlength="2" required>
+									<input value="{{$pegawai->masa_kerja_bulan}}" type="text" class="form-control" id="masa_kerja_bulan" name="masa_kerja_bulan" maxlength="2" readonly="true" required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="inputDefault">Penyesuaian Masa Kerja Tahun</label>
+								<div class="col-md-2">
+									<input value="{{$pegawai->penyesuaian_masa_kerja_tahun}}" type="text" maxlength="2" class="form-control" id="inputDefault" name="penyesuaian_masa_kerja_tahun" required>
+								</div>
+								<label class="col-md-1 control-label" for="inputDefault">Bulan</label>
+								<div class="col-md-2">
+									<input value="{{$pegawai->penyesuaian_masa_kerja_bulan}}" type="text" maxlength="2" class="form-control" id="inputDefault" name="penyesuaian_masa_kerja_bulan" required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="inputDefault">SK Penyesuaian Masa Kerja</label>
+								<div class="col-md-3">
+									<input value="{{$pegawai->penyesuaian_masa_kerja_bulan}}" type="text" maxlength="2" class="form-control" id="inputDefault" name="sk_penyesuaian_masa_kerja" required>
 								</div>
 							</div>
 						</div>
@@ -585,10 +614,6 @@ $("#jenis_jabatan").change(function(){
 	var jenis_jabatan = $(this).val();
 	$("#jenis_jabatan_sub").show();
 
-	$("#jabatan_struktural_id").select2("val", "");
-	$('#jabatan_struktural_id').html('');
-	$("#eselon").val('');
-
 	if(jenis_jabatan == 'Struktural'){
 		$("#struktural").show();
 		$("#jafung").hide();
@@ -620,8 +645,6 @@ $("#unit_kerja_id").change(function(){
         	$('#sub_unit_kerja_id').html('');
         	$("#satuan_kerja_id").select2("val", "");
         	$('#satuan_kerja_id').html('');
-        	$("#jabatan_struktural_id").select2("val", "");
-        	$('#jabatan_struktural_id').html('');
 		    $('#sub_unit_kerja_id').append('<option disabled selected value>--- Pilih ---</option>');
 
         	$.each(responses, function (i, response) {
@@ -646,36 +669,10 @@ $("#sub_unit_kerja_id").change(function(){
         success: function (responses) {
         	$("#satuan_kerja_id").select2("val", "");
         	$('#satuan_kerja_id').html('');
-        	$("#jabatan_struktural_id").select2("val", "");
-        	$('#jabatan_struktural_id').html('');
 		    $('#satuan_kerja_id').append('<option disabled selected value>--- Pilih ---</option>');
 
         	$.each(responses, function (i, response) {
 			    $('#satuan_kerja_id').append($('<option>', { 
-			        value: response.id,
-			        text : response.title 
-			    }));
-			});
-        }
-    });
-});
-
-$("#satuan_kerja_id").change(function(){
-    $.ajax({
-        type: "POST",
-        url: "{{ route('dashboard.ajax.jabatan_struktural') }}",
-        dataType:"json",
-        data: {
-        	'satuan_kerja_id' : $(this).val(),
-        	'_token' : '{{ csrf_token() }}'
-        },
-        success: function (responses) {
-        	$("#jabatan_struktural_id").select2("val", "");
-        	$('#jabatan_struktural_id').html('');
-		    $('#jabatan_struktural_id').append('<option disabled selected value>--- Pilih ---</option>');
-
-        	$.each(responses, function (i, response) {
-			    $('#jabatan_struktural_id').append($('<option>', { 
 			        value: response.id,
 			        text : response.title 
 			    }));
@@ -697,6 +694,18 @@ $("#jabatan_struktural_id").change(function(){
         	$("#eselon").val(responses.eselon)
         }
     });
+});
+
+$("#tmt_cpns").change(function(){
+	var today = new Date();
+	var birthDate = new Date($("#tmt_cpns").val());
+	var year = today.getFullYear() - birthDate.getFullYear();
+	var m = today.getMonth() - birthDate.getMonth();
+	if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+		year--;
+	}
+	$("#masa_kerja_tahun").val(year);
+	$("#masa_kerja_bulan").val(m);
 });
 
 var foto="";
