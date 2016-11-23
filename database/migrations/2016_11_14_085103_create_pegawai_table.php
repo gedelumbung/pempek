@@ -15,7 +15,7 @@ class CreatePegawaiTable extends Migration
     {
         Schema::create('pegawai', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('nip');
+            $table->string('nip');
             $table->string('nama_lengkap');
             $table->string('gelar_depan');
             $table->string('gelar_belakang');
@@ -24,9 +24,9 @@ class CreatePegawaiTable extends Migration
             $table->string('agama', 20);
             $table->string('jenis_kelamin', 10);
             $table->string('status_pernikahan', 15);
-            $table->string('email')->unique()->index();
+            $table->string('email')->index();
             $table->text('alamat');
-            $table->string('kode_pos', 6);
+            $table->string('kode_pos');
             $table->string('telepon');
             $table->string('handphone');
             $table->string('kedudukan_pns', 50);
