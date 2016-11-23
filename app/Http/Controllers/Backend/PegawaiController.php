@@ -57,7 +57,8 @@ class PegawaiController extends Controller
 		$pasangan = $pasangan->where('pegawai_id', $id)->first();
 		$ayah = $ayah->where('pegawai_id', $id)->first();
 		$ibu = $ibu->where('pegawai_id', $id)->first();
-
+		//$end = date('Y-m-d', strtotime('+30 years'));
+		//var_dump($end);die;
 		return view('backend.pegawai.show', compact('pegawai','riwayat_golongan','riwayat_pendidikan','riwayat_jabatan','riwayat_diklat','riwayat_kursus','riwayat_penghargaan','anak','pasangan','ayah','ibu'));
 	}
 
