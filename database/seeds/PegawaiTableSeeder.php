@@ -21505,6 +21505,7 @@ class PegawaiTableSeeder extends Seeder
               'foto' => "",
               'unit_organisasi' => "-",
               'jenis_jabatan' => $param->jenisjab_id,
+              'jabatan_struktural_id' => 1,
               'unit_kerja_id' => 1,
               'sub_unit_kerja_id' => 1,
               'satuan_kerja_id' => 1,
