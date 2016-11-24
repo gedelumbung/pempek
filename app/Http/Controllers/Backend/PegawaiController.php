@@ -5,6 +5,7 @@ namespace Simpeg\Http\Controllers\Backend;
 use Simpeg\Http\Controllers\Controller;
 use Simpeg\Model\Pegawai;
 use Simpeg\Model\UnitKerja;
+use Simpeg\Model\SatuanKerja;
 use Simpeg\Model\Golongan;
 use Simpeg\Model\RiwayatGolongan;
 use Simpeg\Model\RiwayatPendidikan;
@@ -142,12 +143,14 @@ class PegawaiController extends Controller
 		return redirect(route('dashboard.pegawai'));
 	}
 
-	public function edit($id, Pegawai $pegawai, UnitKerja $unitKerja, Golongan $golongan)
+	public function edit($id, Pegawai $pegawai, UnitKerja $unitKerja, Golongan $golongan, SatuanKerja $satuanKerja)
 	{
 		$unit_kerja = $unitKerja->where('parent_id',0)->get();
 		$golongan = $golongan->get();
 		$pegawai = $pegawai->findOrFail($id);
-		return view('backend.pegawai.edit', compact('pegawai','unit_kerja','golongan'));
+		$sub_unit_kerja = $unitKerja->where('parent_id',$pegawai->unit_kerja_id)->get();
+		$satuan_kerja = $satuanKerja->where('unit_kerja_id',$pegawai->sub_unit_kerja_id)->get();
+		return view('backend.pegawai.edit', compact('pegawai','unit_kerja','golongan','sub_unit_kerja','satuan_kerja'));
 	}
 
 	public function delete($id, Pegawai $pegawai)

@@ -448,7 +448,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">SK Penyesuaian Masa Kerja</label>
 								<div class="col-md-3">
-									<input type="text" maxlength="2" class="form-control" id="inputDefault" name="sk_penyesuaian_masa_kerja" required>
+									<input type="text" class="form-control" id="inputDefault" name="sk_penyesuaian_masa_kerja" required>
 								</div>
 							</div>
 						</div>

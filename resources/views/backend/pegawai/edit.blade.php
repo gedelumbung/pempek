@@ -332,7 +332,11 @@
 												@foreach($unit_kerja as $data_unit_kerja)
 													<optgroup label="{{$data_unit_kerja->title}}">
 														@foreach($data_unit_kerja->jabatan as $jabatan)
+															@if($pegawai->jabatan_struktural_id == $jabatan->id)
+											    			<option value="{{$jabatan->id}}" selected>{{$jabatan->title}}</option>
+											    			@else
 											    			<option value="{{$jabatan->id}}">{{$jabatan->title}}</option>
+											    			@endif
 														@endforeach
 													</optgroup>
 												@endforeach
@@ -353,50 +357,13 @@
 									</div>
 								</div>
 							</div>
-
-							<div id="jenis_jabatan_sub" style="margin-top:15px;margin-bottom:15px">
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Unit Kerja</label>
-									<div class="col-md-9">
-										<div class="col-md-3">
-											<select select2 class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id" id="unit_kerja_id" required>
-												<option value=""></option>
-											    @foreach($unit_kerja as $unit)
-											    	<option value="{{$unit->id}}">{{$unit->title}}</option>
-											    @endforeach
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
-									<div class="col-md-9">
-										<div class="col-md-5">
-											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;" id="sub_unit_kerja_id" required>
-												<option value=""></option>
-											</select>
-										</div>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
-									<div class="col-md-9">
-										<div class="col-md-5">
-											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;" id="satuan_kerja_id" required>
-												<option value=""></option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>
 							
 							<!-- JABATAN FUNGSIONAL -->
 							
 							<div id="jafung" style="margin-top:15px;margin-bottom:15px">
 
 								<div class="form-group" >
-									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Fungsional</label>
+									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Fungsional Tertentu</label>
 									<div class="col-md-2">
 										<input value="{{$pegawai->jabatan_fungsional_tertentu}}" type="text" class="form-control" id="inputDefault" name="jabatan_fungsional_tertentu">
 									</div>
@@ -413,7 +380,7 @@
 							<div id="jafungumum" style="margin-top:15px;margin-bottom:15px">
 
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Fungsional</label>
+									<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Fungsional Umum</label>
 									<div class="col-md-2">
 										<input value="{{$pegawai->jabatan_fungsional_umum}}" type="text" class="form-control" id="inputDefault" name="jabatan_fungsional_umum">
 									</div>
@@ -421,6 +388,61 @@
 									<label class="col-md-2 control-label" for="inputDefault">TMT Jafung Umum</label>
 									<div class="col-md-2">
 										<input value="{{$pegawai->tmt_jabatan_fungsional_umum}}" type="date" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_umum">
+									</div>
+								</div>
+							</div>
+
+							<div id="jenis_jabatan_sub" style="margin-top:15px;margin-bottom:15px">
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Unit Kerja</label>
+									<div class="col-md-9">
+										<div class="col-md-3">
+											<select select2 class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id" id="unit_kerja_id" required>
+												<option value=""></option>
+											    @foreach($unit_kerja as $unit)
+											    	@if($pegawai->unit_kerja_id == $unit->id)
+											    	<option value="{{$unit->id}}" selected>{{$unit->title}}</option>
+											    	@else
+											    	<option value="{{$unit->id}}">{{$unit->title}}</option>
+											    	@endif
+											    @endforeach
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Sub Unit Kerja </label>
+									<div class="col-md-9">
+										<div class="col-md-5">
+											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;" id="sub_unit_kerja_id" required>
+												<option value=""></option>
+											    @foreach($sub_unit_kerja as $sub_unit)
+											    	@if($pegawai->sub_unit_kerja_id == $sub_unit->id)
+											    	<option value="{{$sub_unit->id}}" selected>{{$sub_unit->title}}</option>
+											    	@else
+											    	<option value="{{$sub_unit->id}}">{{$sub_unit->title}}</option>
+											    	@endif
+											    @endforeach
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="inputDefault">Satuan Kerja </label>
+									<div class="col-md-9">
+										<div class="col-md-5">
+											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;" id="satuan_kerja_id" required>
+												<option value=""></option>
+											    @foreach($satuan_kerja as $satker)
+											    	@if($pegawai->satuan_kerja_id == $satker->id)
+											    	<option value="{{$satker->id}}" selected>{{$satker->title}}</option>
+											    	@else
+											    	<option value="{{$satker->id}}">{{$satker->title}}</option>
+											    	@endif
+											    @endforeach
+											</select>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -493,7 +515,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">SK Penyesuaian Masa Kerja</label>
 								<div class="col-md-3">
-									<input value="{{$pegawai->penyesuaian_masa_kerja_bulan}}" type="text" maxlength="2" class="form-control" id="inputDefault" name="sk_penyesuaian_masa_kerja" required>
+									<input value="{{$pegawai->penyesuaian_masa_kerja_bulan}}" type="text" class="form-control" id="inputDefault" name="sk_penyesuaian_masa_kerja" required>
 								</div>
 							</div>
 						</div>
@@ -605,10 +627,19 @@
 @push("script")
 <script type="text/javascript">
 
-$("#jenis_jabatan_sub").hide();
-$("#struktural").hide();
-$("#jafung").hide();
-$("#jafungumum").hide();
+@if($pegawai->jenis_jabatan == 'Struktural')
+	$("#struktural").show();
+	$("#jafung").hide();
+	$("#jafungumum").hide();
+@elseif($pegawai->jenis_jabatan == 'Fungsional Tertentu')
+	$("#struktural").hide();
+	$("#jafung").show();
+	$("#jafungumum").hide();
+@elseif($pegawai->jenis_jabatan == 'Fungsional Umum')
+	$("#struktural").hide();
+	$("#jafung").hide();
+	$("#jafungumum").show();
+@endif
 
 $("#jenis_jabatan").change(function(){
 	var jenis_jabatan = $(this).val();
