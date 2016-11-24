@@ -51,8 +51,8 @@ class CreatePegawaiTable extends Migration
             $table->unsignedInteger('unit_kerja_id');
             $table->unsignedInteger('sub_unit_kerja_id');
             $table->unsignedInteger('satuan_kerja_id');
-            $table->unsignedInteger('jabatan_struktural_id')->default(0);
-            $table->string('eselon');
+            $table->unsignedInteger('jabatan_struktural_id')->nullable();
+            $table->string('eselon')->nullable();
             $table->string('tmt_eselon')->nullable();
 
             $table->string('jabatan_fungsional_tertentu')->nullable();

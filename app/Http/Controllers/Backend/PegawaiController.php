@@ -116,6 +116,27 @@ class PegawaiController extends Controller
 	        $arr['foto'] = $imageName;
 		}
 
+		if ($arr['jenis_jabatan'] == 'Struktural') {
+			$arr['jabatan_fungsional_tertentu'] = null;
+			$arr['tmt_jabatan_fungsional_tertentu'] = null;
+			$arr['jabatan_fungsional_umum'] = null;
+			$arr['tmt_jabatan_fungsional_umum'] = null;
+		}
+		else if ($arr['jenis_jabatan'] == 'Fungsional Tertentu') {
+			$arr['jabatan_struktural_id'] = null;
+			$arr['eselon'] = null;
+			$arr['tmt_eselon'] = null;
+			$arr['jabatan_fungsional_umum'] = null;
+			$arr['tmt_jabatan_fungsional_umum'] = null;
+		}
+		else if ($arr['jenis_jabatan'] == 'Fungsional Umum') {
+			$arr['jabatan_struktural_id'] = null;
+			$arr['eselon'] = null;
+			$arr['tmt_eselon'] = null;
+			$arr['jabatan_fungsional_tertentu'] = null;
+			$arr['tmt_jabatan_fungsional_tertentu'] = null;
+		}
+
 		$pegawai->insert($arr);
 
 		return redirect(route('dashboard.pegawai'));
@@ -136,6 +157,27 @@ class PegawaiController extends Controller
 
 	        Image::make($image)->save($publichPath);
 	        $arr['foto'] = $imageName;
+		}
+
+		if ($arr['jenis_jabatan'] == 'Struktural') {
+			$arr['jabatan_fungsional_tertentu'] = null;
+			$arr['tmt_jabatan_fungsional_tertentu'] = null;
+			$arr['jabatan_fungsional_umum'] = null;
+			$arr['tmt_jabatan_fungsional_umum'] = null;
+		}
+		else if ($arr['jenis_jabatan'] == 'Fungsional Tertentu') {
+			$arr['jabatan_struktural_id'] = null;
+			$arr['eselon'] = null;
+			$arr['tmt_eselon'] = null;
+			$arr['jabatan_fungsional_umum'] = null;
+			$arr['tmt_jabatan_fungsional_umum'] = null;
+		}
+		else if ($arr['jenis_jabatan'] == 'Fungsional Umum') {
+			$arr['jabatan_struktural_id'] = null;
+			$arr['eselon'] = null;
+			$arr['tmt_eselon'] = null;
+			$arr['jabatan_fungsional_tertentu'] = null;
+			$arr['tmt_jabatan_fungsional_tertentu'] = null;
 		}
 
 		$pegawai->findOrFail($id)->update($arr);
