@@ -70,7 +70,7 @@
 
 @endsection
 
-@section("scripts")
+@push("script")
 
 		<script type="text/javascript">
 		    $(document).ready( function () {
@@ -78,4 +78,4 @@
 		    } );
 		</script>
 
-@endsection
+@endpush

@@ -89,21 +89,21 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label">Email</label>
 								<div class="col-md-9">
-									<input type="email" class="form-control" id="inputDefault" name="email" required>
+									<input type="email" class="form-control" id="inputDefault" name="email">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">Alamat</label>
 								<div class="col-md-9">
-									<textarea class="form-control" name="alamat" required></textarea>
+									<textarea class="form-control" name="alamat"></textarea>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">Kode Pos</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="kode_pos" maxlength="5" required>
+									<input type="text" class="form-control" id="inputDefault" name="kode_pos" maxlength="5">
 								</div>
 							</div>
 
@@ -117,7 +117,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label">No Handpone</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="handphone" required>
+									<input type="text" class="form-control" id="inputDefault" name="handphone">
 								</div>
 							</div>
 
@@ -180,21 +180,21 @@
 								<label class="col-md-3 control-label">Pendidikan Terakhir</label>
 								<label class="col-md-3 control-label">Fakultas</label>
 								<div class="col-md-6">
-									<input class="form-control" type="text" name="pendidikan_akhir_fakultas" placeholder="Fakultas" required />
+									<input class="form-control" type="text" name="pendidikan_akhir_fakultas" placeholder="Fakultas" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label"></label>
 								<label class="col-md-3 control-label">Jurusan</label>
 								<div class="col-md-6">
-									<input class="form-control" type="text" name="pendidikan_akhir_jurusan" placeholder="Jurusan" required/>
+									<input class="form-control" type="text" name="pendidikan_akhir_jurusan" placeholder="Jurusan"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label"></label>
 								<label class="col-md-3 control-label">Lulus Tahun</label>
 								<div class="col-md-6">
-									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_tahun_lulus" placeholder="Tahun" required/>
+									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_tahun_lulus" placeholder="Tahun"/>
 								</div>
 							</div>
 
@@ -356,7 +356,7 @@
 									<label class="col-md-3 control-label">Unit Kerja</label>
 									<div class="col-md-9">
 										<div class="col-md-3">
-											<select select2 class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id" id="unit_kerja_id" required>
+											<select select2 class="form-control satker" style="margin-left:-15px;" name="unit_kerja_id" id="unit_kerja_id">
 												<option value=""></option>
 											    @foreach($unit_kerja as $unit)
 											    	<option value="{{$unit->id}}">{{$unit->title}}</option>
@@ -369,7 +369,7 @@
 									<label class="col-md-3 control-label">Sub Unit Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;" id="sub_unit_kerja_id" required>
+											<select select2 class="form-control unit_kerja" name="sub_unit_kerja_id" style="margin-left:-15px;" id="sub_unit_kerja_id">
 												<option value=""></option>
 											</select>
 										</div>
@@ -380,7 +380,7 @@
 									<label class="col-md-3 control-label">Satuan Kerja </label>
 									<div class="col-md-9">
 										<div class="col-md-5">
-											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;" id="satuan_kerja_id" required>
+											<select select2 class="form-control jabatan" name="satuan_kerja_id" style="margin-left:-15px;" id="satuan_kerja_id">
 												<option value=""></option>
 											</select>
 										</div>

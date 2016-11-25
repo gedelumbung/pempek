@@ -46,7 +46,7 @@ class MenuTableSeeder extends Seeder
                 ]
             ],
             [
-                'title' =>  'Formasi',
+                'title' =>  'Master Data',
                 'url' =>  '#',
                 'icon' =>  'fa fa-wrench',
                 'child' => [
@@ -74,7 +74,7 @@ class MenuTableSeeder extends Seeder
                 'child' => []
             ],
             [
-                'title' =>  'Settings',
+                'title' =>  'Frontend Settings',
                 'url' =>  '#',
                 'icon' =>  'fa fa-cogs',
                 'child' => [
@@ -91,40 +91,43 @@ class MenuTableSeeder extends Seeder
                 ]
             ],
             [
-                'title' =>  'Laporan DUK',
-                'url' =>  'dashboard.laporan.duk',
-                'icon' =>  'fa fa-file-text',
-                'child' => []
-            ],
-            [
-                'title' =>  'Laporan Nominatif',
-                'url' =>  'dashboard.laporan.nominatif',
-                'icon' =>  'fa fa-file-text',
-                'child' => []
-            ],
-            [
                 'title' =>  'Laporan',
                 'url' =>  '#',
                 'icon' =>  'fa fa-file-text',
                 'child' => [
                     [
-                        'title' =>  'Pendidikan',
+                        'title' =>  'Laporan DUK',
+                        'url' =>  'dashboard.laporan.duk',
+                        'icon' =>  'fa fa-pencil',
+                    ],
+                    [
+                        'title' =>  'Laporan Nominatif',
+                        'url' =>  'dashboard.laporan.nominatif',
+                        'icon' =>  'fa fa-pencil',
+                    ],
+                    [
+                        'title' =>  'Laporan Konfirgurasi Pendidikan',
                         'url' =>  'dashboard.laporan.pendidikan',
                         'icon' =>  'fa fa-pencil'
                     ],
                     [
-                        'title' =>  'Jabatan',
+                        'title' =>  'Laporan Konfirgurasi Jabatan',
                         'url' =>  'dashboard.laporan.jabatan',
                         'icon' =>  'fa fa-pencil'
                     ],
                     [
-                        'title' =>  'Golongan',
+                        'title' =>  'Laporan Konfirgurasi Golongan',
                         'url' =>  'dashboard.laporan.golongan',
                         'icon' =>  'fa fa-pencil'
                     ],
                     [
-                        'title' =>  'Konfiguras',
-                        'url' =>  'dashboard.laporan.konfigurasi',
+                        'title' =>  'Laporan Konfirgurasi Usia',
+                        'url' =>  'dashboard.laporan.usia',
+                        'icon' =>  'fa fa-pencil'
+                    ],
+                    [
+                        'title' =>  'Laporan Konfirgurasi Jenis Kelamin',
+                        'url' =>  'dashboard.laporan.jenis_kelamin',
                         'icon' =>  'fa fa-pencil'
                     ],
                 ]

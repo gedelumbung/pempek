@@ -24,11 +24,11 @@ class CreatePegawaiTable extends Migration
             $table->string('agama', 20);
             $table->string('jenis_kelamin', 10);
             $table->string('status_pernikahan', 15);
-            $table->string('email')->index();
-            $table->text('alamat');
-            $table->string('kode_pos');
-            $table->string('telepon');
-            $table->string('handphone');
+            $table->string('email')->nullable();
+            $table->text('alamat')->nullable();
+            $table->string('kode_pos')->nullable();
+            $table->string('telepon')->nullable();
+            $table->string('handphone')->nullable();
             $table->string('kedudukan_pns', 50);
             $table->string('status_pegawai', 25);
             $table->string('tmt_cpns', 50);
@@ -40,17 +40,17 @@ class CreatePegawaiTable extends Migration
             $table->string('tahun_diklat_sepadya')->nullable();
             $table->string('tahun_diklat_spamen')->nullable();
             $table->string('tahun_diklat_sepati')->nullable();
-            $table->string('pendidikan_akhir_fakultas');
-            $table->string('pendidikan_akhir_jurusan');
-            $table->string('pendidikan_akhir_tahun_lulus');
+            $table->string('pendidikan_akhir_fakultas')->nullable();
+            $table->string('pendidikan_akhir_jurusan')->nullable();
+            $table->string('pendidikan_akhir_tahun_lulus')->nullable();
             $table->text('foto');
 
             //posisi & jabatan
             $table->string('unit_organisasi');
             $table->string('jenis_jabatan', 50);
             $table->unsignedInteger('unit_kerja_id');
-            $table->unsignedInteger('sub_unit_kerja_id');
-            $table->unsignedInteger('satuan_kerja_id');
+            $table->unsignedInteger('sub_unit_kerja_id')->nullable();
+            $table->unsignedInteger('satuan_kerja_id')->nullable();
             $table->unsignedInteger('jabatan_struktural_id')->nullable();
             $table->string('eselon')->nullable();
             $table->string('tmt_eselon')->nullable();
