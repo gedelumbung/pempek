@@ -104,7 +104,7 @@
         
         <script src="{{ asset("js/backend.js") }}"></script>
 
-        @stack("script")
+        @yield("scripts")
 
     </body>
 </html>

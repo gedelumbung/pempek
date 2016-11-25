@@ -177,6 +177,28 @@
 							</div>
 
 							<div class="form-group">
+								<label class="col-md-3 control-label">Pendidikan Terakhir</label>
+								<label class="col-md-3 control-label">Fakultas</label>
+								<div class="col-md-6">
+									<input class="form-control" type="text" name="pendidikan_akhir_fakultas" placeholder="Fakultas" required />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label"></label>
+								<label class="col-md-3 control-label">Jurusan</label>
+								<div class="col-md-6">
+									<input class="form-control" type="text" name="pendidikan_akhir_jurusan" placeholder="Jurusan" required/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label"></label>
+								<label class="col-md-3 control-label">Lulus Tahun</label>
+								<div class="col-md-6">
+									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_tahun_lulus" placeholder="Tahun" required/>
+								</div>
+							</div>
+
+							<div class="form-group">
 								<label class="col-md-3 control-label">Diklat Struktural</label>
 								<label class="col-md-3 control-label">SEPADA</label>
 								<div class="col-md-6">
@@ -210,28 +232,6 @@
 								<label class="col-md-3 control-label">SEPATI/DIKLAT PIM TK.I</label>
 								<div class="col-md-6">
 									<input class="form-control" maxlength="4" type="text" name="tahun_diklat_sepati" placeholder="Tahun"/>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="col-md-3 control-label">Pendidikan Terakhir</label>
-								<label class="col-md-3 control-label">Fakultas</label>
-								<div class="col-md-6">
-									<input class="form-control" type="text" name="pendidikan_akhir_fakultas" placeholder="Fakultas" required />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 control-label"></label>
-								<label class="col-md-3 control-label">Jurusan</label>
-								<div class="col-md-6">
-									<input class="form-control" type="text" name="pendidikan_akhir_jurusan" placeholder="Jurusan" required/>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-3 control-label"></label>
-								<label class="col-md-3 control-label">Lulus Tahun</label>
-								<div class="col-md-6">
-									<input class="form-control" maxlength="4" type="text" name="pendidikan_akhir_tahun_lulus" placeholder="Tahun" required/>
 								</div>
 							</div>
 

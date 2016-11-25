@@ -30,7 +30,7 @@ class PegawaiController extends Controller
 	
 	public function index(Pegawai $pegawai)
 	{
-		$pegawai = $pegawai->paginate(15);
+		$pegawai = $pegawai->get();
 		return view('backend.pegawai.index', compact('pegawai'));
 	}
 

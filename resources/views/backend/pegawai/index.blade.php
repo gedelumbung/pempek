@@ -10,18 +10,20 @@
 	</div>
 	
 	<div class="panel-body">
-		<table class="table table-striped">
-			<tr>
-				<th>NIP</th>
-				<th>Nama</th>
-				<th>Unit Kerja</th>
-				<th>Jenis Jabatan</th>
-				<th>Nama Jabatan</th>
-				<th>Progress</th>
-				<th>
-					<a href="{{route('dashboard.pegawai.add')}}" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Add New</a>
-				</th>
-			</tr>
+		<table class="table table-striped" id="table_id">
+			<thead>
+				<tr>
+					<th>NIP</th>
+					<th>Nama</th>
+					<th>Unit Kerja</th>
+					<th>Jenis Jabatan</th>
+					<th>Nama Jabatan</th>
+					<th>Progress</th>
+					<th>
+						<a href="{{route('dashboard.pegawai.add')}}" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Add New</a>
+					</th>
+				</tr>
+			</thead>
 			<tbody>
 				@foreach($pegawai as $key => $data)
 				<tr>
@@ -38,7 +40,13 @@
 							{{$data->jabatan_struktural->title}}
 						@endif
 					</td>
-					<td>50%</td>
+					<td>
+						<div class="progress progress-squared" style="margin-bottom: -20px">
+							<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;" title="50 field yang kosong.">
+								50%
+							</div>
+						</div>
+					</td>
 					<td>
 	        			<a href="{{ route('dashboard.pegawai.show', ['id' => $data->id]) }}" class="btn btn-sm btn-warning">
 	        				<i class="glyphicon glyphicon-eye-open"></i>
@@ -58,7 +66,16 @@
 			</tbody>
 		</table>
 	</div>
-	{{ $pegawai->links() }}
 </div>
+
+@endsection
+
+@section("scripts")
+
+		<script type="text/javascript">
+		    $(document).ready( function () {
+		        $('#table_id').DataTable();
+		    } );
+		</script>
 
 @endsection
