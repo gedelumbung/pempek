@@ -159,24 +159,40 @@
 			<td>{{indonesian_date($pegawai->tmt_pns)}}</td>
 		</tr>
 		<tr>
-			<td>6</td>
-			<td>MASA KERJA SELURUHNYA</td>
-			<td>{{$pegawai->masa_kerja_tahun}} TAHUN {{$pegawai->masa_kerja_bulan}} BULAN</td>
+			<td>3</td>
+			<td>PENYESUAIAN MASA KERJA (PMK)</td>
+			<td>{{$pegawai->penyesuaian_masa_kerja_tahun}} Tahun {{$pegawai->penyesuaian_masa_kerja_bulan}} Bulan</td>
 		</tr>
 		<tr>
-			<td>7</td>
+			<td>4</td>
+			<td>NOMOR SK PMK</td>
+			<td>{{$pegawai->sk_penyesuaian_masa_kerja}}</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>MASA KERJA SELURUHNYA</td>
+			<td>{{($pegawai->penyesuaian_masa_kerja_tahun+$pegawai->masa_kerja_tahun)}} Tahun {{($pegawai->penyesuaian_masa_kerja_bulan+$pegawai->masa_kerja_bulan)}} Bulan</td>
+		</tr>
+		<tr>
+			<td>6</td>
 			<td>NOMOR KARTU PEGAWAI</td>
 			<td>{{$pegawai->no_seri_karpeg}}</td>
 		</tr>
 		<tr>
-			<td>8</td>
+			<td>7</td>
 			<td>NOMOR KARIS/KARSU</td>
 			<td>{{$pegawai->no_seri_karis}}</td>
 		</tr>
 		<tr>
-			<td>9</td>
-			<td>NOMOR DOSIR</td>
-			<td>[]</td>
+			<td>8</td>
+			<td>DIKLAT STRUKTURAL TERAKHIR</td>
+			<td>
+				<ul>
+				@foreach($riwayat_diklat as $ds)
+					<li>{{$ds->nama_diklat}}, {{$ds->tahun}}</li>
+				@endforeach
+				</ul>
+			</td>
 		</tr>
 	</table>
 	<br>

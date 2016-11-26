@@ -488,7 +488,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label">Gaji Pokok</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->gaji_pokok}}" type="text" class="form-control" id="inputDefault" name="gaji_pokok" required>
+									<input value="{{$pegawai->gaji_pokok}}" type="text" class="form-control" id="inputDefault" name="gaji_pokok">
 								</div>
 
 								<label class="col-md-1 control-label">Masa Kerja. Tahun</label>
@@ -504,18 +504,18 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label">Penyesuaian Masa Kerja Tahun</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->penyesuaian_masa_kerja_tahun}}" type="text" maxlength="2" class="form-control" id="inputDefault" name="penyesuaian_masa_kerja_tahun" required>
+									<input value="{{$pegawai->penyesuaian_masa_kerja_tahun}}" type="text" maxlength="2" class="form-control" id="inputDefault" name="penyesuaian_masa_kerja_tahun">
 								</div>
 								<label class="col-md-1 control-label">Bulan</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->penyesuaian_masa_kerja_bulan}}" type="text" maxlength="2" class="form-control" id="inputDefault" name="penyesuaian_masa_kerja_bulan" required>
+									<input value="{{$pegawai->penyesuaian_masa_kerja_bulan}}" type="text" maxlength="2" class="form-control" id="inputDefault" name="penyesuaian_masa_kerja_bulan">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">SK Penyesuaian Masa Kerja</label>
 								<div class="col-md-3">
-									<input value="{{$pegawai->penyesuaian_masa_kerja_bulan}}" type="text" class="form-control" id="inputDefault" name="sk_penyesuaian_masa_kerja" required>
+									<input value="{{$pegawai->penyesuaian_masa_kerja_bulan}}" type="text" class="form-control" id="inputDefault" name="sk_penyesuaian_masa_kerja">
 								</div>
 							</div>
 						</div>

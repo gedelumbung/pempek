@@ -137,13 +137,13 @@
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="inputDefault">TMT CPNS</label>
 							<div class="col-md-6">
-							{{$pegawai->tmt_cpns}}
+							{{indonesian_date($pegawai->tmt_cpns)}}
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="inputDefault">TMT PNS</label>
 							<div class="col-md-6">
-							{{$pegawai->tmt_pns}}
+							{{indonesian_date($pegawai->tmt_pns)}}
 							</div>
 						</div>
 						<div class="form-group">
@@ -233,7 +233,7 @@
 								</div>
 								<label class="col-md-3 control-label" for="inputDefault">TMT Jabatan Fungsional Tertentu</label>
 								<div class="col-md-3">
-								{{$pegawai->tmt_jabatan_fungsional_tertentu}}
+								{{indonesian_date($pegawai->tmt_jabatan_fungsional_tertentu)}}
 								</div>
 							</div>
 						@elseif(!empty($pegawai->jabatan_fungsional_umum))
@@ -244,10 +244,10 @@
 								</div>
 								<label class="col-md-3 control-label" for="inputDefault">TMT Jabatan Fungsional Umum</label>
 								<div class="col-md-3">
-								{{$pegawai->tmt_jabatan_fungsional_umum}}
+								{{indonesian_date($pegawai->tmt_jabatan_fungsional_umum)}}
 								</div>
 							</div>
-						@else
+						@elseif(!empty($pegawai->jabatan_struktural_id))
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Nama Jabatan Struktural</label>
 								<div class="col-md-3">
@@ -255,7 +255,7 @@
 								</div>
 								<label class="col-md-3 control-label" for="inputDefault">TMT Jabatan Struktural</label>
 								<div class="col-md-3">
-								{{$pegawai->tmt_eselon}}
+								{{indonesian_date($pegawai->tmt_eselon)}}
 								</div>
 							</div>
 						@endif
@@ -266,7 +266,7 @@
 							</div>
 							<label class="col-md-3 control-label" for="inputDefault">TMT Gol. Awal</label>
 							<div class="col-md-3">
-							{{$pegawai->tmt_golongan_awal}}
+							{{indonesian_date($pegawai->tmt_golongan_awal)}}
 							</div>
 						</div>
 						<div class="form-group">
@@ -276,7 +276,7 @@
 							</div>
 							<label class="col-md-3 control-label" for="inputDefault">TMT Gol. Akhir</label>
 							<div class="col-md-3">
-							{{$pegawai->tmt_golongan_akhir}}
+							{{indonesian_date($pegawai->tmt_golongan_akhir)}}
 							</div>
 						</div>
 						<div class="form-group">
@@ -291,6 +291,22 @@
 							<label class="col-md-1 control-label" for="inputDefault">Masa Kerja. Bulan</label>
 							<div class="col-md-2">
 							{{$pegawai->masa_kerja_bulan}}
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label" for="inputDefault">Penyesuaian Masa Kerja Tahun</label>
+							<div class="col-md-3">
+							{{$pegawai->penyesuaian_masa_kerja_tahun}}
+							</div>
+							<label class="col-md-1 control-label" for="inputDefault">Bulan</label>
+							<div class="col-md-2">
+							{{$pegawai->penyesuaian_masa_kerja_bulan}}
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label" for="inputDefault">SK Penyesuaian Masa Kerja</label>
+							<div class="col-md-5">
+							{{$pegawai->sk_penyesuaian_masa_kerja}}
 							</div>
 						</div>
 					 </fieldset>
@@ -345,7 +361,7 @@
 							<div class="col-md-3">
 							{{$pegawai->no_npwp}}
 							</div>
-							<label class="col-md-3 control-label" for="inputDefault">Tahun Akte</label>
+							<label class="col-md-3 control-label" for="inputDefault">Tanggal NPWP</label>
 							<div class="col-md-3">
 							{{indonesian_date($pegawai->tanggal_npwp)}}
 							</div>
