@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJabatanStrukturalTable extends Migration
+class CreateDukViewTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateJabatanStrukturalTable extends Migration
      */
     public function up()
     {
-        Schema::create('jabatan_struktural', function (Blueprint $table) {
+        Schema::create('duk_view', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('pegawai_id');
+            $table->unsignedInteger('golongan_id');
+            $table->integer('usia');
             $table->unsignedInteger('unit_kerja_id');
-            $table->string('title');
-            $table->string('eselon', 5);
             $table->integer('level');
-            $table->boolean('status');
+            $table->string('masa_kerja');
+            $table->integer('jumlah_diklat');
+            $table->string('pendidikan');
             $table->timestamps();
-
-            $table->foreign('unit_kerja_id')->references('id')->on('unit_kerja');
         });
     }
 
@@ -33,9 +34,6 @@ class CreateJabatanStrukturalTable extends Migration
      */
     public function down()
     {
-        Schema::table('jabatan_struktural', function (Blueprint $table) {
-            $table->dropForeign(['unit_kerja_id']);
-            $table->drop('jabatan_struktural');
-        });
+        Schema::drop('duk_view');
     }
 }

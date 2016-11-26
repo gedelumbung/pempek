@@ -3,6 +3,7 @@
 namespace Simpeg\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use DateTime;
 
 class Pegawai extends Model
 {
@@ -93,6 +94,25 @@ class Pegawai extends Model
 
     public function golongan_akhir()
     {
-        return $this->belongsTo('Simpeg\Model\Golongan', 'golongan_id_awal');
+        return $this->belongsTo('Simpeg\Model\Golongan', 'golongan_id_akhir');
+    }
+
+    public function riwayat_diklat()
+    {
+        return $this->hasMany('Simpeg\Model\RiwayatDiklat');
+    }
+
+    public function riwayat_pendidikan()
+    {
+        return $this->hasMany('Simpeg\Model\RiwayatPendidikan');
+    }
+
+    public function age()
+    {
+        $birthDate = $this->tanggal_lahir;
+        $date = new DateTime($birthDate);
+        $now = new DateTime();
+        $interval = $now->diff($date);
+        return $interval->y;
     }
 }

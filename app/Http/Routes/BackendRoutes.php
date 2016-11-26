@@ -166,7 +166,7 @@ class BackendRoutes implements RoutesInterface
 
     public function laporan()
     {
-        $this->router->get('/laporan-duk', ['as' => 'dashboard.laporan.duk', 'uses' => 'HomeController@index']);
+        $this->router->get('/laporan-duk', ['as' => 'dashboard.laporan.duk', 'uses' => 'LaporanDukController@index']);
         $this->router->get('/laporan-nominatif', ['as' => 'dashboard.laporan.nominatif', 'uses' => 'HomeController@index']);
         $this->router->get('/laporan-pendidikan', ['as' => 'dashboard.laporan.pendidikan', 'uses' => 'HomeController@index']);
         $this->router->get('/laporan-jabatan', ['as' => 'dashboard.laporan.jabatan', 'uses' => 'HomeController@index']);
