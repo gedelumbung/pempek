@@ -41,7 +41,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tanggal Lahir</label>
 								<div class="col-md-9">
-									<input type="date" name="tanggal_lahir" class="form-control" value="{!! ($pasangan) ? $pasangan->tanggal_lahir : '' !!}" required>
+									<input type="text" datepicker name="tanggal_lahir" class="form-control" value="{!! ($pasangan) ? $pasangan->tanggal_lahir : '' !!}" required>
 								</div>
 							</div>
 							<div class="form-group">
@@ -143,7 +143,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tanggal Akte Perceraian</label>
 								<div class="col-md-9">
-									<input type="date" name="tanggal_akte_perceraian" class="form-control" value="{!! ($pasangan) ? $pasangan->tanggal_akte_perceraian : '' !!}">
+									<input type="text" datepicker name="tanggal_akte_perceraian" class="form-control" value="{!! ($pasangan) ? $pasangan->tanggal_akte_perceraian : '' !!}">
 								</div>
 							</div>
 							<div class="form-group">
@@ -155,7 +155,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tanggal Akte Kelahiran</label>
 								<div class="col-md-9">
-									<input type="date" name="tanggal_akte_kelahiran" class="form-control" value="{!! ($pasangan) ? $pasangan->tanggal_akte_kelahiran : '' !!}" required>
+									<input type="text" datepicker name="tanggal_akte_kelahiran" class="form-control" value="{!! ($pasangan) ? $pasangan->tanggal_akte_kelahiran : '' !!}" required>
 								</div>
 							</div>
 							<div class="form-group">
@@ -167,7 +167,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tanggal Akte Meninggal</label>
 								<div class="col-md-9">
-									<input type="date" name="tanggal_akte_meninggal" class="form-control" value="{!! ($pasangan) ? $pasangan->tanggal_akte_meninggal : '' !!}">
+									<input type="text" datepicker name="tanggal_akte_meninggal" class="form-control" value="{!! ($pasangan) ? $pasangan->tanggal_akte_meninggal : '' !!}">
 								</div>
 							</div>
 							<div class="form-group">
@@ -179,7 +179,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tanggal NPWP</label>
 								<div class="col-md-9">
-									<input type="date" name="tanggal_npwp" class="form-control" value="{!! ($pasangan) ? $pasangan->tanggal_npwp : '' !!}">
+									<input type="text" datepicker name="tanggal_npwp" class="form-control" value="{!! ($pasangan) ? $pasangan->tanggal_npwp : '' !!}">
 								</div>
 							</div>
 							<div class="form-group">

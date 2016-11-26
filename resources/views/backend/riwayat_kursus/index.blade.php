@@ -35,7 +35,7 @@
 							<td><input type="text" name="nama_kursus" class="form-control" value="{{$data->nama_kursus}}" required></td>
 							<td><input type="number" name="jumlah_jam" class="form-control" value="{{$data->jumlah_jam}}" required></td>
 							<td><input type="text" name="nomor_sertifikat" class="form-control" value="{{$data->nomor_sertifikat}}" required></td>
-							<td><input type="date" name="tanggal" class="form-control" value="{{$data->tanggal}}" required></td>
+							<td><input type="text" datepicker name="tanggal" class="form-control" value="{{$data->tanggal}}" required></td>
 							<td><input type="text" class="form-control" name="penyelenggara" value="{{$data->penyelenggara}}" required></td>
 							<td width="200">
 								<input type="submit" value="Save" class="btn btn-sm btn-success">

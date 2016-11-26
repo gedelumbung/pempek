@@ -41,7 +41,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tanggal Lahir</label>
 								<div class="col-md-9">
-									<input type="date" name="tanggal_lahir" class="form-control" value="{!! ($ayah) ? $ayah->tanggal_lahir : '' !!}" required>
+									<input type="text" datepicker name="tanggal_lahir" class="form-control" value="{!! ($ayah) ? $ayah->tanggal_lahir : '' !!}" required>
 								</div>
 							</div>
 							<div class="form-group">
@@ -172,7 +172,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tanggal Lahir</label>
 								<div class="col-md-9">
-									<input type="date" name="tanggal_lahir" class="form-control" value="{!! ($ibu) ? $ibu->tanggal_lahir : '' !!}" required>
+									<input type="text" datepicker name="tanggal_lahir" class="form-control" value="{!! ($ibu) ? $ibu->tanggal_lahir : '' !!}" required>
 								</div>
 							</div>
 							<div class="form-group">

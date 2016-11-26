@@ -39,7 +39,7 @@
 							<td>{{$key+1}}</td>
 							<td><input type="text" name="nama" class="form-control" value="{{$data->nama}}" required></td>
 							<td><input type="text" name="tempat_lahir" class="form-control" value="{{$data->tempat_lahir}}" required></td>
-							<td><input type="date" name="tanggal_lahir" class="form-control" value="{{$data->tanggal_lahir}}" required></td>
+							<td><input type="text" datepicker name="tanggal_lahir" class="form-control" value="{{$data->tanggal_lahir}}" required></td>
 							<td>
 								<select select2 name="jenis_kelamin" class="form-control" required>
 									@foreach(config('simpeg.jenis_kelamin') as $jenis_kelamin)

@@ -47,7 +47,7 @@
 							<td><input type="text" name="nama_sekolah" class="form-control" value="{{$data->nama_sekolah}}" required></td>
 							<td><input type="text" name="fakultas" class="form-control" value="{{$data->fakultas}}" required></td>
 							<td><input type="text" name="ijazah_pendidikan" class="form-control" value="{{$data->ijazah_pendidikan}}" required></td>
-							<td><input type="date" class="form-control" name="tanggal_lulus" value="{{$data->tanggal_lulus}}" required></td>
+							<td><input type="text" datepicker class="form-control" name="tanggal_lulus" value="{{$data->tanggal_lulus}}" required></td>
 							<td><input type="text" class="form-control" name="nama_pimpinan" value="{{$data->nama_pimpinan}}" required></td>
 							<td width="200">
 								<input type="submit" value="Save" class="btn btn-sm btn-success">
