@@ -31,8 +31,8 @@ class CreatePegawaiTable extends Migration
             $table->string('handphone')->nullable();
             $table->string('kedudukan_pns', 50);
             $table->string('status_pegawai', 25);
-            $table->string('tmt_cpns', 50);
-            $table->string('tmt_pns', 50);
+            $table->string('tmt_cpns', 50)->nullable();
+            $table->string('tmt_pns', 50)->nullable();
             $table->string('pendidikan_awal_cpns', 80);
             $table->string('pendidikan_akhir', 80);
             $table->string('tahun_diklat_sepada')->nullable();
@@ -43,15 +43,15 @@ class CreatePegawaiTable extends Migration
             $table->string('pendidikan_akhir_fakultas')->nullable();
             $table->string('pendidikan_akhir_jurusan')->nullable();
             $table->string('pendidikan_akhir_tahun_lulus')->nullable();
-            $table->text('foto');
+            $table->text('foto')->nullable();
 
             //posisi & jabatan
-            $table->string('unit_organisasi');
-            $table->string('jenis_jabatan', 50);
-            $table->unsignedInteger('unit_kerja_id');
-            $table->unsignedInteger('sub_unit_kerja_id')->nullable();
-            $table->unsignedInteger('satuan_kerja_id')->nullable();
-            $table->unsignedInteger('jabatan_struktural_id')->nullable();
+            $table->string('unit_organisasi')->nullable();
+            $table->string('jenis_jabatan', 50)->nullable();
+            $table->string('unit_kerja_id')->nullable();
+            $table->string('sub_unit_kerja_id')->nullable();
+            $table->string('satuan_kerja_id')->nullable();
+            $table->string('jabatan_struktural_id')->nullable();
             $table->string('eselon')->nullable();
             $table->string('tmt_eselon')->nullable();
 
@@ -61,29 +61,29 @@ class CreatePegawaiTable extends Migration
             $table->string('jabatan_fungsional_umum')->nullable();
             $table->string('tmt_jabatan_fungsional_umum')->nullable();
 
-            $table->unsignedInteger('golongan_id_awal');
-            $table->string('tmt_golongan_awal');
-            $table->unsignedInteger('golongan_id_akhir');
-            $table->string('tmt_golongan_akhir');
+            $table->unsignedInteger('golongan_id_awal')->nullable();
+            $table->string('tmt_golongan_awal')->nullable();
+            $table->unsignedInteger('golongan_id_akhir')->nullable();
+            $table->string('tmt_golongan_akhir')->nullable();
 
-            $table->string('gaji_pokok');
-            $table->string('masa_kerja_tahun');
-            $table->string('masa_kerja_bulan');
-            $table->string('penyesuaian_masa_kerja_tahun');
-            $table->string('penyesuaian_masa_kerja_bulan');
-            $table->string('sk_penyesuaian_masa_kerja');
+            $table->string('gaji_pokok')->nullable();
+            $table->string('masa_kerja_tahun')->nullable();
+            $table->string('masa_kerja_bulan')->nullable();
+            $table->string('penyesuaian_masa_kerja_tahun')->nullable();
+            $table->string('penyesuaian_masa_kerja_bulan')->nullable();
+            $table->string('sk_penyesuaian_masa_kerja')->nullable();
 
             //data lain
-            $table->string('no_seri_karpeg');
-            $table->string('no_seri_kpe');
-            $table->string('no_seri_karis');
-            $table->string('no_akte_kelahiran');
-            $table->string('tahun_no_akte_kelahiran');
-            $table->string('no_askes');
-            $table->string('no_taspen');
-            $table->string('no_npwp');
-            $table->string('tanggal_npwp');
-            $table->string('golongan_darah', 2);
+            $table->string('no_seri_karpeg')->nullable();
+            $table->string('no_seri_kpe')->nullable();
+            $table->string('no_seri_karis')->nullable();
+            $table->string('no_akte_kelahiran')->nullable();
+            $table->string('tahun_no_akte_kelahiran')->nullable();
+            $table->string('no_askes')->nullable();
+            $table->string('no_taspen')->nullable();
+            $table->string('no_npwp')->nullable();
+            $table->string('tanggal_npwp')->nullable();
+            $table->string('golongan_darah', 2)->nullable();
 
             $table->timestamps();
         });

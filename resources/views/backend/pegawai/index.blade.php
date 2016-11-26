@@ -29,21 +29,25 @@
 				<tr>
 					<td>{{$data->nip}}</td>
 					<td>{{$data->nama_lengkap}}</td>
-					<td>{{$data->unit_kerja->title}}</td>
+					<td>
+						@if(!empty($data->unit_kerja_id))
+							{{$data->unit_kerja->title}}
+						@endif
+					</td>
 					<td>{{$data->jenis_jabatan}}</td>
 					<td>
 						@if(!empty($data->jabatan_fungsional_tertentu))
 							{{$data->jabatan_fungsional_tertentu}}
 						@elseif(!empty($data->jabatan_fungsional_umum))
 							{{$data->jabatan_fungsional_umum}}
-						@else
+						@elseif(!empty($data->jabatan_struktural_id))
 							{{$data->jabatan_struktural->title}}
 						@endif
 					</td>
 					<td>
 						<div class="progress progress-squared" style="margin-bottom: -20px">
 							<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;" title="50 field yang kosong.">
-								50%
+								{{$data->id}}
 							</div>
 						</div>
 					</td>

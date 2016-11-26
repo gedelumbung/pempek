@@ -48,7 +48,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label">Tanggal Lahir</label>
 								<div class="col-md-9">
-									<input value="{{$pegawai->tanggal_lahir}}" type="date" class="form-control" name="tanggal_lahir" required>
+									<input value="{{$pegawai->tanggal_lahir}}" type="text" datepicker class="form-control" name="tanggal_lahir" required>
 								</div>
 							</div>
 
@@ -167,11 +167,11 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="tmt_cpns">TMT CPNS</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->tmt_cpns}}" type="date" class="form-control" id="tmt_cpns" name="tmt_cpns" required>
+									<input value="{{$pegawai->tmt_cpns}}" type="text" datepicker class="form-control" id="tmt_cpns" name="tmt_cpns">
 								</div>
 								<label class="col-md-1 control-label">TMT PNS</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->tmt_pns}}" type="date" class="form-control" id="inputDefault" name="tmt_pns" required>
+									<input value="{{$pegawai->tmt_pns}}" type="text" datepicker class="form-control" id="inputDefault" name="tmt_pns">
 								</div>
 							</div>
 
@@ -353,7 +353,7 @@
 
 									<label class="col-md-2 control-label">TMT Eselon</label>
 									<div class="col-md-2">
-										<input value="{{$pegawai->tmt_eselon}}" type="date" class="form-control" id="inputDefault" name="tmt_eselon">
+										<input value="{{$pegawai->tmt_eselon}}" type="text" datepicker class="form-control" id="inputDefault" name="tmt_eselon">
 									</div>
 								</div>
 							</div>
@@ -370,7 +370,7 @@
 
 									<label class="col-md-2 control-label">TMT Jafung</label>
 									<div class="col-md-2">
-										<input value="{{$pegawai->tmt_jabatan_fungsional_tertentu}}" type="date" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_tertentu">
+										<input value="{{$pegawai->tmt_jabatan_fungsional_tertentu}}" type="text" datepicker class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_tertentu">
 									</div>
 								</div>
 							</div>
@@ -387,7 +387,7 @@
 
 									<label class="col-md-2 control-label">TMT Jafung Umum</label>
 									<div class="col-md-2">
-										<input value="{{$pegawai->tmt_jabatan_fungsional_umum}}" type="date" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_umum">
+										<input value="{{$pegawai->tmt_jabatan_fungsional_umum}}" type="text" datepicker class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_umum">
 									</div>
 								</div>
 							</div>
@@ -462,7 +462,7 @@
 								</div>
 								<label class="col-md-2 control-label">TMT Gol. Awal</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->tmt_golongan_awal}}" type="date" class="form-control" id="inputDefault" name="tmt_golongan_awal" required>
+									<input value="{{$pegawai->tmt_golongan_awal}}" type="text" datepicker class="form-control" id="inputDefault" name="tmt_golongan_awal" required>
 								</div>
 							</div>
 
@@ -481,7 +481,7 @@
 								</div>
 								<label class="col-md-2 control-label">TMT Gol. Akhir</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->tmt_golongan_akhir}}" type="date" class="form-control" id="inputDefault" name="tmt_golongan_akhir" required>
+									<input value="{{$pegawai->tmt_golongan_akhir}}" type="text" datepicker class="form-control" id="inputDefault" name="tmt_golongan_akhir" required>
 								</div>
 							</div>
 
@@ -493,11 +493,11 @@
 
 								<label class="col-md-1 control-label">Masa Kerja. Tahun</label>
 								<div class="col-md-1">
-									<input value="{{$pegawai->masa_kerja_tahun}}" type="text" class="form-control" id="masa_kerja_tahun" name="masa_kerja_tahun" maxlength="2" readonly="true" required>
+									<input value="{{$pegawai->masa_kerja_tahun}}" type="text" class="form-control" id="masa_kerja_tahun" name="masa_kerja_tahun" maxlength="2" readonly="true">
 								</div>
 								<label class="col-md-1 control-label">Bulan</label>
 								<div class="col-md-1">
-									<input value="{{$pegawai->masa_kerja_bulan}}" type="text" class="form-control" id="masa_kerja_bulan" name="masa_kerja_bulan" maxlength="2" readonly="true" required>
+									<input value="{{$pegawai->masa_kerja_bulan}}" type="text" class="form-control" id="masa_kerja_bulan" name="masa_kerja_bulan" maxlength="2" readonly="true">
 								</div>
 							</div>
 
@@ -526,66 +526,66 @@
 						 	<div class="form-group">
 								<label class="col-md-3 control-label">No Seri KARPEG</label>
 								<div class="col-md-9">
-									<input value="{{$pegawai->no_seri_karpeg}}" type="text" class="form-control" id="inputDefault" name="no_seri_karpeg" maxlength="9" required>
+									<input value="{{$pegawai->no_seri_karpeg}}" type="text" class="form-control" id="inputDefault" name="no_seri_karpeg" maxlength="9">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No Seri KPE</label>
 								<div class="col-md-9">
-									<input value="{{$pegawai->no_seri_kpe}}" type="text" class="form-control" id="inputDefault" name="no_seri_kpe" maxlength="9" required>
+									<input value="{{$pegawai->no_seri_kpe}}" type="text" class="form-control" id="inputDefault" name="no_seri_kpe" maxlength="9">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No Seri KARIS/KARSU</label>
 								<div class="col-md-9">
-									<input value="{{$pegawai->no_seri_karis}}" type="text" class="form-control" id="inputDefault" name="no_seri_karis" maxlength="9" required>
+									<input value="{{$pegawai->no_seri_karis}}" type="text" class="form-control" id="inputDefault" name="no_seri_karis" maxlength="9">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No Akte Kelahiran</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->no_akte_kelahiran}}" type="text" class="form-control" id="inputDefault" name="no_akte_kelahiran" required>
+									<input value="{{$pegawai->no_akte_kelahiran}}" type="text" class="form-control" id="inputDefault" name="no_akte_kelahiran">
 								</div>
 
 								<label class="col-md-2 control-label">Tahun Akte</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->tahun_no_akte_kelahiran}}" type="text" class="form-control" id="inputDefault" name="tahun_no_akte_kelahiran" maxlength="4" required>
+									<input value="{{$pegawai->tahun_no_akte_kelahiran}}" type="text" class="form-control" id="inputDefault" name="tahun_no_akte_kelahiran" maxlength="4">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No ASKES</label>
 								<div class="col-md-9">
-									<input value="{{$pegawai->no_askes}}" type="text" class="form-control" id="inputDefault" name="no_askes" maxlength="13" required>
+									<input value="{{$pegawai->no_askes}}" type="text" class="form-control" id="inputDefault" name="no_askes" maxlength="13">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No TASPEN</label>
 								<div class="col-md-9">
-									<input value="{{$pegawai->no_taspen}}" type="text" class="form-control" id="inputDefault" name="no_taspen" maxlength="18" required>
+									<input value="{{$pegawai->no_taspen}}" type="text" class="form-control" id="inputDefault" name="no_taspen" maxlength="18">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No NPWP</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->no_npwp}}" type="text" class="form-control" id="inputDefault" name="no_npwp" required>
+									<input value="{{$pegawai->no_npwp}}" type="text" class="form-control" id="inputDefault" name="no_npwp">
 								</div>
 
 								<label class="col-md-2 control-label">Tanggal NPWP</label>
 								<div class="col-md-2">
-									<input value="{{$pegawai->tanggal_npwp}}" type="date" class="form-control" id="inputDefault" name="tanggal_npwp" required>
+									<input value="{{$pegawai->tanggal_npwp}}" type="text" datepicker class="form-control" id="inputDefault" name="tanggal_npwp">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">Golongan Darah</label>
 								<div class="col-md-9">
-									<input value="{{$pegawai->golongan_darah}}" type="text" class="form-control" id="inputDefault" name="golongan_darah" required>
+									<input value="{{$pegawai->golongan_darah}}" type="text" class="form-control" id="inputDefault" name="golongan_darah">
 								</div>
 							</div>
 							<div class="form-group">
@@ -727,13 +727,17 @@ $("#jabatan_struktural_id").change(function(){
     });
 });
 
-$("#tmt_cpns").change(function(){
+$('#tmt_cpns').datepicker()
+.on('changeDate', function(e) {
 	var today = new Date();
 	var birthDate = new Date($("#tmt_cpns").val());
 	var year = today.getFullYear() - birthDate.getFullYear();
 	var m = today.getMonth() - birthDate.getMonth();
 	if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
 		year--;
+	}
+	if (m === -1) {
+		m = 11;
 	}
 	$("#masa_kerja_tahun").val(year);
 	$("#masa_kerja_bulan").val(m);

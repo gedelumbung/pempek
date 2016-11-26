@@ -47,7 +47,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label">Tanggal Lahir</label>
 								<div class="col-md-9">
-									<input type="date" class="form-control" name="tanggal_lahir" required>
+									<input type="text" datepicker readonly="true" class="form-control" name="tanggal_lahir" required>
 								</div>
 							</div>
 
@@ -146,11 +146,11 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="tmt_cpns">TMT CPNS</label>
 								<div class="col-md-2">
-									<input type="date" class="form-control" name="tmt_cpns" id="tmt_cpns" required>
+									<input type="text" datepicker readonly="true" class="form-control" name="tmt_cpns" id="tmt_cpns">
 								</div>
 								<label class="col-md-1 control-label">TMT PNS</label>
 								<div class="col-md-2">
-									<input type="date" class="form-control" id="inputDefault" name="tmt_pns" required>
+									<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_pns">
 								</div>
 							</div>
 
@@ -312,7 +312,7 @@
 
 									<label class="col-md-2 control-label">TMT Eselon</label>
 									<div class="col-md-2">
-										<input type="date" class="form-control" id="inputDefault" name="tmt_eselon">
+										<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_eselon">
 									</div>
 								</div>
 							</div>
@@ -329,7 +329,7 @@
 
 									<label class="col-md-2 control-label">TMT Jafung</label>
 									<div class="col-md-2">
-										<input type="date" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_tertentu">
+										<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_tertentu">
 									</div>
 								</div>
 							</div>
@@ -346,7 +346,7 @@
 
 									<label class="col-md-2 control-label">TMT Jafung Umum</label>
 									<div class="col-md-2">
-										<input type="date" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_umum">
+										<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_umum">
 									</div>
 								</div>
 							</div>
@@ -399,7 +399,7 @@
 								</div>
 								<label class="col-md-2 control-label">TMT Gol. Awal</label>
 								<div class="col-md-2">
-									<input type="date" class="form-control" id="inputDefault" name="tmt_golongan_awal" required>
+									<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_golongan_awal" required>
 								</div>
 							</div>
 
@@ -414,7 +414,7 @@
 								</div>
 								<label class="col-md-2 control-label">TMT Gol. Akhir</label>
 								<div class="col-md-2">
-									<input type="date" class="form-control" id="inputDefault" name="tmt_golongan_akhir" required>
+									<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_golongan_akhir" required>
 								</div>
 							</div>
 
@@ -426,11 +426,11 @@
 
 								<label class="col-md-1 control-label" for="masa_kerja_tahun">Masa Kerja. Tahun</label>
 								<div class="col-md-1">
-									<input type="text" class="form-control" id="masa_kerja_tahun" name="masa_kerja_tahun" readonly="true" maxlength="2" required>
+									<input type="text" class="form-control" id="masa_kerja_tahun" name="masa_kerja_tahun" readonly="true" maxlength="2">
 								</div>
 								<label class="col-md-1 control-label" for="masa_kerja_bulan">Bulan</label>
 								<div class="col-md-1">
-									<input type="text" class="form-control" id="masa_kerja_bulan" name="masa_kerja_bulan" readonly="true" maxlength="2" required>
+									<input type="text" class="form-control" id="masa_kerja_bulan" name="masa_kerja_bulan" readonly="true" maxlength="2">
 								</div>
 							</div>
 
@@ -448,7 +448,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label">SK Penyesuaian Masa Kerja</label>
 								<div class="col-md-3">
-									<input type="text" class="form-control" id="inputDefault" name="sk_penyesuaian_masa_kerja" required>
+									<input type="text" class="form-control" id="inputDefault" name="sk_penyesuaian_masa_kerja">
 								</div>
 							</div>
 						</div>
@@ -459,66 +459,66 @@
 						 	<div class="form-group">
 								<label class="col-md-3 control-label">No Seri KARPEG</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_seri_karpeg" maxlength="9" required>
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_karpeg" maxlength="9">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No Seri KPE</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_seri_kpe" maxlength="9" required>
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_kpe" maxlength="9">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No Seri KARIS/KARSU</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_seri_karis" maxlength="9" required>
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_karis" maxlength="9">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No Akte Kelahiran</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="no_akte_kelahiran" required>
+									<input type="text" class="form-control" id="inputDefault" name="no_akte_kelahiran">
 								</div>
 
 								<label class="col-md-2 control-label">Tahun Akte</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="tahun_no_akte_kelahiran" maxlength="4" required>
+									<input type="text" class="form-control" id="inputDefault" name="tahun_no_akte_kelahiran" maxlength="4">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No ASKES</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_askes" maxlength="13" required>
+									<input type="text" class="form-control" id="inputDefault" name="no_askes" maxlength="13">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No TASPEN</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_taspen" maxlength="18" required>
+									<input type="text" class="form-control" id="inputDefault" name="no_taspen" maxlength="18">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No NPWP</label>
 								<div class="col-md-2">
-									<input type="text" class="form-control" id="inputDefault" name="no_npwp" required>
+									<input type="text" class="form-control" id="inputDefault" name="no_npwp">
 								</div>
 
 								<label class="col-md-2 control-label">Tanggal NPWP</label>
 								<div class="col-md-2">
-									<input type="date" class="form-control" id="inputDefault" name="tanggal_npwp" required>
+									<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tanggal_npwp">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">Golongan Darah</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="golongan_darah" required>
+									<input type="text" class="form-control" id="inputDefault" name="golongan_darah">
 								</div>
 							</div>
 							<div class="form-group">
@@ -653,13 +653,17 @@ $("#jabatan_struktural_id").change(function(){
     });
 });
 
-$("#tmt_cpns").change(function(){
+$('#tmt_cpns').datepicker()
+.on('changeDate', function(e) {
 	var today = new Date();
 	var birthDate = new Date($("#tmt_cpns").val());
 	var year = today.getFullYear() - birthDate.getFullYear();
 	var m = today.getMonth() - birthDate.getMonth();
 	if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
 		year--;
+	}
+	if (m === -1) {
+		m = 11;
 	}
 	$("#masa_kerja_tahun").val(year);
 	$("#masa_kerja_bulan").val(m);
