@@ -18,6 +18,11 @@ class UnitKerja extends Model
         return $this->hasMany('Simpeg\Model\JabatanStruktural', 'unit_kerja_id', 'id');
     }
 
+    public function sub_unit_kerja()
+    {
+        return $this->hasMany('Simpeg\Model\UnitKerja', 'parent_id', 'id');
+    }
+
     public function duk()
     {
         return $this->hasMany('Simpeg\Model\DukView')->orderBy('golongan', 'desc')
