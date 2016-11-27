@@ -20,7 +20,7 @@ class CreateDukViewTable extends Migration
             $table->string('tmt_golongan');
             $table->integer('usia');
             $table->unsignedInteger('unit_kerja_id');
-            $table->integer('level');
+            $table->string('level')->nullable();
             $table->string('masa_kerja');
             $table->integer('jumlah_diklat');
             $table->string('pendidikan');
