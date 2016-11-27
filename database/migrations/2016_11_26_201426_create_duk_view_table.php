@@ -16,7 +16,8 @@ class CreateDukViewTable extends Migration
         Schema::create('duk_view', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('pegawai_id');
-            $table->unsignedInteger('golongan_id');
+            $table->string('golongan');
+            $table->string('tmt_golongan');
             $table->integer('usia');
             $table->unsignedInteger('unit_kerja_id');
             $table->integer('level');

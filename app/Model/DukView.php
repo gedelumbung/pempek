@@ -14,7 +14,7 @@ class DukView extends Model
 
     protected $fillable = [
     	'pegawai_id',
-    	'golongan_id',
+    	'golongan',
     	'usia',
     	'satuan_kerja_id',
     	'level',

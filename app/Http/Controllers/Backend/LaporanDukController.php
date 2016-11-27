@@ -17,14 +17,15 @@ class LaporanDukController extends Controller
 	
 	public function index(DukView $duk)
 	{
-		DB::table('duk_view')->truncate();
+		DukView::truncate();
 		$this->fetchNewData();
-		$duk = $duk->orderBy('golongan_id', 'desc')
-					->orderBy('usia', 'desc')
+		$duk = $duk->orderBy('golongan', 'desc')
+					->orderBy('tmt_golongan', 'desc')
 					->orderBy('level', 'desc')
 					->orderBy('masa_kerja', 'desc')
 					->orderBy('jumlah_diklat', 'desc')
 					->orderBy('pendidikan', 'desc')
+					->orderBy('usia', 'desc')
 					->get();
 		return view('backend.laporan.duk', compact('duk'));
 	}
@@ -35,12 +36,20 @@ class LaporanDukController extends Controller
 		foreach ($pegawai as $key => $data) {
 			$duk = new DukView();
 			$duk->pegawai_id = $data->id;
-			$duk->golongan_id = $data->golongan_id_akhir;
+			$duk->golongan = $data->golongan_akhir->title;
+			$duk->tmt_golongan = $data->tmt_golongan_akhir;
 			$duk->usia = $data->age();
 			$duk->unit_kerja_id = $data->unit_kerja_id;
-			$duk->level = $data->jabatan_struktural_id;
+
+			if (!empty($data->jabatan_struktural_id)) {
+				$duk->level = $data->jabatan_struktural->level;
+			}
+			else {
+
+			}
+
 			$duk->masa_kerja = $data->masa_kerja_tahun;
-			$duk->jumlah_diklat = $data->golongan_id_akhir;
+			$duk->jumlah_diklat = $data->riwayat_diklat->count();
 			$duk->pendidikan = $data->pendidikan_akhir;
 			$duk->save();
 		}
