@@ -77,6 +77,16 @@ class Pegawai extends Model
         'foto'
     ];
 
+    public function satuan_kerja()
+    {
+        return $this->belongsTo('Simpeg\Model\SatuanKerja', 'unit_kerja_id');
+    }
+
+    public function sub_unit_kerja()
+    {
+        return $this->belongsTo('Simpeg\Model\UnitKerja', 'sub_unit_kerja_id');
+    }
+
     public function unit_kerja()
     {
         return $this->belongsTo('Simpeg\Model\UnitKerja');
@@ -114,5 +124,10 @@ class Pegawai extends Model
         $now = new DateTime();
         $interval = $now->diff($date);
         return $interval->y;
+    }
+
+    public function pensiun()
+    {
+        return date("Y-m-d", strtotime(date("Y-m-d", strtotime($this->tanggal_lahir)) . " + 60 years"));
     }
 }

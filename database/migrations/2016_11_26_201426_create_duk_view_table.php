@@ -17,7 +17,7 @@ class CreateDukViewTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('pegawai_id');
             $table->string('golongan');
-            $table->string('tmt_golongan');
+            $table->string('tmt_golongan')->nullable();
             $table->integer('usia');
             $table->unsignedInteger('unit_kerja_id');
             $table->string('level')->nullable();
