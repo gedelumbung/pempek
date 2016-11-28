@@ -5,7 +5,6 @@ namespace Simpeg\Http\Controllers\Backend;
 use Simpeg\Http\Controllers\Controller;
 use Simpeg\Model\UnitKerja;
 use Illuminate\Http\Request;
-use DB;
 
 /**
 * Laporan Usia Controller

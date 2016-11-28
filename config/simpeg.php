@@ -69,6 +69,7 @@ return [
         'd1'   =>   'D.I',
         'd2'   =>   'D.II',
         'd3'   =>   'D.III/Sarmud/Akademi',
+        'd4'   =>   'D.IV',
         's1'   =>   'S.1',
         's2'   =>   'S.2',
         's3'   =>   'S.3'

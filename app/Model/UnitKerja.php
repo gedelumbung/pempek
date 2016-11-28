@@ -3,6 +3,7 @@
 namespace Simpeg\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Simpeg\Model\Pegawai;
 
 class UnitKerja extends Model
 {
@@ -16,6 +17,11 @@ class UnitKerja extends Model
     public function jabatan()
     {
         return $this->hasMany('Simpeg\Model\JabatanStruktural', 'unit_kerja_id', 'id');
+    }
+
+    public function pegawai()
+    {
+        return $this->hasMany('Simpeg\Model\Pegawai', 'unit_kerja_id', 'id');
     }
 
     public function sub_unit_kerja()
@@ -32,5 +38,20 @@ class UnitKerja extends Model
 					->orderBy('jumlah_diklat', 'desc')
 					->orderBy('pendidikan', 'desc')
 					->orderBy('usia', 'desc');
+    }
+
+    public function countParentPegawaiByPendidikan($jabatan_struktural_id, $pendidikan)
+    {
+        $child_list_id = self::where('parent_id', $jabatan_struktural_id)->pluck('id')->toArray();
+        return Pegawai::whereIn('jabatan_struktural_id', $child_list_id)
+                    ->where('pendidikan_akhir', $pendidikan)
+                    ->count();
+    }
+
+    public function countSubPegawaiByPendidikan($jabatan_struktural_id, $pendidikan)
+    {
+        return Pegawai::where('jabatan_struktural_id', $jabatan_struktural_id)
+                    ->where('pendidikan_akhir', $pendidikan)
+                    ->count();
     }
 }
