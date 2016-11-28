@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 
 use Simpeg\Model\Pegawai;
+use Simpeg\Model\RiwayatDiklat;
+use Simpeg\Model\RiwayatPendidikan;
 
 class PegawaiTableSeeder extends Seeder
 {
@@ -15,6 +17,8 @@ class PegawaiTableSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('pegawai')->truncate();
+        DB::table('riwayat_diklat')->truncate();
+        DB::table('riwayat_pendidikan')->truncate();
 
         $params = json_decode('[
 {
@@ -23032,8 +23036,12709 @@ class PegawaiTableSeeder extends Seeder
     "level": "16"
 }
 ]');
-        foreach ($params as $param) {
-          Pegawai::create([
+
+        $diklat = json_decode('[
+{
+    "nama_diklat": "Pendalaman Materi Perpres 54 Tahun 2010 bagi PPK ",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "2011-02-03",
+    "diklat_struktural_id": "6663",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/ Jasa Pemerintah ",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "2009-03-13",
+    "diklat_struktural_id": "6664",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Kursus Dasar AMDAL Angkatan VIII",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "1993-07-14",
+    "diklat_struktural_id": "6662",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Pengadaan Barang dan Jasa",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "2006-05-16",
+    "diklat_struktural_id": "6665",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Pendidikan dan Pelatihan Administrasi Tk. I (Diklat SPAMA) Angkatan VI",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "2000-05-02",
+    "diklat_struktural_id": "6666",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Pendidikan dan Pelatihan Analisa Kebijakan (ANJAK) Angkatan I           ",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "2000-08-14",
+    "diklat_struktural_id": "6667",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Pendidikan dan Pelatihan Analisis Kebijakan",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "1970-01-01",
+    "diklat_struktural_id": "6668",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Pendiikan dan Pelatihan TOT PPMS TSSDP",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "1970-01-01",
+    "diklat_struktural_id": "6669",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Pendidikan dan Pelatihan Teknis MAnajemen Proyek",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "1970-01-01",
+    "diklat_struktural_id": "6670",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Pendidikan dan Pelatihan Teknis P4 Terpadu",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "1970-01-01",
+    "diklat_struktural_id": "6671",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Pendidikan dan Pelatihan Semiloka Perencanaan Permukiman Trans",
+    "nomor_sertifikat": "",
+    "jumlah_jam": "0",
+    "tanggal": "1970-01-01",
+    "diklat_struktural_id": "6672",
+    "id_pegawai": "1",
+    "created_at": "0",
+    "updated_at": "2016-10-19 06:24:16"
+}
+, {
+    "nama_diklat": "Pengembangan SDM",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6673",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "SEPALA Departemen Transmigrasi dan PPH di Bandung ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6674",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "SPAMA Departemen Transmigrasi dan PPH di Bogor ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6675",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Bahasa Inggris",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6676",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Development Planning For Planner di Bangkok ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6677",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembangunan Kawasan Transmigrasi dalam Perspektif Sosial, Ekonomi dan Lingkungan yang Terpadu dan Serasi di Era Otonomi ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6678",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembangunan Community di Malaysia ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6679",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Peningkatan Kapasitas Sumber Daya Manusia di Filipina ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6680",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pendidikan dan Pelatihan Spesialisasi Pengadaan Barang\/Jasa Sertifikat ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6681",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Teknis dan Ujian Sertifikasi Ahli Pengadaan Barang dan Jasa Pemerintah ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6682",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Community Development Samoul Undong di Korea Selatan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6683",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Barang dan Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6684",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran P4",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6685",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Prajabatan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6686",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Lulus Diklat Anggaran",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6687",
+    "id_pegawai": "2",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang \/ Jasa Pemerintah ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-02-22",
+    "diklat_struktural_id": "6688",
+    "id_pegawai": "3",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tk.III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2009-10-19",
+    "diklat_struktural_id": "6689",
+    "id_pegawai": "3",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-04-13",
+    "diklat_struktural_id": "6690",
+    "id_pegawai": "3",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-07",
+    "diklat_struktural_id": "6691",
+    "id_pegawai": "3",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tk.III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2014-11-08",
+    "diklat_struktural_id": "6692",
+    "id_pegawai": "4",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Manajemen Proyek \/ Pengelolaan Anggaran ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "6693",
+    "id_pegawai": "4",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-11-18",
+    "diklat_struktural_id": "6694",
+    "id_pegawai": "4",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bintek Penelusuran Kebutuhan Pelatihan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-01-07",
+    "diklat_struktural_id": "6695",
+    "id_pegawai": "4",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tk.III             ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-03-09",
+    "diklat_struktural_id": "6696",
+    "id_pegawai": "5",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Pengadaan Barang \/             Jasa Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-08-11",
+    "diklat_struktural_id": "6697",
+    "id_pegawai": "5",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang\/Jasa Pemerintah Bagi PPK Satuan Kerja Pusat dan UOTP Kemnakertrans",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-02-03",
+    "diklat_struktural_id": "6698",
+    "id_pegawai": "5",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "General English Program For Basic ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-04-09",
+    "diklat_struktural_id": "6699",
+    "id_pegawai": "5",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-07-16",
+    "diklat_struktural_id": "6700",
+    "id_pegawai": "5",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat POS Audit Tingkat Anggota Tim",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6701",
+    "id_pegawai": "5",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Bendaharawan A",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6702",
+    "id_pegawai": "5",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan SAPP (Sistem Akuntansi Pemerintah Pusat)",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6703",
+    "id_pegawai": "5",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Audit Operasional",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6704",
+    "id_pegawai": "5",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kepemimpinan Reformasi Birokrasi (Reform Leader Academy) ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-09-09",
+    "diklat_struktural_id": "6705",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tk.III  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-03-09",
+    "diklat_struktural_id": "6706",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/ Jasa Pemerintah ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-07-24",
+    "diklat_struktural_id": "6707",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Legal Drafting            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2006-09-05",
+    "diklat_struktural_id": "6708",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-10-05",
+    "diklat_struktural_id": "6709",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Manajemen Proyek\/Pengelolaan Anggaran ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-10-05",
+    "diklat_struktural_id": "6710",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bimtek Manajemen Pengadaan Barang & Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-03-29",
+    "diklat_struktural_id": "6711",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Sistem Akuntansi Pemerintah (SAP) ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2002-08-26",
+    "diklat_struktural_id": "6712",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kader Keserasian Lingkungan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2001-06-08",
+    "diklat_struktural_id": "6713",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-07-13",
+    "diklat_struktural_id": "6714",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-02-27",
+    "diklat_struktural_id": "6715",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelola Proyek Bidang Binmastrans ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-11-17",
+    "diklat_struktural_id": "6716",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Manajemen Proyek",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-10-29",
+    "diklat_struktural_id": "6717",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Peningkatan Teknis Teknologi Informatika",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-01-10",
+    "diklat_struktural_id": "6718",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-03-01",
+    "diklat_struktural_id": "6719",
+    "id_pegawai": "6",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Lat. Sar.MFD, Jakarta",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6720",
+    "id_pegawai": "7",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pra Jabatan, Deptrans",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6721",
+    "id_pegawai": "7",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum\/ADUM, Deptrans & PPH",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6722",
+    "id_pegawai": "7",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penilaian Angka Kredit (PAK) Jabatan Fungsional Perencana, Bappenas",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6723",
+    "id_pegawai": "7",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Development Planning For Planners, Sripatum University, Thailand",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6724",
+    "id_pegawai": "7",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Fungsional Penjenjangan Perencana (FPP) Tk. Madya, LPEM-UI",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6725",
+    "id_pegawai": "7",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Studi Lapang Program On �Development Planning For Planner�, AIT, Thailand",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6726",
+    "id_pegawai": "7",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Kebijakan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-08-14",
+    "diklat_struktural_id": "6727",
+    "id_pegawai": "8",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-10-18",
+    "diklat_struktural_id": "6728",
+    "id_pegawai": "8",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-06-19",
+    "diklat_struktural_id": "6729",
+    "id_pegawai": "8",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembuatan Sistem Informasi Monitoring Proyek",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-06",
+    "diklat_struktural_id": "6730",
+    "id_pegawai": "8",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Dasar MFD",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-13",
+    "diklat_struktural_id": "6731",
+    "id_pegawai": "9",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pra Jabatan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "6732",
+    "id_pegawai": "9",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan SQL Server 2000",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-10-16",
+    "diklat_struktural_id": "6733",
+    "id_pegawai": "9",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Multimedia dan Animasi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-02-26",
+    "diklat_struktural_id": "6734",
+    "id_pegawai": "9",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Pimpinan Tk. IV Angkatan X",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-07-28",
+    "diklat_struktural_id": "6735",
+    "id_pegawai": "9",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Kader Koperasi Tk. Dasar II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-10-07",
+    "diklat_struktural_id": "6736",
+    "id_pegawai": "10",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Kader Koperasi Tk. Dasar I ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1987-07-20",
+    "diklat_struktural_id": "6737",
+    "id_pegawai": "10",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-09-30",
+    "diklat_struktural_id": "6738",
+    "id_pegawai": "11",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan Pelayanan Pejabat Pengelola Administrasi Kepegawaian                   ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1913-04-25",
+    "diklat_struktural_id": "6739",
+    "id_pegawai": "11",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Jabatan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-05-05",
+    "diklat_struktural_id": "6740",
+    "id_pegawai": "11",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Peningkatan Mutu Pelayanan Kepegawaian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-01-01",
+    "diklat_struktural_id": "6741",
+    "id_pegawai": "11",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "6742",
+    "id_pegawai": "11",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "6743",
+    "id_pegawai": "11",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bintek Analisis Jabatan dan Beban Kerja ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1909-12-14",
+    "diklat_struktural_id": "6744",
+    "id_pegawai": "13",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bintek Kebijakan\/Pedoman Bid. Kepegawaian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1906-06-28",
+    "diklat_struktural_id": "6745",
+    "id_pegawai": "13",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kebijaksanaan Administrasi Kepegawaian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2006-06-28",
+    "diklat_struktural_id": "6746",
+    "id_pegawai": "13",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "MS Word 2000,Excel 2000, Power Point 2000 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "6747",
+    "id_pegawai": "13",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-09-29",
+    "diklat_struktural_id": "6748",
+    "id_pegawai": "13",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pemantapan Pengelola Naskah Kepegawaian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-08",
+    "diklat_struktural_id": "6749",
+    "id_pegawai": "13",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Kepegawaian          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-11-24",
+    "diklat_struktural_id": "6750",
+    "id_pegawai": "13",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Satuan Kawal Transmigrasi  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1985-01-12",
+    "diklat_struktural_id": "6751",
+    "id_pegawai": "13",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-09-30",
+    "diklat_struktural_id": "6752",
+    "id_pegawai": "14",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan Pelayanan Pejabat Pengelola Administrasi Kepegawaian           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-25",
+    "diklat_struktural_id": "6753",
+    "id_pegawai": "14",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Jabatan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-11-02",
+    "diklat_struktural_id": "6754",
+    "id_pegawai": "14",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2006-04-10",
+    "diklat_struktural_id": "6755",
+    "id_pegawai": "14",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-07-06",
+    "diklat_struktural_id": "6756",
+    "id_pegawai": "14",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan \"A\" ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-11-10",
+    "diklat_struktural_id": "6757",
+    "id_pegawai": "14",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-13",
+    "diklat_struktural_id": "6758",
+    "id_pegawai": "14",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-09-30",
+    "diklat_struktural_id": "6759",
+    "id_pegawai": "15",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pemetaan Topografi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-09-04",
+    "diklat_struktural_id": "6760",
+    "id_pegawai": "15",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sistem Informasi Geografi (ARC\/Info&View)",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-01-12",
+    "diklat_struktural_id": "6761",
+    "id_pegawai": "15",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan Pengeluaran ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-01-01",
+    "diklat_struktural_id": "6762",
+    "id_pegawai": "15",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Dasar Pengamanan Fisik Instansi Departemen Transmigrasi & PPH",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-01",
+    "diklat_struktural_id": "6763",
+    "id_pegawai": "15",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2888-01-27",
+    "diklat_struktural_id": "6764",
+    "id_pegawai": "15",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-02-28",
+    "diklat_struktural_id": "6765",
+    "id_pegawai": "16",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Keuangan \"B\" ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-06-16",
+    "diklat_struktural_id": "6766",
+    "id_pegawai": "17",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/Jasa Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-08-25",
+    "diklat_struktural_id": "6767",
+    "id_pegawai": "18",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bimbingan Teknis Pelaksanaan Anggaran Dan Ujian Nasional Sertifkiasi KPB JP ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-07-20",
+    "diklat_struktural_id": "6768",
+    "id_pegawai": "18",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Peningkatan Pejabat Ketransmigrasian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-07-30",
+    "diklat_struktural_id": "6769",
+    "id_pegawai": "18",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Konsultan Keuangan Mitra Bank ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-07-18",
+    "diklat_struktural_id": "6770",
+    "id_pegawai": "18",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Keuangan \"B\" ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-06-16",
+    "diklat_struktural_id": "6771",
+    "id_pegawai": "18",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan Barang\/Kepala Gudang (D3) ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-07-01",
+    "diklat_struktural_id": "6772",
+    "id_pegawai": "18",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-13",
+    "diklat_struktural_id": "6773",
+    "id_pegawai": "18",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-01-24",
+    "diklat_struktural_id": "6774",
+    "id_pegawai": "19",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "MS Word 2000,Excel 2000, Power Point 2000 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "6775",
+    "id_pegawai": "25",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1992-06-22",
+    "diklat_struktural_id": "6776",
+    "id_pegawai": "25",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pemeriksaan Operasional (Manajemen Audit) ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "6777",
+    "id_pegawai": "27",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Peningkatan Mutu Pelaksana Proyek\/Bagian Proyek             ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-01-01",
+    "diklat_struktural_id": "6778",
+    "id_pegawai": "27",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "MS Word 2000,Excel 2000, Power Point 2000 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "6779",
+    "id_pegawai": "29",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Business English Conversation       ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-01-12",
+    "diklat_struktural_id": "6780",
+    "id_pegawai": "29",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bahasa Inggris",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-01-01",
+    "diklat_struktural_id": "6781",
+    "id_pegawai": "29",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II         ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-03",
+    "diklat_struktural_id": "6782",
+    "id_pegawai": "29",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-01",
+    "diklat_struktural_id": "6783",
+    "id_pegawai": "29",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan Pengeluaran ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-08-11",
+    "diklat_struktural_id": "6784",
+    "id_pegawai": "31",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "6785",
+    "id_pegawai": "31",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "6786",
+    "id_pegawai": "31",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Peningkatan Mutu Pelayanan Kepegawaian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-07-19",
+    "diklat_struktural_id": "6787",
+    "id_pegawai": "33",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "MS Word 2000,Excel 2000, Power Point 2000 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "6788",
+    "id_pegawai": "34",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan \"A\"",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-01-02",
+    "diklat_struktural_id": "6789",
+    "id_pegawai": "34",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-05-24",
+    "diklat_struktural_id": "6790",
+    "id_pegawai": "35",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan Pengeluaran ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-03-20",
+    "diklat_struktural_id": "6791",
+    "id_pegawai": "36",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "MS Word 2000,Excel 2000, Power Point 2000 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "6792",
+    "id_pegawai": "36",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "6793",
+    "id_pegawai": "36",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan Pengeluaran        ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-09-26",
+    "diklat_struktural_id": "6794",
+    "id_pegawai": "39",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Manajemen Transmigrasi Tk.I         ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2001-10-22",
+    "diklat_struktural_id": "6795",
+    "id_pegawai": "40",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-02-23",
+    "diklat_struktural_id": "6796",
+    "id_pegawai": "40",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Dasar Ketenagakerjaan Dan Ketransmigrasian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-02-03",
+    "diklat_struktural_id": "6797",
+    "id_pegawai": "42",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-02-15",
+    "diklat_struktural_id": "6798",
+    "id_pegawai": "42",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelolaan Keuangan Negara ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2009-12-07",
+    "diklat_struktural_id": "6799",
+    "id_pegawai": "42",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelolaan Keuangan Negara ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-12-05",
+    "diklat_struktural_id": "6800",
+    "id_pegawai": "43",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "MS Word 2000,Excel 2000, Power Point 2000 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "6801",
+    "id_pegawai": "43",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Pedoman Penghayatan dan Pengamalan Pancasila Pola Pendukung 25 Jam ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1987-04-08",
+    "diklat_struktural_id": "6802",
+    "id_pegawai": "43",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-01-24",
+    "diklat_struktural_id": "6803",
+    "id_pegawai": "44",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-02-20",
+    "diklat_struktural_id": "6804",
+    "id_pegawai": "45",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan Pelayanan Pejabat Pengelola Administrasi Kepegawaian                  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-25",
+    "diklat_struktural_id": "6805",
+    "id_pegawai": "48",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan Pelayanan Pejabat Pengelola Administrasi Kepegawaian             ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-25",
+    "diklat_struktural_id": "6806",
+    "id_pegawai": "50",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penyetaraan Jabatan Fungsional Arsiparis",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-08-21",
+    "diklat_struktural_id": "6807",
+    "id_pegawai": "50",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "6808",
+    "id_pegawai": "50",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "6809",
+    "id_pegawai": "50",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bintek Analisis Jabatan dan Beban Kerja",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2009-12-14",
+    "diklat_struktural_id": "6810",
+    "id_pegawai": "52",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II       ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "6811",
+    "id_pegawai": "55",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "6812",
+    "id_pegawai": "55",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-01-24",
+    "diklat_struktural_id": "6813",
+    "id_pegawai": "56",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-08-02",
+    "diklat_struktural_id": "6814",
+    "id_pegawai": "57",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa    ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-10-27",
+    "diklat_struktural_id": "6815",
+    "id_pegawai": "58",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Dasar Pengamanan Fisik Instansi Departemen Transmigrasi & PPH                ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-01",
+    "diklat_struktural_id": "6816",
+    "id_pegawai": "58",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Desain Grafis ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-03-05",
+    "diklat_struktural_id": "6817",
+    "id_pegawai": "59",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Spesialisasi Pengelolaan APBN ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-06-25",
+    "diklat_struktural_id": "6818",
+    "id_pegawai": "59",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Microsoft Acsess ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2002-08-07",
+    "diklat_struktural_id": "6819",
+    "id_pegawai": "59",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "MS Word 2000,Excel 2000, Power Point 2000 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "6820",
+    "id_pegawai": "60",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kearsipan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-08-19",
+    "diklat_struktural_id": "6821",
+    "id_pegawai": "60",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "6822",
+    "id_pegawai": "62",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "6823",
+    "id_pegawai": "62",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan MC & Keprotokoleran            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2005-09-27",
+    "diklat_struktural_id": "6824",
+    "id_pegawai": "65",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-12",
+    "diklat_struktural_id": "6825",
+    "id_pegawai": "65",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan  Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-10",
+    "diklat_struktural_id": "6826",
+    "id_pegawai": "65",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-02-13",
+    "diklat_struktural_id": "6827",
+    "id_pegawai": "66",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Macromedia Flash 8 Graphic Design Course ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-10-24",
+    "diklat_struktural_id": "6828",
+    "id_pegawai": "68",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Desain Grafis                      ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-03-05",
+    "diklat_struktural_id": "6829",
+    "id_pegawai": "68",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pemrograman Clipper dan Sistem Analis ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-06-24",
+    "diklat_struktural_id": "6830",
+    "id_pegawai": "68",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "6831",
+    "id_pegawai": "68",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Desain Grafis               ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-03-05",
+    "diklat_struktural_id": "6832",
+    "id_pegawai": "69",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Programmer Komputer ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-01-06",
+    "diklat_struktural_id": "6833",
+    "id_pegawai": "69",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan Pengeluaran             ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-02-12",
+    "diklat_struktural_id": "6834",
+    "id_pegawai": "69",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "6835",
+    "id_pegawai": "70",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-14",
+    "diklat_struktural_id": "6836",
+    "id_pegawai": "70",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "General English Program For Basic ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-04-09",
+    "diklat_struktural_id": "6837",
+    "id_pegawai": "71",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-07-27",
+    "diklat_struktural_id": "6838",
+    "id_pegawai": "71",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-05-24",
+    "diklat_struktural_id": "6839",
+    "id_pegawai": "72",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II       ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-02-22",
+    "diklat_struktural_id": "6840",
+    "id_pegawai": "72",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kebijaksanaan Administrasi Kepegawaian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2006-06-28",
+    "diklat_struktural_id": "6843",
+    "id_pegawai": "73",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Desain Grafis ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-03-05",
+    "diklat_struktural_id": "6841",
+    "id_pegawai": "73",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bintek Analisis Jabatan dan Beban Kerja ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2009-12-14",
+    "diklat_struktural_id": "6842",
+    "id_pegawai": "73",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi dan Teknis Kepegawaian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2005-11-28",
+    "diklat_struktural_id": "6844",
+    "id_pegawai": "73",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analis Kepegawaian Tingkat Terampil ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2005-11-14",
+    "diklat_struktural_id": "6845",
+    "id_pegawai": "73",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Programmer Komputer ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-01-06",
+    "diklat_struktural_id": "6846",
+    "id_pegawai": "73",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Microsoft Acsess ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2002-08-07",
+    "diklat_struktural_id": "6847",
+    "id_pegawai": "73",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Teknis Membuat Surat Dinas          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-08-22",
+    "diklat_struktural_id": "6848",
+    "id_pegawai": "73",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "6849",
+    "id_pegawai": "73",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-14",
+    "diklat_struktural_id": "6850",
+    "id_pegawai": "73",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Persiapan Pelaksanaan Fasilitasi Pengembangan Ekonomi Lokal dan Daerah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2014-03-17",
+    "diklat_struktural_id": "6852",
+    "id_pegawai": "74",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Managing For Impact-An Integrated Approach To Participatory Planning, Monitoring & Evaluation",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2015-09-03",
+    "diklat_struktural_id": "6851",
+    "id_pegawai": "74",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/Jasa Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-09-16",
+    "diklat_struktural_id": "6853",
+    "id_pegawai": "74",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengembangan Ekonomi Lokal dan Daerah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-04-07",
+    "diklat_struktural_id": "6854",
+    "id_pegawai": "74",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-02-28",
+    "diklat_struktural_id": "6855",
+    "id_pegawai": "74",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tk.II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-06-14",
+    "diklat_struktural_id": "6856",
+    "id_pegawai": "75",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Kebijakan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-10-17",
+    "diklat_struktural_id": "6857",
+    "id_pegawai": "75",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sekolah Pimpinan Adm Tingkat Madya ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-05-24",
+    "diklat_struktural_id": "6858",
+    "id_pegawai": "75",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III               ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1984-01-23",
+    "diklat_struktural_id": "6859",
+    "id_pegawai": "75",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Pengadaan Pegawai ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-10-26",
+    "diklat_struktural_id": "6860",
+    "id_pegawai": "76",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-10-14",
+    "diklat_struktural_id": "6861",
+    "id_pegawai": "76",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-02-02",
+    "diklat_struktural_id": "6862",
+    "id_pegawai": "78",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran P4 Bagi Pejabat Es.III & IV ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-10-03",
+    "diklat_struktural_id": "6863",
+    "id_pegawai": "78",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Perencanaan Pemukiman Transmigrasi ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-10-30",
+    "diklat_struktural_id": "6864",
+    "id_pegawai": "78",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sekolah Pimpinan Adm Tingkat Lanjutan    ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-04-07",
+    "diklat_struktural_id": "6865",
+    "id_pegawai": "78",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Peningkatan Mutu Pelaksana ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-10-25",
+    "diklat_struktural_id": "6866",
+    "id_pegawai": "78",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penyegaran Pimpro\/Pimbagpro ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1992-02-11",
+    "diklat_struktural_id": "6867",
+    "id_pegawai": "78",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penatar Tehnis ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-08-02",
+    "diklat_struktural_id": "6868",
+    "id_pegawai": "78",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1987-02-23",
+    "diklat_struktural_id": "6869",
+    "id_pegawai": "78",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Ketransmigrasian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-05-27",
+    "diklat_struktural_id": "6870",
+    "id_pegawai": "80",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-01-24",
+    "diklat_struktural_id": "6871",
+    "id_pegawai": "80",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pendidikan dan Pelatihan Pengadaan Barang dan Jasa ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-06-28",
+    "diklat_struktural_id": "6872",
+    "id_pegawai": "80",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pendidikan dan Pelatihan Staf dan Pimpinan Administrasi Tk. Pertama            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-05-02",
+    "diklat_struktural_id": "6873",
+    "id_pegawai": "80",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sekolah Pimpinan Administrasi Tingkat Lanjutan (SEPALA) ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-08-08",
+    "diklat_struktural_id": "6874",
+    "id_pegawai": "80",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Pengembangan SDM         ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-08-02",
+    "diklat_struktural_id": "6875",
+    "id_pegawai": "80",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Desain Grafis",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-03-05",
+    "diklat_struktural_id": "6876",
+    "id_pegawai": "81",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Kebijakan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-03",
+    "diklat_struktural_id": "6877",
+    "id_pegawai": "82",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-09-19",
+    "diklat_struktural_id": "6878",
+    "id_pegawai": "82",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-08-19",
+    "diklat_struktural_id": "6879",
+    "id_pegawai": "83",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Kebijakan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-03",
+    "diklat_struktural_id": "6880",
+    "id_pegawai": "83",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "DIKNALMA  \"A\"  Pengawas Ketenagakerjaan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-06-25",
+    "diklat_struktural_id": "6881",
+    "id_pegawai": "83",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Dasar Pengamanan Fisik Instansi Departemen Transmigrasi & PPH",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-01",
+    "diklat_struktural_id": "6882",
+    "id_pegawai": "83",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengawas Pekerjaan Pembangunan PLT",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-01-01",
+    "diklat_struktural_id": "6883",
+    "id_pegawai": "83",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-01",
+    "diklat_struktural_id": "6884",
+    "id_pegawai": "83",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV      ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-09-19",
+    "diklat_struktural_id": "6885",
+    "id_pegawai": "84",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-11-12",
+    "diklat_struktural_id": "6886",
+    "id_pegawai": "84",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-07-11",
+    "diklat_struktural_id": "6887",
+    "id_pegawai": "85",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Legal Aspek Kontrak ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1992-02-17",
+    "diklat_struktural_id": "6888",
+    "id_pegawai": "85",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Ketrampilan Praktis ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-07-03",
+    "diklat_struktural_id": "6889",
+    "id_pegawai": "85",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II        ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1984-02-25",
+    "diklat_struktural_id": "6890",
+    "id_pegawai": "85",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV      ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-07-16",
+    "diklat_struktural_id": "6891",
+    "id_pegawai": "86",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/Jasa Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-01-01",
+    "diklat_struktural_id": "6892",
+    "id_pegawai": "88",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-10-11",
+    "diklat_struktural_id": "6893",
+    "id_pegawai": "88",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Dasar Pengamanan Fisik Instansi Departemen Transmigrasi & PPH",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-02-26",
+    "diklat_struktural_id": "6894",
+    "id_pegawai": "88",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Perencanaan Pemukiman Transmigrasi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-11-13",
+    "diklat_struktural_id": "6895",
+    "id_pegawai": "88",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Survey Dasar Sumber Alam Darat",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-07-24",
+    "diklat_struktural_id": "6896",
+    "id_pegawai": "88",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2014-07-08",
+    "diklat_struktural_id": "6897",
+    "id_pegawai": "89",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "English Program For TOEFL            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-04-09",
+    "diklat_struktural_id": "6898",
+    "id_pegawai": "89",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-26",
+    "diklat_struktural_id": "6899",
+    "id_pegawai": "89",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang \/ Jasa Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-12-20",
+    "diklat_struktural_id": "6900",
+    "id_pegawai": "90",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Desain Grafis ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-03-05",
+    "diklat_struktural_id": "6901",
+    "id_pegawai": "90",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelolaan Keuangan Negara       ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2009-03-05",
+    "diklat_struktural_id": "6902",
+    "id_pegawai": "90",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-11-17",
+    "diklat_struktural_id": "6903",
+    "id_pegawai": "90",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penggerak Swadaya Masyarakat         ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-05-08",
+    "diklat_struktural_id": "6904",
+    "id_pegawai": "90",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Kebijakan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-03-04",
+    "diklat_struktural_id": "6905",
+    "id_pegawai": "91",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-01",
+    "diklat_struktural_id": "6906",
+    "id_pegawai": "91",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III             ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-01-01",
+    "diklat_struktural_id": "6907",
+    "id_pegawai": "91",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II              ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1984-02-20",
+    "diklat_struktural_id": "6908",
+    "id_pegawai": "93",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pengawal Transmigran ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "6909",
+    "id_pegawai": "94",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II               ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-02-23",
+    "diklat_struktural_id": "6910",
+    "id_pegawai": "94",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-05-24",
+    "diklat_struktural_id": "6911",
+    "id_pegawai": "95",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1983-01-10",
+    "diklat_struktural_id": "6912",
+    "id_pegawai": "95",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Proyek APBN\/Bantuan Luar Negeri ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-01-09",
+    "diklat_struktural_id": "6913",
+    "id_pegawai": "97",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan \"A\" ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-01",
+    "diklat_struktural_id": "6914",
+    "id_pegawai": "97",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II              ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "6915",
+    "id_pegawai": "97",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-13",
+    "diklat_struktural_id": "6916",
+    "id_pegawai": "97",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I              ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-11-17",
+    "diklat_struktural_id": "6917",
+    "id_pegawai": "98",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "6918",
+    "id_pegawai": "98",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Macromedia Flash 8 Graphic Design Course ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-10-24",
+    "diklat_struktural_id": "6919",
+    "id_pegawai": "99",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-02-28",
+    "diklat_struktural_id": "6920",
+    "id_pegawai": "99",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pengawal Transmigran ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "6921",
+    "id_pegawai": "100",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Hubungan Masyarakat       ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-03-13",
+    "diklat_struktural_id": "6922",
+    "id_pegawai": "100",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Orientasi Calon Pegawai Negeri Sipil ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1982-02-02",
+    "diklat_struktural_id": "6923",
+    "id_pegawai": "100",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Tingkat Instansi Pusat Tipe B ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1982-02-08",
+    "diklat_struktural_id": "6924",
+    "id_pegawai": "100",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Produser Siaran Pedesaan            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1982-01-01",
+    "diklat_struktural_id": "6925",
+    "id_pegawai": "100",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Dasar Pengamanan Fisik Instansi Departemen Transmigrasi & PPH ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-01-01",
+    "diklat_struktural_id": "6926",
+    "id_pegawai": "102",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Tenaga Pengelola Barang & Perbekalan Transmigrasi ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-01",
+    "diklat_struktural_id": "6927",
+    "id_pegawai": "102",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-01",
+    "diklat_struktural_id": "6928",
+    "id_pegawai": "102",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "6929",
+    "id_pegawai": "102",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "6930",
+    "id_pegawai": "104",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I                ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-11-17",
+    "diklat_struktural_id": "6931",
+    "id_pegawai": "106",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "6932",
+    "id_pegawai": "106",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang dan Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-10-27",
+    "diklat_struktural_id": "6933",
+    "id_pegawai": "107",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "6934",
+    "id_pegawai": "107",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "6935",
+    "id_pegawai": "108",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1985-02-04",
+    "diklat_struktural_id": "6936",
+    "id_pegawai": "108",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "6938",
+    "id_pegawai": "109",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Foto Grametri & Kartografi ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-01-01",
+    "diklat_struktural_id": "6937",
+    "id_pegawai": "109",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II                   ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "6939",
+    "id_pegawai": "109",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "6941",
+    "id_pegawai": "110",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Foto Grametri & Kartografi ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-01-01",
+    "diklat_struktural_id": "6940",
+    "id_pegawai": "110",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "6942",
+    "id_pegawai": "110",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelolaan Keuangan Negara           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2009-06-15",
+    "diklat_struktural_id": "6943",
+    "id_pegawai": "112",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-11-18",
+    "diklat_struktural_id": "6944",
+    "id_pegawai": "112",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-02-21",
+    "diklat_struktural_id": "6945",
+    "id_pegawai": "112",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-05-24",
+    "diklat_struktural_id": "6946",
+    "id_pegawai": "113",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelola Jembatan Non Standar        ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-08-22",
+    "diklat_struktural_id": "6947",
+    "id_pegawai": "114",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Survey Lapangan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1992-11-09",
+    "diklat_struktural_id": "6948",
+    "id_pegawai": "114",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Komputer ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1992-11-01",
+    "diklat_struktural_id": "6950",
+    "id_pegawai": "115",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pengawal Transmigran ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "6949",
+    "id_pegawai": "115",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I               ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-08-02",
+    "diklat_struktural_id": "6951",
+    "id_pegawai": "115",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II             ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "6952",
+    "id_pegawai": "116",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "6953",
+    "id_pegawai": "116",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-03-16",
+    "diklat_struktural_id": "6954",
+    "id_pegawai": "117",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penyetaraan Jabatan Fungsional Arsiparis ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-08-21",
+    "diklat_struktural_id": "6955",
+    "id_pegawai": "118",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan Pelayanan Pejabat Pengelola Administrasi Kepegawaian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-25",
+    "diklat_struktural_id": "6956",
+    "id_pegawai": "119",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-03",
+    "diklat_struktural_id": "6957",
+    "id_pegawai": "119",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-01",
+    "diklat_struktural_id": "6958",
+    "id_pegawai": "119",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1984-01-01",
+    "diklat_struktural_id": "6959",
+    "id_pegawai": "120",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III                 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-01-24",
+    "diklat_struktural_id": "6961",
+    "id_pegawai": "122",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengembangan Usaha Transmigrasi ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-05-23",
+    "diklat_struktural_id": "6960",
+    "id_pegawai": "122",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Manajemen Transmigrasi Tk.II             ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-02-20",
+    "diklat_struktural_id": "6962",
+    "id_pegawai": "123",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-14",
+    "diklat_struktural_id": "6964",
+    "id_pegawai": "124",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "6963",
+    "id_pegawai": "124",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-08-02",
+    "diklat_struktural_id": "6965",
+    "id_pegawai": "125",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I              ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-11-23",
+    "diklat_struktural_id": "6968",
+    "id_pegawai": "126",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-05-25",
+    "diklat_struktural_id": "6966",
+    "id_pegawai": "126",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Dasar Pengamanan Fisik Instansi Departemen Transmigrasi & PPH ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-03-26",
+    "diklat_struktural_id": "6967",
+    "id_pegawai": "126",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I                ",
+    "nomor_sertifikat": "1231231231",
+    "jumlah_jam": "2",
+    "tanggal": "1984-02-20",
+    "diklat_struktural_id": "6969",
+    "id_pegawai": "128",
+    "created_at": "0",
+    "updated_at": "2016-09-21 04:38:07"
+}
+, {
+    "nama_diklat": "Analisa Proyek Pembangunan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-08-01",
+    "diklat_struktural_id": "6974",
+    "id_pegawai": "129",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk Pertama",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-10-14",
+    "diklat_struktural_id": "6970",
+    "id_pegawai": "129",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Manajemen Penaksiran Harga Barang & Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "6971",
+    "id_pegawai": "129",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Tenaga Inti Pendidikan Bela Negara",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-01",
+    "diklat_struktural_id": "6972",
+    "id_pegawai": "129",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Workshop Komunitas Perencana",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-02-14",
+    "diklat_struktural_id": "6973",
+    "id_pegawai": "129",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Proyek Manajemen Unit",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-02-22",
+    "diklat_struktural_id": "6975",
+    "id_pegawai": "129",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tk. III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1987-09-01",
+    "diklat_struktural_id": "6981",
+    "id_pegawai": "130",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Development Planning For Planners ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2005-05-12",
+    "diklat_struktural_id": "6976",
+    "id_pegawai": "130",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-01",
+    "diklat_struktural_id": "6977",
+    "id_pegawai": "130",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pejabat Inti Proyek ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-12-08",
+    "diklat_struktural_id": "6978",
+    "id_pegawai": "130",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Workshop Komunitas Perencana ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-02-14",
+    "diklat_struktural_id": "6979",
+    "id_pegawai": "130",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Planning Of Regional Dev. Programmers ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-09-18",
+    "diklat_struktural_id": "6980",
+    "id_pegawai": "130",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik  dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "6982",
+    "id_pegawai": "130",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III    ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-30",
+    "diklat_struktural_id": "6988",
+    "id_pegawai": "132",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-08-30",
+    "diklat_struktural_id": "6983",
+    "id_pegawai": "132",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Teknik Pembukaan Lahan Tanpa Bakar ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-02-25",
+    "diklat_struktural_id": "6984",
+    "id_pegawai": "132",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Dasar Teori Dan Pelaksanaan Survai GPS ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-09-14",
+    "diklat_struktural_id": "6985",
+    "id_pegawai": "132",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Supervisor PPJE Industri Pulp & Kertas ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-11-02",
+    "diklat_struktural_id": "6986",
+    "id_pegawai": "132",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Dasar-Dasar Analisis Mengenai Dampak Lingkungan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-02-06",
+    "diklat_struktural_id": "6987",
+    "id_pegawai": "132",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sekolah Pimpinan Adm Tingkat ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-01-01",
+    "diklat_struktural_id": "6991",
+    "id_pegawai": "133",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-01-01",
+    "diklat_struktural_id": "6989",
+    "id_pegawai": "133",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Kebijakan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-01-01",
+    "diklat_struktural_id": "6990",
+    "id_pegawai": "133",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Proyek Manajemen Unit  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-01",
+    "diklat_struktural_id": "6992",
+    "id_pegawai": "133",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III      ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-04-04",
+    "diklat_struktural_id": "6993",
+    "id_pegawai": "135",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III      ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-01-24",
+    "diklat_struktural_id": "6994",
+    "id_pegawai": "136",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-30",
+    "diklat_struktural_id": "7000",
+    "id_pegawai": "137",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-10-14",
+    "diklat_struktural_id": "6995",
+    "id_pegawai": "137",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Dasar Teori Dan Pelaksanaan Survai GPS",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-09-14",
+    "diklat_struktural_id": "6996",
+    "id_pegawai": "137",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bintek Sumber Daya Air                ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-06-21",
+    "diklat_struktural_id": "6997",
+    "id_pegawai": "137",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Asisten Pengawas & Pembantu APLP3 Trans ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-06-19",
+    "diklat_struktural_id": "6998",
+    "id_pegawai": "137",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Dasar-Dasar Analisis Mengenai Dampak Lingkungan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-10-04",
+    "diklat_struktural_id": "6999",
+    "id_pegawai": "137",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-09-02",
+    "diklat_struktural_id": "7001",
+    "id_pegawai": "138",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III       ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-10-25",
+    "diklat_struktural_id": "7003",
+    "id_pegawai": "139",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/Jasa Pemerintah ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-12-01",
+    "diklat_struktural_id": "7002",
+    "id_pegawai": "139",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III     ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-30",
+    "diklat_struktural_id": "7010",
+    "id_pegawai": "140",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/ Jasa Pemerintah ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-08-30",
+    "diklat_struktural_id": "7004",
+    "id_pegawai": "140",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV         ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-07-16",
+    "diklat_struktural_id": "7005",
+    "id_pegawai": "140",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Perencanaan Pemukiman Trans.      ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2006-01-09",
+    "diklat_struktural_id": "7006",
+    "id_pegawai": "140",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa                     ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2006-08-30",
+    "diklat_struktural_id": "7007",
+    "id_pegawai": "140",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan dan Pengurusan Barang (B) ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2006-07-19",
+    "diklat_struktural_id": "7008",
+    "id_pegawai": "140",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Manajemen Proyek         ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "7009",
+    "id_pegawai": "140",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "frifmaKetransmigrasian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-05-27",
+    "diklat_struktural_id": "7011",
+    "id_pegawai": "141",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III   ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-03-16",
+    "diklat_struktural_id": "7012",
+    "id_pegawai": "141",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-12-15",
+    "diklat_struktural_id": "7015",
+    "id_pegawai": "142",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "English Program For TOEFL               ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-04-09",
+    "diklat_struktural_id": "7013",
+    "id_pegawai": "142",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Statistisi ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-07-11",
+    "diklat_struktural_id": "7014",
+    "id_pegawai": "142",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-01-24",
+    "diklat_struktural_id": "7016",
+    "id_pegawai": "143",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa               ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-04-13",
+    "diklat_struktural_id": "7018",
+    "id_pegawai": "144",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/Jasa Pemerintah ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-08-11",
+    "diklat_struktural_id": "7017",
+    "id_pegawai": "144",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II                ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7019",
+    "id_pegawai": "144",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I             ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-11-17",
+    "diklat_struktural_id": "7020",
+    "id_pegawai": "145",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-07-10",
+    "diklat_struktural_id": "7021",
+    "id_pegawai": "145",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-03-10",
+    "diklat_struktural_id": "7023",
+    "id_pegawai": "146",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7022",
+    "id_pegawai": "146",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III        ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-03-16",
+    "diklat_struktural_id": "7024",
+    "id_pegawai": "147",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengawasan Penata Usahaan Inventaris Barang Milik Negara             ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-11-28",
+    "diklat_struktural_id": "7028",
+    "id_pegawai": "148",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Jabatan ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2014-03-24",
+    "diklat_struktural_id": "7025",
+    "id_pegawai": "148",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa                    ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-06-07",
+    "diklat_struktural_id": "7026",
+    "id_pegawai": "148",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Bendaharawan A                  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-06-26",
+    "diklat_struktural_id": "7027",
+    "id_pegawai": "148",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-01",
+    "diklat_struktural_id": "7033",
+    "id_pegawai": "149",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Desain Grafis ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-05-03",
+    "diklat_struktural_id": "7030",
+    "id_pegawai": "149",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan \"A\" ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-03-01",
+    "diklat_struktural_id": "7031",
+    "id_pegawai": "149",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bimbingan Teknis Pelaksanaan Anggaran Dan Ujian Nasional Sertifkiasi KPB JP ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-07-20",
+    "diklat_struktural_id": "7029",
+    "id_pegawai": "149",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II                   ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7032",
+    "id_pegawai": "149",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II                  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-12-11",
+    "diklat_struktural_id": "7036",
+    "id_pegawai": "150",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sistem Informasi Geografi (ARC\/Info&View) ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-12-01",
+    "diklat_struktural_id": "7034",
+    "id_pegawai": "150",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Komputer ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-01",
+    "diklat_struktural_id": "7035",
+    "id_pegawai": "150",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II                 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "7037",
+    "id_pegawai": "151",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan \"A\" ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-03-01",
+    "diklat_struktural_id": "7040",
+    "id_pegawai": "152",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Post Audit Tingkat Anggota Tim           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-01",
+    "diklat_struktural_id": "7038",
+    "id_pegawai": "152",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Audit Operasional ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-12-01",
+    "diklat_struktural_id": "7039",
+    "id_pegawai": "152",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-05-24",
+    "diklat_struktural_id": "7041",
+    "id_pegawai": "154",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7042",
+    "id_pegawai": "155",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7043",
+    "id_pegawai": "155",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II                 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-12-13",
+    "diklat_struktural_id": "7045",
+    "id_pegawai": "156",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelolaan Keuangan Negara",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2009-04-26",
+    "diklat_struktural_id": "7044",
+    "id_pegawai": "156",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-03-10",
+    "diklat_struktural_id": "7046",
+    "id_pegawai": "156",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II                 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-17",
+    "diklat_struktural_id": "7047",
+    "id_pegawai": "157",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-09-01",
+    "diklat_struktural_id": "7048",
+    "id_pegawai": "157",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-01-24",
+    "diklat_struktural_id": "7049",
+    "id_pegawai": "159",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-13",
+    "diklat_struktural_id": "7051",
+    "id_pegawai": "160",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "7050",
+    "id_pegawai": "160",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-03-08",
+    "diklat_struktural_id": "7052",
+    "id_pegawai": "161",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-04-14",
+    "diklat_struktural_id": "7053",
+    "id_pegawai": "161",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penyusunan Rencana Anggaran Satuan Kerja ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-09-04",
+    "diklat_struktural_id": "7054",
+    "id_pegawai": "161",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-01-24",
+    "diklat_struktural_id": "7056",
+    "id_pegawai": "162",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Ketransmigrasian ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-05-27",
+    "diklat_struktural_id": "7055",
+    "id_pegawai": "162",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7059",
+    "id_pegawai": "163",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pengawal Transmigran ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "7057",
+    "id_pegawai": "163",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II            ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7058",
+    "id_pegawai": "163",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1984-02-20",
+    "diklat_struktural_id": "7060",
+    "id_pegawai": "164",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-02",
+    "diklat_struktural_id": "7063",
+    "id_pegawai": "165",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Microsoft Office Tingkat Lanjutan        ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-10",
+    "diklat_struktural_id": "7061",
+    "id_pegawai": "165",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Microsoft Office Tingkat Dasar    ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-01",
+    "diklat_struktural_id": "7062",
+    "id_pegawai": "165",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "7064",
+    "id_pegawai": "165",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7068",
+    "id_pegawai": "166",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "123123",
+    "jumlah_jam": "123",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "7065",
+    "id_pegawai": "166",
+    "created_at": "0",
+    "updated_at": "2016-09-21 04:44:35"
+}
+, {
+    "nama_diklat": "Bendaharawan \"A\"",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-03-01",
+    "diklat_struktural_id": "7066",
+    "id_pegawai": "166",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Keuangan  \"B\"",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-01-03",
+    "diklat_struktural_id": "7067",
+    "id_pegawai": "166",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "7069",
+    "id_pegawai": "166",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-11-19",
+    "diklat_struktural_id": "7070",
+    "id_pegawai": "168",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II  ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-06-16",
+    "diklat_struktural_id": "7071",
+    "id_pegawai": "168",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II           ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-01",
+    "diklat_struktural_id": "7072",
+    "id_pegawai": "170",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan Pelayanan Pejabat Pengelola Administrasi Kepegawaian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-25",
+    "diklat_struktural_id": "7073",
+    "id_pegawai": "172",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II                 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-02-20",
+    "diklat_struktural_id": "7074",
+    "id_pegawai": "172",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Macromedia Flash 8 Graphic Design Course ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-10-24",
+    "diklat_struktural_id": "7075",
+    "id_pegawai": "172",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-05-24",
+    "diklat_struktural_id": "7076",
+    "id_pegawai": "173",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-01-16",
+    "diklat_struktural_id": "7077",
+    "id_pegawai": "173",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tk.III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2002-08-19",
+    "diklat_struktural_id": "7082",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pimpinan PJTKI Tahap Pertama",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-08-12",
+    "diklat_struktural_id": "7083",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Trainning Of Trainners",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-02-17",
+    "diklat_struktural_id": "7084",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran P4 Bagi Pejabat Es.III & IV",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-01-20",
+    "diklat_struktural_id": "7085",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Perencanaan Tenaga Kerja Micro (DSP)",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-07-18",
+    "diklat_struktural_id": "7086",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sekolah Pimpinan Adm Tingkat Lanjutan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-11-15",
+    "diklat_struktural_id": "7087",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan Ketrampilan Manajemen",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-06-09",
+    "diklat_struktural_id": "7088",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Kepegawaian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-07-02",
+    "diklat_struktural_id": "7089",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Pembina Rohani Islam Karyawan Departemen \/ Non Departemen \/Lembaga Tinggi Negara",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1992-10-29",
+    "diklat_struktural_id": "7090",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pendidikan Pendahuluan Bela Negara",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-12-26",
+    "diklat_struktural_id": "7091",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1987-05-01",
+    "diklat_struktural_id": "7093",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran LITSUS",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-09-12",
+    "diklat_struktural_id": "7092",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sosialisasi PP RI No.50 Tahun 2012 tentang Penerapan Sistem Manajemen K3 ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-12-12",
+    "diklat_struktural_id": "7078",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-08-11",
+    "diklat_struktural_id": "7079",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Pengoperasian Aplikasi Perencanaan Tenaga Kerja Mikro",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-10-28",
+    "diklat_struktural_id": "7080",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bimbingan Teknis Jabatan Fungsional Peneliti",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2005-10-18",
+    "diklat_struktural_id": "7081",
+    "id_pegawai": "174",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembangunan & Pemberdayaan Kawasan Transmigrasi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2002-01-19",
+    "diklat_struktural_id": "7094",
+    "id_pegawai": "175",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-08-30",
+    "diklat_struktural_id": "7095",
+    "id_pegawai": "175",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Teknik Pembukaan Lahan Tanpa Bakar",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-02-25",
+    "diklat_struktural_id": "7096",
+    "id_pegawai": "175",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-30",
+    "diklat_struktural_id": "7097",
+    "id_pegawai": "175",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-02-23",
+    "diklat_struktural_id": "7099",
+    "id_pegawai": "177",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Pengadaan Pegawai",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-01-09",
+    "diklat_struktural_id": "7098",
+    "id_pegawai": "177",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-02",
+    "diklat_struktural_id": "7100",
+    "id_pegawai": "178",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1987-01-14",
+    "diklat_struktural_id": "7104",
+    "id_pegawai": "179",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Kebijakan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-03",
+    "diklat_struktural_id": "7101",
+    "id_pegawai": "179",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-07-16",
+    "diklat_struktural_id": "7102",
+    "id_pegawai": "179",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Pemetaan Digital dan Sistem",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7103",
+    "id_pegawai": "179",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan  Barang \/ Jasa Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-01-01",
+    "diklat_struktural_id": "7105",
+    "id_pegawai": "180",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-30",
+    "diklat_struktural_id": "7106",
+    "id_pegawai": "181",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisa Kelayakan Usaha",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-01-10",
+    "diklat_struktural_id": "7112",
+    "id_pegawai": "182",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Outward Bound Indonesia",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-10-12",
+    "diklat_struktural_id": "7107",
+    "id_pegawai": "182",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penyegaran Pimpro\/Pimbagpro",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-10-05",
+    "diklat_struktural_id": "7108",
+    "id_pegawai": "182",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-10-05",
+    "diklat_struktural_id": "7109",
+    "id_pegawai": "182",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-09-29",
+    "diklat_struktural_id": "7110",
+    "id_pegawai": "182",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Train The Trainer On Feeder Management",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-12-07",
+    "diklat_struktural_id": "7111",
+    "id_pegawai": "182",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-04-25",
+    "diklat_struktural_id": "7113",
+    "id_pegawai": "182",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "English Program For TOEFL               ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-04-09",
+    "diklat_struktural_id": "7115",
+    "id_pegawai": "183",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penelitian Tingkat Dasar ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-02-20",
+    "diklat_struktural_id": "7117",
+    "id_pegawai": "183",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tk.III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2014-11-08",
+    "diklat_struktural_id": "7114",
+    "id_pegawai": "183",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV             ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-03-11",
+    "diklat_struktural_id": "7116",
+    "id_pegawai": "183",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pemetaan Topografi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-09-04",
+    "diklat_struktural_id": "7118",
+    "id_pegawai": "184",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-08-19",
+    "diklat_struktural_id": "7119",
+    "id_pegawai": "184",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1984-02-14",
+    "diklat_struktural_id": "7120",
+    "id_pegawai": "184",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-01-24",
+    "diklat_struktural_id": "7121",
+    "id_pegawai": "185",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-01-24",
+    "diklat_struktural_id": "7122",
+    "id_pegawai": "186",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pemetaan Topografi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-09-04",
+    "diklat_struktural_id": "7123",
+    "id_pegawai": "187",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembukuan dan Inventaris Barang-Barang Milik Negara",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-01",
+    "diklat_struktural_id": "7124",
+    "id_pegawai": "187",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Ketrampilan Sistim Dokumentasi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-01-01",
+    "diklat_struktural_id": "7125",
+    "id_pegawai": "187",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-09-02",
+    "diklat_struktural_id": "7126",
+    "id_pegawai": "188",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7129",
+    "id_pegawai": "192",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Dasar Pengamanan Fisik Instansi Departemen Transmigrasi & PPH",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "7128",
+    "id_pegawai": "192",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7130",
+    "id_pegawai": "192",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7133",
+    "id_pegawai": "194",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pengawal Transmigran",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-08-26",
+    "diklat_struktural_id": "7131",
+    "id_pegawai": "194",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Peningkatan Mutu Pelayanan Kepegawaian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-02-02",
+    "diklat_struktural_id": "7132",
+    "id_pegawai": "194",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-14",
+    "diklat_struktural_id": "7134",
+    "id_pegawai": "194",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1983-03-01",
+    "diklat_struktural_id": "7136",
+    "id_pegawai": "195",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Tehnik Pengawasan Bidang Permukiman & Lingkungan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-01-07",
+    "diklat_struktural_id": "7135",
+    "id_pegawai": "195",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-02-23",
+    "diklat_struktural_id": "7137",
+    "id_pegawai": "196",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7140",
+    "id_pegawai": "198",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pengawal Transmigran",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "7138",
+    "id_pegawai": "198",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7139",
+    "id_pegawai": "198",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sekretaris",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1982-01-11",
+    "diklat_struktural_id": "7141",
+    "id_pegawai": "198",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7142",
+    "id_pegawai": "200",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7143",
+    "id_pegawai": "200",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan PelayananPejabat Pengelola Administrasi Kepegawaian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-25",
+    "diklat_struktural_id": "7144",
+    "id_pegawai": "202",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "7145",
+    "id_pegawai": "202",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7148",
+    "id_pegawai": "204",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pemetaan Topografi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-09-04",
+    "diklat_struktural_id": "7146",
+    "id_pegawai": "204",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7147",
+    "id_pegawai": "204",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-11",
+    "diklat_struktural_id": "7150",
+    "id_pegawai": "205",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Dasar Pengamanan Fisik Instansi Departemen Transmigrasi & PPH",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-01",
+    "diklat_struktural_id": "7149",
+    "id_pegawai": "205",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7151",
+    "id_pegawai": "205",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-12-02",
+    "diklat_struktural_id": "7153",
+    "id_pegawai": "206",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penyetaraan Jabatan Fungsional Arsiparis",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-08-21",
+    "diklat_struktural_id": "7152",
+    "id_pegawai": "206",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-09-02",
+    "diklat_struktural_id": "7154",
+    "id_pegawai": "208",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1985-02-25",
+    "diklat_struktural_id": "7155",
+    "id_pegawai": "209",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1985-04-02",
+    "diklat_struktural_id": "7156",
+    "id_pegawai": "209",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1985-04-02",
+    "diklat_struktural_id": "7159",
+    "id_pegawai": "210",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-09-29",
+    "diklat_struktural_id": "7157",
+    "id_pegawai": "210",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1985-02-25",
+    "diklat_struktural_id": "7158",
+    "id_pegawai": "210",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan Pelayanan Pejabat Pengelola Administrasi Kepegawaian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-25",
+    "diklat_struktural_id": "7160",
+    "id_pegawai": "211",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Satuan Kawal Transmigrasi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "7162",
+    "id_pegawai": "213",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelolaan Keuangan Negara",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-11-08",
+    "diklat_struktural_id": "7161",
+    "id_pegawai": "213",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan \"A\"",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1984-01-03",
+    "diklat_struktural_id": "7163",
+    "id_pegawai": "213",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Desain Grafis",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2010-03-05",
+    "diklat_struktural_id": "7166",
+    "id_pegawai": "214",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/Jasa Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-12-20",
+    "diklat_struktural_id": "7164",
+    "id_pegawai": "214",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Macromedia Flash 8 Graphic Design Course",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-10-24",
+    "diklat_struktural_id": "7165",
+    "id_pegawai": "214",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Programmer Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-01-06",
+    "diklat_struktural_id": "7167",
+    "id_pegawai": "214",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "7168",
+    "id_pegawai": "214",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1985-02-25",
+    "diklat_struktural_id": "7169",
+    "id_pegawai": "215",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1985-04-02",
+    "diklat_struktural_id": "7170",
+    "id_pegawai": "215",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-02-20",
+    "diklat_struktural_id": "7173",
+    "id_pegawai": "217",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan \"A\"",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-01-02",
+    "diklat_struktural_id": "7174",
+    "id_pegawai": "218",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-15",
+    "diklat_struktural_id": "7175",
+    "id_pegawai": "218",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/Jasa Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-02-22",
+    "diklat_struktural_id": "7176",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-10-05",
+    "diklat_struktural_id": "7177",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Manajemen Proyek\/Pengelolaan Anggaran",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-10-05",
+    "diklat_struktural_id": "7178",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelola Proyek Bidang Binmastrans",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-03-23",
+    "diklat_struktural_id": "7179",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Manajemen Proyek",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-02-03",
+    "diklat_struktural_id": "7180",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengawasan Melekat",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-11-08",
+    "diklat_struktural_id": "7181",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Penyiapan Pemerintahan Di Daerah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-01-01",
+    "diklat_struktural_id": "7182",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-10-06",
+    "diklat_struktural_id": "7183",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Teknis Penyusunan Peraturan Perundang-undangangan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-08-02",
+    "diklat_struktural_id": "7184",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Aspek Hukum Kerjasama Swasta Di  Daerah Transmigrasi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-01-25",
+    "diklat_struktural_id": "7185",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelola Rencana dan Program",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-10-24",
+    "diklat_struktural_id": "7186",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Perencanaan Pemukiman Transmigrasi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-01-27",
+    "diklat_struktural_id": "7187",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1984-02-20",
+    "diklat_struktural_id": "7188",
+    "id_pegawai": "219",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklatpim Tk. III Tahun 2010",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7189",
+    "id_pegawai": "220",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklatpim Tk. IV Tahun 2005",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7190",
+    "id_pegawai": "220",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Ujian Nasional Sertifikasi Keahlian Barang dan Jasa ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7191",
+    "id_pegawai": "220",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang dan Jasa ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7192",
+    "id_pegawai": "220",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan GPS Tahun 1998",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7193",
+    "id_pegawai": "220",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Perencanaan Jaringan Jalan dan Drainase Tahun 1996",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7194",
+    "id_pegawai": "220",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembukaan Lahan Tanpa Bakar Tahun 1999",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7195",
+    "id_pegawai": "220",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Perencanaan SAB Tahun 1995",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7196",
+    "id_pegawai": "220",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "English Program For TOEFL",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-04-09",
+    "diklat_struktural_id": "7197",
+    "id_pegawai": "221",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-07-14",
+    "diklat_struktural_id": "7198",
+    "id_pegawai": "221",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-06-28",
+    "diklat_struktural_id": "7199",
+    "id_pegawai": "222",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-30",
+    "diklat_struktural_id": "7200",
+    "id_pegawai": "222",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tk.III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-12-09",
+    "diklat_struktural_id": "7201",
+    "id_pegawai": "223",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-11-02",
+    "diklat_struktural_id": "7202",
+    "id_pegawai": "223",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-08-02",
+    "diklat_struktural_id": "7203",
+    "id_pegawai": "223",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-14",
+    "diklat_struktural_id": "7204",
+    "id_pegawai": "223",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tk.III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2014-11-08",
+    "diklat_struktural_id": "7205",
+    "id_pegawai": "225",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan Pelayanan Pejabat Pengelola Administrasi Kepegawaian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-25",
+    "diklat_struktural_id": "7206",
+    "id_pegawai": "225",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-01-05",
+    "diklat_struktural_id": "7207",
+    "id_pegawai": "225",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-07-21",
+    "diklat_struktural_id": "7208",
+    "id_pegawai": "225",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bahasa Inggirs Tingkat Basic 1",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-06-10",
+    "diklat_struktural_id": "7209",
+    "id_pegawai": "225",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pemeriksaan Kemudian (Post Audit)",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1992-11-30",
+    "diklat_struktural_id": "7211",
+    "id_pegawai": "225",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pejabat Inti Proyek Kerahbinan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-09-26",
+    "diklat_struktural_id": "7210",
+    "id_pegawai": "225",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pemeliharaan Sarana Peralatan Air Bersih",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-07-24",
+    "diklat_struktural_id": "7215",
+    "id_pegawai": "226",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-09-19",
+    "diklat_struktural_id": "7212",
+    "id_pegawai": "226",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang \/Jasa Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-02-22",
+    "diklat_struktural_id": "7213",
+    "id_pegawai": "226",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bintek Sumber Daya Air",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-06-21",
+    "diklat_struktural_id": "7214",
+    "id_pegawai": "226",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-01-30",
+    "diklat_struktural_id": "7216",
+    "id_pegawai": "226",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "English Program For TOEFL",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-04-09",
+    "diklat_struktural_id": "7217",
+    "id_pegawai": "227",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama 01-01-1999 s\/d 01-02-1999",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7218",
+    "id_pegawai": "227",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "7219",
+    "id_pegawai": "227",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Tenaga Perencana Bidang Binmastrans",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "7220",
+    "id_pegawai": "227",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Planning & Management Of Public Housing",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-01",
+    "diklat_struktural_id": "7221",
+    "id_pegawai": "227",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Dasar-Dasar Analisis Mengenai Dampak Lingkungan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1987-01-01",
+    "diklat_struktural_id": "7222",
+    "id_pegawai": "227",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-02-28",
+    "diklat_struktural_id": "7223",
+    "id_pegawai": "228",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-02-28",
+    "diklat_struktural_id": "7224",
+    "id_pegawai": "229",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "7225",
+    "id_pegawai": "230",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-03-16",
+    "diklat_struktural_id": "7226",
+    "id_pegawai": "231",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-07-11",
+    "diklat_struktural_id": "7227",
+    "id_pegawai": "232",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Manajemen Transmigrasi Tk.I          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2001-01-01",
+    "diklat_struktural_id": "7228",
+    "id_pegawai": "233",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "7229",
+    "id_pegawai": "233",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III          ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-15",
+    "diklat_struktural_id": "7230",
+    "id_pegawai": "233",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Programmer Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-01-06",
+    "diklat_struktural_id": "7231",
+    "id_pegawai": "235",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "7232",
+    "id_pegawai": "235",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "7233",
+    "id_pegawai": "235",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7234",
+    "id_pegawai": "236",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelolaan Keuangan Negara",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-06-30",
+    "diklat_struktural_id": "7235",
+    "id_pegawai": "237",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-01-24",
+    "diklat_struktural_id": "7236",
+    "id_pegawai": "238",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "7237",
+    "id_pegawai": "239",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-13",
+    "diklat_struktural_id": "7238",
+    "id_pegawai": "239",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-02-16",
+    "diklat_struktural_id": "7239",
+    "id_pegawai": "240",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pendidikan Tenaga Kesehatan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1985-01-23",
+    "diklat_struktural_id": "7240",
+    "id_pegawai": "241",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1984-02-20",
+    "diklat_struktural_id": "7241",
+    "id_pegawai": "241",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Bendaharawan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1984-09-01",
+    "diklat_struktural_id": "7242",
+    "id_pegawai": "241",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7243",
+    "id_pegawai": "243",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-05-25",
+    "diklat_struktural_id": "7244",
+    "id_pegawai": "244",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-02-23",
+    "diklat_struktural_id": "7245",
+    "id_pegawai": "245",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "MS Word 2000,Excel 2000, Power Point 2000",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "7246",
+    "id_pegawai": "246",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-17",
+    "diklat_struktural_id": "7247",
+    "id_pegawai": "246",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin  09-01-1989 s\/d 14-01-1989",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-09-01",
+    "diklat_struktural_id": "7248",
+    "id_pegawai": "246",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Teknik Pembukaan Lahan Tanpa Bakar",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-10-03",
+    "diklat_struktural_id": "7249",
+    "id_pegawai": "247",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengawas Pekerjaan Pembangunan PLT",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1995-02-10",
+    "diklat_struktural_id": "7250",
+    "id_pegawai": "247",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelola Jembatan Non Standar",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-08-23",
+    "diklat_struktural_id": "7251",
+    "id_pegawai": "247",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Survey Lapangan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-08-19",
+    "diklat_struktural_id": "7252",
+    "id_pegawai": "247",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-03",
+    "diklat_struktural_id": "7253",
+    "id_pegawai": "247",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-02",
+    "diklat_struktural_id": "7254",
+    "id_pegawai": "247",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-08-02",
+    "diklat_struktural_id": "7255",
+    "id_pegawai": "250",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kursus Dasar Pengamanan Fisik PPH",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-02-26",
+    "diklat_struktural_id": "7256",
+    "id_pegawai": "251",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengawas Pekerjaan Pembangunan PLT",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-07-29",
+    "diklat_struktural_id": "7257",
+    "id_pegawai": "251",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Kartografi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-09-22",
+    "diklat_struktural_id": "7258",
+    "id_pegawai": "251",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-14",
+    "diklat_struktural_id": "7259",
+    "id_pegawai": "251",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7260",
+    "id_pegawai": "253",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7261",
+    "id_pegawai": "253",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Programmer Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-01-06",
+    "diklat_struktural_id": "7262",
+    "id_pegawai": "254",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sistem Informasi Geografi (ARC\/Info&View)",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2000-01-12",
+    "diklat_struktural_id": "7263",
+    "id_pegawai": "254",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Sistem Windows NT.40",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-01-01",
+    "diklat_struktural_id": "7264",
+    "id_pegawai": "254",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Sistem Operasi DOS & Windows 95",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-01-01",
+    "diklat_struktural_id": "7265",
+    "id_pegawai": "254",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "DBase III Plus",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-01-01",
+    "diklat_struktural_id": "7266",
+    "id_pegawai": "254",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Lotus 123",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-01-01",
+    "diklat_struktural_id": "7267",
+    "id_pegawai": "254",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Teknisi Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-12",
+    "diklat_struktural_id": "7268",
+    "id_pegawai": "254",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Ketrampilan Praktis",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-03",
+    "diklat_struktural_id": "7269",
+    "id_pegawai": "254",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-04-04",
+    "diklat_struktural_id": "7270",
+    "id_pegawai": "255",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan Pelayanan Pejabat Pengelola Administrasi Kepegawaian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-25",
+    "diklat_struktural_id": "7271",
+    "id_pegawai": "258",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "7272",
+    "id_pegawai": "258",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-02-20",
+    "diklat_struktural_id": "7273",
+    "id_pegawai": "259",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Sistem Akuntansi Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-11-18",
+    "diklat_struktural_id": "7274",
+    "id_pegawai": "260",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penyuluhan Penatausahaan Barang Milik Negara",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-08-23",
+    "diklat_struktural_id": "7275",
+    "id_pegawai": "260",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7276",
+    "id_pegawai": "260",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7277",
+    "id_pegawai": "260",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan MC & Keprotokoleran",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7278",
+    "id_pegawai": "261",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Bendaharawan Barang",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1987-12-21",
+    "diklat_struktural_id": "7279",
+    "id_pegawai": "261",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "7280",
+    "id_pegawai": "261",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7281",
+    "id_pegawai": "262",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7282",
+    "id_pegawai": "262",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7283",
+    "id_pegawai": "263",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7284",
+    "id_pegawai": "264",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-13",
+    "diklat_struktural_id": "7285",
+    "id_pegawai": "265",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-02-01",
+    "diklat_struktural_id": "7286",
+    "id_pegawai": "265",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Peningkatan Pejabat Ketrans",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-05-26",
+    "diklat_struktural_id": "7293",
+    "id_pegawai": "267",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-11-14",
+    "diklat_struktural_id": "7294",
+    "id_pegawai": "267",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-03-11",
+    "diklat_struktural_id": "7295",
+    "id_pegawai": "267",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-01-01",
+    "diklat_struktural_id": "7296",
+    "id_pegawai": "267",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "English Program For TOEFL",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-04-09",
+    "diklat_struktural_id": "7297",
+    "id_pegawai": "268",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1987-07-14",
+    "diklat_struktural_id": "7298",
+    "id_pegawai": "268",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Keahlian Pengadaan Barang\/Jasa Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-02-22",
+    "diklat_struktural_id": "7299",
+    "id_pegawai": "269",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-04-13",
+    "diklat_struktural_id": "7300",
+    "id_pegawai": "269",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-10-19",
+    "diklat_struktural_id": "7301",
+    "id_pegawai": "269",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sekolah Pimpinan Adm Tingkat Lanjutan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-11-28",
+    "diklat_struktural_id": "7302",
+    "id_pegawai": "269",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pejabat Inti Proyek Kerahbinan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-09-26",
+    "diklat_struktural_id": "7303",
+    "id_pegawai": "269",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Pemantapan Peningkatan Disiplin Kepala KUPT",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1992-07-10",
+    "diklat_struktural_id": "7304",
+    "id_pegawai": "269",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf Kantor Unit Pemukiman TransmigrasiI",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1992-07-10",
+    "diklat_struktural_id": "7305",
+    "id_pegawai": "269",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Fasilitator Metode Temu Karya",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-09-24",
+    "diklat_struktural_id": "7306",
+    "id_pegawai": "269",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Pedoman Penghayatan dan Pengamalan Panca Sila",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-05-06",
+    "diklat_struktural_id": "7307",
+    "id_pegawai": "269",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-01-15",
+    "diklat_struktural_id": "7308",
+    "id_pegawai": "269",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-06-21",
+    "diklat_struktural_id": "7309",
+    "id_pegawai": "270",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Kebijakan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "7310",
+    "id_pegawai": "270",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Staf & Pimpinan Administrasi Tk. Pertama",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-02-02",
+    "diklat_struktural_id": "7311",
+    "id_pegawai": "270",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "TOEFL Preparation Course",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-01-01",
+    "diklat_struktural_id": "7312",
+    "id_pegawai": "270",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Workshop Komunitas Perencana",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-01-01",
+    "diklat_struktural_id": "7313",
+    "id_pegawai": "270",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Development Agricultural Promotion In Sub & Tropical Area",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1993-01-01",
+    "diklat_struktural_id": "7314",
+    "id_pegawai": "270",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Dasar-Dasar Kependudukan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "7315",
+    "id_pegawai": "270",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Dasar-Dasar Penelitian dann Pengembangan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1985-01-01",
+    "diklat_struktural_id": "7316",
+    "id_pegawai": "270",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Teknis Subtantif Spesialisasi Pengelolaan APBN Kelas Reguler",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-07-16",
+    "diklat_struktural_id": "7317",
+    "id_pegawai": "271",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan Pengeluaran",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-02-12",
+    "diklat_struktural_id": "7318",
+    "id_pegawai": "271",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7319",
+    "id_pegawai": "271",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7320",
+    "id_pegawai": "271",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sekretaris",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1983-03-01",
+    "diklat_struktural_id": "7321",
+    "id_pegawai": "271",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-07-16",
+    "diklat_struktural_id": "7322",
+    "id_pegawai": "272",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "MS Word 2000,Excel 2000, Power Point 2000",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2003-01-09",
+    "diklat_struktural_id": "7323",
+    "id_pegawai": "272",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Bendaharawan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-11",
+    "diklat_struktural_id": "7324",
+    "id_pegawai": "272",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-07-21",
+    "diklat_struktural_id": "7325",
+    "id_pegawai": "273",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bimbingan Teknis Bimbingan Pasca Pelatihan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-12",
+    "diklat_struktural_id": "7326",
+    "id_pegawai": "273",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan Ketrampilan Manajemen",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-09-19",
+    "diklat_struktural_id": "7327",
+    "id_pegawai": "273",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-08-02",
+    "diklat_struktural_id": "7328",
+    "id_pegawai": "273",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-14",
+    "diklat_struktural_id": "7329",
+    "id_pegawai": "273",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "General English Program For Basic",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-04-09",
+    "diklat_struktural_id": "7330",
+    "id_pegawai": "274",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Peningkatan Pejabat Ketransmigrasian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-05-26",
+    "diklat_struktural_id": "7331",
+    "id_pegawai": "274",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Manajemen Transmigrasi Tk.I ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2001-10-22",
+    "diklat_struktural_id": "7332",
+    "id_pegawai": "274",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Administrasi Umum",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-06-22",
+    "diklat_struktural_id": "7333",
+    "id_pegawai": "274",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-08-02",
+    "diklat_struktural_id": "7334",
+    "id_pegawai": "274",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bimtek Penyusunan Kurikulum Pemagangan Luar Negeri",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2009-07-13",
+    "diklat_struktural_id": "7335",
+    "id_pegawai": "275",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelola Pelatihan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2006-11-13",
+    "diklat_struktural_id": "7336",
+    "id_pegawai": "275",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Spesialisasi Pengelolaan APBN",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-03-20",
+    "diklat_struktural_id": "7337",
+    "id_pegawai": "276",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengadaan Barang & Jasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-03-20",
+    "diklat_struktural_id": "7338",
+    "id_pegawai": "276",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan �A�",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-03",
+    "diklat_struktural_id": "7339",
+    "id_pegawai": "276",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-12",
+    "diklat_struktural_id": "7340",
+    "id_pegawai": "276",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7341",
+    "id_pegawai": "276",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1991-02-23",
+    "diklat_struktural_id": "7342",
+    "id_pegawai": "277",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Kebijakan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-03",
+    "diklat_struktural_id": "7343",
+    "id_pegawai": "278",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-09-19",
+    "diklat_struktural_id": "7344",
+    "id_pegawai": "278",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "General English Program For Basic",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-04-09",
+    "diklat_struktural_id": "7345",
+    "id_pegawai": "278",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Manajemen Transmigrasi Tk.I",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2001-10-22",
+    "diklat_struktural_id": "7346",
+    "id_pegawai": "278",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penataran Pedoman Penghayatan dan Pengamalan Panca Sila",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-01-01",
+    "diklat_struktural_id": "7347",
+    "id_pegawai": "278",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Satuan Kawal Transmigrasi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-01",
+    "diklat_struktural_id": "7348",
+    "id_pegawai": "278",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Diklat Kepemimpinan Tingkat IV ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2009-04-20",
+    "diklat_struktural_id": "7349",
+    "id_pegawai": "279",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III ",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-06-03",
+    "diklat_struktural_id": "7350",
+    "id_pegawai": "279",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-02-28",
+    "diklat_struktural_id": "7351",
+    "id_pegawai": "281",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisis Jabatan",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2014-03-24",
+    "diklat_struktural_id": "7352",
+    "id_pegawai": "282",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pengawal Transmigran",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "7353",
+    "id_pegawai": "282",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-17",
+    "diklat_struktural_id": "7354",
+    "id_pegawai": "282",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-09-01",
+    "diklat_struktural_id": "7355",
+    "id_pegawai": "282",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-01",
+    "diklat_struktural_id": "7356",
+    "id_pegawai": "284",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7357",
+    "id_pegawai": "285",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-14",
+    "diklat_struktural_id": "7358",
+    "id_pegawai": "285",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Ketransmigrasian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2014-04-14",
+    "diklat_struktural_id": "7359",
+    "id_pegawai": "287",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-02-20",
+    "diklat_struktural_id": "7360",
+    "id_pegawai": "287",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Operator Komputer",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2004-05-25",
+    "diklat_struktural_id": "7361",
+    "id_pegawai": "289",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan \"A\"",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1994-05-30",
+    "diklat_struktural_id": "7362",
+    "id_pegawai": "289",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7363",
+    "id_pegawai": "289",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-01",
+    "diklat_struktural_id": "7364",
+    "id_pegawai": "289",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-01-24",
+    "diklat_struktural_id": "7365",
+    "id_pegawai": "290",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7366",
+    "id_pegawai": "291",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penyetaraan Jabatan Fungsional Arsiparis",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2007-08-21",
+    "diklat_struktural_id": "7367",
+    "id_pegawai": "292",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-01",
+    "diklat_struktural_id": "7368",
+    "id_pegawai": "292",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pelatihan Sistem Akuntansi Pemerintah",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1997-01-12",
+    "diklat_struktural_id": "7369",
+    "id_pegawai": "293",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Microsoft Acsess",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-01-01",
+    "diklat_struktural_id": "7370",
+    "id_pegawai": "293",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Peningkatan Mutu Pelayanan Kepegawaian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-01-01",
+    "diklat_struktural_id": "7371",
+    "id_pegawai": "293",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7372",
+    "id_pegawai": "293",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1987-01-01",
+    "diklat_struktural_id": "7373",
+    "id_pegawai": "293",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "0",
+    "diklat_struktural_id": "7374",
+    "id_pegawai": "294",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelolaan Belanja Pegawai",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2002-10-21",
+    "diklat_struktural_id": "7375",
+    "id_pegawai": "296",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7376",
+    "id_pegawai": "296",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7377",
+    "id_pegawai": "296",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Ketransmigrasian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-05-27",
+    "diklat_struktural_id": "7378",
+    "id_pegawai": "297",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-01-24",
+    "diklat_struktural_id": "7379",
+    "id_pegawai": "297",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-02-20",
+    "diklat_struktural_id": "7380",
+    "id_pegawai": "300",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembekalan Petugas Pengawal Transmigran",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1999-01-01",
+    "diklat_struktural_id": "7381",
+    "id_pegawai": "301",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-23",
+    "diklat_struktural_id": "7382",
+    "id_pegawai": "301",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Sekretaris",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1983-03-01",
+    "diklat_struktural_id": "7383",
+    "id_pegawai": "301",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analis Kepegawaian Keahlian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2012-02-07",
+    "diklat_struktural_id": "7384",
+    "id_pegawai": "303",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat III",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2011-04-04",
+    "diklat_struktural_id": "7385",
+    "id_pegawai": "303",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Litkayasa",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1998-01-01",
+    "diklat_struktural_id": "7386",
+    "id_pegawai": "304",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Ketrampilan Sistim Dokumentasi",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1990-01-01",
+    "diklat_struktural_id": "7387",
+    "id_pegawai": "304",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Penatar Tehnis",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-03",
+    "diklat_struktural_id": "7388",
+    "id_pegawai": "304",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Analisa Mengenai Dampak Lingkungan A",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-01",
+    "diklat_struktural_id": "7389",
+    "id_pegawai": "304",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "P.2 Pestisida",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1983-01-04",
+    "diklat_struktural_id": "7390",
+    "id_pegawai": "304",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pembinaan & Peningkatan Pelayanan Pejabat Pengelola Administrasi Kepegawaian",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2013-04-25",
+    "diklat_struktural_id": "7391",
+    "id_pegawai": "305",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bendaharawan Penerimaan Negara Bukan Pajak",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1996-01-03",
+    "diklat_struktural_id": "7392",
+    "id_pegawai": "305",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7393",
+    "id_pegawai": "305",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Bimbingan Teknis Pelaksanaan Anggaran Dan Ujian Nasional Sertifkiasi KPB JP",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2009-11-03",
+    "diklat_struktural_id": "7394",
+    "id_pegawai": "306",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Pengelolaan Keuangan Negara",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "2008-06-30",
+    "diklat_struktural_id": "7395",
+    "id_pegawai": "306",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-01-17",
+    "diklat_struktural_id": "7396",
+    "id_pegawai": "306",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1989-09-01",
+    "diklat_struktural_id": "7397",
+    "id_pegawai": "306",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-12-13",
+    "diklat_struktural_id": "7398",
+    "id_pegawai": "307",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7399",
+    "id_pegawai": "307",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-11-17",
+    "diklat_struktural_id": "7400",
+    "id_pegawai": "309",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-10-21",
+    "diklat_struktural_id": "7401",
+    "id_pegawai": "309",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat II",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-27",
+    "diklat_struktural_id": "7402",
+    "id_pegawai": "310",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Dasar Mental, Fisik dan Disiplin",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1988-01-14",
+    "diklat_struktural_id": "7403",
+    "id_pegawai": "310",
+    "created_at": "0",
+    "updated_at": "0"
+}
+, {
+    "nama_diklat": "Latihan Prajabatan Tingkat I",
+    "nomor_sertifikat": "0",
+    "jumlah_jam": "0",
+    "tanggal": "1986-01-01",
+    "diklat_struktural_id": "7404",
+    "id_pegawai": "311",
+    "created_at": "0",
+    "updated_at": "0"
+}
+]');
+
+        $pendidikan = json_decode('[
+{
+    "jenjang": "8",
+    "fakultas": "Ilmu Tanah ",
+    "tgl_lulus": "1980-01-01",
+    "no_ijazah": "",
+    "kasek_rektor": "",
+    "riwayat_sekolah_id": "2480",
+    "id_pegawai": "1",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "2016-10-19 06:24:15",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Magister Manajemen Agribisnis",
+    "tgl_lulus": "2001-01-01",
+    "no_ijazah": "",
+    "kasek_rektor": "",
+    "riwayat_sekolah_id": "2481",
+    "id_pegawai": "1",
+    "nama_sekolah": "Institut Pertanian Bogor ",
+    "created_at": "undefined",
+    "updated_at": "2016-10-19 06:24:15",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Pemerintahan",
+    "tgl_lulus": "1982-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2482",
+    "id_pegawai": "2",
+    "nama_sekolah": "FISIP Universitas Diponegoro",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Adminstrasi dan Kebijakan Publik, Fakultas Ilmu Sosial dan Politik",
+    "tgl_lulus": "2003-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2483",
+    "id_pegawai": "2",
+    "nama_sekolah": "Universitas Indonesia",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Bidang Keahlian Tanah",
+    "tgl_lulus": "1985-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2484",
+    "id_pegawai": "3",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2015-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2485",
+    "id_pegawai": "3",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Sosiologi ",
+    "tgl_lulus": "1991-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2486",
+    "id_pegawai": "4",
+    "nama_sekolah": "Universitas Tadulako",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi Publik",
+    "tgl_lulus": "2011-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2487",
+    "id_pegawai": "4",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Sosial",
+    "tgl_lulus": "1999-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2488",
+    "id_pegawai": "5",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2005-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2489",
+    "id_pegawai": "5",
+    "nama_sekolah": "Universitas Muhammadiyah Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Hukum Perdata",
+    "tgl_lulus": "1992-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2490",
+    "id_pegawai": "6",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Magister Managemen",
+    "tgl_lulus": "2003-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2491",
+    "id_pegawai": "6",
+    "nama_sekolah": "Universitas Indonesia Esa Unggul Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Agrometeorologi",
+    "tgl_lulus": "1985-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2492",
+    "id_pegawai": "7",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Geografi Penduduk dan Demografi",
+    "tgl_lulus": "1986-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2493",
+    "id_pegawai": "8",
+    "nama_sekolah": "Universitas Gadjah Mada Yogyakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2494",
+    "id_pegawai": "8",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Administrasi Negara",
+    "tgl_lulus": "1999-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2495",
+    "id_pegawai": "9",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2496",
+    "id_pegawai": "10",
+    "nama_sekolah": "STIE Gotong Royong ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2005-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2497",
+    "id_pegawai": "11",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi Publik",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2498",
+    "id_pegawai": "11",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2004-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2499",
+    "id_pegawai": "12",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Administrasi Negara",
+    "tgl_lulus": "1996-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2500",
+    "id_pegawai": "13",
+    "nama_sekolah": "STIA LAN BANDUNG ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2501",
+    "id_pegawai": "13",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2502",
+    "id_pegawai": "14",
+    "nama_sekolah": "STIENI Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen Pemasaran",
+    "tgl_lulus": "1996-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2503",
+    "id_pegawai": "15",
+    "nama_sekolah": "Sekolah Tinggi Ilmu Manajemen Kosgoro",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Magister Ilmu Administrasi",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2504",
+    "id_pegawai": "15",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Hukum",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2505",
+    "id_pegawai": "16",
+    "nama_sekolah": "Universitas Padjadjaran Bandung ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Hukum",
+    "tgl_lulus": "1998-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2506",
+    "id_pegawai": "17",
+    "nama_sekolah": "Universitas Muhammadiyah Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Hukum",
+    "tgl_lulus": "1998-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2507",
+    "id_pegawai": "18",
+    "nama_sekolah": "Universitas Muhammadiyah Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen Perusahaan",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2508",
+    "id_pegawai": "19",
+    "nama_sekolah": "STIE IBMI Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2509",
+    "id_pegawai": "20",
+    "nama_sekolah": "Universitas Prof. Dr. Moestopo Beragama Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ekonomi Pembangunan",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2510",
+    "id_pegawai": "21",
+    "nama_sekolah": "Universitas Islam Indonesia",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Program Studi Perencanaan Wilayah Dan Kota",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2511",
+    "id_pegawai": "22",
+    "nama_sekolah": "Institut Teknologi Bandung ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Program Studi Teknik Informatika",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2512",
+    "id_pegawai": "23",
+    "nama_sekolah": "Universitas Gunadarma",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2513",
+    "id_pegawai": "24",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2514",
+    "id_pegawai": "25",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2515",
+    "id_pegawai": "26",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Zoologi",
+    "tgl_lulus": "1987-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2516",
+    "id_pegawai": "27",
+    "nama_sekolah": "Universitas Jenderal Soedirman Purwokerto ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2517",
+    "id_pegawai": "28",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2518",
+    "id_pegawai": "29",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2519",
+    "id_pegawai": "30",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2520",
+    "id_pegawai": "31",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2521",
+    "id_pegawai": "32",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ekonomi",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2522",
+    "id_pegawai": "33",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2523",
+    "id_pegawai": "34",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ekonomi",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2524",
+    "id_pegawai": "35",
+    "nama_sekolah": "STIE Adhy Niaga Bekasi ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2525",
+    "id_pegawai": "36",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen ",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2526",
+    "id_pegawai": "37",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2527",
+    "id_pegawai": "38",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2528",
+    "id_pegawai": "39",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2529",
+    "id_pegawai": "40",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2530",
+    "id_pegawai": "41",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Akuntansi ",
+    "tgl_lulus": "2007-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2531",
+    "id_pegawai": "42",
+    "nama_sekolah": "STIE PERBANAS Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2532",
+    "id_pegawai": "43",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Akuntansi",
+    "tgl_lulus": "2006-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2533",
+    "id_pegawai": "44",
+    "nama_sekolah": "Universitas Gunadarma Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Program Studi Bahasa Dan Sastra Inggris",
+    "tgl_lulus": "2011-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2534",
+    "id_pegawai": "45",
+    "nama_sekolah": "Universitas Pendidikan Indonesia ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Ilmu Komputer ",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2535",
+    "id_pegawai": "46",
+    "nama_sekolah": "Universitas Sebelas Maret Surakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Psikologi ",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2536",
+    "id_pegawai": "47",
+    "nama_sekolah": "Universitas Sumatera Utara",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2537",
+    "id_pegawai": "48",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2538",
+    "id_pegawai": "49",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2539",
+    "id_pegawai": "50",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2540",
+    "id_pegawai": "51",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Psikologi",
+    "tgl_lulus": "2007-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2541",
+    "id_pegawai": "52",
+    "nama_sekolah": "Universitas Persada Indonesia YAI Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2542",
+    "id_pegawai": "53",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2543",
+    "id_pegawai": "54",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2544",
+    "id_pegawai": "55",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Sekretaris",
+    "tgl_lulus": "2007-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2545",
+    "id_pegawai": "56",
+    "nama_sekolah": "Universitas Indonesia",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2546",
+    "id_pegawai": "57",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2547",
+    "id_pegawai": "58",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Manajemen Pemasaran",
+    "tgl_lulus": "1997-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2548",
+    "id_pegawai": "59",
+    "nama_sekolah": "Akademi Pimpinan Perusahaan Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2549",
+    "id_pegawai": "60",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2550",
+    "id_pegawai": "61",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2551",
+    "id_pegawai": "62",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Hukum",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2552",
+    "id_pegawai": "63",
+    "nama_sekolah": "Universitas Az Zahra",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2553",
+    "id_pegawai": "64",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2554",
+    "id_pegawai": "65",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Hukum Perdata",
+    "tgl_lulus": "1996-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2555",
+    "id_pegawai": "66",
+    "nama_sekolah": "Universitas Pancasila Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2556",
+    "id_pegawai": "67",
+    "nama_sekolah": "STIE Gotong Royong ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Manajemen Informatika",
+    "tgl_lulus": "1992-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2557",
+    "id_pegawai": "68",
+    "nama_sekolah": "STMIK Budi Luhur Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2558",
+    "id_pegawai": "69",
+    "nama_sekolah": "STIE Gotong Royong ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2559",
+    "id_pegawai": "70",
+    "nama_sekolah": "STIE Gotong Royong ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Pertanian",
+    "tgl_lulus": "1993-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2560",
+    "id_pegawai": "71",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2561",
+    "id_pegawai": "72",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2562",
+    "id_pegawai": "73",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Statistika",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2563",
+    "id_pegawai": "74",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Mekanisasi Dan Teknologi Hasil Pertanian ",
+    "tgl_lulus": "1981-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2564",
+    "id_pegawai": "75",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "1998-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2565",
+    "id_pegawai": "75",
+    "nama_sekolah": "Universitas Indonesia ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Agronomi",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2566",
+    "id_pegawai": "76",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Tropical Agricultural Development (Agricultural Economics And Planning Option) ",
+    "tgl_lulus": "1993-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2567",
+    "id_pegawai": "76",
+    "nama_sekolah": "The University Of Reading, England Great Britain ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Tanah ",
+    "tgl_lulus": "1984-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2568",
+    "id_pegawai": "78",
+    "nama_sekolah": "Universitas Sumatera Utara",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Administrasi Publik",
+    "tgl_lulus": "1999-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2569",
+    "id_pegawai": "78",
+    "nama_sekolah": "Universitas Hasanuddin Ujung Pandang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ekonomi Perusahaan",
+    "tgl_lulus": "1987-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2570",
+    "id_pegawai": "80",
+    "nama_sekolah": "Universitas Jayabaya DKI Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumberdaya Manusia",
+    "tgl_lulus": "1997-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2571",
+    "id_pegawai": "80",
+    "nama_sekolah": "STIE IPWI DKI Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2572",
+    "id_pegawai": "81",
+    "nama_sekolah": "STIENI Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi Publik",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2573",
+    "id_pegawai": "81",
+    "nama_sekolah": "Universitas Krisnadwipayana ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Sosiatri ",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2574",
+    "id_pegawai": "82",
+    "nama_sekolah": "Universitas Gadjah Mada Yogyakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2575",
+    "id_pegawai": "82",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Arsitektur",
+    "tgl_lulus": "1991-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2576",
+    "id_pegawai": "83",
+    "nama_sekolah": "Universitas Tunas Pembangunan Surakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "1986-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2577",
+    "id_pegawai": "84",
+    "nama_sekolah": "Universitas Sebelas Maret Surakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Hukum Keperdataan",
+    "tgl_lulus": "1988-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2578",
+    "id_pegawai": "85",
+    "nama_sekolah": "Universitas Muhammadiyah Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "1989-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2579",
+    "id_pegawai": "86",
+    "nama_sekolah": "UNDIP Semarang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "1992-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2580",
+    "id_pegawai": "88",
+    "nama_sekolah": "Univertsitas Indonesia ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2581",
+    "id_pegawai": "88",
+    "nama_sekolah": "Universitas Persada Indonesia YAI Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Kartografi dan Pengideraan Jauh",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2582",
+    "id_pegawai": "89",
+    "nama_sekolah": "Universitas Gadjah Mada",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Geografi",
+    "tgl_lulus": "2011-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2583",
+    "id_pegawai": "89",
+    "nama_sekolah": "Universitas Indonesia",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Sosiologi",
+    "tgl_lulus": "2001-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2584",
+    "id_pegawai": "90",
+    "nama_sekolah": "Universitas Jenderal Sudirman Purwokerto",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Magister Ilmu Administrasi",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2585",
+    "id_pegawai": "90",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ekonomi Manajemen",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2586",
+    "id_pegawai": "91",
+    "nama_sekolah": "Universitas Negeri Jember",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi Publik",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2587",
+    "id_pegawai": "91",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Perencanaan Wilayah dan Kota",
+    "tgl_lulus": "2013-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2588",
+    "id_pegawai": "92",
+    "nama_sekolah": "Universitas Gadjah Mada",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2589",
+    "id_pegawai": "93",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Administrasi Negara",
+    "tgl_lulus": "1996-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2590",
+    "id_pegawai": "94",
+    "nama_sekolah": "Universitas Prof. Dr. Moestopo Beragama Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2591",
+    "id_pegawai": "95",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Program Studi Bahasa Dan Sastra Inggris ",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2592",
+    "id_pegawai": "96",
+    "nama_sekolah": "Universitas Dipenogoro Semarang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2593",
+    "id_pegawai": "97",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2594",
+    "id_pegawai": "98",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Komunikasi dan Penyiaran Islam",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2595",
+    "id_pegawai": "99",
+    "nama_sekolah": "Universitas Islam Negeri Syarif Hidayatullah ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2596",
+    "id_pegawai": "100",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2597",
+    "id_pegawai": "101",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2598",
+    "id_pegawai": "102",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2599",
+    "id_pegawai": "103",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2600",
+    "id_pegawai": "104",
+    "nama_sekolah": "STIENI Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2601",
+    "id_pegawai": "105",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2602",
+    "id_pegawai": "106",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2603",
+    "id_pegawai": "107",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2604",
+    "id_pegawai": "108",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2605",
+    "id_pegawai": "109",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2606",
+    "id_pegawai": "110",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Hukum",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2607",
+    "id_pegawai": "111",
+    "nama_sekolah": "Universitas Borobudur Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2608",
+    "id_pegawai": "112",
+    "nama_sekolah": "STIENI Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2609",
+    "id_pegawai": "113",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2610",
+    "id_pegawai": "114",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Program Studi Manajemen",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2611",
+    "id_pegawai": "115",
+    "nama_sekolah": "STIE Gotong Royong ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Program Studi Manajemen",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2612",
+    "id_pegawai": "116",
+    "nama_sekolah": "STIE Gotong Royong ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Pertanian",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2613",
+    "id_pegawai": "117",
+    "nama_sekolah": "Universitas Jenderal Soedirman Purwokerto ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2614",
+    "id_pegawai": "118",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2615",
+    "id_pegawai": "119",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2616",
+    "id_pegawai": "120",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2617",
+    "id_pegawai": "121",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2006-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2618",
+    "id_pegawai": "122",
+    "nama_sekolah": "Universitas Trisakti Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Akuntansi",
+    "tgl_lulus": "2002-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2619",
+    "id_pegawai": "123",
+    "nama_sekolah": "Universitas Jenderal Soedirman Purwokerto ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2620",
+    "id_pegawai": "124",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2621",
+    "id_pegawai": "125",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2622",
+    "id_pegawai": "126",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2623",
+    "id_pegawai": "127",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2624",
+    "id_pegawai": "128",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ekonomi Perusahaan",
+    "tgl_lulus": "1984-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2625",
+    "id_pegawai": "129",
+    "nama_sekolah": "Universitas Islam Indonesia DI Yogyakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Pemasaran",
+    "tgl_lulus": "2001-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2626",
+    "id_pegawai": "129",
+    "nama_sekolah": "STIE IPWI DKI Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Mekanisasi Pertanian",
+    "tgl_lulus": "1984-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2627",
+    "id_pegawai": "130",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Human Settlement Development",
+    "tgl_lulus": "1993-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2628",
+    "id_pegawai": "130",
+    "nama_sekolah": "Asian Institute Of Technology Bangkok-Thailand ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "10",
+    "fakultas": "Ilmu Ekonomi Program Studi Ekonomi dan Keuangan Syari’ah",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2629",
+    "id_pegawai": "130",
+    "nama_sekolah": "Universitas Trisakti Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t9",
+    "tingkat": "S.3",
+    "tingkatpddk_id": "10"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Geodesi",
+    "tgl_lulus": "1989-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2630",
+    "id_pegawai": "132",
+    "nama_sekolah": "Universitas Gadjah Mada",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Tanah",
+    "tgl_lulus": "1982-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2631",
+    "id_pegawai": "133",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Community & Regional Planning College Of Design",
+    "tgl_lulus": "1992-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2632",
+    "id_pegawai": "133",
+    "nama_sekolah": "Iowa State University Ames, USA ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "2001-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2633",
+    "id_pegawai": "135",
+    "nama_sekolah": "Universitas 17 Agustus 1945 Semarang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Perencanaan Wilayah dan Kota",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2634",
+    "id_pegawai": "136",
+    "nama_sekolah": "Universitas Dipenogoro Semarang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Konstruksi",
+    "tgl_lulus": "1993-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2635",
+    "id_pegawai": "137",
+    "nama_sekolah": "Universitas Sebelas Maret Surakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Perencanaan Wilayah dan Kota",
+    "tgl_lulus": "2006-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2636",
+    "id_pegawai": "138",
+    "nama_sekolah": "Universitas Dipenogoro Semarang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil ",
+    "tgl_lulus": "1997-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2637",
+    "id_pegawai": "139",
+    "nama_sekolah": "Institut Teknologi Indonesia ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2638",
+    "id_pegawai": "139",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "1990-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2639",
+    "id_pegawai": "140",
+    "nama_sekolah": "Universitas Katolik Parahyangan Bandung ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2640",
+    "id_pegawai": "140",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2641",
+    "id_pegawai": "141",
+    "nama_sekolah": "Universitas Dipenogoro Semarang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Akuntansi",
+    "tgl_lulus": "1998-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2642",
+    "id_pegawai": "142",
+    "nama_sekolah": "Universitas Persada Indonesia YAI Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2643",
+    "id_pegawai": "142",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Perencanaan Wilayah dan Kota",
+    "tgl_lulus": "2002-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2644",
+    "id_pegawai": "143",
+    "nama_sekolah": "Universitas Dipenogoro Semarang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2645",
+    "id_pegawai": "144",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2646",
+    "id_pegawai": "145",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2647",
+    "id_pegawai": "146",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Perencanaan Wilayah dan Kota",
+    "tgl_lulus": "2002-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2648",
+    "id_pegawai": "147",
+    "nama_sekolah": "Universitas Dipenogoro Semarang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2649",
+    "id_pegawai": "148",
+    "nama_sekolah": "STIENI Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2650",
+    "id_pegawai": "149",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2651",
+    "id_pegawai": "150",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2652",
+    "id_pegawai": "151",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2653",
+    "id_pegawai": "152",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Geodesi",
+    "tgl_lulus": "2013-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2654",
+    "id_pegawai": "153",
+    "nama_sekolah": "Universitas Dipenogoro Semarang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2655",
+    "id_pegawai": "154",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2656",
+    "id_pegawai": "155",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2657",
+    "id_pegawai": "156",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2658",
+    "id_pegawai": "157",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2659",
+    "id_pegawai": "158",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "2007-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2660",
+    "id_pegawai": "159",
+    "nama_sekolah": "Universitas Dipenogoro Semarang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2661",
+    "id_pegawai": "160",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2662",
+    "id_pegawai": "161",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Sosiologi",
+    "tgl_lulus": "2007-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2663",
+    "id_pegawai": "162",
+    "nama_sekolah": "Universitas Gadjah Mada",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2664",
+    "id_pegawai": "163",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2665",
+    "id_pegawai": "164",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2666",
+    "id_pegawai": "165",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2667",
+    "id_pegawai": "166",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2668",
+    "id_pegawai": "167",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2669",
+    "id_pegawai": "168",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2670",
+    "id_pegawai": "169",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2671",
+    "id_pegawai": "170",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ekonomi Program Studi Agribisnis",
+    "tgl_lulus": "2011-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2672",
+    "id_pegawai": "171",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Administrasi Keuangan ",
+    "tgl_lulus": "2007-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2673",
+    "id_pegawai": "172",
+    "nama_sekolah": "Universitas Jenderal Soedirman Purwokerto ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2674",
+    "id_pegawai": "173",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Hukum",
+    "tgl_lulus": "2000-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2675",
+    "id_pegawai": "174",
+    "nama_sekolah": "STIH Jagakarsa Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Hukum Administrasi Negara dan Otonomi Daerah",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2676",
+    "id_pegawai": "174",
+    "nama_sekolah": "Universitas Tama Jagakarsa ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Magister Manajemen",
+    "tgl_lulus": "2001-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2677",
+    "id_pegawai": "174",
+    "nama_sekolah": "STIE Jagakarsa Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "10",
+    "fakultas": "Ilmu Hukum ",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2678",
+    "id_pegawai": "174",
+    "nama_sekolah": "Universitas Trisakti Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t9",
+    "tingkat": "S.3",
+    "tingkatpddk_id": "10"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2013-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2679",
+    "id_pegawai": "175",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Keahlian Gizi Masyarakat dan Sumber Daya Keluarga",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2680",
+    "id_pegawai": "177",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Administrasi dan Kebijakan Publik",
+    "tgl_lulus": "2005-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2681",
+    "id_pegawai": "177",
+    "nama_sekolah": "Universitas Muhammadiyah Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2013-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2682",
+    "id_pegawai": "178",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Hukum",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2683",
+    "id_pegawai": "179",
+    "nama_sekolah": "Universitas Wijaya Kusuma",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi Negara",
+    "tgl_lulus": "2013-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2684",
+    "id_pegawai": "179",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ekonomi Pertanian",
+    "tgl_lulus": "1986-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2685",
+    "id_pegawai": "180",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Teknik Geodesi",
+    "tgl_lulus": "1988-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2686",
+    "id_pegawai": "181",
+    "nama_sekolah": "Akademi Teknik PU Bandung",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Produksi Ternak",
+    "tgl_lulus": "1989-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2687",
+    "id_pegawai": "182",
+    "nama_sekolah": "Institut Pertanian Bogor ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2688",
+    "id_pegawai": "182",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Sastra Cina",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2689",
+    "id_pegawai": "183",
+    "nama_sekolah": "Universitas Indonesia",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2690",
+    "id_pegawai": "183",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2691",
+    "id_pegawai": "184",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Administrasi Negara",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2692",
+    "id_pegawai": "185",
+    "nama_sekolah": "Sekolah Tinggi Ilmu Administrasi Mandala Indonesia",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Geografi",
+    "tgl_lulus": "2004-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2693",
+    "id_pegawai": "186",
+    "nama_sekolah": "Universitas Gadjah Mada",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2694",
+    "id_pegawai": "187",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Geografi",
+    "tgl_lulus": "2004-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2695",
+    "id_pegawai": "188",
+    "nama_sekolah": "Universitas Gadjah Mada",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2696",
+    "id_pegawai": "189",
+    "nama_sekolah": "STIE PBM DKI Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Geografi dan Ilmu Lingkungan",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2697",
+    "id_pegawai": "190",
+    "nama_sekolah": "Universitas Gadjah Mada",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2699",
+    "id_pegawai": "192",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Geodesi",
+    "tgl_lulus": "2006-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2700",
+    "id_pegawai": "193",
+    "nama_sekolah": "Universitas Gadjah Mada",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2701",
+    "id_pegawai": "194",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2702",
+    "id_pegawai": "195",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2703",
+    "id_pegawai": "196",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2704",
+    "id_pegawai": "197",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2705",
+    "id_pegawai": "198",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Peradilan Agama",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2706",
+    "id_pegawai": "199",
+    "nama_sekolah": "Universitas Islam Negeri Syarif Hidayatullah",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2707",
+    "id_pegawai": "200",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2708",
+    "id_pegawai": "201",
+    "nama_sekolah": "STIE Gotong Royong ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2709",
+    "id_pegawai": "202",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Pengetahuan Sosial",
+    "tgl_lulus": "2004-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2710",
+    "id_pegawai": "203",
+    "nama_sekolah": "Sekolah Tinggi Keguruan Dan Ilmu Pendidikan Purnama",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2711",
+    "id_pegawai": "204",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2712",
+    "id_pegawai": "205",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2713",
+    "id_pegawai": "206",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Geografi",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2714",
+    "id_pegawai": "207",
+    "nama_sekolah": "Universitas Negeri Semarang",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Teknik Geomatika",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2715",
+    "id_pegawai": "208",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2716",
+    "id_pegawai": "209",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Administrasi Negara",
+    "tgl_lulus": "1995-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2717",
+    "id_pegawai": "210",
+    "nama_sekolah": "STIA LAN",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2718",
+    "id_pegawai": "211",
+    "nama_sekolah": "STIE PBM DKI Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2719",
+    "id_pegawai": "212",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2720",
+    "id_pegawai": "213",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2721",
+    "id_pegawai": "214",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2722",
+    "id_pegawai": "215",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Akuntansi",
+    "tgl_lulus": "2006-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2724",
+    "id_pegawai": "217",
+    "nama_sekolah": "Sekolah Tinggi Ilmu Ekonomi Adi Unggul Bhirawa",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2725",
+    "id_pegawai": "218",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Hukum Perdata",
+    "tgl_lulus": "1989-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2726",
+    "id_pegawai": "219",
+    "nama_sekolah": "Universitas Pattimura",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia ",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2727",
+    "id_pegawai": "219",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil ",
+    "tgl_lulus": "1992-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2728",
+    "id_pegawai": "220",
+    "nama_sekolah": "Universitas Sriwijaya",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Sains",
+    "tgl_lulus": "2011-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2729",
+    "id_pegawai": "220",
+    "nama_sekolah": "Universitas Muhammadiyah Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Tanah",
+    "tgl_lulus": "1983-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2730",
+    "id_pegawai": "221",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Agribisnis",
+    "tgl_lulus": "1997-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2731",
+    "id_pegawai": "221",
+    "nama_sekolah": "Institut Pertanian Bogor",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Agronomi",
+    "tgl_lulus": "1992-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2732",
+    "id_pegawai": "222",
+    "nama_sekolah": "UPN Veteran Yogyakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Pemasaran",
+    "tgl_lulus": "1998-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2733",
+    "id_pegawai": "222",
+    "nama_sekolah": "STIE IPWI DKI Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Pertanian",
+    "tgl_lulus": "1985-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2734",
+    "id_pegawai": "223",
+    "nama_sekolah": "Universitas Andalas Padang ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi Publik",
+    "tgl_lulus": "2013-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2735",
+    "id_pegawai": "223",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ekonomi Manajemen",
+    "tgl_lulus": "1986-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2736",
+    "id_pegawai": "225",
+    "nama_sekolah": "Universitas Krisnadwipayana ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2005-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2737",
+    "id_pegawai": "225",
+    "nama_sekolah": "Universitas Muhammadiyah Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Diplomprufung-Architektur ",
+    "tgl_lulus": "1980-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2738",
+    "id_pegawai": "226",
+    "nama_sekolah": "Univ. Gesamthochschule Siegen Jerman Barat ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2739",
+    "id_pegawai": "226",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Perancangan dan Tata Kota",
+    "tgl_lulus": "1984-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2740",
+    "id_pegawai": "227",
+    "nama_sekolah": "IKIP Bandung ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2741",
+    "id_pegawai": "227",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "2003-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2742",
+    "id_pegawai": "228",
+    "nama_sekolah": "Universitas Dipenogoro Semarang",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "2004-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2743",
+    "id_pegawai": "229",
+    "nama_sekolah": "Universitas Katholik Soegijapranata Semarang",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Administrasi Negara",
+    "tgl_lulus": "1996-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2744",
+    "id_pegawai": "230",
+    "nama_sekolah": "STIA LAN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "1996-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2745",
+    "id_pegawai": "230",
+    "nama_sekolah": "STIA LAN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "2004-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2746",
+    "id_pegawai": "231",
+    "nama_sekolah": "Universitas Dipenogoro Semarang",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen Perusahaan",
+    "tgl_lulus": "1996-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2747",
+    "id_pegawai": "232",
+    "nama_sekolah": "UniversiTas Kristen Indonesia",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2748",
+    "id_pegawai": "232",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Geografi Ekonomi & Sumber Daya",
+    "tgl_lulus": "1985-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2749",
+    "id_pegawai": "233",
+    "nama_sekolah": "Universitas Gadjah Mada ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi Publik",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2750",
+    "id_pegawai": "233",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Perencanaan Wilayah dan Kota",
+    "tgl_lulus": "2011-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2751",
+    "id_pegawai": "234",
+    "nama_sekolah": "Institut Teknologi Sepuluh November",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2752",
+    "id_pegawai": "235",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2753",
+    "id_pegawai": "236",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Akuntansi",
+    "tgl_lulus": "1988-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2754",
+    "id_pegawai": "237",
+    "nama_sekolah": "Universitas Diponegoro",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Lingkungan",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2755",
+    "id_pegawai": "238",
+    "nama_sekolah": "Universitas Diponegoro",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2756",
+    "id_pegawai": "239",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Hukum",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2757",
+    "id_pegawai": "240",
+    "nama_sekolah": "Universitas Prof. DR.Hazairin",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2758",
+    "id_pegawai": "241",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "2011-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2759",
+    "id_pegawai": "242",
+    "nama_sekolah": "Universitas Syiah Kuala ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2760",
+    "id_pegawai": "243",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2761",
+    "id_pegawai": "244",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2762",
+    "id_pegawai": "245",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2011-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2763",
+    "id_pegawai": "246",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2764",
+    "id_pegawai": "247",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2765",
+    "id_pegawai": "248",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2766",
+    "id_pegawai": "249",
+    "nama_sekolah": "Universitas Gunadarma",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2767",
+    "id_pegawai": "250",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen Keuangan dan Perbankan",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2768",
+    "id_pegawai": "251",
+    "nama_sekolah": "STIENI Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2769",
+    "id_pegawai": "252",
+    "nama_sekolah": "Universitas Diponegoro",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2770",
+    "id_pegawai": "253",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Administrasi Negara",
+    "tgl_lulus": "1985-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2771",
+    "id_pegawai": "254",
+    "nama_sekolah": "Universitas Jayabaya Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Teknik Sipil",
+    "tgl_lulus": "2003-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2772",
+    "id_pegawai": "255",
+    "nama_sekolah": "Universitas Dipenogoro Semarang",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2773",
+    "id_pegawai": "256",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2774",
+    "id_pegawai": "257",
+    "nama_sekolah": "STIE Gotong Royong ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2014-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2775",
+    "id_pegawai": "257",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2776",
+    "id_pegawai": "258",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Keuangan dan Perbankan",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2777",
+    "id_pegawai": "259",
+    "nama_sekolah": "Politeknik Negeri Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2778",
+    "id_pegawai": "260",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2779",
+    "id_pegawai": "261",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2780",
+    "id_pegawai": "262",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2781",
+    "id_pegawai": "263",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2782",
+    "id_pegawai": "264",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2783",
+    "id_pegawai": "265",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2787",
+    "id_pegawai": "267",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2005-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2788",
+    "id_pegawai": "268",
+    "nama_sekolah": "Universitas Prof. Dr. Moestopo Beragama Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen Perusahaan",
+    "tgl_lulus": "1986-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2789",
+    "id_pegawai": "269",
+    "nama_sekolah": "Universitas Islam Indonesia ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen Sumber Daya Manusia",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2790",
+    "id_pegawai": "269",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Pertanian",
+    "tgl_lulus": "1983-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2791",
+    "id_pegawai": "270",
+    "nama_sekolah": "Institut Pertanian Bogor ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Population Dynamics",
+    "tgl_lulus": "1991-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2792",
+    "id_pegawai": "270",
+    "nama_sekolah": "The Johns Hopkins University America Serikat",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2793",
+    "id_pegawai": "271",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2002-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2794",
+    "id_pegawai": "272",
+    "nama_sekolah": "Universitas Islam 45 Bekasi",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen SDM",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2795",
+    "id_pegawai": "272",
+    "nama_sekolah": "Universitas Pembangunan Nasional Veteran Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Pendidikan Ekonomi Perusahaan",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2796",
+    "id_pegawai": "273",
+    "nama_sekolah": "Institut Keguruan Dan Ilmu Pendidikan",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Hukum Perdata",
+    "tgl_lulus": "1986-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2797",
+    "id_pegawai": "274",
+    "nama_sekolah": "Universitas Jayabaya Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2013-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2798",
+    "id_pegawai": "274",
+    "nama_sekolah": "Universitas Krisnadwipayana",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2004-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2799",
+    "id_pegawai": "275",
+    "nama_sekolah": "Sekolah Tinggi Ilmu Ekonomi Bisnis Indonesia ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2800",
+    "id_pegawai": "275",
+    "nama_sekolah": "Sekolah Tinggi Ilmu Manajemen LPMI ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2005-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2801",
+    "id_pegawai": "276",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi Publik",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2802",
+    "id_pegawai": "276",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Hukum ",
+    "tgl_lulus": "2001-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2803",
+    "id_pegawai": "277",
+    "nama_sekolah": "Universitas Mpu Tantular ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2804",
+    "id_pegawai": "277",
+    "nama_sekolah": "Universitas Krisnadwipayana ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Administrasi Negara",
+    "tgl_lulus": "1998-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2805",
+    "id_pegawai": "278",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2006-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2806",
+    "id_pegawai": "278",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen Perusahaan",
+    "tgl_lulus": "1989-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2807",
+    "id_pegawai": "279",
+    "nama_sekolah": "Universitas Islam Indonesia",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "9",
+    "fakultas": "Ilmu Administrasi Publik",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2808",
+    "id_pegawai": "279",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t8",
+    "tingkat": "S.2",
+    "tingkatpddk_id": "9"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Administrasi Negara",
+    "tgl_lulus": "1982-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2809",
+    "id_pegawai": "280",
+    "nama_sekolah": "Universitas 17 Agustus 1945 Jakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2003-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2810",
+    "id_pegawai": "281",
+    "nama_sekolah": "Universitas Kristen",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2811",
+    "id_pegawai": "282",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2812",
+    "id_pegawai": "283",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Perbankan",
+    "tgl_lulus": "1984-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2813",
+    "id_pegawai": "284",
+    "nama_sekolah": "Universitas Pembangunan Nasional",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2814",
+    "id_pegawai": "285",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2815",
+    "id_pegawai": "286",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Administrasi Keuangan",
+    "tgl_lulus": "2010-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2816",
+    "id_pegawai": "287",
+    "nama_sekolah": "Universitas Jenderal Soedirman",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Pendidikan Agama Islam ",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2817",
+    "id_pegawai": "288",
+    "nama_sekolah": "Universitas Islam Negeri Sunan Gunung Djati",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2818",
+    "id_pegawai": "289",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Psikologi",
+    "tgl_lulus": "2005-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2819",
+    "id_pegawai": "290",
+    "nama_sekolah": "Universitas Gunadarma",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2820",
+    "id_pegawai": "291",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2821",
+    "id_pegawai": "292",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2822",
+    "id_pegawai": "293",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2823",
+    "id_pegawai": "294",
+    "nama_sekolah": "STIE Gotong Royong ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen Dakwah",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2824",
+    "id_pegawai": "295",
+    "nama_sekolah": "Universitas Islam Negeri Sunan Kalijaga",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2825",
+    "id_pegawai": "296",
+    "nama_sekolah": "STIE PBM",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Hukum",
+    "tgl_lulus": "2008-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2826",
+    "id_pegawai": "297",
+    "nama_sekolah": "Universitas Jenderal Soedirman",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2827",
+    "id_pegawai": "298",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2828",
+    "id_pegawai": "299",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Komunikasi dan Penyiaran Islam",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2829",
+    "id_pegawai": "300",
+    "nama_sekolah": "Universitas Islam Negeri Sunan Kalijaga",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2009-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2830",
+    "id_pegawai": "301",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Sosiologi",
+    "tgl_lulus": "2006-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2831",
+    "id_pegawai": "302",
+    "nama_sekolah": "Universitas Nasional",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Hukum ",
+    "tgl_lulus": "2002-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2832",
+    "id_pegawai": "303",
+    "nama_sekolah": "Universitas Wijaya Kusuma",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Kesehatan Masyarakat ",
+    "tgl_lulus": "1983-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2833",
+    "id_pegawai": "304",
+    "nama_sekolah": "Akademi Penilik Kesehatan Surabaya",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "6",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "1984-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2834",
+    "id_pegawai": "305",
+    "nama_sekolah": "APPI Yogyakarta",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t6",
+    "tingkat": "D.III",
+    "tingkatpddk_id": "6"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen ",
+    "tgl_lulus": "2012-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2835",
+    "id_pegawai": "306",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2013-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2836",
+    "id_pegawai": "307",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Manajemen",
+    "tgl_lulus": "2013-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2837",
+    "id_pegawai": "308",
+    "nama_sekolah": "STIE Gotong Royong",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "8",
+    "fakultas": "Ilmu Administrasi",
+    "tgl_lulus": "2004-01-01",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2838",
+    "id_pegawai": "309",
+    "nama_sekolah": "STIA YAPPANN Jakarta ",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t7",
+    "tingkat": "S.1",
+    "tingkatpddk_id": "8"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2839",
+    "id_pegawai": "310",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "3",
+    "fakultas": "",
+    "tgl_lulus": "undefined",
+    "no_ijazah": "undefined",
+    "kasek_rektor": "undefined",
+    "riwayat_sekolah_id": "2840",
+    "id_pegawai": "311",
+    "nama_sekolah": "",
+    "created_at": "undefined",
+    "updated_at": "undefined",
+    "kode": "t3",
+    "tingkat": "SLTA",
+    "tingkatpddk_id": "3"
+}
+, {
+    "jenjang": "1",
+    "fakultas": "-",
+    "tgl_lulus": "2016-10-06",
+    "no_ijazah": "-",
+    "kasek_rektor": "-",
+    "riwayat_sekolah_id": "2842",
+    "id_pegawai": "128",
+    "nama_sekolah": "-",
+    "created_at": "2016-10-06 01:17:33",
+    "updated_at": "2016-10-06 01:17:33",
+    "kode": "t1",
+    "tingkat": "SD",
+    "tingkatpddk_id": "1"
+}
+]');
+        foreach ($params as $key=>$param) {
+            $pegawai = Pegawai::create([
               'nama_lengkap' => $param->nama,
               'nip' => $param->nip_baru,
               'gelar_depan' => $param->gelar_depan,
@@ -23086,7 +35791,31 @@ class PegawaiTableSeeder extends Seeder
               'no_npwp' => $param->nonpwp,
               'tanggal_npwp' => $param->tanggalnpwp,
               'golongan_darah' => "-"
-          ]);
+            ]);
+            foreach ($diklat as $key_diklat => $data_diklat) {
+                if ($param->id_pegawai == $data_diklat->id_pegawai) {
+                    RiwayatDiklat::create([
+                        'pegawai_id' => $pegawai->id,
+                        'nama_diklat' => $data_diklat->nama_diklat,
+                        'nomor_sertifikat' => $data_diklat->nomor_sertifikat,
+                        'tahun' => substr($data_diklat->tanggal, 0,4),
+                        'jumlah_jam' => $data_diklat->jumlah_jam,
+                    ]);
+                }
+            }
+            foreach ($pendidikan as $key_pendidikan => $data_pendidikan) {
+                if ($param->id_pegawai == $data_pendidikan->id_pegawai) {
+                    RiwayatPendidikan::create([
+                        'pegawai_id' => $pegawai->id,
+                        'nama_sekolah' => $data_pendidikan->nama_sekolah,
+                        'tingkat_pendidikan' => $data_pendidikan->tingkat,
+                        'fakultas' => $data_pendidikan->fakultas,
+                        'ijazah_pendidikan' => $data_pendidikan->no_ijazah,
+                        'tanggal_lulus' => $data_pendidikan->tgl_lulus,
+                        'nama_pimpinan' => $data_pendidikan->kasek_rektor
+                    ]);
+                }
+            }
         }
     }
 }
