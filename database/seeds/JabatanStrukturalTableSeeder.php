@@ -112,7 +112,7 @@ class JabatanStrukturalTableSeeder extends Seeder
                   "level" => "28",
                 ],
               ],
-              "29" => [
+              "14" => [
                 [
                   "jabatan" => "Direktur Bina Potensi Kawasan Transmigrasi ", 
                   "eselon" => "II",
