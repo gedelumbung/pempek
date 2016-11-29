@@ -19,6 +19,10 @@ class AjaxController extends Controller
 	{
 		extract($request->only('unit_kerja_id'));
 
+		if ($unit_kerja_id === '1') {
+			return response([], 200);
+		}
+
 		$sub_unit_kerja = UnitKerja::where('parent_id', $unit_kerja_id)->get();
 		return response($sub_unit_kerja, 200);
 	}
