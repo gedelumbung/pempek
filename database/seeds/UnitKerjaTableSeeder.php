@@ -17,15 +17,7 @@ class UnitKerjaTableSeeder extends Seeder
         DB::table('unit_kerja')->truncate();
 
         $unit_kerja = [
-            'DITJEN' => [
-                'Direktorat Jenderal Penyiapan Kawasan dan Pembangunan Permukiman Transmigrasi',
-                'Sekretariat Jenderal Penyiapan Kawasan dan Pembangunan Permukiman Transmigrasi',
-                'Direktorat Bina Potensi Kawasan Transmigrasi)',
-                'Direktorat Perencanaan Pembangunan dan Pengembangan Kawasan Transmigrasi',
-                'Direktorat Penyediaan Tanah Transmigrasi',
-                'Direktorat Pembangunan Pemukiman Transmigrasi',
-                'Direktorat Penataan Persebaran Penduduk'
-            ],
+            'DITJEN' => [],
             'SETDITJEN' => [
                 'Bagian Perencanaan',
                 'Bagian Keuangan dan Barang Milik Negara',
