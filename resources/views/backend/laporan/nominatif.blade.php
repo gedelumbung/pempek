@@ -5,7 +5,7 @@
 @section("content")
 
 	@foreach($unit_kerja as $unit)
-	<h4>{{$unit->title}}</h4>
+	<h2>{{$unit->title}}</h2>
 	<table class="table table-bordered" style="zoom:80%">
 		<thead style="background:#eaeaea">
 			<tr>
@@ -28,38 +28,32 @@
 					<td>{{$key+1}}</td>
 					<td>
 						<ul>
-							<li>> {{$duk->pegawai->nama_lengkap}}</li>
+							<li>> {{($duk->pegawai->gelar_depan != '-' ? $duk->pegawai->gelar_depan : '')}} {{$duk->pegawai->nama_lengkap}} {{($duk->pegawai->gelar_belakang != '-' ? $duk->pegawai->gelar_belakang : '')}}</li>
 							<li>> {{$duk->pegawai->nip}}</li>
-							<li>> {{$duk->pegawai->tempat_lahir}}</li>
-							<li>> {{indonesian_date($duk->pegawai->tanggal_lahir)}}</li>
+							<li>> {{$duk->pegawai->tempat_lahir}}, {{indonesian_date($duk->pegawai->tanggal_lahir)}}</li>
 							<li>> {{$duk->pegawai->age()}} tahun</li>
 						</ul>
 					</td>
 					<td>
 						<ul>
-							<li>> {{$duk->pegawai->golongan_akhir->title}}</li>
+							<li>> {{$duk->pegawai->golongan_akhir->description}} ({{$duk->pegawai->golongan_akhir->title}})</li>
 							<li>> {{indonesian_date($duk->pegawai->tmt_golongan_akhir)}}</li>
 						</ul>
 					</td>
 					<td>
+						@if(!empty($duk->pegawai->jabatan_struktural_id))
 						<ul>
-							@if(!empty($duk->pegawai->satuan_kerja_id))
-							<li>> {{$duk->pegawai->satuan_kerja->title}}</li>
-							@endif
-							@if(!empty($duk->pegawai->sub_unit_kerja_id))
-							<li>> {{$duk->pegawai->sub_unit_kerja->title}}</li>
-							@endif
-							@if(!empty($duk->pegawai->unit_kerja_id))
-							<li>> {{$duk->pegawai->unit_kerja->title}}</li>
-							@endif
-							@if(!empty($duk->pegawai->jabatan_struktural_id))
-							<li>> {{$duk->pegawai->jabatan_struktural->title}}</li>
-							@elseif(!empty($duk->pegawai->jabatan_fungsional_umum))
-							<li>> {{$duk->pegawai->jabatan_fungsional_umum}}</li>
-							@elseif(!empty($duk->pegawai->jabatan_fungsional_tertentu))
-							<li>> {{$duk->pegawai->jabatan_fungsional_tertentu}}</li>
-							@endif
+							<li>> {{$duk->pegawai->jabatan_struktural->title}}, {{$duk->pegawai->satuan_kerja->title}}, {{$duk->pegawai->sub_unit_kerja->title}}, {{$duk->pegawai->unit_kerja->title}}</li>
 						</ul>
+						@elseif(!empty($duk->pegawai->jabatan_fungsional_tertentu))
+						<ul>
+							<li>> {{$duk->pegawai->jabatan_fungsional_tertentu}}, {{$duk->pegawai->satuan_kerja->title}}, {{$duk->pegawai->sub_unit_kerja->title}}, {{$duk->pegawai->unit_kerja->title}}</li>
+						</ul>
+						@elseif(!empty($duk->pegawai->jabatan_fungsional_umum))
+						<ul>
+							<li>> {{$duk->pegawai->jabatan_fungsional_umum}}, {{$duk->pegawai->satuan_kerja->title}}, {{$duk->pegawai->sub_unit_kerja->title}}, {{$duk->pegawai->unit_kerja->title}}</li>
+						</ul>
+						@endif
 					</td>
 					<td>
 						<ul>
@@ -71,9 +65,7 @@
 										</div>
 										<div class="col-xs-10">
 											<ul style="margin-left: -10px;">
-												<li><i>Jenjang Pendidikan : {{$pendidikan->tingkat_pendidikan}}</i></li>
-												<li><i>Jurusan : {{$pendidikan->fakultas}}<br>{{$pendidikan->nama_sekolah}}</i></li>
-												<li><i>Lulus : {{indonesian_date($pendidikan->tanggal_lulus)}}</i></li>
+												<li><i>{{$pendidikan->tingkat_pendidikan}} {{$pendidikan->fakultas}}<br>{{$pendidikan->nama_sekolah}} tahun {{substr($pendidikan->tanggal_lulus,0,4)}}</i></li>
 											</ul>
 										</div>
 									</div>
@@ -91,10 +83,7 @@
 										</div>
 										<div class="col-xs-10">
 											<ul style="margin-left: -10px;">
-												<li><i>{{$diklat->nama_diklat}}</i></li>
-												<li><i>{{$diklat->tahun}}</i></li>
-												<li><i>{{$diklat->jumlah_jam}} jam</i></li>
-												<li><i>Peringkat : -</i></li>
+												<li><i>{{$diklat->nama_diklat}}, {{indonesian_date($diklat->tahun)}}</i></li>
 											</ul>
 										</div>
 									</div>
@@ -111,6 +100,8 @@
 			@endforeach
 		</tbody>
 	</table>
+	<hr>
+	<br>
 	@endforeach
 
 @endsection

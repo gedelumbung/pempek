@@ -1,93 +1,50 @@
-@extends("backend.layout.backend")
-
-@section("title","Laporan DUK")
-
-@section("content")
-<div>
-	<form method="GET">
-		<div class="row">
-			<div class="row">
-				<div class="form-group col-md-12 col-lg-6 col-sm-12">
-					<label class="col-md-3 control-label">Unit Kerja</label>
-					<div class="col-md-9">
-						<select name="unit_kerja">
-							<option value="">Unit Kerja</option>
-							@foreach($unit_kerja_data as $unit)
-								@if($unit->id == $unit_kerja)
-								<option value="{{$unit->id}}" selected="selected">{{$unit->title}}</option>
-								@else
-								<option value="{{$unit->id}}">{{$unit->title}}</option>
-								@endif
-							@endforeach
-						</select>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-12 col-lg-6 col-sm-12">
-					<label class="col-md-3 control-label">Golongan</label>
-					<div class="col-md-9">
-						<select name="golongan">
-							<option value="">Golongan</option>
-							@foreach($golongan_data as $gol)
-								@if($gol->title == $golongan)
-								<option value="{{$gol->title}}" selected="selected">{{$gol->description}} ({{$gol->title}})</option>
-								@else
-								<option value="{{$gol->title}}">{{$gol->description}} ({{$gol->title}})</option>
-								@endif
-							@endforeach
-						</select>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-12 col-lg-6 col-sm-12">
-					<label class="col-md-3 control-label">Umur</label>
-					<div class="col-md-5">
-						<input type="number" class="form-control" name="age_start" value="{{$age_start}}" placeholder="Dari">
-						<input type="number" class="form-control" name="age_end" value="{{$age_end}}" placeholder="Sampai">
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-12 col-lg-6 col-sm-12">
-					<label class="col-md-3 control-label"></label>
-					<div class="col-md-5">
-						<input type="submit" class="btn btn-success" value="Filter Data">
-						<a href="{{route('dashboard.laporan.duk.cetak')}}?{{$uri}}" class="btn btn-danger">Export to PDF</a>
-						<a href="{{route('dashboard.laporan.duk.fetch')}}" class="btn btn-warning">Refresh Data</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
-</div>
-<br>
-<div class="table-responsive">
-	<table class="table table-bordered" style="zoom:80%">
+<?php
+$nama_file = "laporan_duk.xls";
+header("Pragma: public");
+header("Expires: 0");
+header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+header("Content-Type: application/force-download");
+header("Content-Type: application/octet-stream");
+header("Content-Type: application/download");
+header("Content-Disposition: attachment;filename=".$nama_file."");  header("Content-Transfer-Encoding: binary "); 
+?>
+<style type="text/css">
+	html, table{
+		font-size: 12px;
+		border-collapse: collapse;
+	}
+	td{
+		vertical-align: top;
+	}
+	ul{
+		list-style: none;
+		padding: 10px;
+	}
+</style>
+	<table class="table table-bordered" border="1">
 		<thead style="background:#eaeaea">
 			<tr>
-				<th rowspan="2" style="vertical-align:middle;text-align:center" width="50">No. Urut</th>
-				<th rowspan="2" style="vertical-align:middle;text-align:center" width="200">NAMA<br>
+				<th rowspan="2" style="vertical-align:middle;text-align:center">No. Urut</th>
+				<th rowspan="2" style="vertical-align:middle;text-align:center">NAMA<br>
 					NIP<br>
 					STATUS PERKAWINAN<br>
 					STATUS PEGAWAI<br>
 				</th>
-				<th style="vertical-align:middle;text-align:center" width="180">PANGKAT</th>
-				<th style="vertical-align:middle;text-align:center" width="200">JABATAN</th>
+				<th style="vertical-align:middle;text-align:center">PANGKAT</th>
+				<th style="vertical-align:middle;text-align:center">JABATAN</th>
 				<th colspan="2" style="vertical-align:middle;text-align:center">MASA KERJA PMK TOTAL</th>
-				<th style="vertical-align:middle;text-align:center" width="200">PENDIDIKAN DAN PELATIHAN</th>
-				<th style="vertical-align:middle;text-align:center" width="200">PENDIDIKAN TERAKHIR</th>
-				<th style="vertical-align:middle;text-align:center" width="100">USIA</th>
-				<th rowspan="2" style="vertical-align:middle;text-align:center" width="100">CATATAN MUTASI KEPEGAWAIAN</th>
-				<th rowspan="2" style="vertical-align:middle;text-align:center" width="70">KET</th>
+				<th style="vertical-align:middle;text-align:center">PENDIDIKAN DAN PELATIHAN</th>
+				<th style="vertical-align:middle;text-align:center">PENDIDIKAN TERAKHIR</th>
+				<th style="vertical-align:middle;text-align:center">USIA</th>
+				<th rowspan="2" style="vertical-align:middle;text-align:center">CATATAN MUTASI KEPEGAWAIAN</th>
+				<th rowspan="2" style="vertical-align:middle;text-align:center">KET</th>
 			</tr>
 			<tr>
 				<th style="vertical-align:middle;text-align:center">GOL. RUANG <br>
 					TMT</th>
 				<th style="vertical-align:middle;text-align:center">NAMA <br>ESELON<br> TMT</th>
-				<th style="vertical-align:middle;text-align:center" width="80">THN</th>
-				<th style="vertical-align:middle;text-align:center" width="80">BLN</th>
+				<th style="vertical-align:middle;text-align:center">THN</th>
+				<th style="vertical-align:middle;text-align:center">BLN</th>
 				<th style="vertical-align:middle;text-align:center">NAMA <br>TGL, BULAN, & TAHUN<br> JUMLAH JAM</th>
 				<th style="vertical-align:middle;text-align:center">NAMA <BR>LULUS TGL, BULAN & TAHUN<Br> TINGKAT IJAZAH</th>
 				<th style="vertical-align:middle;text-align:center">TEMPAT TGL. LAHIR  USIA</th>
@@ -204,5 +161,3 @@
 		</tbody>
 	</table>
 </div>
-
-@endsection

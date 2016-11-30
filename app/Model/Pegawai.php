@@ -109,12 +109,12 @@ class Pegawai extends Model
 
     public function riwayat_diklat()
     {
-        return $this->hasMany('Simpeg\Model\RiwayatDiklat');
+        return $this->hasMany('Simpeg\Model\RiwayatDiklat')->orderBy('tahun', 'ASC');
     }
 
     public function riwayat_pendidikan()
     {
-        return $this->hasMany('Simpeg\Model\RiwayatPendidikan');
+        return $this->hasMany('Simpeg\Model\RiwayatPendidikan')->orderBy('tanggal_lulus', 'ASC');
     }
 
     public function age()
