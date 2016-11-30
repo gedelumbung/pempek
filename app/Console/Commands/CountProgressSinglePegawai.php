@@ -39,8 +39,7 @@ class CountProgressSinglePegawai extends Command
      */
     public function handle()
     {
-        $pegawaiId = $this->option('pegawai');
-        var_dump($pegawaiId);die;
+        $pegawaiId = $this->argument('pegawai');
         $pegawai = Pegawai::findOrFail($pegawaiId);
         $count = DB::select("SELECT id,
                  CASE WHEN nip != '' THEN 1 ELSE 0 END + 

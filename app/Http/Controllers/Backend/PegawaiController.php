@@ -184,7 +184,7 @@ class PegawaiController extends Controller
 
 		$pegawai->findOrFail($id)->update($arr);
 
-		\Artisan::call('simpeg:pegawai:count_progress:single', ['pegawai' => $pegawai->id]);
+		\Artisan::call('simpeg:pegawai:count_progress:single', ['pegawai' => $id]);
 
 		return redirect(route('dashboard.pegawai'));
 	}
