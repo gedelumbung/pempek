@@ -7,7 +7,7 @@
 	<table class="table table-bordered" style="zoom:80%">
 		<thead style="background:#eaeaea">
 			<tr>
-				<th rowspan="2" style="vertical-align:middle;text-align:center">No. Urut</th>
+				<th rowspan="2" style="vertical-align:middle;text-align:center" width="50">No. Urut</th>
 				<th rowspan="2" style="vertical-align:middle;text-align:center" width="200">NAMA<br>
 					NIP<br>
 					STATUS PERKAWINAN<br>
@@ -16,11 +16,11 @@
 				<th style="vertical-align:middle;text-align:center" width="180">PANGKAT</th>
 				<th style="vertical-align:middle;text-align:center" width="200">JABATAN</th>
 				<th colspan="2" style="vertical-align:middle;text-align:center">MASA KERJA PMK TOTAL</th>
-				<th style="vertical-align:middle;text-align:center">PENDIDIKAN DAN PELATIHAN</th>
-				<th style="vertical-align:middle;text-align:center">PENDIDIKAN TERAKHIR</th>
-				<th style="vertical-align:middle;text-align:center">USIA</th>
-				<th rowspan="2" style="vertical-align:middle;text-align:center">CATATAN MUTASI KEPEGAWAIAN</th>
-				<th rowspan="2" style="vertical-align:middle;text-align:center">KET</th>
+				<th style="vertical-align:middle;text-align:center" width="200">PENDIDIKAN DAN PELATIHAN</th>
+				<th style="vertical-align:middle;text-align:center" width="200">PENDIDIKAN TERAKHIR</th>
+				<th style="vertical-align:middle;text-align:center" width="100">USIA</th>
+				<th rowspan="2" style="vertical-align:middle;text-align:center" width="100">CATATAN MUTASI KEPEGAWAIAN</th>
+				<th rowspan="2" style="vertical-align:middle;text-align:center" width="70">KET</th>
 			</tr>
 			<tr>
 				<th style="vertical-align:middle;text-align:center">GOL. RUANG <br>
@@ -39,7 +39,7 @@
 					<td>{{$key+1}}</td>
 					<td>
 						<ul>
-							<li>> {{$duk->pegawai->nama_lengkap}}</li>
+							<li>> {{($duk->pegawai->gelar_depan != '-' ? $duk->pegawai->gelar_depan : '')}} {{$duk->pegawai->nama_lengkap}} {{($duk->pegawai->gelar_belakang != '-' ? $duk->pegawai->gelar_belakang : '')}}</li>
 							<li>> {{$duk->pegawai->nip}}</li>
 							<li>> {{$duk->pegawai->jenis_kelamin}}</li>
 							<li>> {{$duk->pegawai->status_pernikahan}}</li>
@@ -52,26 +52,30 @@
 						<ul>
 							<li>> {{$duk->pegawai->golongan_akhir->description}} ({{$duk->pegawai->golongan_akhir->title}})</li>
 							<li>> {{indonesian_date($duk->pegawai->tmt_golongan_akhir)}}</li>
+							<li>> {{$duk->pegawai->intervalFromNow($duk->pegawai->tmt_golongan_akhir)}}</li>
 						</ul>
 					</td>
 					<td>
 						@if(!empty($duk->pegawai->jabatan_struktural_id))
 						<ul>
-							<li>> {{$duk->pegawai->golongan_akhir->title}}</li>
+							<li>> {{$duk->pegawai->jabatan_struktural->title}}, {{$duk->pegawai->satuan_kerja->title}}, {{$duk->pegawai->sub_unit_kerja->title}}, {{$duk->pegawai->unit_kerja->title}}</li>
 							<li>> Eselon : {{$duk->pegawai->eselon}}</li>
-							<li>> TMT Jabatan : {{indonesian_date($duk->pegawai->tmt_eselon)}}</li>
+							<li>> TMT Jabatan : {{indonesian_date($duk->pegawai->tmt_eselon)}} ({{$duk->pegawai->intervalFromNow($duk->pegawai->tmt_eselon)}})</li>
+							<li>> Masa Kerja Eselon : ({{$duk->pegawai->intervalFromNow($duk->pegawai->tmt_eselon)}})</li>
 						</ul>
 						@elseif(!empty($duk->pegawai->jabatan_fungsional_tertentu))
 						<ul>
-							<li>> {{$duk->pegawai->jabatan_fungsional_tertentu}}</li>
+							<li>> {{$duk->pegawai->jabatan_fungsional_tertentu}}, {{$duk->pegawai->satuan_kerja->title}}, {{$duk->pegawai->sub_unit_kerja->title}}, {{$duk->pegawai->unit_kerja->title}}</li>
 							<li>> Eselon : {{$duk->pegawai->eselon}}</li>
-							<li>> TMT Jabatan : {{indonesian_date($duk->pegawai->tmt_jabatan_fungsional_tertentu)}}</li>
+							<li>> TMT Jabatan : {{indonesian_date($duk->pegawai->tmt_jabatan_fungsional_tertentu)}} ({{$duk->pegawai->intervalFromNow($duk->pegawai->tmt_jabatan_fungsional_tertentu)}})</li>
+							<li>> Masa Kerja Eselon : ({{$duk->pegawai->intervalFromNow($duk->pegawai->tmt_jabatan_fungsional_tertentu)}})</li>
 						</ul>
 						@elseif(!empty($duk->pegawai->jabatan_fungsional_umum))
 						<ul>
-							<li>> {{$duk->pegawai->jabatan_fungsional_umum}}</li>
+							<li>> {{$duk->pegawai->jabatan_fungsional_umum}}, {{$duk->pegawai->satuan_kerja->title}}, {{$duk->pegawai->sub_unit_kerja->title}}, {{$duk->pegawai->unit_kerja->title}}</li>
 							<li>> Eselon : {{$duk->pegawai->eselon}}</li>
-							<li>> TMT Jabatan : {{indonesian_date($duk->pegawai->tmt_jabatan_fungsional_umum)}}</li>
+							<li>> TMT Jabatan : {{indonesian_date($duk->pegawai->tmt_jabatan_fungsional_umum)}} ({{$duk->pegawai->intervalFromNow($duk->pegawai->tmt_jabatan_fungsional_umum)}})</li>
+							<li>> Masa Kerja Eselon : ({{$duk->pegawai->intervalFromNow($duk->pegawai->tmt_jabatan_fungsional_umum)}})</li>
 						</ul>
 						@endif
 					</td>
@@ -100,7 +104,7 @@
 										<div class="col-xs-10">
 											<ul style="margin-left: -10px;">
 												<li><i>{{$diklat->nama_diklat}}</i></li>
-												<li><i>{{$diklat->tahun}}</i></li>
+												<li><i>{{indonesian_date($diklat->tahun)}}</i></li>
 												<li><i>{{$diklat->jumlah_jam}} jam</i></li>
 												<li><i>Peringkat : -</i></li>
 											</ul>

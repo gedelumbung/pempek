@@ -128,6 +128,12 @@ class Pegawai extends Model
 
     public function pensiun()
     {
-        return date("Y-m-d", strtotime(date("Y-m-d", strtotime($this->tanggal_lahir)) . " + 60 years"));
+        return date("Y-m-d", strtotime(date("Y-m-d", strtotime($this->tanggal_lahir)) . " + 55 years"));
+    }
+
+    public function intervalFromNow($date)
+    {
+        $interval = date_diff(date_create(), date_create($date));
+        return $interval->format("%Y tahun %M bulan");
     }
 }

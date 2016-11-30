@@ -20,7 +20,7 @@ class UnitKerjaTableSeeder extends Seeder
             'DITJEN' => [
                 'Direktorat Jenderal Penyiapan Kawasan dan Pembangunan Permukiman Transmigrasi',
                 'Sekretariat Jenderal Penyiapan Kawasan dan Pembangunan Permukiman Transmigrasi',
-                'Direktorat Bina Potensi Kawasan Transmigrasi)',
+                'Direktorat Bina Potensi Kawasan Transmigrasi',
                 'Direktorat Perencanaan Pembangunan dan Pengembangan Kawasan Transmigrasi',
                 'Direktorat Penyediaan Tanah Transmigrasi',
                 'Direktorat Pembangunan Pemukiman Transmigrasi',
