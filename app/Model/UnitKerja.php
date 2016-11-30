@@ -54,4 +54,37 @@ class UnitKerja extends Model
                     ->where('pendidikan_akhir', $pendidikan)
                     ->count();
     }
+
+    public function countParentPegawaiByJabatan($jenis_jabatan, $jabatan_struktural_id=null, $golongan=array())
+    {
+        $child_list_id = self::where('parent_id', $jabatan_struktural_id)->pluck('id')->toArray();
+        if ($jenis_jabatan === 'struktural') {
+            return Pegawai::where('jenis_jabatan', 'Struktural')
+                    ->whereIn('jabatan_struktural_id', $child_list_id)
+                    ->whereIn('golongan_id_akhir', $golongan)
+                    ->count();
+        }
+        else {
+            return Pegawai::whereIn('jenis_jabatan', ['Fungsional Tertentu', 'Fungsional Umum'])
+                    ->whereIn('jabatan_struktural_id', $child_list_id)
+                    ->whereIn('golongan_id_akhir', $golongan)
+                    ->count();
+        }
+    }
+
+    public function countSubPegawaiByJabatan($jenis_jabatan, $jabatan_struktural_id=null, $golongan=array())
+    {
+        if ($jenis_jabatan === 'struktural') {
+            return Pegawai::where('jenis_jabatan', 'Struktural')
+                    ->where('jabatan_struktural_id', $jabatan_struktural_id)
+                    ->whereIn('golongan_id_akhir', $golongan)
+                    ->count();
+        }
+        else {
+            return Pegawai::whereIn('jenis_jabatan', ['Fungsional Tertentu', 'Fungsional Umum'])
+                    ->where('jabatan_struktural_id', $jabatan_struktural_id)
+                    ->whereIn('golongan_id_akhir', $golongan)
+                    ->count();
+        }
+    }
 }
