@@ -84,6 +84,8 @@ class CreatePegawaiTable extends Migration
             $table->string('no_npwp')->nullable();
             $table->string('tanggal_npwp')->nullable();
             $table->string('golongan_darah', 2)->nullable();
+            
+            $table->integer('count_progress')->default(0);
 
             $table->timestamps();
         });

@@ -13,14 +13,14 @@
 		<table class="table table-striped" id="table_id">
 			<thead>
 				<tr>
-					<th>NIP</th>
-					<th>Nama</th>
+					<th width="180">NIP</th>
+					<th width="180">Nama</th>
 					<th>Unit Kerja</th>
 					<th>Jenis Jabatan</th>
 					<th>Nama Jabatan</th>
 					<th>Progress</th>
-					<th>
-						<a href="{{route('dashboard.pegawai.add')}}" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Add New</a>
+					<th width="100">
+						<a href="{{route('dashboard.pegawai.add')}}" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Tambah</a>
 					</th>
 				</tr>
 			</thead>
@@ -28,7 +28,7 @@
 				@foreach($pegawai as $key => $data)
 				<tr>
 					<td>{{$data->nip}}</td>
-					<td>{{$data->nama_lengkap}}</td>
+					<td>{{($data->gelar_depan != '-' ? $data->gelar_depan : '')}} {{$data->nama_lengkap}} {{($data->gelar_belakang != '-' ? $data->gelar_belakang : '')}}</td>
 					<td>
 						@if(!empty($data->unit_kerja_id))
 							{{$data->unit_kerja->title}}
@@ -46,22 +46,22 @@
 					</td>
 					<td>
 						<div class="progress progress-squared" style="margin-bottom: -20px">
-							<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;" title="50 field yang kosong.">
-								{{$data->id}}
+							<div class="progress-bar progress-bar-dark" role="progressbar" aria-valuenow="{{$data->count_progress}}" aria-valuemin="0" aria-valuemax="100" style="width: 50%;" title="{{61-$data->count_progress}} field yang kosong.">
+								{{$data->count_progress}}
 							</div>
 						</div>
 					</td>
 					<td>
-	        			<a href="{{ route('dashboard.pegawai.show', ['id' => $data->id]) }}" class="btn btn-sm btn-warning">
+	        			<a href="{{ route('dashboard.pegawai.show', ['id' => $data->id]) }}" title="Detail Pegawai">
 	        				<i class="glyphicon glyphicon-eye-open"></i>
 	        			</a>
-	        			<a href="{{ route('dashboard.pegawai.riwayat_golongan', ['id' => $data->id]) }}" class="btn btn-sm btn-default">
+	        			<a href="{{ route('dashboard.pegawai.riwayat_golongan', ['id' => $data->id]) }}" title="Data Riwayat">
 	        				<i class="glyphicon glyphicon-folder-open"></i>
 	        			</a>
-	        			<a href="{{ route('dashboard.pegawai.edit', ['id' => $data->id]) }}" class="btn btn-sm btn-success">
+	        			<a href="{{ route('dashboard.pegawai.edit', ['id' => $data->id]) }}" title="Edit Detail Pegawai">
 	        				<i class="glyphicon glyphicon-pencil"></i>
 	        			</a>
-	        			<a href="{{ route('dashboard.pegawai.delete', ['id' => $data->id]) }}" class="btn btn-sm btn-danger">
+	        			<a href="{{ route('dashboard.pegawai.delete', ['id' => $data->id]) }}" title="Hapus Pegawai">
 	        				<i class="glyphicon glyphicon-trash"></i>
 	        			</a>
 					</td>

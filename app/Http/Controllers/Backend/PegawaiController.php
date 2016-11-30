@@ -20,6 +20,7 @@ use Simpeg\Model\Ibu;
 use PDF;
 use Image;
 use Illuminate\Http\Request;
+use Artisan;
 
 /**
 * Pegawai Controller
@@ -138,6 +139,8 @@ class PegawaiController extends Controller
 
 		$pegawai->insert($arr);
 
+		\Artisan::call('simpeg:pegawai:count_progress:single', ['pegawai' => $pegawai->id]);
+
 		return redirect(route('dashboard.pegawai'));
 	}
 
@@ -180,6 +183,8 @@ class PegawaiController extends Controller
 		}
 
 		$pegawai->findOrFail($id)->update($arr);
+
+		\Artisan::call('simpeg:pegawai:count_progress:single', ['pegawai' => $pegawai->id]);
 
 		return redirect(route('dashboard.pegawai'));
 	}
