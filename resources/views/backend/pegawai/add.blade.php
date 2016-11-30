@@ -150,7 +150,7 @@
 								</div>
 								<label class="col-md-1 control-label">TMT PNS</label>
 								<div class="col-md-2">
-									<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_pns">
+									<input type="text" datepicker readonly="true" class="form-control" name="tmt_pns">
 								</div>
 							</div>
 
