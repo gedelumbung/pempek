@@ -28,7 +28,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Tahun</label>
 								<div class="col-md-9">
-									<input type="number" maxlength="4" name="tahun" class="form-control" required>
+									<input type="text" datepicker name="tahun" class="form-control" required>
 								</div>
 							</div>
 							<div class="form-group">

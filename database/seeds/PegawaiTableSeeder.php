@@ -35798,7 +35798,7 @@ class PegawaiTableSeeder extends Seeder
                         'pegawai_id' => $pegawai->id,
                         'nama_diklat' => $data_diklat->nama_diklat,
                         'nomor_sertifikat' => $data_diklat->nomor_sertifikat,
-                        'tahun' => substr($data_diklat->tanggal, 0,4),
+                        'tahun' => date('d/m/Y', strtotime($data_diklat->tanggal)),
                         'jumlah_jam' => $data_diklat->jumlah_jam,
                     ]);
                 }
@@ -35811,7 +35811,7 @@ class PegawaiTableSeeder extends Seeder
                         'tingkat_pendidikan' => $data_pendidikan->tingkat,
                         'fakultas' => $data_pendidikan->fakultas,
                         'ijazah_pendidikan' => $data_pendidikan->no_ijazah,
-                        'tanggal_lulus' => $data_pendidikan->tgl_lulus,
+                        'tanggal_lulus' => date('d/m/Y', strtotime($data_pendidikan->tgl_lulus)),
                         'nama_pimpinan' => $data_pendidikan->kasek_rektor
                     ]);
                 }

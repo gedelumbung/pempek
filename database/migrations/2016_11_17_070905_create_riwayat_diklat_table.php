@@ -18,7 +18,7 @@ class CreateRiwayatDiklatTable extends Migration
             $table->unsignedInteger('pegawai_id');
             $table->string('nama_diklat');
             $table->string('nomor_sertifikat');
-            $table->integer('tahun');
+            $table->string('tahun');
             $table->integer('jumlah_jam');
             $table->timestamps();
 
