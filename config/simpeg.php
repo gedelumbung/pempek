@@ -3,8 +3,8 @@
 return [
 
     'jenis_kelamin' => [
-        'pria'      => 'Pria',
-        'wanita'    =>  'Wanita'
+        'laki_laki'      => 'Laki-Laki',
+        'perempuan'    =>  'Perempuan'
     ],
 
     'status_pegawai' => [
@@ -35,13 +35,13 @@ return [
     ],
 
     'status_pernikahan' => [
-        'menikah'       => 'Menikah',
+        'kawin'       => 'Kawin',
         'duda_janda'    =>  'Duda/Janda',
         'belum_kawin'   =>  'Belum Kawin'
     ],
 
     'status_pernikahan_pasangan' => [
-        'menikah'       => 'Menikah',
+        'kawin'       => 'Kawin',
         'cerai'         => 'Cerai',
         'duda_janda'    =>  'Duda/Janda'
     ],

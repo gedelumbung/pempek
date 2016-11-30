@@ -21,7 +21,6 @@ elixir(function(mix) {
         .styles([
             "/resources/assets/css/bootstrap.min.css",
             "/resources/assets/css/font-awesome.min.css",
-            "/resources/assets/css/input/datepicker3.css",
             "/resources/assets/css/input/bootstrap-timepicker.min.css",
             "/resources/assets/css/input/dropzone/dropzone.css",
             "/resources/assets/css/input/bootstrap-fileupload.min.css",
@@ -36,6 +35,7 @@ elixir(function(mix) {
             "./resources/assets/frontend/css/tmp/all.css",
             "/resources/assets/frontend/css/theme/theme-blog.css",
             "/resources/assets/frontend/css/theme/theme-shop.css",
+            "/node_modules/@fengyuanchen/datepicker/dist/datepicker.css",
         ], "public/css/frontend.css", './')
 
         .scripts([
@@ -45,7 +45,6 @@ elixir(function(mix) {
             "/resources/assets/frontend/js/ui/pnotify.custom.js",
             "/resources/assets/js/input/validator.min.js",
             "/resources/assets/js/input/bootstrap-maxlength.js",
-            "/resources/assets/js/input/bootstrap-datepicker.js",
             "/resources/assets/js/input/bootstrap-timepicker.js",
             "/resources/assets/js/input/bootstrap-fileupload.min.js",
             "/resources/assets/js/input/dropzone.min.js",
@@ -56,6 +55,7 @@ elixir(function(mix) {
             "/resources/assets/frontend/js/ui/rs-plugin/jquery.themepunch.tools.min.js",
             "/resources/assets/frontend/js/ui/rs-plugin/jquery.themepunch.revolution.min.js",
             "/resources/assets/frontend/js/ui/owl.carousel.min.js",
+            "/node_modules/@fengyuanchen/datepicker/dist/datepicker.js",
         ], "public/js/frontend.js", './')
 
         .styles([
@@ -64,7 +64,6 @@ elixir(function(mix) {
             "/resources/assets/backend/css/ui/jquery.dataTables.min.css",
             "/resources/assets/backend/css/ui/datatables.css",
             "/resources/assets/backend/css/ui/pnotify.custom.css",
-            "/resources/assets/css/input/datepicker3.css",
             "/resources/assets/css/input/bootstrap-timepicker.min.css",
             "/resources/assets/css/input/dropzone/dropzone.css",
             "/resources/assets/css/input/bootstrap-fileupload.min.css",
@@ -72,6 +71,7 @@ elixir(function(mix) {
             "/resources/assets/backend/css/theme/theme.css",
             "/resources/assets/backend/css/theme/skin.css",
             "./resources/assets/backend/css/tmp/all.css",
+            "/node_modules/@fengyuanchen/datepicker/dist/datepicker.css",
         ], "public/css/backend.css", './')
 
         .scripts([
@@ -82,7 +82,6 @@ elixir(function(mix) {
             "/resources/assets/backend/js/ui/pnotify.custom.js",
             "/resources/assets/js/input/validator.min.js",
             "/resources/assets/js/input/bootstrap-maxlength.js",
-            "/resources/assets/js/input/bootstrap-datepicker.js",
             "/resources/assets/js/input/bootstrap-timepicker.js",
             "/resources/assets/js/input/bootstrap-fileupload.min.js",
             "/resources/assets/js/input/dropzone.min.js",
@@ -97,6 +96,8 @@ elixir(function(mix) {
             "/resources/assets/backend/js/ui/jquery.validate.js",
             "/resources/assets/backend/js/ui/jquery.bootstrap.wizard.js",
             "/resources/assets/backend/js/ui/examples.wizard.js",
+            "/node_modules/@fengyuanchen/datepicker/dist/datepicker.js",
+            "/resources/assets/backend/js/scripts.js",
         ], "public/js/backend.js", './')
 
         .version([

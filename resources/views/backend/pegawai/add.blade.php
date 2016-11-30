@@ -47,7 +47,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label">Tanggal Lahir</label>
 								<div class="col-md-9">
-									<input type="text" datepicker readonly="true" class="form-control" name="tanggal_lahir" required>
+									<input type="text" data-toggle="datepicker" readonly="true" class="form-control" name="tanggal_lahir" required>
 								</div>
 							</div>
 
@@ -146,11 +146,11 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="tmt_cpns">TMT CPNS</label>
 								<div class="col-md-2">
-									<input type="text" datepicker readonly="true" class="form-control" name="tmt_cpns" id="tmt_cpns">
+									<input type="text"  data-toggle="datepicker" readonly="true" class="form-control" name="tmt_cpns" id="tmt_cpns">
 								</div>
 								<label class="col-md-1 control-label">TMT PNS</label>
 								<div class="col-md-2">
-									<input type="text" datepicker readonly="true" class="form-control" name="tmt_pns">
+									<input type="text"  data-toggle="datepicker" readonly="true" class="form-control" name="tmt_pns">
 								</div>
 							</div>
 
@@ -312,7 +312,7 @@
 
 									<label class="col-md-2 control-label">TMT Eselon</label>
 									<div class="col-md-2">
-										<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_eselon">
+										<input type="text"  data-toggle="datepicker" readonly="true" class="form-control" id="inputDefault" name="tmt_eselon">
 									</div>
 								</div>
 							</div>
@@ -329,7 +329,7 @@
 
 									<label class="col-md-2 control-label">TMT Jafung</label>
 									<div class="col-md-2">
-										<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_tertentu">
+										<input type="text"  data-toggle="datepicker" readonly="true" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_tertentu">
 									</div>
 								</div>
 							</div>
@@ -346,7 +346,7 @@
 
 									<label class="col-md-2 control-label">TMT Jafung Umum</label>
 									<div class="col-md-2">
-										<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_umum">
+										<input type="text"  data-toggle="datepicker" readonly="true" class="form-control" id="inputDefault" name="tmt_jabatan_fungsional_umum">
 									</div>
 								</div>
 							</div>
@@ -399,7 +399,7 @@
 								</div>
 								<label class="col-md-2 control-label">TMT Gol. Awal</label>
 								<div class="col-md-2">
-									<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_golongan_awal" required>
+									<input type="text"  data-toggle="datepicker" readonly="true" class="form-control" id="inputDefault" name="tmt_golongan_awal" required>
 								</div>
 							</div>
 
@@ -414,7 +414,7 @@
 								</div>
 								<label class="col-md-2 control-label">TMT Gol. Akhir</label>
 								<div class="col-md-2">
-									<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tmt_golongan_akhir" required>
+									<input type="text"  data-toggle="datepicker" readonly="true" class="form-control" id="inputDefault" name="tmt_golongan_akhir" required>
 								</div>
 							</div>
 
@@ -511,7 +511,7 @@
 
 								<label class="col-md-2 control-label">Tanggal NPWP</label>
 								<div class="col-md-2">
-									<input type="text" datepicker readonly="true" class="form-control" id="inputDefault" name="tanggal_npwp">
+									<input type="text"  data-toggle="datepicker" readonly="true" class="form-control" id="inputDefault" name="tanggal_npwp">
 								</div>
 							</div>
 
@@ -653,8 +653,7 @@ $("#jabatan_struktural_id").change(function(){
     });
 });
 
-$('#tmt_cpns').datepicker()
-.on('changeDate', function(e) {
+$('#tmt_cpns').change(function(){
 	var today = new Date();
 	var birthDate = new Date($("#tmt_cpns").val());
 	var year = today.getFullYear() - birthDate.getFullYear();

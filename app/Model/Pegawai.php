@@ -119,7 +119,7 @@ class Pegawai extends Model
 
     public function age()
     {
-        $birthDate = $this->tanggal_lahir;
+        $birthDate = date('Y-m-d', strtotime($this->tanggal_lahir));
         $date = new DateTime($birthDate);
         $now = new DateTime();
         $interval = $now->diff($date);

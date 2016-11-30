@@ -17,8 +17,8 @@ class LaporanDukController extends Controller
 	
 	public function index(DukView $duk)
 	{
-		DukView::truncate();
-		$this->fetchNewData();
+		//DukView::truncate();
+		//$this->fetchNewData();
 		$duk = $duk->orderBy('golongan', 'desc')
 					->orderBy('tmt_golongan', 'desc')
 					->orderBy('level', 'desc')
