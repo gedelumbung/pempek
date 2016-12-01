@@ -82,11 +82,6 @@ class SatuanKerjaTableSeeder extends Seeder
                     'Seksi Evaluasi dan Pelaporan '
                 ],
                 [
-                    'Sub Direktorat Advokasi Kawasan ',
-                    'Seksi Penyiapan Bahan Advokasi ',
-                    'Seksi Evaluasi dan Pelaporan '
-                ],
-                [
                     'Sub Direktorat Perencanaan Kawasan ',
                     'Seksi Pengumpulan dan Pengolahan Data ',
                     'Seksi Penyusunan Rencana Kawasan '
@@ -94,7 +89,7 @@ class SatuanKerjaTableSeeder extends Seeder
                 [
                     'Sub Direktorat Fasilitasi Penetapan Kawasan ',
                     'Seksi Pengumpulan dan Pengolahan Data ',
-                    'Seksi Penyusunan Rencana Kawasan '
+                    'Seksi Penilaian Kawasan '
                 ],
                 [
                     'Sub Direktorat Mediasi dan Kerja Sama Antar Daerah ',
@@ -189,7 +184,7 @@ class SatuanKerjaTableSeeder extends Seeder
                 [
                     'Sub Direktorat Penyiapan Calon Transmigran dan Penduduk Setempat ',
                     'Seksi Pendaftaran dan Seleksi',
-                    'Seksi Penampungan dan Perbekalan '
+                    'Seksi Keterampilan Calon Transmigran dan Penduduk Setempat  '
                 ],
                 [
                     'Sub Direktorat Pelayanan Perpindahan ',
