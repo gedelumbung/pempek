@@ -102,7 +102,11 @@
 					<td>
 						@if(!empty($duk->pegawai->jabatan_struktural_id))
 						<ul>
-							<li>> {{$duk->pegawai->jabatan_struktural->title}}, {{$duk->pegawai->satuan_kerja->title}}, {{$duk->pegawai->sub_unit_kerja->title}}, {{$duk->pegawai->unit_kerja->title}}</li>
+							<li>> {{$duk->pegawai->jabatan_struktural->title}}, 
+									{{(!empty($duk->pegawai->satuan_kerja_id) ? $duk->pegawai->satuan_kerja->title.',' : '')}} 
+									{{(!empty($duk->pegawai->sub_unit_kerja_id) ? $duk->pegawai->sub_unit_kerja->title.',' : '')}} 
+									{{$duk->pegawai->unit_kerja->title}}
+							</li>
 						</ul>
 						@elseif(!empty($duk->pegawai->jabatan_fungsional_tertentu))
 						<ul>
