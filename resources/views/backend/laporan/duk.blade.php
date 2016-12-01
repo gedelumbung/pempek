@@ -7,7 +7,7 @@
 	<form method="GET">
 		<div class="row">
 			<div class="row">
-				<div class="form-group col-md-12 col-lg-6 col-sm-12">
+				<div class="form-group col-md-12 col-sm-12">
 					<label class="col-md-3 control-label">Unit Kerja</label>
 					<div class="col-md-9">
 						<select name="unit_kerja">
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-md-12 col-lg-6 col-sm-12">
+				<div class="form-group col-md-12 col-sm-12">
 					<label class="col-md-3 control-label">Golongan</label>
 					<div class="col-md-9">
 						<select name="golongan">
@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-md-12 col-lg-6 col-sm-12">
+				<div class="form-group col-md-12 col-sm-12">
 					<label class="col-md-3 control-label">Umur</label>
 					<div class="col-md-5">
 						<input type="number" class="form-control" name="age_start" value="{{$age_start}}" placeholder="Dari">
@@ -50,11 +50,11 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-md-12 col-lg-6 col-sm-12">
+				<div class="form-group col-md-12 col-sm-12">
 					<label class="col-md-3 control-label"></label>
 					<div class="col-md-5">
 						<input type="submit" class="btn btn-success" value="Filter Data">
-						<a href="{{route('dashboard.laporan.duk.cetak')}}?{{$uri}}" class="btn btn-danger">Export to PDF</a>
+						<a href="{{route('dashboard.laporan.duk.cetak')}}?{{$uri}}" class="btn btn-danger">Export to Excel</a>
 						<a href="{{route('dashboard.laporan.duk.fetch')}}" class="btn btn-warning">Refresh Data</a>
 					</div>
 				</div>

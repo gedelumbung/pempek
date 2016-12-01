@@ -9,7 +9,6 @@ use Simpeg\Model\UnitKerja;
 use Simpeg\Model\Golongan;
 use Illuminate\Http\Request;
 use DB;
-use PDF;
 
 /**
 * Laporan Duk Controller
@@ -59,10 +58,6 @@ class LaporanDukController extends Controller
 
 		$duk = $duk->get();
 		return view('backend.laporan.duk_cetak', compact('duk'));
-
-        $nama = "laporan-duk-".date('d-M-Y').".pdf";
-        $pdf = PDF::loadView('backend.laporan.duk_cetak', compact('duk'))->setPaper('a3', 'landscape');
-        return $pdf->download($nama);
 	}
 
 	public function fetchNewData(DukView $dukView)

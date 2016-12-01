@@ -6,6 +6,7 @@ use Simpeg\Http\Controllers\Controller;
 use Simpeg\Model\Pegawai;
 use Simpeg\Model\DukView;
 use Simpeg\Model\UnitKerja;
+use Simpeg\Model\Golongan;
 use Illuminate\Http\Request;
 use DB;
 
@@ -16,16 +17,56 @@ use DB;
 class LaporanNominatifController extends Controller
 {
 	
-	public function index(DukView $duk, UnitKerja $unitKerja)
+	public function index(Request $request, UnitKerja $unitKerja, Golongan $golonganData)
 	{
-		//DukView::truncate();
-		//$this->fetchNewData();
-		$unit_kerja = $unitKerja->where('parent_id',0)->get();
-		return view('backend.laporan.nominatif', compact('unit_kerja'));
+		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end'));
+		$uri = http_build_query($request->query());
+
+		$golongan_data = $golonganData->get();
+		$unit_kerja_data = $unitKerja->where('parent_id', 0)->get();
+
+		$unitKerja = $unitKerja->where('parent_id',0)
+								->with(array(
+									'duk' => function($query) use($unit_kerja,$golongan,$age_start,$age_end)
+											{
+												$query = empty($unit_kerja) ? $query : $query->where('unit_kerja_id', $unit_kerja);
+												$query = empty($golongan) ? $query : $query->where('golongan', $golongan);
+												$query = empty($age_start) ? $query : $query->whereRaw('usia >= '.$age_start);
+												$query = empty($age_end) ? $query : $query->whereRaw('usia <= '.$age_end);
+											}
+										)
+									);
+
+		$unitKerja = $unitKerja->get();
+
+		return view('backend.laporan.nominatif', compact('unitKerja', 'golongan_data', 'unit_kerja_data', 'unit_kerja', 'golongan', 'age_start', 'age_end', 'uri'));
+	}
+	
+	public function prints(Request $request, UnitKerja $unitKerja)
+	{
+		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end'));
+		$uri = http_build_query($request->query());
+
+		$unitKerja = $unitKerja->where('parent_id',0)
+								->with(array(
+									'duk' => function($query) use($unit_kerja,$golongan,$age_start,$age_end)
+											{
+												$query = empty($unit_kerja) ? $query : $query->where('unit_kerja_id', $unit_kerja);
+												$query = empty($golongan) ? $query : $query->where('golongan', $golongan);
+												$query = empty($age_start) ? $query : $query->whereRaw('usia >= '.$age_start);
+												$query = empty($age_end) ? $query : $query->whereRaw('usia <= '.$age_end);
+											}
+										)
+									);
+
+		$unitKerja = $unitKerja->get();
+
+		return view('backend.laporan.nominatif_cetak', compact('unitKerja'));
 	}
 
-	protected function fetchNewData()
+	public function fetchNewData(DukView $dukView)
 	{
+		$dukView->truncate();
 		$pegawai = Pegawai::get();
 		foreach ($pegawai as $key => $data) {
 			$duk = new DukView();
@@ -47,5 +88,6 @@ class LaporanNominatifController extends Controller
 			$duk->pendidikan = $data->pendidikan_akhir;
 			$duk->save();
 		}
+		return redirect(route('dashboard.laporan.nominatif'));
 	}
 }

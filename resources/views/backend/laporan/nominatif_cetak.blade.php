@@ -1,71 +1,29 @@
-@extends("backend.layout.backend")
-
-@section("title","Laporan Nominatif")
-
-@section("content")
-<div>
-	<form method="GET">
-		<div class="row">
-			<div class="row">
-				<div class="form-group col-md-12 col-sm-12">
-					<label class="col-md-3 control-label">Unit Kerja</label>
-					<div class="col-md-9">
-						<select name="unit_kerja">
-							<option value="">Unit Kerja</option>
-							@foreach($unit_kerja_data as $unit)
-								@if($unit->id == $unit_kerja)
-								<option value="{{$unit->id}}" selected="selected">{{$unit->title}}</option>
-								@else
-								<option value="{{$unit->id}}">{{$unit->title}}</option>
-								@endif
-							@endforeach
-						</select>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-12 col-sm-12">
-					<label class="col-md-3 control-label">Golongan</label>
-					<div class="col-md-9">
-						<select name="golongan">
-							<option value="">Golongan</option>
-							@foreach($golongan_data as $gol)
-								@if($gol->title == $golongan)
-								<option value="{{$gol->title}}" selected="selected">{{$gol->description}} ({{$gol->title}})</option>
-								@else
-								<option value="{{$gol->title}}">{{$gol->description}} ({{$gol->title}})</option>
-								@endif
-							@endforeach
-						</select>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-12 col-sm-12">
-					<label class="col-md-3 control-label">Umur</label>
-					<div class="col-md-5">
-						<input type="number" class="form-control" name="age_start" value="{{$age_start}}" placeholder="Dari">
-						<input type="number" class="form-control" name="age_end" value="{{$age_end}}" placeholder="Sampai">
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-12 col-sm-12">
-					<label class="col-md-3 control-label"></label>
-					<div class="col-md-5">
-						<input type="submit" class="btn btn-success" value="Filter Data">
-						<a href="{{route('dashboard.laporan.nominatif.cetak')}}?{{$uri}}" class="btn btn-danger">Export to Excel</a>
-						<a href="{{route('dashboard.laporan.nominatif.fetch')}}" class="btn btn-warning">Refresh Data</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
-</div>
-<br>
+<?php
+$nama_file = "laporan-nominatif-".date('d-M-Y').".xls";
+header("Pragma: public");
+header("Expires: 0");
+header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+header("Content-Type: application/force-download");
+header("Content-Type: application/octet-stream");
+header("Content-Type: application/download");
+header("Content-Disposition: attachment;filename=".$nama_file."");  header("Content-Transfer-Encoding: binary "); 
+?>
+<style type="text/css">
+	html, table{
+		font-size: 12px;
+		border-collapse: collapse;
+	}
+	td{
+		vertical-align: top;
+	}
+	ul{
+		list-style: none;
+		padding: 10px;
+	}
+</style>
 	@foreach($unitKerja as $unit)
 	<h2>{{$unit->title}}</h2>
-	<table class="table table-bordered" style="zoom:80%">
+	<table class="table table-bordered" border="1" style="zoom:80%">
 		<thead style="background:#eaeaea">
 			<tr>
 				<th style="vertical-align:middle;text-align:center">No.</th>
@@ -160,7 +118,4 @@
 		</tbody>
 	</table>
 	<hr>
-	<br>
 	@endforeach
-
-@endsection
