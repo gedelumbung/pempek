@@ -87,7 +87,7 @@
 					<td>{{$key+1}}</td>
 					<td>
 						<ul>
-							<li>> {{($duk->pegawai->gelar_depan != '-' ? $duk->pegawai->gelar_depan : '')}} {{$duk->pegawai->nama_lengkap}} {{($duk->pegawai->gelar_belakang != '-' ? $duk->pegawai->gelar_belakang : '')}}</li>
+							<li>> {{($duk->pegawai->gelar_depan != '-' ? $duk->pegawai->gelar_depan : '')}} {{$duk->pegawai->nama_lengkap}}{{($duk->pegawai->gelar_belakang != '' ? ', ' : '')}} {{($duk->pegawai->gelar_belakang != '' ? $duk->pegawai->gelar_belakang : '')}}</li>
 							<li>> {{$duk->pegawai->nip}}</li>
 							<li>> {{$duk->pegawai->tempat_lahir}}, {{indonesian_date($duk->pegawai->tanggal_lahir)}}</li>
 							<li>> {{$duk->pegawai->age()}} tahun</li>

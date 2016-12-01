@@ -28,7 +28,7 @@
 				@foreach($pegawai as $key => $data)
 				<tr>
 					<td>{{$data->nip}}</td>
-					<td>{{($data->gelar_depan != '-' ? $data->gelar_depan : '')}} {{$data->nama_lengkap}} {{($data->gelar_belakang != '-' ? $data->gelar_belakang : '')}}</td>
+					<td>{{($data->gelar_depan != '-' ? $data->gelar_depan : '')}} {{$data->nama_lengkap}}{{($data->gelar_belakang != '' ? ',' : '')}} {{($data->gelar_belakang != '' ? $data->gelar_belakang : '')}}</td>
 					<td>
 						@if(!empty($data->unit_kerja_id))
 							{{$data->unit_kerja->title}}

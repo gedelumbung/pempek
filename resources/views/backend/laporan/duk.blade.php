@@ -99,7 +99,7 @@
 					<td>{{$key+1}}</td>
 					<td>
 						<ul>
-							<li>> {{($duk->pegawai->gelar_depan != '-' ? $duk->pegawai->gelar_depan : '')}} {{$duk->pegawai->nama_lengkap}} {{($duk->pegawai->gelar_belakang != '-' ? $duk->pegawai->gelar_belakang : '')}}</li>
+							<li>> {{($duk->pegawai->gelar_depan != '-' ? $duk->pegawai->gelar_depan : '')}} {{$duk->pegawai->nama_lengkap}}{{($duk->pegawai->gelar_belakang != '' ? ', ' : '')}} {{($duk->pegawai->gelar_belakang != '' ? $duk->pegawai->gelar_belakang : '')}}</li>
 							<li>> {{$duk->pegawai->nip}}</li>
 							<li>> {{$duk->pegawai->jenis_kelamin}}</li>
 							<li>> {{$duk->pegawai->status_pernikahan}}</li>
