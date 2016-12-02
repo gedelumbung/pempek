@@ -41,7 +41,7 @@ class BackendRoutes implements RoutesInterface
                 $this->home();
                 $this->pegawai();
                 $this->administrator();
-                $this->formasi();
+                $this->master();
                 $this->validasi_data();
                 $this->setting();
                 $this->laporan();
@@ -136,7 +136,7 @@ class BackendRoutes implements RoutesInterface
         ]);
     }
 
-    public function formasi()
+    public function master()
     {
         $this->router->get('/golongan', ['as' => 'dashboard.golongan', 'uses' => 'GolonganController@index']);
         $this->router->get('/golongan/add', ['as' => 'dashboard.golongan.add', 'uses' => 'GolonganController@create']);
@@ -144,7 +144,12 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/golongan/{id}/delete', ['as' => 'dashboard.golongan.delete', 'uses' => 'GolonganController@delete']);
         $this->router->post('/golongan/store', ['as' => 'dashboard.golongan.store', 'uses' => 'GolonganController@store']);
 
-        $this->router->get('/struktural', ['as' => 'dashboard.jabatan_struktural', 'uses' => 'PegawaiController@index']);
+        $this->router->get('/struktural', ['as' => 'dashboard.jabatan_struktural', 'uses' => 'JabatanStrukturalController@index']);
+        $this->router->get('/struktural/status/{id}/{status}', ['as' => 'dashboard.jabatan.status', 'uses' => 'JabatanStrukturalController@status']);
+        $this->router->get('/struktural/add', ['as' => 'dashboard.jabatan.add', 'uses' => 'JabatanStrukturalController@create']);
+        $this->router->get('/struktural/{id}/edit', ['as' => 'dashboard.jabatan.edit', 'uses' => 'JabatanStrukturalController@edit']);
+        $this->router->get('/struktural/{id}/delete', ['as' => 'dashboard.jabatan.delete', 'uses' => 'JabatanStrukturalController@delete']);
+        $this->router->post('/struktural/store', ['as' => 'dashboard.jabatan.store', 'uses' => 'JabatanStrukturalController@store']);
 
         $this->router->get('/unit-kerja', ['as' => 'dashboard.unit_kerja', 'uses' => 'UnitKerjaController@index']);
         $this->router->get('/unit-kerja/add', ['as' => 'dashboard.unit_kerja.add', 'uses' => 'UnitKerjaController@create']);
