@@ -40,7 +40,7 @@ class OrangTuaController extends Controller
 				$ayah->findOrFail($id)->update($arr);
 			}
 		}
-
+		flashy()->success('Berhasil menyimpan data.');
 		return redirect(route('dashboard.pegawai.orang_tua', ['pegawai' => $pegawai_id]));
 	}
 }

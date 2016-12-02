@@ -41,13 +41,14 @@ class RiwayatJabatanController extends Controller
 		elseif($status === 'edit'){
 			$riwayat->findOrFail($id)->update($arr);
 		}
-
+		flashy()->success('Berhasil menyimpan data.');
 		return redirect(route('dashboard.pegawai.riwayat_jabatan', ['pegawai' => $pegawai_id]));
 	}
 
 	public function delete($pegawai, $id, RiwayatJabatan $riwayat)
 	{
 		$riwayat->findOrFail($id)->delete();
+		flashy()->success('Berhasil menghapus data.');
 		return redirect(route('dashboard.pegawai.riwayat_jabatan', ['pegawai' => $pegawai]));
 	}
 }

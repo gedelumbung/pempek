@@ -25,6 +25,7 @@ class JabatanStrukturalController extends Controller
     	$jabatan = $jabatan->findOrFail($id);
     	$jabatan->status = $status;
     	$jabatan->save();
+        flashy()->success('Berhasil mengganti status.');
 		return redirect(route('dashboard.jabatan_struktural'));
 	}
 
@@ -68,12 +69,15 @@ class JabatanStrukturalController extends Controller
         	$jabatan->save();
         }
 
+        flashy()->success('Berhasil menyimpan data.');
+
 		return redirect(route('dashboard.jabatan_struktural'));
 	}
 
 	public function delete($id, JabatanStruktural $jabatan)
 	{
 		$jabatan->findOrFail($id)->delete();
+        flashy()->success('Berhasil menghapus data.');
 		return redirect(route('dashboard.jabatan_struktural'));
 	}
 }

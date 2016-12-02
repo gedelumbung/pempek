@@ -35,13 +35,14 @@ class AnakController extends Controller
 		elseif($status === 'edit'){
 			$anak->findOrFail($id)->update($arr);
 		}
-
+		flashy()->success('Berhasil menyimpan data.');
 		return redirect(route('dashboard.pegawai.anak', ['pegawai' => $pegawai_id]));
 	}
 
 	public function delete($pegawai, $id, Anak $anak)
 	{
 		$anak->findOrFail($id)->delete();
+		flashy()->success('Berhasil menghapus data.');
 		return redirect(route('dashboard.pegawai.anak', ['pegawai' => $pegawai]));
 	}
 }

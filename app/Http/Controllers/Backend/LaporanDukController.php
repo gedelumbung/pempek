@@ -67,6 +67,7 @@ class LaporanDukController extends Controller
 		foreach ($pegawai as $key => $data) {
 			$duk = new DukView();
 			$duk->pegawai_id = $data->id;
+			//$duk->eselon = $data->eselon;
 			$duk->golongan = $data->golongan_akhir->title;
 			$duk->tmt_golongan = $data->tmt_golongan_akhir;
 			$duk->usia = $data->age();
@@ -84,6 +85,7 @@ class LaporanDukController extends Controller
 			$duk->pendidikan = $data->pendidikan_akhir;
 			$duk->save();
 		}
+		flashy()->success('Berhasil memperbaharui data.');
 		return redirect(route('dashboard.laporan.duk'));
 	}
 }

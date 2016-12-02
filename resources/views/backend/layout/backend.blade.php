@@ -103,6 +103,7 @@
         </div>
         
         <script src="{{ asset("js/backend.js") }}"></script>
+        @include('flashy::message')
 
         @stack("script")
 

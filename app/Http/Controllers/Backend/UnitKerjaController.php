@@ -51,13 +51,14 @@ class UnitKerjaController extends Controller
         	$unit_kerja->description = $description;
         	$unit_kerja->save();
         }
-
+        flashy()->success('Berhasil menyimpan data.');
 		return redirect(route('dashboard.unit_kerja'));
 	}
 
 	public function delete($id, UnitKerja $unit_kerja)
 	{
 		$unit_kerja->findOrFail($id)->delete();
+		flashy()->success('Berhasil menghapus data.');
 		return redirect(route('dashboard.unit_kerja'));
 	}
 }

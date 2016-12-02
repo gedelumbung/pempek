@@ -141,6 +141,7 @@ class PegawaiController extends Controller
 
 		\Artisan::call('simpeg:pegawai:count_progress:single', ['pegawai' => $pegawai->id]);
 
+		flashy()->success('Berhasil menyimpan data.');
 		return redirect(route('dashboard.pegawai'));
 	}
 
@@ -186,6 +187,7 @@ class PegawaiController extends Controller
 
 		\Artisan::call('simpeg:pegawai:count_progress:single', ['pegawai' => $id]);
 
+		flashy()->success('Berhasil menyimpan data.');
 		return redirect(route('dashboard.pegawai'));
 	}
 
@@ -202,6 +204,7 @@ class PegawaiController extends Controller
 	public function delete($id, Pegawai $pegawai)
 	{
 		$pegawai->findOrFail($id)->delete();
+		flashy()->success('Berhasil menghapus data.');
 		return redirect(route('dashboard.pegawai'));
 	}
 }

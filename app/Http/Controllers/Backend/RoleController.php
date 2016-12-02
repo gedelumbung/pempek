@@ -54,13 +54,14 @@ class RoleController extends Controller
         	$role->description = $description;
         	$role->save();
         }
-
+        flashy()->success('Berhasil menyimpan data.');
 		return redirect(route('dashboard.roles'));
 	}
 
 	public function delete($id, Role $role)
 	{
 		$role->findOrFail($id)->delete();
+		flashy()->success('Berhasil menghapus data.');
 		return redirect(route('dashboard.roles'));
 	}
 }

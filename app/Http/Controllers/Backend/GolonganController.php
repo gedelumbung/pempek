@@ -51,13 +51,14 @@ class GolonganController extends Controller
         	$golongan->description = $description;
         	$golongan->save();
         }
-
+        flashy()->success('Berhasil menyimpan data.');
 		return redirect(route('dashboard.golongan'));
 	}
 
 	public function delete($id, Golongan $golongan)
 	{
 		$golongan->findOrFail($id)->delete();
+		flashy()->success('Berhasil menghapus data.');
 		return redirect(route('dashboard.golongan'));
 	}
 }

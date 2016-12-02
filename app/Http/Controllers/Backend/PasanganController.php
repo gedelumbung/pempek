@@ -30,7 +30,7 @@ class PasanganController extends Controller
 		elseif($status === 'edit'){
 			$pasangan->findOrFail($id)->update($arr);
 		}
-
+		flashy()->success('Berhasil menyimpan data.');
 		return redirect(route('dashboard.pegawai.pasangan', ['pegawai' => $pegawai_id]));
 	}
 }
