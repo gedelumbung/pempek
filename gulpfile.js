@@ -36,6 +36,7 @@ elixir(function(mix) {
             "/resources/assets/frontend/css/theme/theme-blog.css",
             "/resources/assets/frontend/css/theme/theme-shop.css",
             "/node_modules/@fengyuanchen/datepicker/dist/datepicker.css",
+            "/node_modules/summernote/dist/summernote.css",
         ], "public/css/frontend.css", './')
 
         .scripts([
@@ -56,6 +57,7 @@ elixir(function(mix) {
             "/resources/assets/frontend/js/ui/rs-plugin/jquery.themepunch.revolution.min.js",
             "/resources/assets/frontend/js/ui/owl.carousel.min.js",
             "/node_modules/@fengyuanchen/datepicker/dist/datepicker.js",
+            "/node_modules/summernote/dist/summernote.js",
         ], "public/js/frontend.js", './')
 
         .styles([
@@ -72,6 +74,7 @@ elixir(function(mix) {
             "/resources/assets/backend/css/theme/skin.css",
             "./resources/assets/backend/css/tmp/all.css",
             "/node_modules/@fengyuanchen/datepicker/dist/datepicker.css",
+            "/node_modules/summernote/dist/summernote.css",
         ], "public/css/backend.css", './')
 
         .scripts([
@@ -97,8 +100,11 @@ elixir(function(mix) {
             "/resources/assets/backend/js/ui/jquery.bootstrap.wizard.js",
             "/resources/assets/backend/js/ui/examples.wizard.js",
             "/node_modules/@fengyuanchen/datepicker/dist/datepicker.js",
+            "/node_modules/summernote/dist/summernote.js",
             "/resources/assets/backend/js/scripts.js",
         ], "public/js/backend.js", './')
+
+        .copy('node_modules/summernote/dist/font', 'public/css/font')
 
         .version([
             'public/css/frontend.css',

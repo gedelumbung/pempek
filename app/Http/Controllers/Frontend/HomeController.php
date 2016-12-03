@@ -3,6 +3,7 @@
 namespace Simpeg\Http\Controllers\Frontend;
 
 use Simpeg\Http\Controllers\Controller;
+use Simpeg\Model\Pengumuman;
 
 /**
 * Home Controller
@@ -11,8 +12,9 @@ use Simpeg\Http\Controllers\Controller;
 class HomeController extends Controller
 {
 	
-	public function index()
+	public function index(Pengumuman $pengumuman)
 	{
-		return view('frontend.home.index');
+		$pengumuman = $pengumuman->orderBy('created_at', 'DESC')->paginate(51);
+		return view('frontend.home.index', compact('pengumuman'));
 	}
 }

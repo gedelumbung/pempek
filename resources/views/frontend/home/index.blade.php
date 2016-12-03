@@ -89,25 +89,28 @@
 <div class="row">
     <div class="col-md-12">
         <div class="blog-posts">
-                    <article class="post post-large">
+            @foreach($pengumuman as $data_pengumuman)
+                <article class="post post-large">
 
-                <div class="post-date">
-                    <span class="day" style="color:#0088cc">23</span>
-                    <span class="month" style="background-color:#0088cc">Jun</span>
-                </div>
-
-                <div class="post-content">
-
-                    <h2><a href="#" target="_top">Pengumuman Pertama</a></h2>
-                    <p>Pengumuman Untuk seluruh pegawai harap membawa surat pendaftaran</p>
-
-                    <div class="post-meta">
-                        <span><i class="fa fa-user"></i> By <a href="#" target="_top">Admin</a> </span>
+                    <div class="post-date">
+                        <span class="day" style="color:#0088cc">{{$data_pengumuman->created_at->format('d')}}</span>
+                        <span class="month" style="background-color:#0088cc">{{$data_pengumuman->created_at->format('M')}}</span>
                     </div>
 
-                </div>
-            </article>
+                    <div class="post-content">
+
+                        <h2><a href="#" target="_top">{{$data_pengumuman->title}}</a></h2>
+                        <p>{!! $data_pengumuman->description !!}</p>
+
+                        <div class="post-meta">
+                            <span><i class="fa fa-user"></i> By <a href="#" target="_top">Admin</a> </span>
+                        </div>
+
                     </div>
+                </article>
+            @endforeach
+            {{$pengumuman->links()}}
+        </div>
     </div>
 
 </div>

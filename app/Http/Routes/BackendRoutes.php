@@ -165,7 +165,12 @@ class BackendRoutes implements RoutesInterface
 
     public function setting()
     {
-        $this->router->get('/pengumuman', ['as' => 'dashboard.pengumuman', 'uses' => 'HomeController@index']);
+        $this->router->get('/pengumuman', ['as' => 'dashboard.pengumuman', 'uses' => 'PengumumanController@index']);
+        $this->router->get('/pengumuman/add', ['as' => 'dashboard.pengumuman.add', 'uses' => 'PengumumanController@create']);
+        $this->router->get('/pengumuman/{id}/edit', ['as' => 'dashboard.pengumuman.edit', 'uses' => 'PengumumanController@edit']);
+        $this->router->get('/pengumuman/{id}/delete', ['as' => 'dashboard.pengumuman.delete', 'uses' => 'PengumumanController@delete']);
+        $this->router->post('/pengumuman/store', ['as' => 'dashboard.pengumuman.store', 'uses' => 'PengumumanController@store']);
+
         $this->router->get('/sliders', ['as' => 'dashboard.sliders', 'uses' => 'HomeController@index']);
     }
 
