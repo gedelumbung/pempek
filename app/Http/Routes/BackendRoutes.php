@@ -125,15 +125,9 @@ class BackendRoutes implements RoutesInterface
                 'delete' => 'dashboard.users.delete',
             ]
         ]);
-        $this->router->resource('/permissions', 'PermissionController',[
-            'names' => [
-                'index' => 'dashboard.permissions',
-                'add' => 'dashboard.permissions.add',
-                'edit' => 'dashboard.permissions.edit',
-                'store' => 'dashboard.permissions.store',
-                'delete' => 'dashboard.permissions.delete',
-            ]
-        ]);
+        
+        $this->router->get('/permissions', ['as' => 'dashboard.permissions', 'uses' => 'PermissionController@index']);
+        $this->router->post('/permissions', ['as' => 'dashboard.permissions.save', 'uses' => 'PermissionController@store']);
     }
 
     public function master()
