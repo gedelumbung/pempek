@@ -72,7 +72,7 @@
                             Navigation
                         </div>
                         <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" 
-                            data-target="html" data-fire-event="sidebar-left-toggle">
+                            data-target="html" data-fire-event="sidebar-left-toggle" id="sidebar-button">
                             <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
                         </div>
                     </div>
@@ -103,6 +103,24 @@
         </div>
         
         <script src="{{ asset("js/backend.js") }}"></script>
+        <script type="text/javascript">
+            $("#sidebar-button").click(function(){
+                if(localStorage.getItem('open-sidebar') == 'open'){
+                    $('html').addClass("sidebar-left-collapsed");
+                    localStorage.setItem('open-sidebar','close');
+                }
+                else{
+                    $('html').removeClass("sidebar-left-collapsed");
+                    localStorage.setItem('open-sidebar','open');
+                }
+            });
+            if(localStorage.getItem('open-sidebar') == 'open'){
+                $('html').addClass("sidebar-left-collapsed");
+            }
+            else{
+                $('html').removeClass("sidebar-left-collapsed");
+            }
+        </script>
         @include('flashy::message')
 
         @stack("script")
