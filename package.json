@@ -17,6 +17,7 @@
     "vue-resource": "^1.0.3"
   },
   "dependencies": {
+    "jquery-unslider": "^1.2.0",
     "summernote": "^0.8.2"
   }
 }

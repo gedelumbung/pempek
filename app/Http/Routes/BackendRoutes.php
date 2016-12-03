@@ -171,7 +171,11 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/pengumuman/{id}/delete', ['as' => 'dashboard.pengumuman.delete', 'uses' => 'PengumumanController@delete']);
         $this->router->post('/pengumuman/store', ['as' => 'dashboard.pengumuman.store', 'uses' => 'PengumumanController@store']);
 
-        $this->router->get('/sliders', ['as' => 'dashboard.sliders', 'uses' => 'HomeController@index']);
+        $this->router->get('/sliders', ['as' => 'dashboard.sliders', 'uses' => 'SliderController@index']);
+        $this->router->get('/sliders/add', ['as' => 'dashboard.sliders.add', 'uses' => 'SliderController@create']);
+        $this->router->get('/sliders/{id}/edit', ['as' => 'dashboard.sliders.edit', 'uses' => 'SliderController@edit']);
+        $this->router->get('/sliders/{id}/delete', ['as' => 'dashboard.sliders.delete', 'uses' => 'SliderController@delete']);
+        $this->router->post('/sliders/store', ['as' => 'dashboard.sliders.store', 'uses' => 'SliderController@store']);
     }
 
     public function laporan()

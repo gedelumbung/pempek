@@ -37,6 +37,8 @@ elixir(function(mix) {
             "/resources/assets/frontend/css/theme/theme-shop.css",
             "/node_modules/@fengyuanchen/datepicker/dist/datepicker.css",
             "/node_modules/summernote/dist/summernote.css",
+            "/node_modules/jquery-unslider/dist/css/unslider.css",
+            "/node_modules/jquery-unslider/dist/css/unslider-dots.css",
         ], "public/css/frontend.css", './')
 
         .scripts([
@@ -58,6 +60,7 @@ elixir(function(mix) {
             "/resources/assets/frontend/js/ui/owl.carousel.min.js",
             "/node_modules/@fengyuanchen/datepicker/dist/datepicker.js",
             "/node_modules/summernote/dist/summernote.js",
+            "/node_modules/jquery-unslider/dist/js/unslider-min.js",
         ], "public/js/frontend.js", './')
 
         .styles([
