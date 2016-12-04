@@ -27,7 +27,7 @@ class UserController extends Controller
 		$action = 'add';
 		$pegawai = $pegawai->get();
 		$roles = $roles->get();
-		return view('backend.users.form', compact('action','pegawai','roles'));
+		return view('backend.users.create', compact('action','pegawai','roles'));
 	}
 
 	public function edit($id, User $users, Pegawai $pegawai, Role $roles)
@@ -36,7 +36,7 @@ class UserController extends Controller
 		$users = $users->findOrFail($id);
 		$pegawai = $pegawai->get();
 		$roles = $roles->get();
-		return view('backend.users.form', compact('action', 'users', 'pegawai', 'roles'));
+		return view('backend.users.edit', compact('action', 'users', 'pegawai', 'roles'));
 	}
 
 	public function store(Request $request, User $users, RoleUser $roleUser)
@@ -45,7 +45,6 @@ class UserController extends Controller
             'nip' => 'required',
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
         ]);
         extract($request->only('nip', 'name', 'email', 'password', 'pegawai_id', 'status', 'role_id', 'action', 'id'));
 
@@ -66,9 +65,19 @@ class UserController extends Controller
         } elseif ($action === 'edit') {
         	$users = $users->findOrFail($id);
         	$users->name = $name;
-        	$users->display_name = $display_name;
-        	$users->description = $description;
-        	$users->save();
+        	$users->nip = $nip;
+        	$users->name = $name;
+        	$users->email = $email;
+        	if (!empty($password)) {
+        		$users->password = bcrypt($password);
+        	}
+        	$user = $users->save();
+
+        	$roleUser->where('user_id', $users->id)->delete();
+        	$roleUser->create([
+        		'user_id' => $users->id,
+        		'role_id' => $role_id,
+        	]);
         }
         flashy()->success('Berhasil menyimpan data.');
 		return redirect(route('dashboard.users'));

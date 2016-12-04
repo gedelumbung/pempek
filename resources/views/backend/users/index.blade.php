@@ -14,8 +14,9 @@
 				<th>ID</th>
 				<th>NIP</th>
 				<th>Name</th>
-				<th>Role</th>
 				<th>Email</th>
+				<th>Created At</th>
+				<th>Updated At</th>
 				<th>
 					<a href="{{route('dashboard.users.add')}}" class="btn btn-sm btn-primary">Add New</a>
 				</th>
@@ -25,8 +26,9 @@
 				<td>{{$data->id}}</td>
 				<td>{{$data->nip}}</td>
 				<td>{{$data->name}}</td>
-				<td>{{$data->role}}</td>
 				<td>{{$data->email}}</td>
+				<td>{{$data->created_at}}</td>
+				<td>{{$data->updated_at}}</td>
 				<td>
         			<a href="{{ route('dashboard.users.edit', ['id' => $data->id]) }}">
         				<i class="glyphicon glyphicon-pencil text-muted"></i>

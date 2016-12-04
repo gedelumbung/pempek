@@ -18,4 +18,9 @@ class User extends Model
         'email',
         'password'
     ];
+
+    public function role_user()
+    {
+        return $this->belongsTo('Simpeg\Model\RoleUser', 'id', 'user_id');
+    }
 }

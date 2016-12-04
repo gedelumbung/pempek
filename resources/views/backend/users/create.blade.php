@@ -22,7 +22,7 @@
 		<div class="form-group" id="pegawai">
 			<label for="nip" class="col-sm-2 control-label">NIP</label>
 			<div class="col-sm-10">
-				<select select2 id="pegawai_id" class="form-control">
+				<select select2 id="pegawai_id" name="pegawai_id" class="form-control">
 					<option value="">-- Pilih NIP --</option>
 					@foreach($pegawai as $data_pegawai)
 						<option value="{{$data_pegawai->id}}">{{$data_pegawai->nama_lengkap}} - {{$data_pegawai->nip}}</option>
