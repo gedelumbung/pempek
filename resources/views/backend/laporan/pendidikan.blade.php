@@ -10,7 +10,6 @@
 				<tr>
 					<th rowspan="2" style="vertical-align: middle;text-align: center">No</th>
 					<th rowspan="2" style="vertical-align: middle;text-align: center">Nama Struktural</th>
-					<th rowspan="2" style="vertical-align: middle;text-align: center">Singkatan</th>
 					<th colspan="3" style="vertical-align: middle;text-align: center">Pendidikan</th>
 					<th rowspan="2" style="vertical-align: middle;text-align: center">Jumlah</th>
 					<th colspan="2" style="vertical-align: middle;text-align: center">Pendidikan</th>
@@ -40,7 +39,6 @@
 					<tr style="background-color: #efefef; font-weight: bold;">
 						<td style="vertical-align: middle;text-align: center">{{$key+1}}</td>
 						<td style="vertical-align: middle;">{{$unit->title}}</td>
-						<td style="vertical-align: middle;">{{$unit->title}}</td>
 						<td style="vertical-align: middle;">{{$unit->countParentPegawaiByPendidikan($unit->id,'SD')}}</td>
 						<td style="vertical-align: middle;">{{$unit->countParentPegawaiByPendidikan($unit->id,'SLTP')}}</td>
 						<td style="vertical-align: middle;">{{$unit->countParentPegawaiByPendidikan($unit->id,'SLTA')}}</td>
@@ -63,7 +61,6 @@
 						<tr>
 							<td style="vertical-align: middle;text-align: center">{{$key_sub+1}}</td>
 							<td style="vertical-align: middle;">{{$sub_unit->title}}</td>
-							<td style="vertical-align: middle;"></td>
 							<td style="vertical-align: middle;">{{$sub_unit->countSubPegawaiByPendidikan($sub_unit->id,'SD')}}</td>
 							<td style="vertical-align: middle;">{{$sub_unit->countSubPegawaiByPendidikan($sub_unit->id,'SLTP')}}</td>
 							<td style="vertical-align: middle;">{{$sub_unit->countSubPegawaiByPendidikan($sub_unit->id,'SLTA')}}</td>
