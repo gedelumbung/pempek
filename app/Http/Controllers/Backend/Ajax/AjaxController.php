@@ -6,6 +6,7 @@ use Simpeg\Http\Controllers\Controller;
 use Simpeg\Model\UnitKerja;
 use Simpeg\Model\SatuanKerja;
 use Simpeg\Model\JabatanStruktural;
+use Simpeg\Model\Pegawai;
 use Illuminate\Http\Request;
 
 /**
@@ -49,5 +50,13 @@ class AjaxController extends Controller
 		
 		$jabatan_struktural = JabatanStruktural::where('id', $jabatan_struktural_id)->firstOrFail();
 		return response($jabatan_struktural, 200);
+	}
+
+	public function postPegawai(Request $request)
+	{
+		extract($request->only('pegawai_id'));
+		
+		$pegawai = Pegawai::where('id', $pegawai_id)->firstOrFail();
+		return response($pegawai, 200);
 	}
 }

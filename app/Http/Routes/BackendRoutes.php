@@ -116,15 +116,11 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/roles/{id}/delete', ['as' => 'dashboard.roles.delete', 'uses' => 'RoleController@delete']);
         $this->router->post('/roles/store', ['as' => 'dashboard.roles.store', 'uses' => 'RoleController@store']);
 
-        $this->router->resource('/users', 'UserController',[
-            'names' => [
-                'index' => 'dashboard.users',
-                'add' => 'dashboard.users.add',
-                'edit' => 'dashboard.users.edit',
-                'store' => 'dashboard.users.store',
-                'delete' => 'dashboard.users.delete',
-            ]
-        ]);
+        $this->router->get('/users', ['as' => 'dashboard.users', 'uses' => 'UserController@index']);
+        $this->router->get('/users/add', ['as' => 'dashboard.users.add', 'uses' => 'UserController@create']);
+        $this->router->get('/users/{id}/edit', ['as' => 'dashboard.users.edit', 'uses' => 'UserController@edit']);
+        $this->router->get('/users/{id}/delete', ['as' => 'dashboard.users.delete', 'uses' => 'UserController@delete']);
+        $this->router->post('/users/store', ['as' => 'dashboard.users.store', 'uses' => 'UserController@store']);
         
         $this->router->get('/permissions', ['as' => 'dashboard.permissions', 'uses' => 'PermissionController@index']);
         $this->router->post('/permissions', ['as' => 'dashboard.permissions.save', 'uses' => 'PermissionController@store']);
@@ -197,5 +193,6 @@ class BackendRoutes implements RoutesInterface
         $this->router->post('/ajax/satuan-kerja', ['as' => 'dashboard.ajax.satuan_kerja', 'uses' => 'Ajax\AjaxController@postSatuanKerja']);
         $this->router->post('/ajax/jabatan-struktural', ['as' => 'dashboard.ajax.jabatan_struktural', 'uses' => 'Ajax\AjaxController@postJabatanStruktural']);
         $this->router->post('/ajax/jabatan-struktural-detail', ['as' => 'dashboard.ajax.jabatan_struktural_detail', 'uses' => 'Ajax\AjaxController@postJabatanStrukturalDetail']);
+        $this->router->post('/ajax/pegawai', ['as' => 'dashboard.ajax.pegawai', 'uses' => 'Ajax\AjaxController@postPegawai']);
     }
 }
