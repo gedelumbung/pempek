@@ -1,7 +1,7 @@
 
 @extends("backend.layout.backend")
 
-@section("title","Laporan Konfirgurasi - Jabatan")
+@section("title","Laporan Konfigurasi - Golongan")
 
 @section("content")
 	<div class="table-responsive">
@@ -44,7 +44,6 @@
 						$count_gol_4 = $unit->countParentPegawaiByJabatan('struktural', $unit->id, [13,14,15,16,17])+$unit->countParentPegawaiByJabatan('', $unit->id, [13,14,15,16,17]);
 
 						$parent_level = ($key > 0) ? 1 : 0;
-						$list_jabatan_parent = $unit->list_jabatan_level($unit->id, 0);
 						$list_jabatan_sub = $unit->list_jabatan_level($unit->id, $parent_level);
 					@endphp
 					<tr style="background-color: #efefef; font-weight: bold;">
