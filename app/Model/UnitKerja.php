@@ -46,9 +46,9 @@ class UnitKerja extends Model
 					->orderBy('usia', 'desc');
     }
 
-    public function countParentPegawaiByPendidikan($jabatan_struktural_id, $pendidikan)
+    public function countParentPegawaiByPendidikan($unit_kerja_id, $pendidikan)
     {
-        $child_list_id = self::where('parent_id', $jabatan_struktural_id)->pluck('id')->toArray();
+        $child_list_id = JabatanStruktural::where('unit_kerja_id', $unit_kerja_id)->pluck('id')->toArray();
         return Pegawai::whereIn('jabatan_struktural_id', $child_list_id)
                     ->where('pendidikan_akhir', $pendidikan)
                     ->count();
@@ -56,7 +56,11 @@ class UnitKerja extends Model
 
     public function countSubPegawaiByPendidikan($jabatan_struktural_id, $pendidikan)
     {
-        return Pegawai::where('jabatan_struktural_id', $jabatan_struktural_id)
+        $child_list_id = JabatanStruktural::where('parent_id', $jabatan_struktural_id)->pluck('id')->toArray();
+        $parent_list_id = JabatanStruktural::where('id', $jabatan_struktural_id)->pluck('id')->toArray();
+        $merge = array_merge($child_list_id,$parent_list_id);
+
+        return Pegawai::whereIn('jabatan_struktural_id', $merge)
                     ->where('pendidikan_akhir', $pendidikan)
                     ->count();
     }
@@ -95,6 +99,28 @@ class UnitKerja extends Model
                     ->whereIn('golongan_id_akhir', $golongan)
                     ->count();
         }
+    }
+
+    public function countParentPegawaiByJenisKelamin($unit_kerja_id, $golongan=array(), $jenis_kelamin)
+    {
+        $child_list_id = JabatanStruktural::where('unit_kerja_id', $unit_kerja_id)->pluck('id')->toArray();
+
+        return Pegawai::whereIn('jabatan_struktural_id', $child_list_id)
+                ->whereIn('golongan_id_akhir', $golongan)
+                ->where('jenis_kelamin', $jenis_kelamin)
+                ->count();
+    }
+
+    public function countSubPegawaiByJenisKelamin($jabatan_struktural_id=null, $golongan=array(), $jenis_kelamin)
+    {
+        $child_list_id = JabatanStruktural::where('parent_id', $jabatan_struktural_id)->pluck('id')->toArray();
+        $parent_list_id = JabatanStruktural::where('id', $jabatan_struktural_id)->pluck('id')->toArray();
+        $merge = array_merge($child_list_id,$parent_list_id);
+
+        return Pegawai::whereIn('jabatan_struktural_id', $merge)
+                ->whereIn('golongan_id_akhir', $golongan)
+                ->where('jenis_kelamin', $jenis_kelamin)
+                ->count();
     }
 
     public function countSubPegawaiByUsiaEselon($eselon, $jabatan_struktural_id=null, $golongan=array())

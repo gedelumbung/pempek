@@ -267,7 +267,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label">Unit Organisasi</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="unit_organisasi" value="Kementrian Desa, Pembanguanan Daerah Tertinggal dan Transmigrasi" required>
+									<input type="text" class="form-control" id="inputDefault" name="unit_organisasi" value="Kementrian Desa, Pembangunan Daerah Tertinggal dan Transmigrasi" >
 								</div>
 							</div>
 							<!-- hilmi -->

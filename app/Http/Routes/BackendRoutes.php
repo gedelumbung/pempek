@@ -182,9 +182,13 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/laporan-pendidikan/cetak', ['as' => 'dashboard.laporan.pendidikan.cetak', 'uses' => 'LaporanPendidikanController@prints']);
 
         $this->router->get('/laporan-jabatan', ['as' => 'dashboard.laporan.jabatan', 'uses' => 'LaporanJabatanController@index']);
+
         $this->router->get('/laporan-golongan', ['as' => 'dashboard.laporan.golongan', 'uses' => 'LaporanGolonganController@index']);
+        $this->router->get('/laporan-golongan/cetak', ['as' => 'dashboard.laporan.golongan.cetak', 'uses' => 'LaporanGolonganController@prints']);
+
         $this->router->get('/laporan-usia', ['as' => 'dashboard.laporan.usia', 'uses' => 'LaporanUsiaController@index']);
         $this->router->get('/laporan-jenis-kelamin', ['as' => 'dashboard.laporan.jenis_kelamin', 'uses' => 'LaporanJenisKelaminController@index']);
+        $this->router->get('/laporan-jenis-kelamin/cetak', ['as' => 'dashboard.laporan.jenis_kelamin.cetak', 'uses' => 'LaporanJenisKelaminController@prints']);
     }
 
     public function ajax()

@@ -300,7 +300,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label">Unit Organisasi</label>
 								<div class="col-md-9">
-									<input value="{{$pegawai->unit_organisasi}}" type="text" class="form-control" id="inputDefault" name="unit_organisasi" required>
+									<input value="{{$pegawai->unit_organisasi}}" type="text" class="form-control" id="inputDefault" name="unit_organisasi">
 								</div>
 							</div>
 							<!-- hilmi -->

@@ -19,4 +19,10 @@ class LaporanJenisKelaminController extends Controller
 		$unit_kerja = $unitKerja->where('parent_id',0)->get();
 		return view('backend.laporan.jenis_kelamin', compact('unit_kerja'));
 	}
+	
+	public function prints(UnitKerja $unitKerja)
+	{
+		$unit_kerja = $unitKerja->where('parent_id',0)->get();
+		return view('backend.laporan.jenis_kelamin_cetak', compact('unit_kerja'));
+	}
 }
