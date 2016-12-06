@@ -5,6 +5,7 @@ namespace Simpeg\Http\Controllers\Backend;
 use Simpeg\Http\Controllers\Controller;
 use Simpeg\Model\Golongan;
 use Illuminate\Http\Request;
+use Caffeinated\Shinobi\Models\Role;
 
 /**
 * Golongan Controller
@@ -12,7 +13,15 @@ use Illuminate\Http\Request;
 */
 class GolonganController extends Controller
 {
-	
+	public function __construct()
+	{
+		var_dump(\Auth::user()->roles->toArray());die;
+		$role = Role::find(1);
+		if (!$role->can('golongan')) {
+			return \Redirect::route('home')->send();
+		}
+	}
+
 	public function index(Golongan $golongan)
 	{
 		$golongan = $golongan->paginate(15);

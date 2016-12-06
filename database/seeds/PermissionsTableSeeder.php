@@ -18,86 +18,81 @@ class PermissionsTableSeeder extends Seeder
 
         $params = [
           [
-            'name' => 'golongan:golongan',
-            'display_name' => 'Golongan',
+            'slug' => 'golongan',
+            'name' => 'Golongan',
             'description' => 'Melakukan seluruh perintah di golongan'
           ],
           [
-            'name' => 'jabatan:jabatan',
-            'display_name' => 'Jabatan',
+            'slug' => 'jabatan',
+            'name' => 'Jabatan',
             'description' => 'Melakukan seluruh perintah di jabatan'
           ],
           [
-            'name' => 'laporan:duk',
-            'display_name' => 'Duk',
+            'slug' => 'duk',
+            'name' => 'Duk',
             'description' => 'Melakukan seluruh perintah di duk'
           ],
           [
-            'name' => 'laporanpegawai:laporan',
-            'display_name' => 'Laporan',
+            'slug' => 'laporan',
+            'name' => 'Laporan',
             'description' => 'Melakukan seluruh perintah di laporan'
           ],
           [
-            'name' => 'validasi:validasi',
-            'display_name' => 'Validasi',
+            'slug' => 'validasi',
+            'name' => 'Validasi',
             'description' => 'Melakukan seluruh perintah di validasi'
           ],
           [
-            'name' => 'pegawai:list-pegawai',
-            'display_name' => 'List Pegawai',
+            'slug' => 'pegawai-all',
+            'name' => 'List Pegawai',
             'description' => 'Melihat List Pegawai'
           ],
           [
-            'name' => 'pegawai:edit-pegawai',
-            'display_name' => 'Edit Pegawai',
+            'slug' => 'pegawai-edit',
+            'name' => 'Edit Pegawai',
             'description' => 'Dapat mengedit pegawai'
           ],
           [
-            'name' => 'pegawai:tambah-pegawai',
-            'display_name' => 'Tambah Pegawai',
+            'slug' => 'pegawai-add',
+            'name' => 'Tambah Pegawai',
             'description' => 'Dapat menambahkan pegawai'
           ],
           [
-            'name' => 'pegawai:detail-pegawai',
-            'display_name' => 'Detail Pegawai',
+            'slug' => 'pegawai-show',
+            'name' => 'Detail Pegawai',
             'description' => 'Dapat melihat detai pegawai'
           ],
           [
-            'name' => 'pegawai:hapus-pegawai',
-            'display_name' => 'Hapus Pegawai',
+            'slug' => 'pegawai-delete',
+            'name' => 'Hapus Pegawai',
             'description' => 'Menghapus Pegawai'
           ],
           [
-            'name' => 'jabatan:fungsional',
-            'display_name' => 'Jabatan Fungsional',
+            'slug' => 'unitkerja',
+            'name' => 'Unit Kerja',
             'description' => 'Melakukan seluruh perintah di jabatan fungsional'
           ],
           [
-            'name' => 'jabatan:unit',
-            'display_name' => 'Unit Kerja',
-            'description' => 'Melakukan seluruh perintah di jabatan fungsional'
-          ],
-          [
-            'name' => 'admin:permission',
-            'display_name' => 'Permission',
+            'slug' => 'permission',
+            'name' => 'Permission',
             'description' => 'Mengatur Permssion seluruh user'
           ],
           [
-            'name' => 'home:dashboard',
-            'display_name' => 'Dashboard',
+            'slug' => 'dashboard',
+            'name' => 'Dashboard',
             'description' => 'View Dashboard'
           ],
           [
-            'name' => 'front-end:front-end',
-            'display_name' => 'Front End',
+            'slug' => 'frontend',
+            'name' => 'Front End',
             'description' => 'Melakukan seluruh perintah untuk mengubah front-end'
           ],
         ];
 
         foreach ($params as $param) {
           Permission::create([
+              'slug' => $param['slug'],
               'name' => $param['name'],
-              'display_name' => $param['display_name'],
               'description' => $param['description']
           ]);
         }

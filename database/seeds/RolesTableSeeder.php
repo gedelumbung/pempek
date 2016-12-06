@@ -18,31 +18,31 @@ class RolesTableSeeder extends Seeder
 
         $params = [
           [
-            'name' => 'manager',
-            'display_name' => 'Manager Personalia',
+            'slug' => 'manager',
+            'name' => 'Manager Personalia',
             'description' => 'Melihat Data Pegawai dan Reporting'
           ],
           [
-            'name' => 'pegawai',
-            'display_name' => 'Pegawai',
+            'slug' => 'pegawai',
+            'name' => 'Pegawai',
             'description' => 'Melihat Data Pribadi'
           ],
           [
-            'name' => 'super-admin',
-            'display_name' => 'Super Admin',
+            'slug' => 'super-admin',
+            'name' => 'Super Admin',
             'description' => 'Mengatur semua yang berhubungan dengan sistem'
           ],
           [
-            'name' => 'staff',
-            'display_name' => 'Staff Personalia',
+            'slug' => 'staff',
+            'name' => 'Staff Personalia',
             'description' => 'Menambahkan data pegawai dan membuat akun'
           ],
         ];
 
         foreach ($params as $param) {
           Role::create([
+              'slug' => $param['slug'],
               'name' => $param['name'],
-              'display_name' => $param['display_name'],
               'description' => $param['description']
           ]);
         }

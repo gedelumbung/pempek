@@ -166,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Zizaco\Entrust\EntrustServiceProvider::class,
+        Caffeinated\Shinobi\ShinobiServiceProvider::class,
         Lavary\Menu\ServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
@@ -228,7 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Shinobi' => Caffeinated\Shinobi\Facades\Shinobi::class,
         'Menu' => 'Lavary\Menu\Facade',
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,

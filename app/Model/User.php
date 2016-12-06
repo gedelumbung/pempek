@@ -2,12 +2,14 @@
 
 namespace Simpeg\Model;
 
-use Illuminate\Database\Eloquent\Model;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Caffeinated\Shinobi\Traits\ShinobiTrait;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use EntrustUserTrait;
+    use Notifiable;
+    use ShinobiTrait;
 
     protected $table = 'users';
 

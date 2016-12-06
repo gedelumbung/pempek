@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Simpeg\User::class,
+            'model' => Simpeg\Model\User::class,
             'table' => 'users',
         ],
 

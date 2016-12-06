@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "barryvdh/laravel-dompdf": "^0.7.0",
         "intervention/image": "^2.3",
-        "mercuryseries/flashy": "^1.0"
+        "mercuryseries/flashy": "^1.0",
+        "caffeinated/shinobi": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
