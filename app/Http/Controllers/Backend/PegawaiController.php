@@ -31,6 +31,8 @@ class PegawaiController extends Controller
 	
 	public function index(Pegawai $pegawai)
 	{
+		$this->middleware('role:pegawai-all');
+
 		$pegawai = $pegawai->get();
 		return view('backend.pegawai.index', compact('pegawai'));
 	}
@@ -76,6 +78,7 @@ class PegawaiController extends Controller
 		Ayah $ayah,
 		Ibu $ibu)
 	{
+		$this->middleware('role:pegawai-show');
 		$pegawai = $pegawai->findOrFail($id);
 		$riwayat_golongan = $riwayatGolongan->where('pegawai_id', $id)->get();
 		$riwayat_pendidikan = $riwayatPendidikan->where('pegawai_id', $id)->get();
@@ -95,6 +98,7 @@ class PegawaiController extends Controller
 
 	public function add(UnitKerja $unitKerja, Golongan $golongan)
 	{
+		$this->middleware('role:pegawai-add');
 		$unit_kerja = $unitKerja->where('parent_id',0)->get();
 		$golongan = $golongan->get();
 		return view('backend.pegawai.add', compact('unit_kerja', 'golongan'));
@@ -102,6 +106,7 @@ class PegawaiController extends Controller
 
 	public function store(Request $request, Pegawai $pegawai)
 	{
+		$this->middleware('role:pegawai-add');
 		$arr = $request->except('_token','input_foto');
 
 		if (array_key_exists('foto', $arr) && !empty($arr['foto'])) {
@@ -147,6 +152,7 @@ class PegawaiController extends Controller
 
 	public function update(Request $request, Pegawai $pegawai)
 	{
+		$this->middleware('role:pegawai-edit');
 		$arr = $request->except('_token','input_foto','id');
 		extract($request->only('id'));
 
@@ -202,6 +208,7 @@ class PegawaiController extends Controller
 
 	public function edit($id, Pegawai $pegawai, UnitKerja $unitKerja, Golongan $golongan, SatuanKerja $satuanKerja)
 	{
+		$this->middleware('role:pegawai-edit');
 		$unit_kerja = $unitKerja->where('parent_id',0)->get();
 		$golongan = $golongan->get();
 		$pegawai = $pegawai->findOrFail($id);
@@ -212,6 +219,7 @@ class PegawaiController extends Controller
 
 	public function delete($id, Pegawai $pegawai)
 	{
+		$this->middleware('role:pegawai-delete');
 		$pegawai->findOrFail($id)->delete();
 		flashy()->success('Berhasil menghapus data.');
 		return redirect(route('dashboard.pegawai'));

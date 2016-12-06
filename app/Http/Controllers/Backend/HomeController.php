@@ -12,6 +12,10 @@ use Simpeg\Model\Golongan;
 */
 class HomeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:dashboard');
+    }
 	
 	public function index(Pegawai $pegawai, Golongan $golongan)
 	{

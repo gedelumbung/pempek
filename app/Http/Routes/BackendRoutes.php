@@ -57,14 +57,14 @@ class BackendRoutes implements RoutesInterface
 
     public function pegawai()
     {
-        $this->router->get('/pegawai', ['as' => 'dashboard.pegawai', 'uses' => 'PegawaiController@index']);
-        $this->router->get('/pegawai/add', ['as' => 'dashboard.pegawai.add', 'uses' => 'PegawaiController@add']);
+        $this->router->get('/pegawai', ['as' => 'dashboard.pegawai', 'middleware' => 'role:pegawai-all', 'uses' => 'PegawaiController@index']);
+        $this->router->get('/pegawai/add', ['as' => 'dashboard.pegawai.add', 'middleware' => 'role:pegawai-add', 'uses' => 'PegawaiController@add']);
         $this->router->post('/pegawai/store', ['as' => 'dashboard.pegawai.store', 'uses' => 'PegawaiController@store']);
-        $this->router->post('/pegawai/update', ['as' => 'dashboard.pegawai.update', 'uses' => 'PegawaiController@update']);
-        $this->router->get('/pegawai/{id}/edit', ['as' => 'dashboard.pegawai.edit', 'uses' => 'PegawaiController@edit']);
-        $this->router->get('/pegawai/{id}/delete', ['as' => 'dashboard.pegawai.delete', 'uses' => 'PegawaiController@delete']);
-        $this->router->get('/pegawai/{id}/show', ['as' => 'dashboard.pegawai.show', 'uses' => 'PegawaiController@show']);
-        $this->router->get('/pegawai/{id}/prints', ['as' => 'dashboard.pegawai.prints', 'uses' => 'PegawaiController@prints']);
+        $this->router->post('/pegawai/update', ['as' => 'dashboard.pegawai.update', 'middleware' => 'role:pegawai-edit', 'uses' => 'PegawaiController@update']);
+        $this->router->get('/pegawai/{id}/edit', ['as' => 'dashboard.pegawai.edit', 'middleware' => 'role:pegawai-edit', 'uses' => 'PegawaiController@edit']);
+        $this->router->get('/pegawai/{id}/delete', ['as' => 'dashboard.pegawai.delete', 'middleware' => 'role:pegawai-delete', 'uses' => 'PegawaiController@delete']);
+        $this->router->get('/pegawai/{id}/show', ['as' => 'dashboard.pegawai.show', 'middleware' => 'role:pegawai-show', 'uses' => 'PegawaiController@show']);
+        $this->router->get('/pegawai/{id}/prints', ['as' => 'dashboard.pegawai.prints', 'middleware' => 'role:pegawai-show', 'uses' => 'PegawaiController@prints']);
 
         $this->router->get('/pegawai/{pegawai}/riwayat-golongan', ['as' => 'dashboard.pegawai.riwayat_golongan', 'uses' => 'RiwayatGolonganController@index']);
         $this->router->get('/pegawai/{pegawai}/riwayat-golongan/create', ['as' => 'dashboard.pegawai.riwayat_golongan.create', 'uses' => 'RiwayatGolonganController@create']);
