@@ -16,6 +16,10 @@ use DB;
 */
 class LaporanDukController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:duk');
+    }
 	
 	public function index(Request $request, DukView $dukView, UnitKerja $unitKerjaData, Golongan $golonganData)
 	{

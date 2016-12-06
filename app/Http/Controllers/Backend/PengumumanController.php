@@ -12,6 +12,10 @@ use Illuminate\Http\Request;
 */
 class PengumumanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:frontend');
+    }
 	
 	public function index(Pengumuman $pengumuman)
 	{

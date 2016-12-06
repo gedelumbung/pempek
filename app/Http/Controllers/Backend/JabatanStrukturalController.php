@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 */
 class JabatanStrukturalController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:jabatan');
+    }
 	
 	public function index(JabatanStruktural $jabatan)
 	{

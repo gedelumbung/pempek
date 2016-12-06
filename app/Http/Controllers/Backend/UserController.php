@@ -15,6 +15,10 @@ use Illuminate\Http\Request;
 */
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:permission');
+    }
 	
 	public function index(User $users)
 	{

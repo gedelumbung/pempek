@@ -53,7 +53,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \Simpeg\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'roleshinobi' => \Caffeinated\Shinobi\Middleware\UserHasRole::class,
-        'permissionshinobi' => \Caffeinated\Shinobi\Middleware\UserHasPermission::class,
+        'role' => \Simpeg\Http\Middleware\HasRole::class,
     ];
 }

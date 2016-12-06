@@ -17,7 +17,7 @@
 					<th style="text-align: center;">Permission Name</th>
 
 					@foreach ($roles as $role)
-						<th style="text-align: center;">{{ $role->display_name }}</th>
+						<th style="text-align: center;">{{ $role->name }}</th>
 					@endforeach
 				</tr>
 			</thead>
@@ -26,7 +26,7 @@
 				@foreach ($permissions as $permission)
 					<tr>
 						<td>
-							<span>{{ $permission->display_name }}</span>
+							<span>{{ $permission->name }}</span>
 							<h6 class="text-muted">{{ $permission->description }}</h6>
 						</td>
 						@foreach ($roles as $role)

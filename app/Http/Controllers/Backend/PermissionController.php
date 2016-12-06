@@ -5,8 +5,9 @@ namespace Simpeg\Http\Controllers\Backend;
 use Simpeg\Http\Controllers\Controller;
 use Simpeg\Model\Role;
 use Simpeg\Model\Permission;
-use Simpeg\Model\PermissionRole;
 use Illuminate\Http\Request;
+use Simpeg\Model\PermissionRole;
+use Caffeinated\Shinobi\Models\Role as Roles;
 use DB;
 
 /**
@@ -15,6 +16,10 @@ use DB;
 */
 class PermissionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:permission');
+    }
 	
 	public function index(Role $roles, Permission $permissions)
 	{
@@ -37,6 +42,11 @@ class PermissionController extends Controller
 					'permission_id' => $data[0],
 					'role_id' => $data[1]
 				]);
+
+	            $role = Roles::find($data[1]);
+	            $permission_id_list = PermissionRole::where('role_id',$data[1])->pluck('permission_id')->toArray();
+	            $role->syncPermissions($permission_id_list);
+	            $role->save();
 			}
 		}
 

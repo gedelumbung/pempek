@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 */
 class SliderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:frontend');
+    }
 	
 	public function index(Slider $slider)
 	{

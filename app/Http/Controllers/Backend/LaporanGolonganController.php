@@ -13,6 +13,10 @@ use DB;
 */
 class LaporanGolonganController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:laporan');
+    }
 	
 	public function index(UnitKerja $unitKerja)
 	{

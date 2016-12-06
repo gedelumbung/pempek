@@ -12,6 +12,10 @@ use Illuminate\Http\Request;
 */
 class LaporanUsiaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:laporan');
+    }
 	
 	public function index(UnitKerja $unitKerja)
 	{
