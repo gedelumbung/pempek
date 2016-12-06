@@ -70,9 +70,21 @@ class UnitKerjaTableSeeder extends Seeder
             ]
         ];
 
+        $description = [
+            'Direktorat Jenderal Penyiapan Kawasan dan Pembangunan Permukiman Transmigrasi',
+            'Sekretariat Jenderal Penyiapan Kawasan dan Pembangunan Permukiman Transmigrasi',
+            'Direktorat Bina Potensi Kawasan Transmigrasi',
+            'Direktorat Perencanaan Pembangunan dan Pengembangan Kawasan Transmigrasi',
+            'Direktorat Penyediaan Tanah Transmigrasi',
+            'Direktorat Pembangunan Pemukiman Transmigrasi',
+            'Direktorat Penataan Persebaran Penduduk'
+        ];
+
+        $count = 0;
         foreach ($unit_kerja as $key => $parent_unit_kerja) {
             $parent = UnitKerja::create([
-                'title' => $key
+                'title' => $key,
+                'description' => $description[$count]
             ]);
 
             foreach ($parent_unit_kerja as $sub_unit_kerja) {
@@ -81,6 +93,7 @@ class UnitKerjaTableSeeder extends Seeder
                     'title' => $sub_unit_kerja
                 ]);
             }
+            $count++;
         }
     }
 }

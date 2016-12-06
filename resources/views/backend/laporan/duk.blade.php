@@ -121,7 +121,11 @@
 							<li>> {{$duk->pegawai->jabatan_struktural->title}}, 
 									{{(!empty($duk->pegawai->satuan_kerja_id) ? $duk->pegawai->satuan_kerja->title.',' : '')}} 
 									{{(!empty($duk->pegawai->sub_unit_kerja_id) ? $duk->pegawai->sub_unit_kerja->title.',' : '')}} 
+									@if(empty($duk->pegawai->unit_kerja->description))
 									{{$duk->pegawai->unit_kerja->title}}
+									@else
+									{{$duk->pegawai->unit_kerja->description}}
+									@endif
 							</li>
 							<li>> Eselon : {{$duk->pegawai->eselon}}</li>
 							<li>> TMT Jabatan : {{indonesian_date($duk->pegawai->tmt_eselon)}} ({{$duk->pegawai->intervalFromNow($duk->pegawai->tmt_eselon)}})</li>

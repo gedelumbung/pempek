@@ -105,7 +105,11 @@
 							<li>> {{$duk->pegawai->jabatan_struktural->title}}, 
 									{{(!empty($duk->pegawai->satuan_kerja_id) ? $duk->pegawai->satuan_kerja->title.',' : '')}} 
 									{{(!empty($duk->pegawai->sub_unit_kerja_id) ? $duk->pegawai->sub_unit_kerja->title.',' : '')}} 
+									@if(empty($duk->pegawai->unit_kerja->description))
 									{{$duk->pegawai->unit_kerja->title}}
+									@else
+									{{$duk->pegawai->unit_kerja->description}}
+									@endif
 							</li>
 						</ul>
 						@elseif(!empty($duk->pegawai->jabatan_fungsional_tertentu))

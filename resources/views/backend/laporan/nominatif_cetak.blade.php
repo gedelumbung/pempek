@@ -23,7 +23,7 @@ header("Content-Disposition: attachment;filename=".$nama_file."");  header("Cont
 </style>
 	@foreach($unitKerja as $unit)
 	<h2>{{$unit->title}}</h2>
-	<table class="table table-bordered" border="1" style="zoom:80%">
+	<table class="table table-bordered" style="zoom:80%">
 		<thead style="background:#eaeaea">
 			<tr>
 				<th style="vertical-align:middle;text-align:center">No.</th>
@@ -45,7 +45,7 @@ header("Content-Disposition: attachment;filename=".$nama_file."");  header("Cont
 					<td>{{$key+1}}</td>
 					<td>
 						<ul>
-							<li>> {{($duk->pegawai->gelar_depan != '-' ? $duk->pegawai->gelar_depan : '')}} {{$duk->pegawai->nama_lengkap}} {{($duk->pegawai->gelar_belakang != '' ? $duk->pegawai->gelar_belakang : '')}}</li>
+							<li>> {{($duk->pegawai->gelar_depan != '-' ? $duk->pegawai->gelar_depan : '')}} {{$duk->pegawai->nama_lengkap}}{{($duk->pegawai->gelar_belakang != '' ? ', ' : '')}} {{($duk->pegawai->gelar_belakang != '' ? $duk->pegawai->gelar_belakang : '')}}</li>
 							<li>> {{$duk->pegawai->nip}}</li>
 							<li>> {{$duk->pegawai->tempat_lahir}}, {{indonesian_date($duk->pegawai->tanggal_lahir)}}</li>
 							<li>> {{$duk->pegawai->age()}} tahun</li>
@@ -60,7 +60,15 @@ header("Content-Disposition: attachment;filename=".$nama_file."");  header("Cont
 					<td>
 						@if(!empty($duk->pegawai->jabatan_struktural_id))
 						<ul>
-							<li>> {{$duk->pegawai->jabatan_struktural->title}}, {{$duk->pegawai->satuan_kerja->title}}, {{$duk->pegawai->sub_unit_kerja->title}}, {{$duk->pegawai->unit_kerja->title}}</li>
+							<li>> {{$duk->pegawai->jabatan_struktural->title}}, 
+									{{(!empty($duk->pegawai->satuan_kerja_id) ? $duk->pegawai->satuan_kerja->title.',' : '')}} 
+									{{(!empty($duk->pegawai->sub_unit_kerja_id) ? $duk->pegawai->sub_unit_kerja->title.',' : '')}} 
+									@if(empty($duk->pegawai->unit_kerja->description))
+									{{$duk->pegawai->unit_kerja->title}}
+									@else
+									{{$duk->pegawai->unit_kerja->description}}
+									@endif
+							</li>
 						</ul>
 						@elseif(!empty($duk->pegawai->jabatan_fungsional_tertentu))
 						<ul>
@@ -118,4 +126,5 @@ header("Content-Disposition: attachment;filename=".$nama_file."");  header("Cont
 		</tbody>
 	</table>
 	<hr>
+	<br>
 	@endforeach
