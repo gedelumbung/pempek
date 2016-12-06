@@ -40,21 +40,21 @@ class RoleController extends Controller
 	{
         $this->validate($request, [
             'name' => 'required',
-            'display_name' => 'required',
+            'slug' => 'required',
             'description' => 'required',
         ]);
-        extract($request->only('name', 'display_name', 'description', 'action', 'id'));
+        extract($request->only('name', 'slug', 'description', 'action', 'id'));
 
         if ($action === 'add') {
         	$role->create([
         		'name' => $name,
-        		'display_name' => $display_name,
+        		'slug' => $slug,
         		'description' => $description,
         	]);
         } elseif ($action === 'edit') {
         	$role = $role->findOrFail($id);
         	$role->name = $name;
-        	$role->display_name = $display_name;
+        	$role->slug = $slug;
         	$role->description = $description;
         	$role->save();
         }

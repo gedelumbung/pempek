@@ -17,9 +17,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="display_name" class="col-sm-2 control-label">Display Name</label>
+			<label for="slug" class="col-sm-2 control-label">Slug</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="display_name" id="display_name" required placeholder="Display Name" value="{{ ($action === 'add') ? old('display_name') : ((old('display_name')) ? old('display_name') : $role->display_name) }}">
+				<input type="text" class="form-control" name="slug" id="slug" required placeholder="Display Name" value="{{ ($action === 'add') ? old('slug') : ((old('slug')) ? old('slug') : $role->slug) }}">
 			</div>
 		</div>
 		<div class="form-group">

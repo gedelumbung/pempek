@@ -59,7 +59,7 @@
 			<div class="col-sm-10">
 				<select select2 id="role_id" name="role_id" class="form-control">
 					@foreach($roles as $role)
-						<option value="{{$role->id}}">{{$role->display_name}}</option>
+						<option value="{{$role->id}}">{{$role->name}}</option>
 					@endforeach
 				</select>
 			</div>

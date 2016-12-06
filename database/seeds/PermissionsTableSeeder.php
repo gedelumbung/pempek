@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use Simpeg\Model\Permission;
+use Simpeg\Model\PermissionRole;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -90,11 +91,17 @@ class PermissionsTableSeeder extends Seeder
         ];
 
         foreach ($params as $param) {
-          Permission::create([
+          $permission = Permission::create([
               'slug' => $param['slug'],
               'name' => $param['name'],
               'description' => $param['description']
           ]);
+
+          PermissionRole::create([
+            'permission_id' => $permission->id,
+            'role_id' => 3
+          ]);
         }
+
     }
 }

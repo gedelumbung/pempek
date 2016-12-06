@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Simpeg\Model\User;
+use Simpeg\Model\RoleUser;
 
 class UserTableSeeder extends Seeder
 {
@@ -21,6 +22,11 @@ class UserTableSeeder extends Seeder
         "nip" => "123456",
         "password" => bcrypt("123456"),
         "pegawai_id" => "1",
+      ]);
+
+      RoleUser::create([
+        'role_id' => 3,
+        'user_id' => 1
       ]);
     }
 }

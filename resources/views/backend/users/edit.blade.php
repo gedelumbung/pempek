@@ -70,9 +70,9 @@
 				<select select2 id="role_id" name="role_id" class="form-control">
 					@foreach($roles as $role)
 						@if($role->id == $users->role_user->role_id)
-						<option value="{{$role->id}}" selected>{{$role->display_name}}</option>
+						<option value="{{$role->id}}" selected>{{$role->name}}</option>
 						@else
-						<option value="{{$role->id}}">{{$role->display_name}}</option>
+						<option value="{{$role->id}}">{{$role->name}}</option>
 						@endif
 					@endforeach
 				</select>

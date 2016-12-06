@@ -13,7 +13,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Name</th>
-				<th>Display Name</th>
+				<th>Slug</th>
 				<th>Description</th>
 				<th>
 					<a href="{{route('dashboard.roles.add')}}" class="btn btn-sm btn-primary">Add New</a>
@@ -23,7 +23,7 @@
 			<tr>
 				<td>{{$role->id}}</td>
 				<td>{{$role->name}}</td>
-				<td>{{$role->display_name}}</td>
+				<td>{{$role->slug}}</td>
 				<td>{{$role->description}}</td>
 				<td>
         			<a href="{{ route('dashboard.roles.edit', ['id' => $role->id]) }}">
