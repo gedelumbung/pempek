@@ -183,7 +183,16 @@ class PegawaiController extends Controller
 			$arr['tmt_jabatan_fungsional_tertentu'] = null;
 		}
 
-		$pegawai->findOrFail($id)->update($arr);
+		$data_pegawai = $pegawai->findOrFail($id);
+		if($data_pegawai->unit_kerja_id != $arr['unit_kerja_id'] || !array_key_exists('sub_unit_kerja_id', $arr) || !array_key_exists('sub_unit_kerja_id', $arr)){
+			$arr_unit_kerja = [
+				'sub_unit_kerja_id' => null,
+				'satuan_kerja_id' => null,
+			];
+			$arr = array_merge($arr, array('sub_unit_kerja_id' => null,'satuan_kerja_id' => null));
+		}
+
+		$data_pegawai->update($arr);
 
 		\Artisan::call('simpeg:pegawai:count_progress:single', ['pegawai' => $id]);
 
