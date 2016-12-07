@@ -17,12 +17,12 @@ class SliderTableSeeder extends Seeder
 
       Slider::create([
         "title" => "What is Lorem Ipsum?",
-        "image" => "slider-1480792555.jpg",
+        "image" => "slider-1.jpg",
       ]);
 
       Slider::create([
         "title" => "How is Lorem Ipsum?",
-        "image" => "slider-1480793286.jpg",
+        "image" => "slider-2.jpg",
       ]);
     }
 }
