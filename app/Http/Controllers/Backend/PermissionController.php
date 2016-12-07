@@ -24,7 +24,7 @@ class PermissionController extends Controller
 	public function index(Role $roles, Permission $permissions)
 	{
 		$roles = $roles->get();
-		$permissions = $permissions->get();
+		$permissions = $permissions->where('parent_id',0)->get();
 
 		return view('backend.permission.index', compact('roles', 'permissions'));
 	}

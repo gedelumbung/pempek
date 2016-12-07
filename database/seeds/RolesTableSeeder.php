@@ -37,6 +37,36 @@ class RolesTableSeeder extends Seeder
             'name' => 'Staff Personalia',
             'description' => 'Menambahkan data pegawai dan membuat akun'
           ],
+          [
+            'slug' => 'staff-tu-ditjen-setditjen',
+            'name' => 'Staff TU Ditjen dan Setdijten',
+            'description' => 'Melakukan aktivitas sesuai unit kerja'
+          ],
+          [
+            'slug' => 'staff-tu-bina-potensi',
+            'name' => 'Staff TU Bina Potensi',
+            'description' => 'Melakukan aktivitas sesuai unit kerja'
+          ],
+          [
+            'slug' => 'staff-tu-p3kt',
+            'name' => 'Staff TU P3KT',
+            'description' => 'Melakukan aktivitas sesuai unit kerja'
+          ],
+          [
+            'slug' => 'staff-tu-ptt',
+            'name' => 'Staff TU PTT',
+            'description' => 'Melakukan aktivitas sesuai unit kerja'
+          ],
+          [
+            'slug' => 'staff-tu-p2t',
+            'name' => 'Staff TU P2T',
+            'description' => 'Melakukan aktivitas sesuai unit kerja'
+          ],
+          [
+            'slug' => 'staff-tu-p3',
+            'name' => 'Staff TU P3',
+            'description' => 'Melakukan aktivitas sesuai unit kerja'
+          ],
         ];
 
         foreach ($params as $param) {

@@ -24,21 +24,50 @@
 
 			<tbody>
 				@foreach ($permissions as $permission)
-					<tr>
-						<td>
-							<span>{{ $permission->name }}</span>
-							<h6 class="text-muted">{{ $permission->description }}</h6>
-						</td>
-						@foreach ($roles as $role)
-							<td style="text-align: center;">
-								@if($role->findPermissionRole($permission->id, $role->id))
-									<input type="checkbox" checked name="permission_role[]" value="{{$permission->id}},{{$role->id}}">
-								@else
-									<input type="checkbox" name="permission_role[]" value="{{$permission->id}},{{$role->id}}">
-								@endif
-							</td>
+					@if(count($permission->sub($permission->id)) > 0)
+						<tr class="dark">
+							<th>
+								<span>{{ $permission->name }}</span>
+								<h6 class="text-muted">{{ $permission->description }}</h6>
+							</th>
+							@foreach ($roles as $role)
+								<th></th>
+							@endforeach
+						</tr>
+						@foreach($permission->sub($permission->id) as $sub)
+							<tr>
+								<td style="padding-left: 30px;">
+									<span>{{ $sub->name }}</span>
+									<h6 class="text-muted">{{ $sub->description }}</h6>
+								</td>
+								@foreach ($roles as $role)
+									<td style="text-align: center;">
+										@if($role->findPermissionRole($sub->id, $role->id))
+											<input type="checkbox" checked name="permission_role[]" value="{{$sub->id}},{{$role->id}}">
+										@else
+											<input type="checkbox" name="permission_role[]" value="{{$sub->id}},{{$role->id}}">
+										@endif
+									</td>
+								@endforeach
+							</tr>
 						@endforeach
-					</tr>
+					@else
+						<tr>
+							<td>
+								<span>{{ $permission->name }}</span>
+								<h6 class="text-muted">{{ $permission->description }}</h6>
+							</td>
+							@foreach ($roles as $role)
+								<td style="text-align: center;">
+									@if($role->findPermissionRole($permission->id, $role->id))
+										<input type="checkbox" checked name="permission_role[]" value="{{$permission->id}},{{$role->id}}">
+									@else
+										<input type="checkbox" name="permission_role[]" value="{{$permission->id}},{{$role->id}}">
+									@endif
+								</td>
+							@endforeach
+						</tr>
+					@endif
 				@endforeach
 			</tbody>
 		</table>

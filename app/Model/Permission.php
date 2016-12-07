@@ -13,4 +13,9 @@ class Permission extends Model
         'display_name',
         'description'
     ];
+
+    public function sub($parent_id)
+    {
+    	return self::where('parent_id', $parent_id)->get();
+    }
 }
