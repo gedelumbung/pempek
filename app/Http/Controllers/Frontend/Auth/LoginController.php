@@ -4,6 +4,7 @@ namespace Simpeg\Http\Controllers\Frontend\Auth;
 
 use Simpeg\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Artisan;
 
 class LoginController extends Controller
 {
@@ -45,5 +46,12 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('frontend.auth.login');
+    }
+
+    public function logout()
+    {
+        \Auth::logout();
+        Artisan::call('cache:clear');
+        return redirect(route('home'));
     }
 }
