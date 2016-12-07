@@ -15,7 +15,7 @@ class LaporanJabatanController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:laporan');
+        $this->middleware('role:konfigurasi-jabatan');
     }
 	
 	public function index(UnitKerja $unitKerja)

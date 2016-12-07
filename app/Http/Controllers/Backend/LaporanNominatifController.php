@@ -18,7 +18,7 @@ class LaporanNominatifController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:laporan');
+        $this->middleware('role:nominatif');
     }
 	
 	public function index(Request $request, UnitKerja $unitKerja, Golongan $golonganData)
