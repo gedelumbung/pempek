@@ -108,6 +108,12 @@ class MenuTableSeeder extends Seeder
                         'icon' =>  'fa fa-pencil',
                         'permission_id' =>  28,
                     ],
+                    [
+                        'title' =>  'Settings',
+                        'url' =>  'dashboard.settings',
+                        'icon' =>  'fa fa-pencil',
+                        'permission_id' =>  28,
+                    ],
                 ]
             ],
             [

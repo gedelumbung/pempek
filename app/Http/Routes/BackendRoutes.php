@@ -166,6 +166,12 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/sliders/{id}/edit', ['as' => 'dashboard.sliders.edit', 'uses' => 'SliderController@edit']);
         $this->router->get('/sliders/{id}/delete', ['as' => 'dashboard.sliders.delete', 'uses' => 'SliderController@delete']);
         $this->router->post('/sliders/store', ['as' => 'dashboard.sliders.store', 'uses' => 'SliderController@store']);
+
+        $this->router->get('/settings', ['as' => 'dashboard.settings', 'uses' => 'SettingController@index']);
+        $this->router->get('/settings/add', ['as' => 'dashboard.settings.add', 'uses' => 'SettingController@create']);
+        $this->router->get('/settings/{id}/edit', ['as' => 'dashboard.settings.edit', 'uses' => 'SettingController@edit']);
+        $this->router->get('/settings/{id}/delete', ['as' => 'dashboard.settings.delete', 'uses' => 'SettingController@delete']);
+        $this->router->post('/settings/store', ['as' => 'dashboard.settings.store', 'uses' => 'SettingController@store']);
     }
 
     public function laporan()

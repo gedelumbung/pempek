@@ -126,18 +126,18 @@
                         <ul class="contact">
                             <p>
                                 <i class="fa fa-map-marker"></i> 
-                                <strong>Kantor 1 :</strong> Jl. TMP Kalibata No.17, Jakarta Selatan,12750, DKI Jakarta, Indonesia
+                                {{cache('Kantor1')}}
                             </p>
                             <p>
                                 <i class="fa fa-map-marker"></i> 
-                                <strong>Kantor 2 :</strong> Jl. Abdul Muis No.7, RT.2/RW.3, Gambir, Jakarta Pusat, DKI Jakarta, Indonesia
+                                {{cache('Kantor2')}}
                             </p>
                             <p>
-                                <i class="fa fa-phone"></i> <strong>Telp:</strong> (021) 3500334
+                                <i class="fa fa-phone"></i> <strong>Telp:</strong> {{cache('Telpon')}}
                             </p>
                             <p>
                                 <i class="fa fa-envelope"></i> 
-                                <strong>Email:</strong> humas@kemendesa.go.id
+                                <strong>Email:</strong> {{cache('Email')}}
                             </p>
                         </ul>
                     </div>
@@ -147,17 +147,17 @@
                     <h4>Follow Us</h4>
                     <ul class="social-icons">
                         <li class="social-icons-facebook">
-                            <a href="http://www.facebook.com" target="_blank" title="Facebook">
+                            <a href="{{cache('Facebook')}}" target="_blank" title="Facebook">
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
                         <li class="social-icons-twitter">
-                            <a href="http://www.twitter.com" target="_blank" title="Twitter">
+                            <a href="{{cache('Twitter')}}" target="_blank" title="Twitter">
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
                         <li class="social-icons-linkedin">
-                            <a href="http://www.linkedin.com" target="_blank" title="Linkedin">
+                            <a href="{{cache('Linkedin')}}" target="_blank" title="Linkedin">
                                 <i class="fa fa-linkedin"></i>
                             </a>
                         </li>
