@@ -49,33 +49,57 @@
 </div>
 
 <div style="min-width: 310px; height: 310px; margin: 0 auto"></div>
-<div id="jabatan" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="jabatan" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
 <br><br>
-<div id="pendidikan" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="pendidikan" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
 <br><br>
-<div id="jenis_kelamin" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="jenis_kelamin" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
 <br><br>
-<div id="usia" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="usia" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
 <br><br>
-<div id="masa_kerja" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="masa_kerja" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
 <br><br>
-<div id="agama" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="agama" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
 @push("script")
     <script type="text/javascript">
     	var agama = <?=json_encode($temp['agama']); ?>;
-    	var agama_data = [];
-    	console.log(agama)
-    	for(var i=0;i<agama.length; i++){
-    		var params = {
-    			'title' : agama[i].title
-    		};
-    	}
+    	var ykeys_agama = <?=json_encode($ykeys['agama']); ?>;
+		new Morris.Bar({
+		  element: 'agama',
+		  data: agama,
+		  xkey: 'title',
+		  ykeys: ykeys_agama,
+		  labels: ykeys_agama
+		});
+
+    	var pendidikan = <?=json_encode($temp['pendidikan']); ?>;
+    	var ykeys_pendidikan = <?=json_encode($ykeys['pendidikan']); ?>;
+		new Morris.Bar({
+		  element: 'pendidikan',
+		  data: pendidikan,
+		  xkey: 'title',
+		  ykeys: ykeys_pendidikan,
+		  labels: ykeys_pendidikan
+		});
+
+    	var jabatan = <?=json_encode($temp['jabatan']); ?>;
+    	var ykeys_jabatan = <?=json_encode($ykeys['jabatan']); ?>;
 		new Morris.Bar({
 		  element: 'jabatan',
-		  data: agama_data,
+		  data: jabatan,
 		  xkey: 'title',
-		  ykeys: ['a', 'b', 'c' ,'d'],
-		  labels: ['Series A', 'Series B']
+		  ykeys: ykeys_jabatan,
+		  labels: ykeys_jabatan
+		});
+
+    	var jenis_kelamin = <?=json_encode($temp['jenis_kelamin']); ?>;
+    	var ykeys_jenis_kelamin = <?=json_encode($ykeys['jenis_kelamin']); ?>;
+		new Morris.Bar({
+		  element: 'jenis_kelamin',
+		  data: jenis_kelamin,
+		  xkey: 'title',
+		  ykeys: ykeys_jenis_kelamin,
+		  labels: ykeys_jenis_kelamin
 		});
     </script>
 @endpush
