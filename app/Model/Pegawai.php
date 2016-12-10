@@ -4,6 +4,7 @@ namespace Simpeg\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use DateTime;
+use DB;
 
 class Pegawai extends Model
 {

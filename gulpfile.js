@@ -78,6 +78,7 @@ elixir(function(mix) {
             "./resources/assets/backend/css/tmp/all.css",
             "/node_modules/@fengyuanchen/datepicker/dist/datepicker.css",
             "/node_modules/summernote/dist/summernote.css",
+            "/node_modules/morris.js/morris.css",
         ], "public/css/backend.css", './')
 
         .scripts([
@@ -103,6 +104,8 @@ elixir(function(mix) {
             "/resources/assets/backend/js/ui/jquery.bootstrap.wizard.js",
             "/resources/assets/backend/js/ui/examples.wizard.js",
             "/node_modules/@fengyuanchen/datepicker/dist/datepicker.js",
+            "/node_modules/morris.js/morris.min.js",
+            "/node_modules/raphael/raphael.min.js",
             "/node_modules/summernote/dist/summernote.js",
             "/resources/assets/backend/js/scripts.js",
         ], "public/js/backend.js", './')

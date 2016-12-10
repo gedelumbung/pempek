@@ -60,167 +60,22 @@
 <div id="masa_kerja" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <br><br>
 <div id="agama" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
 @push("script")
-<script src="https://code.highcharts.com/highcharts.js"></script>
     <script type="text/javascript">
-    	$(function () {
-		    $('#jabatan').highcharts({
-		        chart: {
-		            type: 'column'
-		        },
-		        title: {
-		            text: 'Berdasarkan Jabatan'
-		        },
-		        xAxis: {
-		            categories: <?=json_encode($golongan)?>
-		        },
-		        yAxis: {
-		            title: {
-		                text: 'Jumlah'
-		            },
-		        },
-		        series: [{
-		            name: 'Struktural',
-		            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-		        }, {
-		            name: 'Fungsional Umum',
-		            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-		        }, {
-		            name: 'Fungsional Tertentu',
-		            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-		        }]
-		    });
-		    $('#pendidikan').highcharts({
-		        chart: {
-		            type: 'column'
-		        },
-		        title: {
-		            text: 'Berdasarkan Pendidikan'
-		        },
-		        xAxis: {
-		            categories: <?=json_encode($golongan)?>
-		        },
-		        yAxis: {
-		            title: {
-		                text: 'Jumlah'
-		            },
-		        },
-		        series: [{
-		            name: 'Struktural',
-		            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-		        }, {
-		            name: 'Fungsional Umum',
-		            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-		        }, {
-		            name: 'Fungsional Tertentu',
-		            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-		        }]
-		    });
-		    $('#jenis_kelamin').highcharts({
-		        chart: {
-		            type: 'column'
-		        },
-		        title: {
-		            text: 'Berdasarkan Jenis Kelamin'
-		        },
-		        xAxis: {
-		            categories: <?=json_encode($golongan)?>
-		        },
-		        yAxis: {
-		            title: {
-		                text: 'Jumlah'
-		            },
-		        },
-		        series: [{
-		            name: 'Struktural',
-		            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-		        }, {
-		            name: 'Fungsional Umum',
-		            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-		        }, {
-		            name: 'Fungsional Tertentu',
-		            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-		        }]
-		    });
-		    $('#usia').highcharts({
-		        chart: {
-		            type: 'column'
-		        },
-		        title: {
-		            text: 'Berdasarkan Usia'
-		        },
-		        xAxis: {
-		            categories: <?=json_encode($golongan)?>
-		        },
-		        yAxis: {
-		            title: {
-		                text: 'Jumlah'
-		            },
-		        },
-		        series: [{
-		            name: 'Struktural',
-		            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-		        }, {
-		            name: 'Fungsional Umum',
-		            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-		        }, {
-		            name: 'Fungsional Tertentu',
-		            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-		        }]
-		    });
-		    $('#masa_kerja').highcharts({
-		        chart: {
-		            type: 'column'
-		        },
-		        title: {
-		            text: 'Berdasarkan Masa Kerja'
-		        },
-		        xAxis: {
-		            categories: <?=json_encode($golongan)?>
-		        },
-		        yAxis: {
-		            title: {
-		                text: 'Jumlah'
-		            },
-		        },
-		        series: [{
-		            name: 'Struktural',
-		            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-		        }, {
-		            name: 'Fungsional Umum',
-		            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-		        }, {
-		            name: 'Fungsional Tertentu',
-		            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-		        }]
-		    });
-		    $('#agama').highcharts({
-		        chart: {
-		            type: 'column'
-		        },
-		        title: {
-		            text: 'Berdasarkan Agama'
-		        },
-		        xAxis: {
-		            categories: <?=json_encode($golongan)?>
-		        },
-		        yAxis: {
-		            title: {
-		                text: 'Jumlah'
-		            },
-		        },
-		        series: [{
-		            name: 'Struktural',
-		            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-		        }, {
-		            name: 'Fungsional Umum',
-		            data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-		        }, {
-		            name: 'Fungsional Tertentu',
-		            data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-		        }]
-		    });
+    	var agama = <?=json_encode($temp['agama']); ?>;
+    	var agama_data = [];
+    	console.log(agama)
+    	for(var i=0;i<agama.length; i++){
+    		var params = {
+    			'title' : agama[i].title
+    		};
+    	}
+		new Morris.Bar({
+		  element: 'jabatan',
+		  data: agama_data,
+		  xkey: 'title',
+		  ykeys: ['a', 'b', 'c' ,'d'],
+		  labels: ['Series A', 'Series B']
 		});
     </script>
 @endpush
