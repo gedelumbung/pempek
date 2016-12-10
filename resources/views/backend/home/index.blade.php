@@ -48,18 +48,24 @@
 	</section>
 </div>
 
-<div style="min-width: 310px; height: 310px; margin: 0 auto"></div>
-<div id="jabatan" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<div style="min-width: 310px; height: 100px; margin: 0 auto"></div>
+<center><h3>Berdasarkan Jabatan</h3></center>
+<div id="jabatan" style="min-width: 310px; height: 300px; margin: 0 auto; background-color: #fff;"></div>
 <br><br>
-<div id="pendidikan" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<center><h3>Berdasarkan Tingkat Pendidikan</h3></center>
+<div id="pendidikan" style="min-width: 310px; height: 300px; margin: 0 auto; background-color: #fff;"></div>
 <br><br>
-<div id="jenis_kelamin" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<center><h3>Berdasarkan Jenis Kelamin</h3></center>
+<div id="jenis_kelamin" style="min-width: 310px; height: 300px; margin: 0 auto; background-color: #fff;"></div>
 <br><br>
-<div id="usia" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<center><h3>Berdasarkan Usia</h3></center>
+<div id="usia" style="min-width: 310px; height: 300px; margin: 0 auto; background-color: #fff;"></div>
 <br><br>
-<div id="masa_kerja" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<center><h3>Berdasarkan Masa Kerja Pangkat</h3></center>
+<div id="masa_kerja" style="min-width: 310px; height: 300px; margin: 0 auto; background-color: #fff;"></div>
 <br><br>
-<div id="agama" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+<center><h3>Berdasarkan Agama</h3></center>
+<div id="agama" style="min-width: 310px; height: 300px; margin: 0 auto; background-color: #fff;"></div>
 @push("script")
     <script type="text/javascript">
     	var agama = <?=json_encode($temp['agama']); ?>;
@@ -100,6 +106,26 @@
 		  xkey: 'title',
 		  ykeys: ykeys_jenis_kelamin,
 		  labels: ykeys_jenis_kelamin
+		});
+
+    	var usia = <?=json_encode($temp['usia']); ?>;
+    	var ykeys_usia = <?=json_encode($ykeys['usia']); ?>;
+		new Morris.Bar({
+		  element: 'usia',
+		  data: usia,
+		  xkey: 'title',
+		  ykeys: ykeys_usia,
+		  labels: ykeys_usia
+		});
+
+    	var masa_kerja = <?=json_encode($temp['masa_kerja']); ?>;
+    	var ykeys_masa_kerja = <?=json_encode($ykeys['masa_kerja']); ?>;
+		new Morris.Bar({
+		  element: 'masa_kerja',
+		  data: masa_kerja,
+		  xkey: 'title',
+		  ykeys: ykeys_masa_kerja,
+		  labels: ykeys_masa_kerja
 		});
     </script>
 @endpush

@@ -24,6 +24,9 @@ class HomeController extends Controller
 		$count_all_not_completed = $pegawai->whereRaw('count_progress <=61')->count();
 		$golongan = $golongan->get();
 
+		$usiaLabel  = ["<26","26-30","31-35","36-40","41-45","46-50","51-55",">55"];
+		$masaKerjaLabel  = ["<5","5-10","10-20","20-30","30-40","40-50",">50"];
+
 		$temp = [
 			'jabatan' => [],
 			'pendidikan' => [],
@@ -96,6 +99,68 @@ class HomeController extends Controller
 
 		foreach (config('simpeg.jenis_kelamin') as $jenis_kelamin) {
 			array_push($ykeys['jenis_kelamin'], $jenis_kelamin);
+		}
+
+		//usia chart data
+		$a = '';
+		foreach ($temp['usia'] as $key=>$t) {
+			foreach ($usiaLabel as $ul) {
+				$temp['usia'][$key][$ul] = '';
+	            $forquery   = "";
+	            if(count(explode("<", $ul)) == 2){
+	                $ex = explode("<", $ul);
+	                $a .= "$ul : kurdar $ex[1]<br/>";
+	                $forquery = "< ".$ex[1];
+
+	            }
+	            else if(count(explode("-", $ul)) == 2){
+	                $ex = explode("-", $ul);
+	                $a .= "$ul : s/d $ex[0] and $ex[1]<br/>";
+	                $forquery   = "BETWEEN ".$ex[0]." AND ".$ex[1];
+	            }
+	            else if(count(explode(">", $ul)) == 2){
+	                $ex = explode(">", $ul);
+	                $a .= "$ul : lebihdari $ex[1]<br/>";
+	                $forquery   = "> ".$ex[1];
+	            }
+	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE golongan_id_akhir = '".$t['id']."' AND YEAR(CURRENT_TIMESTAMP) - YEAR(tanggal_lahir) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(tanggal_lahir, 5)) ".$forquery." "));
+	        	$temp['usia'][$key][$ul] = count($ag);
+			}
+		}
+
+		foreach ($usiaLabel as $ul) {
+			array_push($ykeys['usia'], $ul);
+		}
+
+		//masa kerja pangkat chart data
+		$a = '';
+		foreach ($temp['masa_kerja'] as $key=>$t) {
+			foreach ($masaKerjaLabel as $ul) {
+				$temp['masa_kerja'][$key][$ul] = '';
+	            $forquery   = "";
+	            if(count(explode("<", $ul)) == 2){
+	                $ex = explode("<", $ul);
+	                $a .= "$ul : kurdar $ex[1]<br/>";
+	                $forquery = "< ".$ex[1];
+
+	            }
+	            else if(count(explode("-", $ul)) == 2){
+	                $ex = explode("-", $ul);
+	                $a .= "$ul : s/d $ex[0] and $ex[1]<br/>";
+	                $forquery   = "BETWEEN ".$ex[0]." AND ".$ex[1];
+	            }
+	            else if(count(explode(">", $ul)) == 2){
+	                $ex = explode(">", $ul);
+	                $a .= "$ul : lebihdari $ex[1]<br/>";
+	                $forquery   = "> ".$ex[1];
+	            }
+	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE golongan_id_akhir = '".$t['id']."' AND YEAR(CURRENT_TIMESTAMP) - YEAR(tmt_golongan_akhir) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(tmt_golongan_akhir, 5)) ".$forquery." "));
+	        	$temp['masa_kerja'][$key][$ul] = count($ag);
+			}
+		}
+
+		foreach ($masaKerjaLabel as $ul) {
+			array_push($ykeys['masa_kerja'], $ul);
 		}
 
 		//return json_encode($ykeys['agama'], 200);
