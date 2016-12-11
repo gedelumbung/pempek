@@ -17,6 +17,7 @@ use Simpeg\Model\Anak;
 use Simpeg\Model\Pasangan;
 use Simpeg\Model\Ayah;
 use Simpeg\Model\Ibu;
+use Simpeg\Model\PegawaiLog;
 use PDF;
 use Image;
 use Illuminate\Http\Request;
@@ -202,7 +203,7 @@ class PegawaiController extends Controller
 		return redirect(route('dashboard.pegawai'));
 	}
 
-	public function update(Request $request, Pegawai $pegawai)
+	public function update(Request $request, Pegawai $pegawai, PegawaiLog $pegawaiLog)
 	{
 		$this->middleware('role:pegawai-edit');
 		$arr = $request->except('_token','input_foto','id');
@@ -250,12 +251,36 @@ class PegawaiController extends Controller
 			$arr = array_merge($arr, array('sub_unit_kerja_id' => null,'satuan_kerja_id' => null));
 		}
 
-		$data_pegawai->update($arr);
+		if ($data_pegawai->pendidikan_akhir != $arr['pendidikan_akhir']) {
+			$pegawai_log = $pegawaiLog->where('pegawai_id', $id)->first();
+			if (empty($pegawai_log)) {
+				$arr['pegawai_id'] = $id;
+				$pegawaiLog->insert($arr);
+			}
+			else {
+				$log = $pegawaiLog->where('pegawai_id', $id)->first();
+				$arr['pegawai_id'] = $id;
+				$arr['status'] = 0;
+				$log->update($arr);
+			}
 
-		\Artisan::call('simpeg:pegawai:count_progress:single', ['pegawai' => $id]);
+			flashy()->success('Berhasil menyimpan data. Data akan divalidasi terlebih dahulu.');
+			return redirect(route('dashboard.pegawai'));
+		}
+		else {
+			$data_pegawai->update($arr);
 
-		flashy()->success('Berhasil menyimpan data.');
-		return redirect(route('dashboard.pegawai'));
+			//update log
+			$log = $pegawaiLog->where('pegawai_id', $id)->first();
+			if (!empty($log)) {
+				$log->update($arr);
+			}
+
+			\Artisan::call('simpeg:pegawai:count_progress:single', ['pegawai' => $id]);
+
+			flashy()->success('Berhasil menyimpan data.');
+			return redirect(route('dashboard.pegawai'));
+		}
 	}
 
 	public function edit($id, Pegawai $pegawai, UnitKerja $unitKerja, Golongan $golongan, SatuanKerja $satuanKerja)
