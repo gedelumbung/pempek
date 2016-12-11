@@ -14,7 +14,7 @@ class UnitKerjaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:unitkerja');
+        $this->middleware('role:unitkerja-master');
     }
 	
 	public function index(UnitKerja $unit_kerja)
