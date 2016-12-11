@@ -398,6 +398,7 @@
 										<th>Ijazah Pendidikan</th>
 										<th>Tanggal Lulus</th>
 										<th>Nama Pimpinan</th>
+										<th>Action</th>
 									</tr>
 									<tbody>
 										@foreach($riwayat_pendidikan as $key => $data)
@@ -409,6 +410,20 @@
 												<td>{{$data->ijazah_pendidikan}}</td>
 												<td>{{indonesian_date($data->tanggal_lulus)}}</td>
 												<td>{{$data->nama_pimpinan}}</td>
+												<td>
+								        			@if($data->status == 0)
+								        			<a href="{{ route('dashboard.validasi_data.approve.pendidikan', ['pegawai' => $data->pegawai_id, 'id' => $data->id]) }}" class="btn btn-success btn-sm" title="Approve">
+								        				<i class="glyphicon glyphicon-ok"></i> Approve
+								        			</a>
+								        			<a href="{{ route('dashboard.validasi_data.remove.pendidikan', ['pegawai' => $data->pegawai_id, 'id' => $data->id]) }}" class="btn btn-danger btn-sm" title="Remove">
+								        				<i class="glyphicon glyphicon-remove"></i> Hapus
+								        			</a>
+								        			@else
+								        			<a class="btn btn-success btn-sm" title="Approved">
+								        				<i class="glyphicon glyphicon-ok"></i> Approved
+								        			</a>
+								        			@endif
+							        			</td>
 											</tr>
 										@endforeach
 									</tbody>

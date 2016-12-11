@@ -16,6 +16,7 @@ class CreateRiwayatDiklatLogTable extends Migration
         Schema::create('riwayat_diklat_log', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('pegawai_id');
+            $table->smallInteger('status')->default(0);
             $table->string('nama_diklat');
             $table->string('nomor_sertifikat');
             $table->string('tahun');

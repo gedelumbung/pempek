@@ -16,6 +16,7 @@ class CreateRiwayatPenghargaanLogTable extends Migration
         Schema::create('riwayat_penghargaan_log', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('pegawai_id');
+            $table->smallInteger('status')->default(0);
             $table->string('nama_penghargaan');
             $table->string('nomor_surat_keputusan');
             $table->string('tanggal');

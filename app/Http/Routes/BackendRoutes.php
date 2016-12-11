@@ -153,6 +153,10 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/validasi-data', ['as' => 'dashboard.validasi_data', 'uses' => 'ValidasiController@index']);
         $this->router->get('/validasi-data/{pegawai}/show', ['as' => 'dashboard.validasi_data.show', 'uses' => 'ValidasiController@show']);
         $this->router->get('/validasi-data/{pegawai}/approve/{status}/pegawai', ['as' => 'dashboard.validasi_data.approve.pegawai', 'uses' => 'ValidasiController@approvePegawai']);
+
+        $this->router->get('/validasi-data/{pegawai}/approve/{id}/pendidikan', ['as' => 'dashboard.validasi_data.approve.pendidikan', 'uses' => 'ValidasiController@approvePendidikan']);
+        $this->router->get('/validasi-data/{pegawai}/remove/{id}/pendidikan', ['as' => 'dashboard.validasi_data.remove.pendidikan', 'uses' => 'ValidasiController@removePendidikan']);
+
         $this->router->get('/validasi-data/{pegawai}/approve/{status}', ['as' => 'dashboard.validasi_data.approve', 'uses' => 'ValidasiController@approve']);
     }
 

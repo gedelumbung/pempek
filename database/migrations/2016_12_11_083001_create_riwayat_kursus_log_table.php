@@ -16,6 +16,7 @@ class CreateRiwayatKursusLogTable extends Migration
         Schema::create('riwayat_kursus_log', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('pegawai_id');
+            $table->smallInteger('status')->default(0);
             $table->string('nama_kursus');
             $table->integer('jumlah_jam');
             $table->string('nomor_sertifikat');

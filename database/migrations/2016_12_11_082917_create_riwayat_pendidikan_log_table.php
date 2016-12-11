@@ -16,6 +16,7 @@ class CreateRiwayatPendidikanLogTable extends Migration
         Schema::create('riwayat_pendidikan_log', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('pegawai_id');
+            $table->smallInteger('status')->default(0);
             $table->string('nama_sekolah');
             $table->string('tingkat_pendidikan',20);
             $table->string('fakultas');
