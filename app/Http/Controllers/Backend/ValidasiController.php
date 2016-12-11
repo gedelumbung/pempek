@@ -54,6 +54,8 @@ class ValidasiController extends Controller
 		$pegawai = Pegawai::findOrFail($id);
 		$pegawai->update($arr);
 
+		return $this->checkNonApproved($id);
+
 		flashy()->success('Berhasil menyimpan data ke data master');
 		return back();
 	}
@@ -69,6 +71,8 @@ class ValidasiController extends Controller
 		unset($arr['id']);
 		RiwayatPendidikan::insert($arr);
 
+		return $this->checkNonApproved($pegawai);
+
 		flashy()->success('Berhasil menyimpan data ke data master');
 		return back();
 	}
@@ -76,6 +80,8 @@ class ValidasiController extends Controller
 	public function removePendidikan($pegawai, $id, RiwayatPendidikanLog $riwayatPendidikanLog)
 	{
 		$pendidikan_log = $riwayatPendidikanLog->where('pegawai_id',$pegawai)->where('id',$id)->whereIn('status',[0])->delete();
+
+		return $this->checkNonApproved($pegawai);
 
 		flashy()->success('Berhasil menghapus data');
 		return back();
@@ -92,6 +98,8 @@ class ValidasiController extends Controller
 		unset($arr['id']);
 		RiwayatDiklat::insert($arr);
 
+		return $this->checkNonApproved($pegawai);
+
 		flashy()->success('Berhasil menyimpan data ke data master');
 		return back();
 	}
@@ -99,6 +107,8 @@ class ValidasiController extends Controller
 	public function removeDiklat($pegawai, $id, RiwayatDiklatLog $riwayatDiklatLog)
 	{
 		$diklat_log = $riwayatDiklatLog->where('pegawai_id',$pegawai)->where('id',$id)->whereIn('status',[0])->delete();
+
+		return $this->checkNonApproved($pegawai);
 
 		flashy()->success('Berhasil menghapus data');
 		return back();
@@ -115,6 +125,8 @@ class ValidasiController extends Controller
 		unset($arr['id']);
 		RiwayatKursus::insert($arr);
 
+		return $this->checkNonApproved($pegawai);
+
 		flashy()->success('Berhasil menyimpan data ke data master');
 		return back();
 	}
@@ -122,6 +134,8 @@ class ValidasiController extends Controller
 	public function removeKursus($pegawai, $id, RiwayatKursusLog $riwayatKursusLog)
 	{
 		$kursus_log = $riwayatKursusLog->where('pegawai_id',$pegawai)->where('id',$id)->whereIn('status',[0])->delete();
+
+		return $this->checkNonApproved($pegawai);
 
 		flashy()->success('Berhasil menghapus data');
 		return back();
@@ -138,6 +152,8 @@ class ValidasiController extends Controller
 		unset($arr['id']);
 		RiwayatPenghargaan::insert($arr);
 
+		return $this->checkNonApproved($pegawai);
+
 		flashy()->success('Berhasil menyimpan data ke data master');
 		return back();
 	}
@@ -146,7 +162,29 @@ class ValidasiController extends Controller
 	{
 		$penghargaan_log = $riwayatPenghargaanLog->where('pegawai_id',$pegawai)->where('id',$id)->whereIn('status',[0])->delete();
 
+		return $this->checkNonApproved($pegawai);
+
 		flashy()->success('Berhasil menghapus data');
+		return back();
+	}
+
+	protected function checkNonApproved($id)
+	{
+		$pegawai = PegawaiLog::where('pegawai_id',$id)->where('status',0)->count();
+		$pendidikan = RiwayatPendidikanLog::where('pegawai_id',$id)->where('status',0)->count();
+		$diklat = RiwayatDiklatLog::where('pegawai_id',$id)->where('status',0)->count();
+		$kursus = RiwayatKursusLog::where('pegawai_id',$id)->where('status',0)->count();
+		$penghargaan = RiwayatPenghargaanLog::where('pegawai_id',$id)->where('status',0)->count();
+
+		if ($pegawai == 0 && $pendidikan == 0 && $diklat == 0 && $kursus == 0 && $penghargaan == 0) {
+			$pegawai_log = PegawaiLog::where('pegawai_id', $id)->first();
+			$pegawai_log->status = 2;
+			$pegawai_log->save();
+
+			flashy()->success('Berhasil menyimpan data ke data master');
+			return redirect(route('dashboard.validasi_data'));
+		}
+		flashy()->success('Berhasil memperbaharui data ke data master');
 		return back();
 	}
 }
