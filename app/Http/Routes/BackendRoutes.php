@@ -157,6 +157,15 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/validasi-data/{pegawai}/approve/{id}/pendidikan', ['as' => 'dashboard.validasi_data.approve.pendidikan', 'uses' => 'ValidasiController@approvePendidikan']);
         $this->router->get('/validasi-data/{pegawai}/remove/{id}/pendidikan', ['as' => 'dashboard.validasi_data.remove.pendidikan', 'uses' => 'ValidasiController@removePendidikan']);
 
+        $this->router->get('/validasi-data/{pegawai}/approve/{id}/diklat', ['as' => 'dashboard.validasi_data.approve.diklat', 'uses' => 'ValidasiController@approveDiklat']);
+        $this->router->get('/validasi-data/{pegawai}/remove/{id}/diklat', ['as' => 'dashboard.validasi_data.remove.diklat', 'uses' => 'ValidasiController@removeDiklat']);
+
+        $this->router->get('/validasi-data/{pegawai}/approve/{id}/kursus', ['as' => 'dashboard.validasi_data.approve.kursus', 'uses' => 'ValidasiController@approveKursus']);
+        $this->router->get('/validasi-data/{pegawai}/remove/{id}/kursus', ['as' => 'dashboard.validasi_data.remove.kursus', 'uses' => 'ValidasiController@removeKursus']);
+
+        $this->router->get('/validasi-data/{pegawai}/approve/{id}/penghargaan', ['as' => 'dashboard.validasi_data.approve.penghargaan', 'uses' => 'ValidasiController@approvePenghargaan']);
+        $this->router->get('/validasi-data/{pegawai}/remove/{id}/penghargaan', ['as' => 'dashboard.validasi_data.remove.penghargaan', 'uses' => 'ValidasiController@removePenghargaan']);
+
         $this->router->get('/validasi-data/{pegawai}/approve/{status}', ['as' => 'dashboard.validasi_data.approve', 'uses' => 'ValidasiController@approve']);
     }
 

@@ -445,6 +445,7 @@
 										<th>Nomor Sertifikat</th>
 										<th>Tahun</th>
 										<th>Jumlah Jam</th>
+										<th>Action</th>
 									</tr>
 									<tbody>
 										@foreach($riwayat_diklat as $key => $data)
@@ -454,6 +455,20 @@
 												<td>{{$data->nomor_sertifikat}}</td>
 												<td>{{$data->tahun}}</td>
 												<td>{{$data->jumlah_jam}}</td>
+												<td>
+								        			@if($data->status == 0)
+								        			<a href="{{ route('dashboard.validasi_data.approve.diklat', ['pegawai' => $data->pegawai_id, 'id' => $data->id]) }}" class="btn btn-success btn-sm" title="Approve">
+								        				<i class="glyphicon glyphicon-ok"></i> Approve
+								        			</a>
+								        			<a href="{{ route('dashboard.validasi_data.remove.diklat', ['pegawai' => $data->pegawai_id, 'id' => $data->id]) }}" class="btn btn-danger btn-sm" title="Remove">
+								        				<i class="glyphicon glyphicon-remove"></i> Hapus
+								        			</a>
+								        			@else
+								        			<a class="btn btn-success btn-sm" title="Approved">
+								        				<i class="glyphicon glyphicon-ok"></i> Approved
+								        			</a>
+								        			@endif
+							        			</td>
 											</tr>
 											</form>
 										@endforeach
@@ -477,6 +492,7 @@
 										<th>Nomor Sertifikat</th>
 										<th>Tanggal</th>
 										<th>Penyelenggara</th>
+										<th>Action</th>
 									</tr>
 									<tbody>
 										@foreach($riwayat_kursus as $key => $data)
@@ -487,6 +503,20 @@
 												<td>{{$data->nomor_sertifikat}}</td>
 												<td>{{indonesian_date($data->tanggal)}}</td>
 												<td>{{$data->penyelenggara}}</td>
+												<td>
+								        			@if($data->status == 0)
+								        			<a href="{{ route('dashboard.validasi_data.approve.kursus', ['pegawai' => $data->pegawai_id, 'id' => $data->id]) }}" class="btn btn-success btn-sm" title="Approve">
+								        				<i class="glyphicon glyphicon-ok"></i> Approve
+								        			</a>
+								        			<a href="{{ route('dashboard.validasi_data.remove.kursus', ['pegawai' => $data->pegawai_id, 'id' => $data->id]) }}" class="btn btn-danger btn-sm" title="Remove">
+								        				<i class="glyphicon glyphicon-remove"></i> Hapus
+								        			</a>
+								        			@else
+								        			<a class="btn btn-success btn-sm" title="Approved">
+								        				<i class="glyphicon glyphicon-ok"></i> Approved
+								        			</a>
+								        			@endif
+							        			</td>
 											</tr>
 											</form>
 										@endforeach
@@ -509,22 +539,31 @@
 										<th>Nomor Sertifikat</th>
 										<th>Tanggal</th>
 										<th>Penyelenggara</th>
+										<th>Action</th>
 									</tr>
 									<tbody>
 										@foreach($riwayat_penghargaan as $key => $data)
-											<form method="POST" action="{{route('dashboard.pegawai.riwayat_penghargaan.store', ['id' => $id])}}">
-											{!! csrf_field() !!}
-											<input type="hidden" name="status" value="edit">
-											<input type="hidden" name="pegawai_id" value="{{$data->pegawai_id}}">
-											<input type="hidden" name="id" value="{{$data->id}}">
 											<tr>
 												<td>{{$key+1}}</td>
 												<td>{{$data->nama_penghargaan}}</td>
 												<td>{{$data->nomor_surat_keputusan}}</td>
 												<td>{{indonesian_date($data->tanggal)}}</td>
 												<td>{{$data->nama_pemberi_penghargaan}}</td>
+												<td>
+								        			@if($data->status == 0)
+								        			<a href="{{ route('dashboard.validasi_data.approve.penghargaan', ['pegawai' => $data->pegawai_id, 'id' => $data->id]) }}" class="btn btn-success btn-sm" title="Approve">
+								        				<i class="glyphicon glyphicon-ok"></i> Approve
+								        			</a>
+								        			<a href="{{ route('dashboard.validasi_data.remove.penghargaan', ['pegawai' => $data->pegawai_id, 'id' => $data->id]) }}" class="btn btn-danger btn-sm" title="Remove">
+								        				<i class="glyphicon glyphicon-remove"></i> Hapus
+								        			</a>
+								        			@else
+								        			<a class="btn btn-success btn-sm" title="Approved">
+								        				<i class="glyphicon glyphicon-ok"></i> Approved
+								        			</a>
+								        			@endif
+							        			</td>
 											</tr>
-											</form>
 										@endforeach
 									</tbody>
 								</table>

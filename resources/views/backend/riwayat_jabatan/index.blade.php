@@ -59,8 +59,8 @@
 							</td>
 							<td><input type="text" name="instansi" class="form-control" value="{{$data->instansi}}" required></td>
 							<td><input type="text" name="nomor_sk" class="form-control" value="{{$data->nomor_sk}}" required></td>
-							<td><input type="text" datepicker class="form-control" name="tanggal" value="{{$data->tanggal}}" required /></td>
-							<td><input type="text" datepicker class="form-control" name="tmt" value="{{$data->tmt}}" required></td>
+							<td><input type="text" data-toggle="datepicker" class="form-control" name="tanggal" value="{{$data->tanggal}}" required /></td>
+							<td><input type="text" data-toggle="datepicker" class="form-control" name="tmt" value="{{$data->tmt}}" required></td>
 							<td><input type="text" class="form-control" name="eselon" value="{{$data->eselon}}" required></td>
 							<td width="200">
 								<input type="submit" value="Save" class="btn btn-sm btn-success">

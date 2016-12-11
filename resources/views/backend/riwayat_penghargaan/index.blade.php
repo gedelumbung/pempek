@@ -33,7 +33,7 @@
 							<td>{{$key+1}}</td>
 							<td><input type="text" name="nama_penghargaan" class="form-control" value="{{$data->nama_penghargaan}}" required></td>
 							<td><input type="text" name="nomor_surat_keputusan" class="form-control" value="{{$data->nomor_surat_keputusan}}" required></td>
-							<td><input type="date" name="tanggal" class="form-control" value="{{$data->tanggal}}" required></td>
+							<td><input type="text" data-toggle="datepicker" name="tanggal" class="form-control" value="{{$data->tanggal}}" required></td>
 							<td><input type="text" class="form-control" name="nama_pemberi_penghargaan" value="{{$data->nama_pemberi_penghargaan}}" required></td>
 							<td width="200">
 								<input type="submit" value="Save" class="btn btn-sm btn-success">

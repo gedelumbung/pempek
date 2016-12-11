@@ -49,11 +49,11 @@
 								    @endforeach
 								</select>
 							</td>
-							<td><input type="text" datepicker name="tmt" class="form-control" value="{{$data->tmt}}" required></td>
+							<td><input type="text" data-toggle="datepicker" name="tmt" class="form-control" value="{{$data->tmt}}" required></td>
 							<td><input type="text" name="masa_kerja_tahun" class="form-control" value="{{$data->masa_kerja_tahun}}" required></td>
 							<td><input type="text" name="masa_kerja_bulan" class="form-control" value="{{$data->masa_kerja_bulan}}" required></td>
 							<td><input type="text" class="form-control" name="nomor_sk" value="{{$data->nomor_sk}}" required></td>
-							<td><input type="text" datepicker class="form-control" name="tanggal_sk" value="{{$data->tanggal_sk}}" required /></td>
+							<td><input type="text" data-toggle="datepicker" class="form-control" name="tanggal_sk" value="{{$data->tanggal_sk}}" required /></td>
 							<td><input type="text" class="form-control" name="nomor_persetujuan_bkn" value="{{$data->nomor_persetujuan_bkn}}" required></td>
 							<td><input type="text" class="form-control" name="tahun_persetujuan_bkn" value="{{$data->tahun_persetujuan_bkn}}" required></td>
 							<td width="200">
