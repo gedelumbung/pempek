@@ -59,7 +59,7 @@ class PegawaiController extends Controller
 			$pegawai = $pegawai->get();
         }
         else{
-        	$pegawai = $pegawai->where('unit_kerja_id',$unit_kerja_id)->get();
+        	$pegawai = $pegawai->whereIn('unit_kerja_id',$unit_kerja_id)->get();
         }
 		return view('backend.pegawai.index', compact('pegawai'));
 	}

@@ -20,16 +20,28 @@ class PermissionsTableSeeder extends Seeder
 
         $params = [
           [
-            'slug' => 'golongan',
-            'name' => 'Golongan',
-            'description' => 'Melakukan seluruh perintah di golongan',
-            'sub' => []
-          ],
-          [
-            'slug' => 'jabatan',
-            'name' => 'Jabatan',
-            'description' => 'Melakukan seluruh perintah di jabatan',
-            'sub' => []
+            'slug' => 'master',
+            'name' => 'Master Data',
+            'description' => 'Mengatur master data',
+            'sub' => [
+              [
+                'slug' => 'golongan',
+                'name' => 'Golongan',
+                'description' => 'Melakukan seluruh perintah di golongan',
+                'sub' => []
+              ],
+              [
+                'slug' => 'jabatan',
+                'name' => 'Jabatan',
+                'description' => 'Melakukan seluruh perintah di jabatan',
+                'sub' => []
+              ],
+              [
+                'slug' => 'unitkerja-master',
+                'name' => 'Formasi Unit Kerja',
+                'description' => 'Mengatur data master unit kerja'
+              ],
+            ]
           ],
           [
             'slug' => 'laporan',
@@ -123,11 +135,6 @@ class PermissionsTableSeeder extends Seeder
             'name' => 'Unit Kerja',
             'description' => 'Mengatur unit kerja',
             'sub' => [
-              [
-                'slug' => 'unitkerja-master',
-                'name' => 'Master Unit Kerja',
-                'description' => 'Mengatur data master unit kerja'
-              ],
               [
                 'slug' => 'unitkerja-ditjen-setditjen',
                 'name' => 'Unit Kerja Ditjen dan Setditjen',
