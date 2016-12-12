@@ -58,6 +58,9 @@ class PegawaiController extends Controller
         if(empty($unit_kerja_id)){
 			$pegawai = $pegawai->get();
         }
+        elseif($role->can('unitkerja-ditjen-setditjen') && $role->can('unitkerja-bina-potensi') && $role->can('unitkerja-p3kt') && $role->can('unitkerja-ptt') && $role->can('unitkerja-p2t') && $role->can('unitkerja-p3')){
+			$pegawai = $pegawai->get();
+        }
         else{
         	$pegawai = $pegawai->whereIn('unit_kerja_id',$unit_kerja_id)->get();
         }
