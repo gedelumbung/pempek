@@ -26,7 +26,7 @@ class LaporanDukController extends Controller
 		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end'));
 		$uri = http_build_query($request->query());
 		$duk = $dukView->orderBy('golongan', 'desc')
-					->orderBy('tmt_golongan', 'desc')
+					->orderBy('tmt_golongan', 'asc')
 					->orderBy('level', 'desc')
 					->orderBy('masa_kerja', 'desc')
 					->orderBy('jumlah_diklat', 'desc')

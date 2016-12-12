@@ -38,7 +38,7 @@ class UnitKerja extends Model
     public function duk()
     {
         return $this->hasMany('Simpeg\Model\DukView')->orderBy('golongan', 'desc')
-					->orderBy('tmt_golongan', 'desc')
+					->orderBy('tmt_golongan', 'asc')
 					->orderBy('level', 'desc')
 					->orderBy('masa_kerja', 'desc')
 					->orderBy('jumlah_diklat', 'desc')
