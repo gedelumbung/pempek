@@ -127,6 +127,27 @@ class Pegawai extends Model
         return $interval->y;
     }
 
+    public function masa_kerja()
+    {
+        $masaKerja = date('Y-m-d', strtotime($this->tmt_pns));
+        $date = new DateTime($masaKerja);
+        $now = new DateTime();
+        $interval = $now->diff($date);
+        return $interval->y;
+    }
+
+    public function level_pendidikan()
+    {
+        $pendidikan = config('simpeg.pendidikan');
+        $arr_pendidikan = array();
+        $i = 0;
+        foreach ($pendidikan as $key => $value) {
+            array_push($arr_pendidikan, $value);
+        }
+
+        return 1;
+    }
+
     public function pensiun()
     {
         return date("Y-m-d", strtotime(date("Y-m-d", strtotime($this->tanggal_lahir)) . " + 55 years"));

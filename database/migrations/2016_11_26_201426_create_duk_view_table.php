@@ -16,14 +16,33 @@ class CreateDukViewTable extends Migration
         Schema::create('duk_view', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('pegawai_id');
+            //pangkat order
             $table->string('golongan');
-            $table->string('tmt_golongan')->nullable();
-            $table->integer('usia');
-            $table->unsignedInteger('unit_kerja_id');
+
+            //jabatan order
             $table->string('level')->nullable();
+            $table->string('eselon')->nullable();
+            $table->string('jenis_jabatan_level')->nullable();
+            $table->string('tmt_jabatan_eselon')->nullable();
+
+            //masa kerja order
             $table->string('masa_kerja');
-            $table->integer('jumlah_diklat');
-            $table->string('pendidikan');
+
+            //latihan jabatan order
+            $table->string('sepada')->nullable();
+            $table->string('sepala')->nullable();
+            $table->string('sepadya')->nullable();
+            $table->string('spamen')->nullable();
+            $table->string('sepati')->nullable();
+
+            //pendidikan order
+            $table->string('level_pendidikan');
+            $table->string('tahun_pendidikan');
+
+            //usia order
+            $table->integer('usia');
+
+            $table->unsignedInteger('unit_kerja_id');
             $table->timestamps();
         });
     }

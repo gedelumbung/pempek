@@ -160,7 +160,7 @@ class PegawaiController extends Controller
 		return view('backend.pegawai.add', compact('unit_kerja', 'golongan'));
 	}
 
-	public function store(Request $request, Pegawai $pegawai)
+	public function store(Request $request, Pegawai $pegawai, PegawaiLog $pegawaiLog)
 	{
 		$this->middleware('role:pegawai-add');
 		$arr = $request->except('_token','input_foto');
@@ -198,12 +198,12 @@ class PegawaiController extends Controller
 			$arr['tmt_jabatan_fungsional_tertentu'] = null;
 		}
 
-		$pegawai->insert($arr);
+		$pegawaiLog->insert($arr);
+
+		flashy()->success('Berhasil menyimpan data. Data akan divalidasi terlebih dahulu.');
+		return redirect(route('dashboard.pegawai'));
 
 		\Artisan::call('simpeg:pegawai:count_progress:single', ['pegawai' => $pegawai->id]);
-
-		flashy()->success('Berhasil menyimpan data.');
-		return redirect(route('dashboard.pegawai'));
 	}
 
 	public function update(Request $request, Pegawai $pegawai, PegawaiLog $pegawaiLog)

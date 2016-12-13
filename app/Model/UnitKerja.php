@@ -38,12 +38,19 @@ class UnitKerja extends Model
     public function duk()
     {
         return $this->hasMany('Simpeg\Model\DukView')->orderBy('golongan', 'desc')
-					->orderBy('tmt_golongan', 'asc')
-					->orderBy('level', 'desc')
-					->orderBy('masa_kerja', 'desc')
-					->orderBy('jumlah_diklat', 'desc')
-					->orderBy('pendidikan', 'desc')
-					->orderBy('usia', 'desc');
+                    ->orderBy('level', 'desc')
+                    ->orderBy('eselon', 'desc')
+                    ->orderBy('jenis_jabatan_level', 'desc')
+                    ->orderBy('tmt_jabatan_eselon', 'asc')
+                    ->orderBy('masa_kerja', 'desc')
+                    ->orderBy('sepada', 'asc')
+                    ->orderBy('sepala', 'asc')
+                    ->orderBy('sepadya', 'asc')
+                    ->orderBy('spamen', 'asc')
+                    ->orderBy('sepati', 'asc')
+                    ->orderBy('level_pendidikan', 'desc')
+                    ->orderBy('tahun_pendidikan', 'asc')
+                    ->orderBy('usia', 'desc');
     }
 
     public function countParentPegawaiByPendidikan($unit_kerja_id, $pendidikan)

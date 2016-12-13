@@ -15,7 +15,7 @@ class CreatePegawaiLogTable extends Migration
     {
         Schema::create('pegawai_log', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pegawai_id');
+            $table->integer('pegawai_id')->default(0);
             $table->smallInteger('status')->default(0);
             $table->string('nip');
             $table->string('nama_lengkap');
