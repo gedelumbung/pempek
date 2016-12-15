@@ -55,11 +55,18 @@ class LaporanDukController extends Controller
 	{
 		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end'));
 		$duk = $dukView->orderBy('golongan', 'desc')
-					->orderBy('tmt_golongan', 'desc')
 					->orderBy('level', 'desc')
+					->orderBy('eselon', 'desc')
+					->orderBy('jenis_jabatan_level', 'desc')
+					->orderBy('tmt_jabatan_eselon', 'asc')
 					->orderBy('masa_kerja', 'desc')
-					->orderBy('jumlah_diklat', 'desc')
-					->orderBy('pendidikan', 'desc')
+					->orderBy('sepada', 'asc')
+					->orderBy('sepala', 'asc')
+					->orderBy('sepadya', 'asc')
+					->orderBy('spamen', 'asc')
+					->orderBy('sepati', 'asc')
+					->orderBy('level_pendidikan', 'desc')
+					->orderBy('tahun_pendidikan', 'asc')
 					->orderBy('usia', 'desc');
 
 		$duk = empty($unit_kerja) ? $duk : $duk->where('unit_kerja_id', $unit_kerja);

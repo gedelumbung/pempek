@@ -149,16 +149,16 @@
 					</td>
 					<td width="80">
 						<ul>
-							<li>> {{$duk->pegawai->masa_kerja_tahun}}</li>
+							<li>> {{$duk->pegawai->masa_kerja()}}</li>
 							<li>> {{$duk->pegawai->penyesuaian_masa_kerja_tahun}}</li>
-							<li>> {{($duk->pegawai->masa_kerja_tahun+$duk->pegawai->penyesuaian_masa_kerja_tahun)}}</li>
+							<li>> {{($duk->pegawai->masa_kerja()+$duk->pegawai->penyesuaian_masa_kerja_tahun)}}</li>
 						</ul>
 					</td>
 					<td width="80">
 						<ul>
-							<li>> {{$duk->pegawai->masa_kerja_bulan}}</li>
+							<li>> {{$duk->pegawai->masa_kerja(false)}}</li>
 							<li>> {{$duk->pegawai->penyesuaian_masa_kerja_bulan}}</li>
-							<li>> {{($duk->pegawai->masa_kerja_bulan+$duk->pegawai->penyesuaian_masa_kerja_bulan)}}</li>
+							<li>> {{($duk->pegawai->masa_kerja(false)+$duk->pegawai->penyesuaian_masa_kerja_bulan)}}</li>
 						</ul>
 					</td>
 					<td>

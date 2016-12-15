@@ -127,12 +127,15 @@ class Pegawai extends Model
         return $interval->y;
     }
 
-    public function masa_kerja()
+    public function masa_kerja($tahun = true)
     {
-        $masaKerja = date('Y-m-d', strtotime($this->tmt_pns));
+        $masaKerja = date('Y-m-d', strtotime($this->tmt_cpns));
         $date = new DateTime($masaKerja);
         $now = new DateTime();
         $interval = $now->diff($date);
+        if(!$tahun){
+            return $interval->m;
+        }
         return $interval->y;
     }
 
