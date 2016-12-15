@@ -142,13 +142,14 @@ class Pegawai extends Model
     public function level_pendidikan()
     {
         $pendidikan = config('simpeg.pendidikan');
-        $arr_pendidikan = array();
-        $i = 0;
+        $arr_pendidikan = [""=>0];
+        $i = 1;
         foreach ($pendidikan as $key => $value) {
-            array_push($arr_pendidikan, $value);
+            $arr_pendidikan = array_merge($arr_pendidikan,[str_replace("/","_",str_replace(" ", "_", $value)) => $i]);
+            $i++;
         }
 
-        return 1;
+        return $arr_pendidikan[str_replace("/","_",str_replace(" ", "_", $this->pendidikan_akhir))];
     }
 
     public function pensiun()
