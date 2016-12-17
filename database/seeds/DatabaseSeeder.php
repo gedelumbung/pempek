@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PengumumanTableSeeder::class);
         $this->call(SliderTableSeeder::class);
         $this->call(SettingTableSeeder::class);
+
+        \Artisan::call('simpeg:pegawai:count_progress');
     }
 }
