@@ -42,7 +42,7 @@ class CreateDukViewTable extends Migration
             //usia order
             $table->integer('usia');
 
-            $table->unsignedInteger('unit_kerja_id');
+            $table->unsignedInteger('unit_kerja_id')->default(0);
             $table->timestamps();
         });
     }
