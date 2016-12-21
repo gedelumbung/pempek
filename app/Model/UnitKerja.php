@@ -130,18 +130,50 @@ class UnitKerja extends Model
                 ->count();
     }
 
-    public function countSubPegawaiByUsiaEselon($eselon, $jabatan_struktural_id=null, $golongan=array())
+    public function countParentPegawaiByUsiaEselon($jenis_jabatan='fungsional', $eselon, $unit_kerja_id, $usia_start, $usia_end)
     {
+        $child_list_id = JabatanStruktural::where('unit_kerja_id', $unit_kerja_id)->pluck('id')->toArray();
+        
         if ($jenis_jabatan === 'struktural') {
             return Pegawai::where('jenis_jabatan', 'Struktural')
-                    ->where('jabatan_struktural_id', $jabatan_struktural_id)
-                    ->whereIn('golongan_id_akhir', $golongan)
+                    ->whereHas('duk', function($q) use($usia_start, $usia_end){
+                        $q->whereBetween('usia', [$usia_start, $usia_end]);
+                    })
+                    ->whereIn('jabatan_struktural_id', $child_list_id)
+                    ->where('eselon', $eselon)
                     ->count();
         }
         else {
             return Pegawai::whereIn('jenis_jabatan', ['Fungsional Tertentu', 'Fungsional Umum'])
-                    ->where('jabatan_struktural_id', $jabatan_struktural_id)
-                    ->whereIn('golongan_id_akhir', $golongan)
+                    ->whereHas('duk', function($q) use($usia_start, $usia_end){
+                        $q->whereBetween('usia', [$usia_start, $usia_end]);
+                    })
+                    ->whereIn('jabatan_struktural_id', $child_list_id)
+                    ->count();
+        }
+    }
+
+    public function countSubPegawaiByUsiaEselon($jenis_jabatan='fungsional', $eselon, $jabatan_struktural_id=null, $usia_start, $usia_end)
+    {
+        $child_list_id = JabatanStruktural::where('parent_id', $jabatan_struktural_id)->pluck('id')->toArray();
+        $parent_list_id = JabatanStruktural::where('id', $jabatan_struktural_id)->pluck('id')->toArray();
+        $merge = array_merge($child_list_id,$parent_list_id);
+
+        if ($jenis_jabatan === 'struktural') {
+            return Pegawai::where('jenis_jabatan', 'Struktural')
+                    ->whereHas('duk', function($q) use($usia_start, $usia_end){
+                        $q->whereBetween('usia', [$usia_start, $usia_end]);
+                    })
+                    ->whereIn('jabatan_struktural_id', $merge)
+                    ->where('eselon', $eselon)
+                    ->count();
+        }
+        else {
+            return Pegawai::whereIn('jenis_jabatan', ['Fungsional Tertentu', 'Fungsional Umum'])
+                    ->whereHas('duk', function($q) use($usia_start, $usia_end){
+                        $q->whereBetween('usia', [$usia_start, $usia_end]);
+                    })
+                    ->whereIn('jabatan_struktural_id', $merge)
                     ->count();
         }
     }
