@@ -118,6 +118,11 @@ class Pegawai extends Model
         return $this->hasMany('Simpeg\Model\RiwayatPendidikan')->orderBy('tanggal_lulus', 'ASC');
     }
 
+    public function duk()
+    {
+        return $this->belongsTo('Simpeg\Model\DukView', 'id');
+    }
+
     public function age()
     {
         $birthDate = date('Y-m-d', strtotime($this->tanggal_lahir));
@@ -154,7 +159,7 @@ class Pegawai extends Model
 
     public function pensiun()
     {
-        return date("Y-m-d", strtotime(date("Y-m-d", strtotime($this->tanggal_lahir)) . " + 55 years"));
+        return date("Y-m-d", strtotime(date("Y-m-d", strtotime($this->tanggal_lahir)) . " + 58 years 1 month"));
     }
 
     public function intervalFromNow($date)
