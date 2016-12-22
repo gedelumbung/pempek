@@ -1,10 +1,13 @@
-@extends("backend.layout.backend")
-
-@section("title","Laporan Konfirgurasi - Jabatan")
-
-@section("content")
-<a href="{{route('dashboard.laporan.jabatan.cetak')}}" class="btn btn-danger">Export to Excel</a>
-	<div class="table-responsive">
+<?php
+$nama_file = "laporan-konfirgurasi-jabatan-".date('d-M-Y').".xls";
+header("Pragma: public");
+header("Expires: 0");
+header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+header("Content-Type: application/force-download");
+header("Content-Type: application/octet-stream");
+header("Content-Type: application/download");
+header("Content-Disposition: attachment;filename=".$nama_file."");  header("Content-Transfer-Encoding: binary "); 
+?>
 		<table class="table table-bordered" style="background-color: #fff;">
 			<thead>
 				<tr>
@@ -78,6 +81,3 @@
 				@endforeach
 			</tbody>
 		</table>
-	</div>
-
-@endsection
