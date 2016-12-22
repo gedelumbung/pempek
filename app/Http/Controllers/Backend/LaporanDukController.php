@@ -23,7 +23,7 @@ class LaporanDukController extends Controller
 	
 	public function index(Request $request, DukView $dukView, UnitKerja $unitKerjaData, Golongan $golonganData)
 	{
-		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end'));
+		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end', 'kedudukan_pns', 'status_pegawai'));
 		$uri = http_build_query($request->query());
 		$duk = $dukView->orderBy('golongan', 'desc')
 					->orderBy('level', 'desc')
@@ -42,18 +42,20 @@ class LaporanDukController extends Controller
 
 		$duk = empty($unit_kerja) ? $duk : $duk->where('unit_kerja_id', $unit_kerja);
 		$duk = empty($golongan) ? $duk : $duk->where('golongan', $golongan);
+		$duk = empty($kedudukan_pns) ? $duk : $duk->where('kedudukan_pns', $kedudukan_pns);
+		$duk = empty($status_pegawai) ? $duk : $duk->where('status_pegawai', $status_pegawai);
 		$duk = empty($age_start) ? $duk : $duk->whereRaw('usia >= '.$age_start);
 		$duk = empty($age_end) ? $duk : $duk->whereRaw('usia <= '.$age_end);
 
 		$duk = $duk->get();
 		$golongan_data = $golonganData->get();
 		$unit_kerja_data = $unitKerjaData->where('parent_id', 0)->get();
-		return view('backend.laporan.duk', compact('duk', 'golongan_data', 'unit_kerja_data', 'unit_kerja', 'golongan', 'age_start', 'age_end', 'uri'));
+		return view('backend.laporan.duk', compact('duk', 'golongan_data', 'unit_kerja_data', 'unit_kerja', 'golongan', 'age_start', 'age_end', 'uri', 'status_pegawai', 'kedudukan_pns'));
 	}
 	
 	public function prints(Request $request, DukView $dukView)
 	{
-		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end'));
+		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end', 'kedudukan_pns', 'status_pegawai'));
 		$duk = $dukView->orderBy('golongan', 'desc')
 					->orderBy('level', 'desc')
 					->orderBy('eselon', 'desc')
@@ -71,6 +73,8 @@ class LaporanDukController extends Controller
 
 		$duk = empty($unit_kerja) ? $duk : $duk->where('unit_kerja_id', $unit_kerja);
 		$duk = empty($golongan) ? $duk : $duk->where('golongan', $golongan);
+		$duk = empty($kedudukan_pns) ? $duk : $duk->where('kedudukan_pns', $kedudukan_pns);
+		$duk = empty($status_pegawai) ? $duk : $duk->where('status_pegawai', $status_pegawai);
 		$duk = empty($age_start) ? $duk : $duk->whereRaw('usia >= '.$age_start);
 		$duk = empty($age_end) ? $duk : $duk->whereRaw('usia <= '.$age_end);
 
@@ -121,6 +125,8 @@ class LaporanDukController extends Controller
 			//usia order
 			$duk->usia = $data->age();
 
+			$duk->status_pegawai = $data->status_pegawai;
+			$duk->kedudukan_pns = $data->kedudukan_pns;
 			$duk->unit_kerja_id = $data->unit_kerja_id;
 			$duk->save();
 		}

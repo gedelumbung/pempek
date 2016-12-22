@@ -23,7 +23,7 @@ class LaporanNominatifController extends Controller
 	
 	public function index(Request $request, UnitKerja $unitKerja, Golongan $golonganData)
 	{
-		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end'));
+		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end', 'kedudukan_pns', 'status_pegawai'));
 		$uri = http_build_query($request->query());
 
 		$golongan_data = $golonganData->get();
@@ -31,10 +31,12 @@ class LaporanNominatifController extends Controller
 
 		$unitKerja = $unitKerja->where('parent_id',0)
 								->with(array(
-									'duk' => function($query) use($unit_kerja,$golongan,$age_start,$age_end)
+									'duk' => function($query) use($unit_kerja,$golongan,$age_start,$age_end,$kedudukan_pns,$status_pegawai)
 											{
 												$query = empty($unit_kerja) ? $query : $query->where('unit_kerja_id', $unit_kerja);
 												$query = empty($golongan) ? $query : $query->where('golongan', $golongan);
+												$query = empty($kedudukan_pns) ? $query : $query->where('kedudukan_pns', $kedudukan_pns);
+												$query = empty($status_pegawai) ? $query : $query->where('status_pegawai', $status_pegawai);
 												$query = empty($age_start) ? $query : $query->whereRaw('usia >= '.$age_start);
 												$query = empty($age_end) ? $query : $query->whereRaw('usia <= '.$age_end);
 											}
@@ -43,12 +45,12 @@ class LaporanNominatifController extends Controller
 
 		$unitKerja = $unitKerja->get();
 
-		return view('backend.laporan.nominatif', compact('unitKerja', 'golongan_data', 'unit_kerja_data', 'unit_kerja', 'golongan', 'age_start', 'age_end', 'uri'));
+		return view('backend.laporan.nominatif', compact('unitKerja', 'golongan_data', 'unit_kerja_data', 'unit_kerja', 'golongan', 'age_start', 'age_end', 'uri', 'status_pegawai', 'kedudukan_pns'));
 	}
 	
 	public function prints(Request $request, UnitKerja $unitKerja)
 	{
-		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end'));
+		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end', 'kedudukan_pns', 'status_pegawai'));
 		$uri = http_build_query($request->query());
 
 		$unitKerja = $unitKerja->where('parent_id',0)
@@ -57,6 +59,8 @@ class LaporanNominatifController extends Controller
 											{
 												$query = empty($unit_kerja) ? $query : $query->where('unit_kerja_id', $unit_kerja);
 												$query = empty($golongan) ? $query : $query->where('golongan', $golongan);
+												$query = empty($kedudukan_pns) ? $query : $query->where('kedudukan_pns', $kedudukan_pns);
+												$query = empty($status_pegawai) ? $query : $query->where('status_pegawai', $status_pegawai);
 												$query = empty($age_start) ? $query : $query->whereRaw('usia >= '.$age_start);
 												$query = empty($age_end) ? $query : $query->whereRaw('usia <= '.$age_end);
 											}
@@ -111,6 +115,8 @@ class LaporanNominatifController extends Controller
 			//usia order
 			$duk->usia = $data->age();
 
+			$duk->status_pegawai = $data->status_pegawai;
+			$duk->kedudukan_pns = $data->kedudukan_pns;
 			$duk->unit_kerja_id = $data->unit_kerja_id;
 			$duk->save();
 		}

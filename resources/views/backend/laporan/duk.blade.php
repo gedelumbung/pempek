@@ -42,6 +42,40 @@
 			</div>
 			<div class="row">
 				<div class="form-group col-md-12 col-sm-12">
+					<label class="col-md-3 control-label">Kedudukan PNS</label>
+					<div class="col-md-9">
+						<select name="kedudukan_pns">
+							<option value="">Kedudukan PNS</option>
+							@foreach(config('simpeg.kedudukan_pegawai') as $kedudukan_pegawai)
+								@if($kedudukan_pegawai == $kedudukan_pns)
+								<option value="{{$kedudukan_pegawai}}" selected="selected">{{$kedudukan_pegawai}}</option>
+								@else
+								<option value="{{$kedudukan_pegawai}}">{{$kedudukan_pegawai}}</option>
+								@endif
+							@endforeach
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12 col-sm-12">
+					<label class="col-md-3 control-label">Status Pegawai</label>
+					<div class="col-md-9">
+						<select name="status_pegawai">
+							<option value="">Status Pegawai</option>
+							@foreach(config('simpeg.status_pegawai') as $status_pegawai_duk)
+								@if($status_pegawai == $status_pegawai_duk)
+								<option value="{{$status_pegawai_duk}}" selected="selected">{{$status_pegawai_duk}}</option>
+								@else
+								<option value="{{$status_pegawai_duk}}">{{$status_pegawai_duk}}</option>
+								@endif
+							@endforeach
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12 col-sm-12">
 					<label class="col-md-3 control-label">Umur</label>
 					<div class="col-md-5">
 						<input type="number" class="form-control" name="age_start" value="{{$age_start}}" placeholder="Dari">
