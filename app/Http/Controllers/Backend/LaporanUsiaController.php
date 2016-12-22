@@ -22,4 +22,10 @@ class LaporanUsiaController extends Controller
 		$unit_kerja = $unitKerja->where('parent_id',0)->get();
 		return view('backend.laporan.usia', compact('unit_kerja'));
 	}
+	
+	public function prints(UnitKerja $unitKerja)
+	{
+		$unit_kerja = $unitKerja->where('parent_id',0)->get();
+		return view('backend.laporan.usia_cetak', compact('unit_kerja'));
+	}
 }
