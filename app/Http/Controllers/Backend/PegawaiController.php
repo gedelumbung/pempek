@@ -52,7 +52,7 @@ class PegawaiController extends Controller
         } elseif ($role->can('unitkerja-p2t')) {
             $unit_kerja_id = UnitKerja::where('parent_id',0)->where('title','like', '%p2t%')->pluck('id')->toArray();
         } elseif ($role->can('unitkerja-p3')) {
-            $unit_kerja_id = UnitKerja::where('parent_id',0)->where('title','like', '%p3%')->pluck('id')->toArray();
+            $unit_kerja_id = UnitKerja::where('parent_id',0)->where('title', 'P3')->pluck('id')->toArray();
         }
 
         if(empty($unit_kerja_id)){
@@ -146,7 +146,7 @@ class PegawaiController extends Controller
         } elseif ($role->can('unitkerja-p2t')) {
             $unit_kerja_id = UnitKerja::where('parent_id',0)->where('title','like', '%p2t%')->pluck('id')->toArray();
         } elseif ($role->can('unitkerja-p3')) {
-            $unit_kerja_id = UnitKerja::where('parent_id',0)->where('title','like', '%p3%')->pluck('id')->toArray();
+            $unit_kerja_id = UnitKerja::where('parent_id',0)->where('title', 'P3')->pluck('id')->toArray();
         }
 
         if(empty($unit_kerja_id)){
@@ -309,7 +309,7 @@ class PegawaiController extends Controller
         } elseif ($role->can('unitkerja-p2t')) {
             $unit_kerja_id = UnitKerja::where('parent_id',0)->where('title','like', '%p2t%')->pluck('id')->toArray();
         } elseif ($role->can('unitkerja-p3')) {
-            $unit_kerja_id = UnitKerja::where('parent_id',0)->where('title','like', '%p3%')->pluck('id')->toArray();
+            $unit_kerja_id = UnitKerja::where('parent_id',0)->where('title', 'P3')->pluck('id')->toArray();
         }
 
         if(empty($unit_kerja_id)){
