@@ -18,6 +18,7 @@
 					<th>Unit Kerja</th>
 					<th>Jenis Jabatan</th>
 					<th>Nama Jabatan</th>
+					<th>Kedudukan PNS</th>
 					<th>Progress</th>
 					<th width="100">
 						<a href="{{route('dashboard.pegawai.add')}}" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Tambah</a>
@@ -43,6 +44,9 @@
 						@elseif(!empty($data->jabatan_struktural_id))
 							{{$data->jabatan_struktural->title}}
 						@endif
+					</td>
+					<td>
+						{{$data->kedudukan_pns}}
 					</td>
 					<td>
 						<div class="progress progress-squared" style="margin-bottom: -20px">
