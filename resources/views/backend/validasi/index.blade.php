@@ -31,6 +31,11 @@
 	        			<a href="{{ route('dashboard.validasi_data.show', ['pegawai' => $data->pegawai_id]) }}" class="btn btn-primary btn-sm" title="Detail Pegawai">
 	        				<i class="glyphicon glyphicon-eye-open"></i> Lihat Data
 	        			</a>
+	        			@if($data->enableApprove($data->pegawai_id))
+	        			<a href="{{ route('dashboard.validasi_data.approve_all', ['pegawai' => $data->pegawai_id]) }}" class="btn btn-success btn-sm" title="Detail Pegawai">
+	        				<i class="glyphicon glyphicon-check"></i> Approve Data
+	        			</a>
+	        			@endif
 					</td>
 				</tr>
 				@endforeach

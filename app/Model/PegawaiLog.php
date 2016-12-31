@@ -3,6 +3,10 @@
 namespace Simpeg\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Simpeg\Model\RiwayatPendidikanLog;
+use Simpeg\Model\RiwayatDiklatLog;
+use Simpeg\Model\RiwayatKursusLog;
+use Simpeg\Model\RiwayatPenghargaanLog;
 
 class PegawaiLog extends Model
 {
@@ -116,5 +120,19 @@ class PegawaiLog extends Model
     public function riwayat_pendidikan()
     {
         return $this->hasMany('Simpeg\Model\RiwayatPendidikan')->orderBy('tanggal_lulus', 'ASC');
+    }
+
+    public function enableApprove($id)
+    {
+        $pegawai = $this->where('pegawai_id',$id)->where('status',0)->count();
+        $pendidikan = RiwayatPendidikanLog::where('pegawai_id',$id)->where('status',0)->count();
+        $diklat = RiwayatDiklatLog::where('pegawai_id',$id)->where('status',0)->count();
+        $kursus = RiwayatKursusLog::where('pegawai_id',$id)->where('status',0)->count();
+        $penghargaan = RiwayatPenghargaanLog::where('pegawai_id',$id)->where('status',0)->count();
+
+        if ($pegawai == 0 && $pendidikan == 0 && $diklat == 0 && $kursus == 0 && $penghargaan == 0) {
+            return true;
+        }
+        return false;
     }
 }

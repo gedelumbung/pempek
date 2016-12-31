@@ -168,7 +168,7 @@ class ValidasiController extends Controller
 		return back();
 	}
 
-	protected function checkNonApproved($id)
+	public function checkNonApproved($id)
 	{
 		$pegawai = PegawaiLog::where('pegawai_id',$id)->where('status',0)->count();
 		$pendidikan = RiwayatPendidikanLog::where('pegawai_id',$id)->where('status',0)->count();
