@@ -55,7 +55,7 @@ class HomeController extends Controller
 		foreach ($temp['agama'] as $key=>$t) {
 			foreach (config('simpeg.agama') as $agama) {
 				$temp['agama'][$key][$agama] = '';
-	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE golongan_id_akhir = '".$t['id']."' AND agama = '".$agama."'"));
+	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE kedudukan_pns='Aktif' and golongan_id_akhir = '".$t['id']."' AND agama = '".$agama."'"));
 	        	$temp['agama'][$key][$agama] = count($ag);
 			}
 		}
@@ -68,7 +68,7 @@ class HomeController extends Controller
 		foreach ($temp['pendidikan'] as $key=>$t) {
 			foreach (config('simpeg.pendidikan') as $pendidikan) {
 				$temp['pendidikan'][$key][$pendidikan] = '';
-	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE golongan_id_akhir = '".$t['id']."' AND pendidikan_akhir = '".$pendidikan."'"));
+	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE kedudukan_pns='Aktif' and golongan_id_akhir = '".$t['id']."' AND pendidikan_akhir = '".$pendidikan."'"));
 	        	$temp['pendidikan'][$key][$pendidikan] = count($ag);
 			}
 		}
@@ -81,7 +81,7 @@ class HomeController extends Controller
 		foreach ($temp['jabatan'] as $key=>$t) {
 			foreach (config('simpeg.jenis_jabatan') as $jabatan) {
 				$temp['jabatan'][$key][$jabatan] = '';
-	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE golongan_id_akhir = '".$t['id']."' AND jenis_jabatan = '".$jabatan."'"));
+	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE kedudukan_pns='Aktif' and golongan_id_akhir = '".$t['id']."' AND jenis_jabatan = '".$jabatan."'"));
 	        	$temp['jabatan'][$key][$jabatan] = count($ag);
 			}
 		}
@@ -94,7 +94,7 @@ class HomeController extends Controller
 		foreach ($temp['jenis_kelamin'] as $key=>$t) {
 			foreach (config('simpeg.jenis_kelamin') as $jenis_kelamin) {
 				$temp['jenis_kelamin'][$key][$jenis_kelamin] = '';
-	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE golongan_id_akhir = '".$t['id']."' AND jenis_kelamin = '".$jenis_kelamin."'"));
+	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE kedudukan_pns='Aktif' and golongan_id_akhir = '".$t['id']."' AND jenis_kelamin = '".$jenis_kelamin."'"));
 	        	$temp['jenis_kelamin'][$key][$jenis_kelamin] = count($ag);
 			}
 		}
@@ -125,7 +125,7 @@ class HomeController extends Controller
 	                $a .= "$ul : lebihdari $ex[1]<br/>";
 	                $forquery   = "> ".$ex[1];
 	            }
-	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE golongan_id_akhir = '".$t['id']."' AND YEAR(CURRENT_TIMESTAMP) - YEAR(tanggal_lahir) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(tanggal_lahir, 5)) ".$forquery." "));
+	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE kedudukan_pns='Aktif' and golongan_id_akhir = '".$t['id']."' AND YEAR(CURRENT_TIMESTAMP) - YEAR(tanggal_lahir) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(tanggal_lahir, 5)) ".$forquery." "));
 	        	$temp['usia'][$key][$ul] = count($ag);
 			}
 		}
@@ -156,7 +156,7 @@ class HomeController extends Controller
 	                $a .= "$ul : lebihdari $ex[1]<br/>";
 	                $forquery   = "> ".$ex[1];
 	            }
-	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE golongan_id_akhir = '".$t['id']."' AND YEAR(CURRENT_TIMESTAMP) - YEAR(tmt_golongan_akhir) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(tmt_golongan_akhir, 5)) ".$forquery." "));
+	        	$ag = DB::select(DB::raw("SELECT * FROM pegawai WHERE kedudukan_pns='Aktif' and golongan_id_akhir = '".$t['id']."' AND YEAR(CURRENT_TIMESTAMP) - YEAR(tmt_golongan_akhir) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(tmt_golongan_akhir, 5)) ".$forquery." "));
 	        	$temp['masa_kerja'][$key][$ul] = count($ag);
 			}
 		}
