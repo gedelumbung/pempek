@@ -21,6 +21,8 @@ class HomeController extends Controller
 	public function index(Pegawai $pegawai, Golongan $golongan)
 	{
 		$count_all = $pegawai->count();
+		$count_all_active = $pegawai->where('kedudukan_pns', 'Aktif')->count();
+		$count_all_inactive = $pegawai->where('kedudukan_pns', 'Tidak Aktif')->count();
 		$count_all_not_completed = $pegawai->whereRaw('count_progress <=61')->count();
 		$golongan = $golongan->get();
 
@@ -164,6 +166,6 @@ class HomeController extends Controller
 		}
 
 		//return json_encode($ykeys['agama'], 200);
-		return view('backend.home.index', compact('count_all','count_all_not_completed','golongan','pegawai','temp','ykeys'));
+		return view('backend.home.index', compact('count_all','count_all_not_completed','golongan','pegawai','temp','ykeys', 'count_all_active', 'count_all_inactive'));
 	}
 }

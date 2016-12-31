@@ -26,6 +26,50 @@
 	</section>
 </div>
 <div class="col-md-6 col-lg-6 col-xl-12">
+	<section class="panel panel-featured-left panel-featured-success">
+		<div class="panel-body">
+			<div class="widget-summary">
+				<div class="widget-summary-col widget-summary-col-icon">
+					<div class="summary-icon bg-primary">
+						<i class="fa fa-group"></i>
+					</div>
+				</div>
+				<div class="widget-summary-col">
+					<div class="summary">
+						<h4 class="title">Total Pegawai Aktif</h4>
+						<div class="info">
+							<strong class="amount">{{$count_all_active}}</strong>
+							<!-- <span class="text-primary">(14 unread)</span> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<div class="col-md-6 col-lg-6 col-xl-12">
+	<section class="panel panel-featured-left panel-featured-success">
+		<div class="panel-body">
+			<div class="widget-summary">
+				<div class="widget-summary-col widget-summary-col-icon">
+					<div class="summary-icon bg-primary">
+						<i class="fa fa-group"></i>
+					</div>
+				</div>
+				<div class="widget-summary-col">
+					<div class="summary">
+						<h4 class="title">Total Pegawai Tidak Aktif</h4>
+						<div class="info">
+							<strong class="amount">{{$count_all_inactive}}</strong>
+							<!-- <span class="text-primary">(14 unread)</span> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<div class="col-md-6 col-lg-6 col-xl-12">
 	<section class="panel panel-featured-left panel-featured-warning">
 		<div class="panel-body">
 			<div class="widget-summary">

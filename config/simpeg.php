@@ -20,6 +20,7 @@ return [
 
     'kedudukan_pegawai' => [
         'aktif'                     => 'Aktif',
+        'tidak_aktif'               => 'Tidak Aktif',
         'cltn'                      =>  'CLTN',
         'tugas_belajar'             => 'Tugas Belajar',
         'pemberhentian_sementara'   =>  'Pemberhentian Sementara',
