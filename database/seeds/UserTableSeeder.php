@@ -15,18 +15,9 @@ class UserTableSeeder extends Seeder
     {
       DB::statement('SET FOREIGN_KEY_CHECKS=0;');
       DB::table('users')->truncate();
+      DB::table('role_user')->truncate();
 
-      User::create([
-        "name" => "Administrator",
-        "email" => "admin@apps.com",
-        "nip" => "123456",
-        "password" => bcrypt("123456"),
-        "pegawai_id" => "1",
-      ]);
-
-      RoleUser::create([
-        'role_id' => 3,
-        'user_id' => 1
-      ]);
+      DB::statement(Storage::get('sql/users.sql'));
+      DB::statement(Storage::get('sql/role_user.sql'));
     }
 }

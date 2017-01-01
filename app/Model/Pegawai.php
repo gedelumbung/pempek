@@ -5,9 +5,12 @@ namespace Simpeg\Model;
 use Illuminate\Database\Eloquent\Model;
 use DateTime;
 use DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Pegawai extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'pegawai';
 
     protected $casts = [

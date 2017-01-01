@@ -86,7 +86,8 @@ class CreatePegawaiTable extends Migration
             $table->string('golongan_darah', 2)->nullable();
             
             $table->integer('count_progress')->default(0);
-
+            
+            $table->softDeletes();
             $table->timestamps();
         });
     }
