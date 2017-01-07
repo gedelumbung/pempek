@@ -28,6 +28,7 @@ INSERT INTO `permissions` (`id`, `parent_id`, `name`, `slug`, `description`, `cr
 (26,	20,	'Unit Kerja P3',	'unitkerja-p3',	'Melakukan manajemen data untuk unit kerja P3',	'2016-12-13 14:08:27',	'2016-12-13 14:08:27'),
 (27,	0,	'Permission',	'permission',	'Mengatur Permssion seluruh user',	'2016-12-13 14:08:27',	'2016-12-13 14:08:27'),
 (28,	0,	'Dashboard',	'dashboard',	'View Dashboard',	'2016-12-13 14:08:27',	'2016-12-13 14:08:27'),
-(29,	0,	'Front End',	'frontend',	'Melakukan seluruh perintah untuk mengubah front-end',	'2016-12-13 14:08:27',	'2016-12-13 14:08:27');
+(29,	0,	'Front End',	'frontend',	'Melakukan seluruh perintah untuk mengubah front-end',	'2016-12-13 14:08:27',	'2016-12-13 14:08:27'),
+(30,	5,	'Alert Pensiun',	'alert-pensiun',	'Melakukan seluruh perintah di Alert Pensiun',	'2016-12-13 14:08:27',	'2016-12-13 14:08:27'),;
 
 -- 2016-12-31 15:44:31
