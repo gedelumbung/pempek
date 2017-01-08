@@ -12,3 +12,4 @@
 * run `gulp`
 * run database migration `php artisan migrate`
 * run database seeder `php artisan db:seed`
+* run `php artisan simpeg:pegawai:count_progress`
