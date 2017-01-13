@@ -32,9 +32,10 @@ use Simpeg\Model\RoleUser;
 class PegawaiController extends Controller
 {
 	
-	public function index(Pegawai $pegawai)
+	public function index(Request $request, Pegawai $pegawai)
 	{
 		$this->middleware('role:pegawai-all');
+		extract($request->only('kedudukan_pns'));
 
         $user = \Auth::user()->id;
         $roleUser = RoleUser::where('user_id', $user)->first();
@@ -55,6 +56,8 @@ class PegawaiController extends Controller
             $unit_kerja_id = UnitKerja::where('parent_id',0)->where('title', 'P3')->pluck('id')->toArray();
         }
 
+		$pegawai = empty($kedudukan_pns) ? $pegawai : $pegawai->where('kedudukan_pns', $kedudukan_pns);
+
         if(empty($unit_kerja_id)){
 			$pegawai = $pegawai->get();
         }
@@ -64,7 +67,7 @@ class PegawaiController extends Controller
         else{
         	$pegawai = $pegawai->whereIn('unit_kerja_id',$unit_kerja_id)->get();
         }
-		return view('backend.pegawai.index', compact('pegawai'));
+		return view('backend.pegawai.index', compact('pegawai', 'kedudukan_pns'));
 	}
 
 	public function show($id, 

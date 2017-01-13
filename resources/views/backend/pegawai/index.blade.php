@@ -10,6 +10,27 @@
 	</div>
 	
 	<div class="panel-body">
+		<div class="pull-right">
+			<form method="get" action="{{route('dashboard.pegawai')}}">
+				<div class="form-group col-md-12 col-sm-12">
+					<div class="col-md-9">
+						<select name="kedudukan_pns" class="pull-right">
+							<option value="">-- Kedudukan PNS --</option>
+							@foreach(config('simpeg.kedudukan_pegawai') as $kedudukan_pegawai)
+								@if($kedudukan_pegawai == $kedudukan_pns)
+								<option value="{{$kedudukan_pegawai}}" selected="selected">{{$kedudukan_pegawai}}</option>
+								@else
+								<option value="{{$kedudukan_pegawai}}">{{$kedudukan_pegawai}}</option>
+								@endif
+							@endforeach
+						</select>
+					</div>
+					<div class="col-md-3">
+						<input type="submit" value="Filter" class="btn btn-primary">
+					</div>
+				</div>
+			</form>
+		</div>
 		<table class="table table-striped" id="table_id">
 			<thead>
 				<tr>
