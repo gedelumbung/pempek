@@ -8,5 +8,3 @@ INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`)
 (9,	5,	7,	NULL,	NULL),
 (10,	6,	8,	NULL,	NULL),
 (11,	7,	9,	NULL,	NULL);
-
--- 2016-12-31 15:45:08

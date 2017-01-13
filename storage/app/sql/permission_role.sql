@@ -105,4 +105,3 @@ INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`, `created_at`, `
 (103,	28,	10,	NULL,	NULL),
 (104,	29,	3,	NULL,	NULL);
 
--- 2016-12-31 15:44:34

@@ -8,5 +8,3 @@ INSERT INTO `users` (`id`, `nip`, `pegawai_id`, `name`, `email`, `password`, `re
 (7,	'19870506 201403 1 002',	47,	'Antonius Hawan',	'antonius.hawan@gmail.com',	'$2y$10$cQJaakSwJM3GzR6ciy3RYeI0cmmxYupEyKWunN0OTVOGK5.fCNtwK',	'q9f55n1j4IVpqE9otbIvm5qqarBZTKGSNrlSYWrrQxxuiA0TWFAe2uLtoNh5',	'2016-12-26 19:04:25',	'2016-12-28 04:06:02'),
 (8,	'19651115 198703 2 001',	117,	'Saleha',	'saleha@gmail.com',	'$2y$10$mvzTdzbh368/eLrMxilE9.0DwJMfRGUeYs.MIaUmxAOWCKxrG/Q52',	NULL,	'2016-12-27 18:22:26',	'2016-12-27 18:22:26'),
 (9,	'123',	NULL,	'aku',	'mail@mail.com',	'$2y$10$RWDZxEXkCO7yI7wYqJcUAuLqQYsI4x4j5AjYhOfwFi1wznVspXQkq',	'KtLAY3yBcjxy2nE8rYbe2RGg0pOWGDs6Pu9N5CKCkppop7jAWpQARrRXlaai',	'2016-12-30 15:56:31',	'2016-12-30 16:48:40');
-
--- 2016-12-31 15:45:30

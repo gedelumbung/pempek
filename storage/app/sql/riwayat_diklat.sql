@@ -729,4 +729,3 @@ INSERT INTO `riwayat_diklat` (`id`, `pegawai_id`, `nama_diklat`, `nomor_sertifik
 (741,	56,	'Diklat Prajab II',	'No. 49/II.15/Diklat Prajab II/LAN/2011',	'2011-02-04',	100,	NULL,	'2016-12-27 19:28:37'),
 (742,	56,	'Diklat Prajab II',	'No. 49/II.15/Diklat Prajab II/LAN/2011',	'2011-02-04',	100,	NULL,	'2016-12-28 03:09:29');
 
--- 2016-12-31 15:44:39

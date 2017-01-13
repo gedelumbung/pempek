@@ -5,4 +5,3 @@ INSERT INTO `riwayat_pendidikan_log` (`id`, `pegawai_id`, `status`, `nama_sekola
 (3,	305,	0,	'Gotong Royong',	'S.1',	'Sarjana Strata Satu (S-1)',	'S 1',	'2008-04-07',	'DR.H.Mirzan T, Razzak, APU',	NULL,	NULL),
 (4,	305,	0,	'Pucanganom II Kel. Pucanganom, Kec. Rongkop.Kab. Gunung Kidul Wonosari',	'SD',	'-',	'1976',	'1976-12-01',	'Ngarip',	NULL,	NULL);
 
--- 2016-12-31 15:44:53

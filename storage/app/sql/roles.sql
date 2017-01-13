@@ -10,5 +10,3 @@ INSERT INTO `roles` (`id`, `name`, `slug`, `description`, `created_at`, `updated
 (8,	'Staff TU PTT',	'staff-tu-ptt',	'Melakukan aktivitas sesuai unit kerja',	'2016-12-13 14:08:27',	'2016-12-13 14:08:27',	NULL),
 (9,	'Staff TU P2T',	'staff-tu-p2t',	'Melakukan aktivitas sesuai unit kerja',	'2016-12-13 14:08:27',	'2016-12-13 14:08:27',	NULL),
 (10,	'Staff TU P3',	'staff-tu-p3',	'Melakukan aktivitas sesuai unit kerja',	'2016-12-13 14:08:27',	'2016-12-13 14:08:27',	NULL);
-
--- 2016-12-31 15:45:00

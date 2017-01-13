@@ -354,4 +354,3 @@ INSERT INTO `riwayat_pendidikan` (`id`, `pegawai_id`, `nama_sekolah`, `tingkat_p
 (359,	308,	'IPPM',	'S.2',	'Stategi/Agribisnis ',	'-',	'01/06/1992',	'-',	NULL,	NULL),
 (360,	308,	'Institut Pertanian Bogor',	'S.3',	'Pengelolaan SDA dan Lingkungan',	'-',	'01/06/2008',	'-',	NULL,	NULL);
 
--- 2016-12-31 15:44:49
