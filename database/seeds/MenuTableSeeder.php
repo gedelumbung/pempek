@@ -166,9 +166,9 @@ class MenuTableSeeder extends Seeder
                     ],
                     [
                         'title' =>  'Laporan Alert Pensiun',
-                        'url' =>  'dashboard.laporan.jenis_kelamin',
+                        'url' =>  'dashboard.laporan.alert_pensiun',
                         'icon' =>  'fa fa-pencil',
-                        'permission_id' =>  12,
+                        'permission_id' =>  30,
                     ],
                 ]
             ],
