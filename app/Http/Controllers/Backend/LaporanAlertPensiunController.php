@@ -20,7 +20,7 @@ class LaporanAlertPensiunController extends Controller
 	
 	public function index(Pegawai $pegawai)
 	{
-		$pegawai = $pegawai->get();
+		$pegawai = $pegawai->usia_pensiun();
 		return view('backend.laporan.alert_pensiun', compact('pegawai'));
 	}
 }

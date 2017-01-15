@@ -170,4 +170,9 @@ class Pegawai extends Model
         $interval = date_diff(date_create(), date_create($date));
         return $interval->format("%Y tahun %M bulan");
     }
+
+    public function usia_pensiun()
+    {
+        return \DB::select(\DB::raw('select *, TIMESTAMPDIFF( YEAR, tanggal_lahir, now()) as tahun, TIMESTAMPDIFF( MONTH, tanggal_lahir, now() ) % 12 as bulan from pegawai where ((TIMESTAMPDIFF( YEAR, tanggal_lahir, now() ) * 12) + TIMESTAMPDIFF( MONTH, tanggal_lahir, now() ) % 12) between 684 and 697'));
+    }
 }
