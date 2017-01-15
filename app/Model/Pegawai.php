@@ -173,6 +173,6 @@ class Pegawai extends Model
 
     public function usia_pensiun()
     {
-        return \DB::select(\DB::raw('select *, TIMESTAMPDIFF( YEAR, tanggal_lahir, now()) as tahun, TIMESTAMPDIFF( MONTH, tanggal_lahir, now() ) % 12 as bulan from pegawai where ((TIMESTAMPDIFF( YEAR, tanggal_lahir, now() ) * 12) + TIMESTAMPDIFF( MONTH, tanggal_lahir, now() ) % 12) between 684 and 697'));
+        return \DB::select(\DB::raw('select *, TIMESTAMPDIFF( YEAR, tanggal_lahir, now()) as tahun, TIMESTAMPDIFF( MONTH, tanggal_lahir, now() ) % 12 as bulan, tanggal_lahir + INTERVAL 697 MONTH as pensiun from pegawai where ((TIMESTAMPDIFF( YEAR, tanggal_lahir, now() ) * 12) + TIMESTAMPDIFF( MONTH, tanggal_lahir, now() ) % 12) between 683 and 696'));
     }
 }

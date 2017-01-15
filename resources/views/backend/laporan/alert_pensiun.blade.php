@@ -12,6 +12,7 @@
 				<th>Jenis Jabatan</th>
 				<th>Kedudukan PNS</th>
 				<th>Umur</th>
+				<th>Tanggal Pensiun</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,6 +26,9 @@
 					</td>
 					<td>
 						{{$data->tahun}} tahun, {{$data->bulan}} bulan
+					</td>
+					<td>
+						{{indonesian_date($data->pensiun)}}
 					</td>
 				</tr>
 			@endforeach
