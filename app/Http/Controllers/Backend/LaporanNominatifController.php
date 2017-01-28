@@ -48,7 +48,7 @@ class LaporanNominatifController extends Controller
 		return view('backend.laporan.nominatif', compact('unitKerja', 'golongan_data', 'unit_kerja_data', 'unit_kerja', 'golongan', 'age_start', 'age_end', 'uri', 'status_pegawai', 'kedudukan_pns'));
 	}
 	
-	public function prints(Request $request, UnitKerja $unitKerja)
+	public function prints($type, Request $request, UnitKerja $unitKerja)
 	{
 		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end', 'kedudukan_pns', 'status_pegawai'));
 		$uri = http_build_query($request->query());
@@ -69,7 +69,7 @@ class LaporanNominatifController extends Controller
 
 		$unitKerja = $unitKerja->get();
 
-		return view('backend.laporan.nominatif_cetak', compact('unitKerja'));
+		return view('backend.laporan.nominatif_cetak', compact('unitKerja', 'type'));
 	}
 
 	public function fetchNewData(DukView $dukView)

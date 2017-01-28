@@ -1,12 +1,20 @@
 <?php
-$nama_file = "laporan-nominatif-".date('d-M-Y').".xls";
-header("Pragma: public");
-header("Expires: 0");
-header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
-header("Content-Type: application/force-download");
-header("Content-Type: application/octet-stream");
-header("Content-Type: application/download");
-header("Content-Disposition: attachment;filename=".$nama_file."");  header("Content-Transfer-Encoding: binary "); 
+if ($type == 'excel') {
+	$nama_file = "laporan-nominatif-".date('d-M-Y').".xls";
+	header("Pragma: public");
+	header("Expires: 0");
+	header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+	header("Content-Type: application/force-download");
+	header("Content-Type: application/octet-stream");
+	header("Content-Type: application/download");
+	header("Content-Disposition: attachment;filename=".$nama_file."");  header("Content-Transfer-Encoding: binary "); 
+} else {
+	?>
+		<script>
+			window.print();
+		</script>
+	<?php
+}
 ?>
 <style type="text/css">
 	html, table{
@@ -23,8 +31,7 @@ header("Content-Disposition: attachment;filename=".$nama_file."");  header("Cont
 </style>
 	@foreach($unitKerja as $unit)
 	<h2>{{$unit->title}}</h2>
-	<table class="table table-bordered" style="zoom:80%">
-		<thead style="background:#eaeaea">
+	<table class="table table-bordered" style="zoom:80%" border="1">
 			<tr>
 				<th style="vertical-align:middle;text-align:center">No.</th>
 				<th style="vertical-align:middle;text-align:center">NAMA<br>
@@ -38,8 +45,6 @@ header("Content-Disposition: attachment;filename=".$nama_file."");  header("Cont
 				<th style="vertical-align:middle;text-align:center">JENIS DIKLAT YG PERNAH DIIKUTI</th>
 				<th style="vertical-align:middle;text-align:center">BATAS USIA PENSIUN</th>
 			</tr>
-		</thead>
-		<tbody>
 			@foreach($unit->duk as $key=>$duk)
 				<tr>
 					<td>{{$key+1}}</td>
@@ -123,7 +128,6 @@ header("Content-Disposition: attachment;filename=".$nama_file."");  header("Cont
 					</td>
 				</tr>
 			@endforeach
-		</tbody>
 	</table>
 	<hr>
 	<br>
