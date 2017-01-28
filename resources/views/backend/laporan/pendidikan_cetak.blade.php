@@ -18,8 +18,9 @@ if ($type == 'excel') {
 ?>
 <style type="text/css">
 	html, table{
-		font-size: 13px;
+		font-size: 12px;
 		border-collapse: collapse;
+		font-family: Arial;
 	}
 	td{
 		vertical-align: top;
