@@ -4,7 +4,8 @@
 @section("title","Laporan Konfigurasi - Golongan")
 
 @section("content")
-<a href="{{route('dashboard.laporan.golongan.cetak')}}" class="btn btn-danger">Export to Excel</a>
+<a href="{{route('dashboard.laporan.golongan.cetak', ['type' => 'excel'])}}" class="btn btn-danger">Export to Excel</a>
+<a href="{{route('dashboard.laporan.golongan.cetak', ['type' => 'print'])}}" class="btn btn-danger">Print</a>
 	<div class="table-responsive">
 		<table class="table table-bordered" style="background-color: #fff;">
 			<thead>
