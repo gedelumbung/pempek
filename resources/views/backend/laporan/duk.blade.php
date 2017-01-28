@@ -88,7 +88,8 @@
 					<label class="col-md-3 control-label"></label>
 					<div class="col-md-5">
 						<input type="submit" class="btn btn-success" value="Filter Data">
-						<a href="{{route('dashboard.laporan.duk.cetak')}}?{{$uri}}" class="btn btn-danger">Export to Excel</a>
+						<a href="{{route('dashboard.laporan.duk.cetak', ['type' => 'excel'])}}?{{$uri}}" class="btn btn-danger">Export to Excel</a>
+						<a href="{{route('dashboard.laporan.duk.cetak', ['type' => 'print'])}}?{{$uri}}" class="btn btn-danger">Print</a>
 						<a href="{{route('dashboard.laporan.duk.fetch')}}" class="btn btn-warning">Refresh Data</a>
 					</div>
 				</div>

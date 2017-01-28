@@ -1,12 +1,20 @@
 <?php
-$nama_file = "laporan-duk-".date('d-M-Y').".xls";
-header("Pragma: public");
-header("Expires: 0");
-header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
-header("Content-Type: application/force-download");
-header("Content-Type: application/octet-stream");
-header("Content-Type: application/download");
-header("Content-Disposition: attachment;filename=".$nama_file."");  header("Content-Transfer-Encoding: binary "); 
+if ($type == 'excel') {
+	$nama_file = "laporan-duk-".date('d-M-Y').".xls";
+	header("Pragma: public");
+	header("Expires: 0");
+	header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+	header("Content-Type: application/force-download");
+	header("Content-Type: application/octet-stream");
+	header("Content-Type: application/download");
+	header("Content-Disposition: attachment;filename=".$nama_file."");  header("Content-Transfer-Encoding: binary "); 
+} else {
+	?>
+		<script>
+			window.print();
+		</script>
+	<?php
+}
 ?>
 <style type="text/css">
 	html, table{
@@ -21,8 +29,7 @@ header("Content-Disposition: attachment;filename=".$nama_file."");  header("Cont
 		padding: 10px;
 	}
 </style>
-	<table class="table table-bordered" style="zoom:80%">
-		<thead style="background:#eaeaea">
+	<table class="table table-bordered" style="zoom:80%" border="1">
 			<tr>
 				<th rowspan="2" style="vertical-align:middle;text-align:center" width="50">No. Urut</th>
 				<th rowspan="2" style="vertical-align:middle;text-align:center" width="200">NAMA<br>
@@ -49,8 +56,6 @@ header("Content-Disposition: attachment;filename=".$nama_file."");  header("Cont
 				<th style="vertical-align:middle;text-align:center">NAMA <BR>LULUS TGL, BULAN & TAHUN<Br> TINGKAT IJAZAH</th>
 				<th style="vertical-align:middle;text-align:center">TEMPAT TGL. LAHIR  USIA</th>
 			</tr>
-		</thead>
-		<tbody>
 			@foreach($duk as $key=>$duk)
 				<tr>
 					<td>{{$key+1}}</td>
@@ -166,5 +171,4 @@ header("Content-Disposition: attachment;filename=".$nama_file."");  header("Cont
 					<td></td>
 				</tr>
 			@endforeach
-		</tbody>
 	</table>

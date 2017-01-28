@@ -53,7 +53,7 @@ class LaporanDukController extends Controller
 		return view('backend.laporan.duk', compact('duk', 'golongan_data', 'unit_kerja_data', 'unit_kerja', 'golongan', 'age_start', 'age_end', 'uri', 'status_pegawai', 'kedudukan_pns'));
 	}
 	
-	public function prints(Request $request, DukView $dukView)
+	public function prints($type, Request $request, DukView $dukView)
 	{
 		extract($request->only('unit_kerja', 'golongan', 'age_start', 'age_end', 'kedudukan_pns', 'status_pegawai'));
 		$duk = $dukView->orderBy('golongan', 'desc')
@@ -79,7 +79,7 @@ class LaporanDukController extends Controller
 		$duk = empty($age_end) ? $duk : $duk->whereRaw('usia <= '.$age_end);
 
 		$duk = $duk->get();
-		return view('backend.laporan.duk_cetak', compact('duk'));
+		return view('backend.laporan.duk_cetak', compact('duk', 'type'));
 	}
 
 	public function fetchNewData(DukView $dukView)
