@@ -214,7 +214,7 @@ class BackendRoutes implements RoutesInterface
         $this->router->get('/laporan-usia/cetak/{type}', ['as' => 'dashboard.laporan.usia.cetak', 'uses' => 'LaporanUsiaController@prints']);
         
         $this->router->get('/laporan-jenis-kelamin', ['as' => 'dashboard.laporan.jenis_kelamin', 'uses' => 'LaporanJenisKelaminController@index']);
-        $this->router->get('/laporan-jenis-kelamin/cetak', ['as' => 'dashboard.laporan.jenis_kelamin.cetak', 'uses' => 'LaporanJenisKelaminController@prints']);
+        $this->router->get('/laporan-jenis-kelamin/cetak/{type}', ['as' => 'dashboard.laporan.jenis_kelamin.cetak', 'uses' => 'LaporanJenisKelaminController@prints']);
 
         $this->router->get('/laporan-alert-pensiun', ['as' => 'dashboard.laporan.alert_pensiun', 'uses' => 'LaporanAlertPensiunController@index']);
     }

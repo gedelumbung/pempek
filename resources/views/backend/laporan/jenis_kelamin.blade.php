@@ -3,7 +3,8 @@
 @section("title","Laporan Konfirgurasi - Jenis Kelamin")
 
 @section("content")
-<a href="{{route('dashboard.laporan.jenis_kelamin.cetak')}}" class="btn btn-danger">Export to Excel</a>
+<a href="{{route('dashboard.laporan.jenis_kelamin.cetak', ['type' => 'excel'])}}" class="btn btn-danger">Export to Excel</a>
+<a href="{{route('dashboard.laporan.jenis_kelamin.cetak', ['type' => 'print'])}}" class="btn btn-danger">Print</a>
 	<div class="table-responsive">
 		<table class="table table-bordered" style="background-color: #fff;">
 			<thead>
