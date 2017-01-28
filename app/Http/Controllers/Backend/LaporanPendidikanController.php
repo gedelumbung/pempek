@@ -23,9 +23,9 @@ class LaporanPendidikanController extends Controller
 		return view('backend.laporan.pendidikan', compact('unit_kerja'));
 	}
 	
-	public function prints(UnitKerja $unitKerja)
+	public function prints($type, UnitKerja $unitKerja)
 	{
 		$unit_kerja = $unitKerja->where('parent_id',0)->get();
-		return view('backend.laporan.pendidikan_cetak', compact('unit_kerja'));
+		return view('backend.laporan.pendidikan_cetak', compact('unit_kerja', 'type'));
 	}
 }
