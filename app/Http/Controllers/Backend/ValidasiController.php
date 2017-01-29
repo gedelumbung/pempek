@@ -51,8 +51,13 @@ class ValidasiController extends Controller
 		$pegawai_log->save();
 
 		$arr = $pegawai_log->toArray();
-		$pegawai = Pegawai::findOrFail($id);
-		$pegawai->update($arr);
+		if ($id == 0) {
+			array_forget($arr, ['pegawai_id', 'status']);
+			Pegawai::insert($arr);
+		} else {
+			$pegawai = Pegawai::findOrFail($id);
+			$pegawai->update($arr);
+		}
 
 		return $this->checkNonApproved($id);
 
