@@ -49,5 +49,10 @@ class SettingTableSeeder extends Seeder
         "title" => "Linkedin",
         "content" => "http://www.linkedin.com",
       ]);
+
+      Setting::create([
+        "title" => "Nama Instansi",
+        "content" => "Kementerian Desa, Pembangunan Daerah Tertinggal, dan Transmigrasi Republik Indonesia",
+      ]);
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title> @yield('title', "Front End") </title>
+    <title> @yield('title', cache('NamaInstansi')) </title>
     <link rel="shortcut icon" type="image/png" href="{{ asset("img/logo.png") }}"/> 
 
     <meta charset="UTF-8">

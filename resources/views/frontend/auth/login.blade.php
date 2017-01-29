@@ -1,6 +1,6 @@
 @extends("frontend.layout.login")
 
-@section("title", "Log In")
+@section("title", "Log In - ".cache('NamaInstansi'))
 
 @section("content")
 <form action="{{ url("login") }}" method="post">
