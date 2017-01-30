@@ -77,11 +77,21 @@ if ($type == 'excel') {
 						</ul>
 						@elseif(!empty($duk->pegawai->jabatan_fungsional_tertentu))
 						<ul>
-							<li>> {{$duk->pegawai->jabatan_fungsional_tertentu}}, {{$duk->pegawai->satuan_kerja->title}}, {{$duk->pegawai->sub_unit_kerja->title}}, {{$duk->pegawai->unit_kerja->title}}</li>
+							<li>> 
+							{{$duk->pegawai->jabatan_fungsional_tertentu}}, 
+							@if(!empty($duk->pegawai->satuan_kerja_id)) {{$duk->pegawai->satuan_kerja->title}}, @endif
+							@if(!empty($duk->pegawai->sub_unit_kerja_id)) {{$duk->pegawai->sub_unit_kerja->title}}, @endif
+							@if(!empty($duk->pegawai->unit_kerja_id)) {{$duk->pegawai->unit_kerja->title}} @endif
+							</li>
 						</ul>
 						@elseif(!empty($duk->pegawai->jabatan_fungsional_umum))
 						<ul>
-							<li>> {{$duk->pegawai->jabatan_fungsional_umum}}, {{$duk->pegawai->satuan_kerja->title}}, {{$duk->pegawai->sub_unit_kerja->title}}, {{$duk->pegawai->unit_kerja->title}}</li>
+							<li>> 
+							{{$duk->pegawai->jabatan_fungsional_umum}}, 
+							@if(!empty($duk->pegawai->satuan_kerja_id)) {{$duk->pegawai->satuan_kerja->title}} @endif, 
+							@if(!empty($duk->pegawai->sub_unit_kerja_id)) {{$duk->pegawai->sub_unit_kerja->title}} @endif, 
+							@if(!empty($duk->pegawai->unit_kerja_id)) {{$duk->pegawai->unit_kerja->title}} @endif
+							</li>
 						</ul>
 						@endif
 					</td>
