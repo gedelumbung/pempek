@@ -570,11 +570,6 @@
 									</tr>
 									<tbody>
 										@foreach($riwayat_penghargaan as $key => $data)
-											<form method="POST" action="{{route('dashboard.pegawai.riwayat_penghargaan.store', ['id' => $id])}}">
-											{!! csrf_field() !!}
-											<input type="hidden" name="status" value="edit">
-											<input type="hidden" name="pegawai_id" value="{{$data->pegawai_id}}">
-											<input type="hidden" name="id" value="{{$data->id}}">
 											<tr>
 												<td>{{$key+1}}</td>
 												<td>{{$data->nama_penghargaan}}</td>
@@ -582,7 +577,6 @@
 												<td>{{indonesian_date($data->tanggal)}}</td>
 												<td>{{$data->nama_pemberi_penghargaan}}</td>
 											</tr>
-											</form>
 										@endforeach
 									</tbody>
 								</table>
