@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserTableSeeder::class);
+        $this->call(LatestDataSeeder::class);
+        /*$this->call(UserTableSeeder::class);
         $this->call(PegawaiTableSeeder::class);
         $this->call(MenuTableSeeder::class);
         $this->call(UnitKerjaTableSeeder::class);
@@ -22,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionsTableSeeder::class);
         $this->call(PengumumanTableSeeder::class);
         $this->call(SliderTableSeeder::class);
-        $this->call(SettingTableSeeder::class);
+        $this->call(SettingTableSeeder::class);*/
 
         \Artisan::call('simpeg:pegawai:count_progress');
     }

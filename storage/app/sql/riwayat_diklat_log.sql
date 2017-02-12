@@ -1,5 +1,28 @@
 
 INSERT INTO `riwayat_diklat_log` (`id`, `pegawai_id`, `status`, `nama_diklat`, `nomor_sertifikat`, `tahun`, `jumlah_jam`, `created_at`, `updated_at`) VALUES
-(1,	56,	1,	'Diklat Prajab II',	'No. 49/II.15/Diklat Prajab II/LAN/2011',	'2011-02-04',	100,	NULL,	'2016-12-28 03:09:29'),
-(2,	305,	0,	'Prajabatan Tk.I',	'68 A/Sj-Lat/Prajab/I/1986',	'1986',	288,	NULL,	NULL);
+(1,	56,	1,	'Diklat Prajab II',	'No. 49/II.15/Diklat Prajab II/LAN/2011',	'2011-02-04',	100,	NULL,	'2016-12-27 20:09:29'),
+(2,	305,	1,	'Prajabatan Tk.I',	'68 A/Sj-Lat/Prajab/I/1986',	'1986',	288,	NULL,	'2017-01-22 21:25:41'),
+(3,	80,	1,	'Diklat PIM IV Angkatan 17',	'00008619/DIKLATPIMTK.IV/026/3175/LAN/2014',	'2014-08-07',	867,	NULL,	'2017-01-22 22:29:07'),
+(4,	80,	1,	'Diklat PIM IV Angkatan 17',	'00008619/DIKLATPIMTK.IV/026/3175/LAN/2014',	'2014-08-07',	867,	NULL,	'2017-01-22 22:29:10'),
+(5,	80,	1,	'Diklat PIM IV Angkatan 17',	'00008619/DIKLATPIMTK.IV/026/3175/LAN/2014',	'2014-08-07',	867,	NULL,	'2017-01-22 22:29:13'),
+(6,	80,	1,	'Diklat PIM IV Angkatan 17',	'00008619/DIKLATPIMTK.IV/026/3175/LAN/2014',	'2014-08-07',	867,	NULL,	'2017-01-22 22:29:15'),
+(7,	77,	1,	'SPALA',	'6995/LA/LAN/94',	'1994-07-04',	750,	NULL,	'2017-01-22 21:24:19'),
+(8,	88,	1,	'Diklat PIM TK IV ',	'00011068/DIKLATPIMTKK.IV/028/3175/LAN/2015',	'2016-12-12',	881,	NULL,	'2017-01-22 22:31:06'),
+(9,	311,	1,	'SEPADYA',	'394/DYA/LAN/1993',	'1993-09-11',	12,	NULL,	'2017-01-25 21:24:47'),
+(10,	311,	1,	'Diklat PIM TK II',	'23.064/DIKLATPIM.TK.II/XXXI',	'2011-08-24',	12,	NULL,	'2017-01-25 21:24:52'),
+(11,	76,	1,	'Prajabatan',	'-',	'1989',	0,	NULL,	'2017-01-30 19:30:33'),
+(12,	76,	1,	'ADUM LA',	'-',	'1997',	0,	NULL,	'2017-01-30 19:30:37'),
+(13,	76,	1,	'SPAMA',	'-',	'2001',	0,	NULL,	'2017-01-30 19:30:40'),
+(14,	75,	1,	'Pendidikan dan Pelatihan Analisa Kebijakan (ANJAK)',	'No.4279/ANJAK/LAN/2000',	'2000-10-26',	224,	NULL,	'2017-01-31 21:40:05'),
+(15,	78,	1,	'Pendidikan dan Pelatihan Kepemimpinan Tingkat IV (Diklatpim Tk.IV) Angkatan II Tahun 2003',	'21533/DIKLATPIM TK.IV/LAN/2003',	'2003-09-10',	285,	NULL,	'2017-02-07 02:17:25'),
+(16,	78,	1,	'Pendidikan dan Pelatihan Kepemimpinan Tingkat III (Diklatpim Tk.III) Angkatan XXXIII Tahun 2012',	'4.987/II.4/DIKLATPIM TK.III/LAN/2012',	'2012-09-23',	360,	NULL,	'2017-02-07 02:17:27'),
+(17,	309,	1,	'SEPALA XXXIV',	'4114/LA/LAN/94',	'1994-02-05',	0,	NULL,	'2017-02-06 20:31:39'),
+(18,	309,	1,	'PIM III',	'1178/DIKLATPIMTKIV/LAN/2002',	'2002-10-03',	0,	NULL,	'2017-02-06 20:31:42'),
+(19,	177,	1,	'Pendidikan dan Pelatihan Pra Jabatan Tingkat II',	'289/SJ-DIK/1995',	'1995-02-14',	0,	NULL,	'2017-02-07 01:53:38'),
+(20,	177,	1,	'Ujian Dinas Tingkat I',	'049/UD/2004',	'2004-08-09',	0,	NULL,	'2017-02-07 01:53:57'),
+(21,	177,	1,	'Pendidikan dan Pelatihan Pimpinan Tingkat',	'009586/DIKLATPIM Tk.IV/028/3174/LAN/2016',	'2016-11-09',	893,	NULL,	'2017-02-07 01:54:00'),
+(22,	175,	0,	'Prajabatan',	'280A/SJ-Lat/Prajab/III/1988',	'1988-03-29',	250,	NULL,	NULL),
+(23,	175,	0,	'Management Transmigrasi (MANTRANS)',	'010/I/BDK-2/2001',	'2012-03-08',	180,	NULL,	NULL),
+(24,	175,	0,	'Analis Jabatan',	'151/D.5.2/PDP.09.6/2013',	'2012/03/08',	80,	NULL,	NULL),
+(25,	175,	0,	'Kepemimpinan Tingkat IV (PIM IV)',	'623/II-15/DiklatPIM TK.IV/LAN/2007',	'2007-08-24',	285,	NULL,	NULL);
 
