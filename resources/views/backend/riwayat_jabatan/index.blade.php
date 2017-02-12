@@ -31,32 +31,11 @@
 						{!! csrf_field() !!}
 						<input type="hidden" name="status" value="edit">
 						<input type="hidden" name="pegawai_id" value="{{$data->pegawai_id}}">
+						<input type="hidden" name="id" value="{{$data->id}}">
 						<tr>
 							<td>{{$key+1}}</td>
-							<td>
-								<input type="hidden" name="id" value="{{$data->id}}">
-								<select name='jabatan_struktural_id' class="form-control" required>
-								    @foreach($jabatan as $data_jabatan)
-								    	@if($data_jabatan->id == $data->jabatan_struktural_id)
-								    	<option value="{{$data_jabatan->id}}" selected>{{$data_jabatan->title}}</option>
-								    	@else
-								    	<option value="{{$data_jabatan->id}}">{{$data_jabatan->title}}</option>
-								    	@endif
-								    @endforeach
-								</select>
-							</td>
-							<td>
-								<input type="hidden" name="id" value="{{$data->id}}">
-								<select name='unit_kerja_id' class="form-control" required>
-								    @foreach($unit_kerja as $data_unit_kerja)
-								    	@if($data_unit_kerja->id == $data->unit_kerja_id)
-								    	<option value="{{$data_unit_kerja->id}}" selected>{{$data_unit_kerja->title}}</option>
-								    	@else
-								    	<option value="{{$data_unit_kerja->id}}">{{$data_unit_kerja->title}}</option>
-								    	@endif
-								    @endforeach
-								</select>
-							</td>
+							<td><input type="text" name="jabatan_struktural" class="form-control" value="{{$data->jabatan_struktural}}" required></td>
+							<td><input type="text" name="unit_kerja" class="form-control" value="{{$data->unit_kerja}}" required></td>
 							<td><input type="text" name="instansi" class="form-control" value="{{$data->instansi}}" required></td>
 							<td><input type="text" name="nomor_sk" class="form-control" value="{{$data->nomor_sk}}" required></td>
 							<td><input type="text" data-toggle="datepicker" class="form-control" name="tanggal" value="{{$data->tanggal}}" required /></td>

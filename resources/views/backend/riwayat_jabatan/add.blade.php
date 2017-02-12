@@ -16,21 +16,13 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Jabatan</label>
 								<div class="col-md-9">
-									<select name='jabatan_struktural_id' class="form-control" required>
-									    @foreach($jabatan as $data_jabatan)
-									    	<option value="{{$data_jabatan->id}}">{{$data_jabatan->title}}</option>
-									    @endforeach
-									</select>
+									<input type="text" name="jabatan_struktural" class="form-control" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="inputDefault">Unit Kerja</label>
 								<div class="col-md-9">
-									<select name='unit_kerja_id' class="form-control" required>
-									    @foreach($unit_kerja as $data_unit_kerja)
-									    	<option value="{{$data_unit_kerja->id}}">{{$data_unit_kerja->title}}</option>
-									    @endforeach
-									</select>
+									<input type="text" name="unit_kerja" class="form-control" required>
 								</div>
 							</div>
 							<div class="form-group">
