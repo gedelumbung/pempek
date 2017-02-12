@@ -14,22 +14,12 @@ class RiwayatJabatan extends Model
 
     protected $fillable = [
     	'pegawai_id',
-    	'unit_kerja_id',
-    	'jabatan_struktural_id',
+    	'unit_kerja',
+    	'jabatan_struktural',
     	'instansi',
     	'nomor_sk',
     	'tanggal',
     	'tmt',
     	'eselon',
     ];
-
-    public function unit_kerja()
-    {
-        return $this->belongsTo('Simpeg\Model\UnitKerja', 'unit_kerja_id');
-    }
-
-    public function jabatan()
-    {
-        return $this->belongsTo('Simpeg\Model\JabatanStruktural', 'jabatan_struktural_id');
-    }
 }

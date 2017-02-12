@@ -16,8 +16,8 @@ class CreateRiwayatJabatanTable extends Migration
         Schema::create('riwayat_jabatan', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('pegawai_id');
-            $table->unsignedInteger('unit_kerja_id');
-            $table->unsignedInteger('jabatan_struktural_id');
+            $table->text('unit_kerja');
+            $table->text('jabatan_struktural');
             $table->string('instansi');
             $table->string('nomor_sk');
             $table->string('tanggal');
@@ -26,8 +26,6 @@ class CreateRiwayatJabatanTable extends Migration
             $table->timestamps();
 
             $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade');
-            $table->foreign('unit_kerja_id')->references('id')->on('unit_kerja')->onDelete('cascade');
-            $table->foreign('jabatan_struktural_id')->references('id')->on('jabatan_struktural')->onDelete('cascade');
         });
     }
 
