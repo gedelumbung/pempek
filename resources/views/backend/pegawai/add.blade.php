@@ -664,6 +664,7 @@ $('#tmt_cpns').change(function(){
 	if (m === -1) {
 		m = 11;
 	}
+	m = Math.abs(m);
 	$("#masa_kerja_tahun").val(year);
 	$("#masa_kerja_bulan").val(m);
 });
