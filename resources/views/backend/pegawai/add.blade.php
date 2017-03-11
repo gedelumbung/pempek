@@ -459,21 +459,21 @@
 						 	<div class="form-group">
 								<label class="col-md-3 control-label">No Seri KARPEG</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_seri_karpeg" maxlength="9">
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_karpeg" maxlength="20">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No Seri KPE</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_seri_kpe" maxlength="9">
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_kpe" maxlength="20">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label class="col-md-3 control-label">No Seri KARIS/KARSU</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" id="inputDefault" name="no_seri_karis" maxlength="9">
+									<input type="text" class="form-control" id="inputDefault" name="no_seri_karis" maxlength="20">
 								</div>
 							</div>
 
