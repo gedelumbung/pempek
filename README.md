@@ -1,8 +1,8 @@
-#**PEMPEK**
+# PEMPEK
 
-##Just Another My Favorite Indonesian Food
+## Sistem Kepegawaian (SIMPEG) Dengan Laravel
 
-###Quick Setup
+### Quick Setup
 * Seetup Vagrant or Docker (prefer Vagrant)
 * Clone this repository
 * Install Composer (add prestissimo composer plugin is better)
